@@ -885,7 +885,7 @@ button,input,select,textarea{font:inherit}
   #site-header .wow-header-actions>*{display:none!important}
   #site-header .wow-header-actions #headerAccountBtn,#site-header .wow-header-actions #cartBtn{display:flex!important}
   #site-header .brand-name{font-size:15px!important}
-  #site-header #siteBrandIcon{width:34px!important;height:34px!important}
+  #site-header #siteBrandIcon{display:flex!important;width:34px!important;height:34px!important;overflow:hidden!important;border-radius:8px!important}
   #site-header #siteBrandIcon svg{width:18px!important;height:18px!important}
   #site-header .search-input{height:44px!important;border-radius:13px!important;width:100%!important;font-size:14px!important}
   #site-header .desktop-search>i{left:13px!important}
@@ -1198,7 +1198,7 @@ html,body{overflow-x:hidden!important}
     flex:none!important;
     padding:0!important;
   }
-  #siteBrandIcon{display:none!important}
+  #siteBrandIcon{display:flex!important;width:34px!important;height:34px!important;overflow:hidden!important;border-radius:8px!important}
   #siteBrandName{
     font-size:19px!important;
     font-weight:950!important;
@@ -1642,6 +1642,9 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+
+  <!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
@@ -4649,15 +4652,41 @@ function applyAdminTheme(){const t=adminData.theme||{};const root=document.docum
 function applyBranding(){
  const b=adminData.branding||{};
  const clean=x=>{x=String(x||'').trim();if(/^['"]/.test(x)&&/["']$/.test(x))x=x.slice(1,-1);return x};
- const logo=clean(b.logo), iconUrl=clean(b.icon)||logo, favicon=clean(b.favicon);
+ const logo=clean(b.logo), favicon=clean(b.favicon);
  document.title=b.title||b.name||'WOWSHOPPING';
- const name=document.getElementById('siteBrandName'); if(name) name.textContent=b.name||'WOWSHOPPING';
- const suffix=document.getElementById('siteBrandSuffix'); if(suffix){const parts=String(b.name||'').split('.');suffix.textContent=parts.length>1?'.'+parts.slice(1).join('.') : ''}
- const icon=document.getElementById('siteBrandIcon'); if(icon){icon.style.width='62px';icon.style.height='48px';icon.style.background='transparent';icon.style.borderRadius='0';icon.innerHTML=logo?`<img src="${esc(logo)}" alt="${esc(b.name||'Store logo')}" style="display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent" onerror="this.style.display='none'">`:iconUrl?`<img src="${esc(iconUrl)}" alt="${esc(b.name||'Store logo')}" style="display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent" onerror="this.style.display='none'">`:`<span style="font-weight:900;font-size:20px;color:#111;background:transparent">${esc(b.name||'WOWSHOPPING')}</span>`}
- let fav=document.querySelector('link[data-wow-favicon]'); if(!fav){fav=document.createElement('link');fav.rel='icon';fav.type='image/x-icon';fav.setAttribute('data-wow-favicon','1');document.head.appendChild(fav)}
- if(favicon){fav.href=favicon+(favicon.includes('?')?'&':'?')+'v='+Date.now()} else {fav.removeAttribute('href')}
+ const name=document.getElementById('siteBrandName');
+ if(name) name.textContent=b.name||'WOWSHOPPING';
+ const suffix=document.getElementById('siteBrandSuffix');
+ if(suffix){const parts=String(b.name||'').split('.');suffix.textContent=parts.length>1?'.'+parts.slice(1).join('.') : ''}
+ const icon=document.getElementById('siteBrandIcon');
+ if(icon){
+   icon.style.width='62px';icon.style.height='48px';icon.style.background='transparent';icon.style.borderRadius='0';
+   const fallback=`<span style="display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;font-weight:900;font-size:20px;color:#111827;letter-spacing:-.5px">${esc(b.name||'WOWSHOPPING')}</span>`;
+   if(logo){
+     icon.innerHTML=`<img src="${esc(logo)}" alt="${esc(b.name||'Store logo')}" style="display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent" onerror="this.parentElement.innerHTML=${JSON.stringify(fallback)}">`;
+   }else{
+     icon.innerHTML=fallback;
+   }
+ }
+ // Always keep a working favicon. Admin favicon replaces the default when configured.
+ let fav=document.querySelector('link[data-wow-favicon]');
+ if(!fav){
+   fav=document.createElement('link');
+   fav.rel='icon';
+   fav.type='image/svg+xml';
+   fav.setAttribute('data-wow-favicon','1');
+   document.head.appendChild(fav);
+ }
+ const defaultFav="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E";
+ if(favicon){
+   fav.href=favicon+(favicon.includes('?')?'&':'?')+'v='+Date.now();
+   fav.type=/\.svg(?:\?|$)/i.test(favicon)?'image/svg+xml':'image/png';
+   fav.onerror=()=>{fav.href=defaultFav;fav.type='image/svg+xml'};
+ }else{
+   fav.href=defaultFav;
+   fav.type='image/svg+xml';
+ }
 }
-
 function openAdmin(){
   showToast('Admin panel is available at admin.html.', 'info');
   window.location.href = 'admin.html';

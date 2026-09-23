@@ -443,8 +443,20 @@ async function wowChooseUpload(inputId,type,folder,targetId,statusId){
   try{
     const url=await wowUploadAsset(file,type,folder,p=>{if(status)status.textContent='Uploading '+p+'%...';});
     if(target){target.value=url;target.dataset.uploaded='1';}
-    if(status){status.textContent='✓ Uploaded to Firebase Storage';status.style.color='#16a34a';}
+    // Persist the uploaded cloud URL immediately, so Choose File alone is enough.
+    if(targetId==='heroVideoUrl'){
+      d.hero={...(d.hero||{}),mediaType:'video',videoUrl:url,visible:d.hero?.visible!==false};
+    }else if(targetId==='brl'){
+      d.branding={...(d.branding||{}),logo:url};
+    }else if(targetId==='bri'){
+      d.branding={...(d.branding||{}),icon:url};
+    }else if(targetId==='brfv'){
+      d.branding={...(d.branding||{}),favicon:url};
+    }
+    await save();
+    if(status){status.textContent='✓ Uploaded to Firebase Storage and saved to Cloud';status.style.color='#16a34a';}
     if(typeof window.wowRefreshAssetPreview==='function') window.wowRefreshAssetPreview(targetId);
+    try{window.dispatchEvent(new CustomEvent('wow:branding-updated'));}catch(e){}
   }catch(e){
     console.error(e);
     if(status){status.textContent='✕ '+(e?.message||'Upload failed');status.style.color='#dc2626';}

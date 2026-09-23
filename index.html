@@ -2747,6 +2747,146 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+
+<style id="wow-full-banner-left-text-final">
+/* FINAL HERO: video fills the entire banner, copy stays on the left */
+.hero-section{
+  position:relative!important;
+  width:100vw!important;
+  max-width:none!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:calc(50% - 50vw)!important;
+  height:clamp(430px,36vw,560px)!important;
+  min-height:430px!important;
+  max-height:560px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  background:#070b12!important;
+}
+.hero-section .wow-clean-media{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  z-index:0!important;
+  display:block!important;
+  overflow:hidden!important;
+  background:#070b12!important;
+}
+.hero-section .wow-clean-media video,
+.hero-section .wow-clean-media iframe,
+.hero-section .wow-clean-media img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  border:0!important;
+  display:block!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+.hero-section .wow-clean-content{
+  position:relative!important;
+  z-index:4!important;
+  width:100%!important;
+  max-width:1440px!important;
+  margin:0 auto!important;
+  padding:0 7vw!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+.hero-section .hero-content{
+  position:relative!important;
+  z-index:6!important;
+  width:min(570px,45vw)!important;
+  max-width:570px!important;
+  margin:0!important;
+  padding:0!important;
+  text-align:left!important;
+}
+.hero-section .wow-clean-shade{
+  position:absolute!important;
+  inset:0!important;
+  z-index:2!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,rgba(2,7,16,.82) 0%,rgba(2,7,16,.62) 28%,rgba(2,7,16,.25) 55%,rgba(2,7,16,.04) 100%)!important;
+}
+.hero-section .hero-eyebrow,
+.hero-section .hero-title,
+.hero-section .hero-sub,
+.hero-section .hero-actions{
+  position:relative!important;
+  z-index:7!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.hero-section .hero-eyebrow{margin-bottom:14px!important}
+.hero-section .hero-title{
+  max-width:570px!important;
+  font-size:clamp(48px,5vw,76px)!important;
+  line-height:1.02!important;
+  margin-bottom:18px!important;
+  text-align:left!important;
+}
+.hero-section .hero-sub{
+  max-width:520px!important;
+  font-size:16px!important;
+  line-height:1.65!important;
+  margin-bottom:28px!important;
+  text-align:left!important;
+}
+.hero-section .hero-actions{
+  justify-content:flex-start!important;
+}
+@media(max-width:767px){
+  .hero-section{
+    height:clamp(255px,68vw,340px)!important;
+    min-height:255px!important;
+    max-height:340px!important;
+  }
+  .hero-section .wow-clean-content{
+    padding:0 18px 22px!important;
+    align-items:flex-end!important;
+  }
+  .hero-section .hero-content{
+    width:78%!important;
+    max-width:78%!important;
+  }
+  .hero-section .wow-clean-shade{
+    background:linear-gradient(90deg,rgba(2,7,16,.78) 0%,rgba(2,7,16,.42) 52%,rgba(2,7,16,.08) 100%)!important;
+  }
+  .hero-section .hero-eyebrow{font-size:8px!important;margin-bottom:6px!important}
+  .hero-section .hero-title{
+    font-size:clamp(25px,7.8vw,36px)!important;
+    line-height:1.04!important;
+    margin-bottom:7px!important;
+  }
+  .hero-section .hero-sub{
+    font-size:10.5px!important;
+    line-height:1.35!important;
+    margin-bottom:11px!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:2!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+  .hero-section .hero-actions{gap:6px!important}
+  .hero-section .hero-actions .btn{
+    min-height:34px!important;
+    padding:7px 11px!important;
+    font-size:10px!important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>

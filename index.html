@@ -1520,6 +1520,10 @@ html,body{overflow-x:hidden!important}
 
 
 <style id="wow-mobile-search-menu-v1">
+/* Child-menu fix: admin-managed menu items can open their children on touch/mobile. */
+.admin-menu-node{position:relative;}
+.admin-menu-dropdown{min-width:220px;}
+.admin-menu-dropdown .admin-menu-node > .nav-link{display:flex;align-items:center;justify-content:space-between;width:100%;}
 @media (max-width: 767px){
   /* Mobile primary menu: directly under the search bar */
   #site-header #desktopNav{
@@ -1562,9 +1566,67 @@ html,body{overflow-x:hidden!important}
   #site-header #desktopNav .nav-item > .nav-link{
     display:inline-flex !important;
   }
-  #site-header #desktopNav .mega-menu,
-  #site-header #desktopNav .dropdown{
+  #site-header #desktopNav .mega-menu{
     display:none !important;
+  }
+  /* Category / custom child menus must remain available on phones. */
+  #site-header #desktopNav .admin-menu-dropdown{
+    position:absolute !important;
+    top:calc(100% + 4px) !important;
+    left:0 !important;
+    display:none;
+    min-width:210px !important;
+    max-width:calc(100vw - 24px) !important;
+    max-height:62vh !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    padding:6px !important;
+    background:#fff !important;
+    border:1px solid #e5e7eb !important;
+    border-radius:12px !important;
+    box-shadow:0 14px 35px rgba(15,23,42,.16) !important;
+    z-index:2500 !important;
+  }
+  #site-header #desktopNav .admin-menu-dropdown.is-open{display:block !important;}
+  #site-header #desktopNav .admin-menu-dropdown .admin-menu-node{
+    display:block !important;
+    width:100% !important;
+  }
+  #site-header #desktopNav .admin-menu-dropdown .nav-link{
+    width:100% !important;
+    justify-content:space-between !important;
+    text-align:left !important;
+    min-height:38px !important;
+    padding:9px 10px !important;
+    border-radius:8px !important;
+    font-size:12px !important;
+    font-weight:600 !important;
+    background:#fff !important;
+  }
+  #site-header #desktopNav .admin-menu-dropdown .nav-link:active{background:#f3f4f6 !important;}
+  /* The storefront category dropdown also gets a touch-friendly mobile treatment. */
+  #site-header #desktopNav .nav-item.category-open > .dropdown{display:block !important;}
+  #site-header #desktopNav .dropdown{
+    display:none;
+    position:absolute !important;
+    top:calc(100% + 4px) !important;
+    left:0 !important;
+    min-width:210px !important;
+    max-width:calc(100vw - 24px) !important;
+    max-height:62vh !important;
+    overflow-y:auto !important;
+    background:#fff !important;
+    border:1px solid #e5e7eb !important;
+    border-radius:12px !important;
+    box-shadow:0 14px 35px rgba(15,23,42,.16) !important;
+    z-index:2500 !important;
+  }
+  #site-header #desktopNav .dropdown .dropdown-link{
+    min-height:38px !important;
+    display:flex !important;
+    align-items:center !important;
+    padding:9px 12px !important;
+    font-size:12px !important;
   }
   /* Keep the menu immediately after the wrapped search row. */
   #site-header > div:last-child{
@@ -2401,6 +2463,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showDesktopSearch();
   showFooter();
   showHamburger();
+  initMobileCategoryDropdown();
 
   // Delegated product-card fallback. This protects product opening when cards are
   // rendered after load or when inline handlers are affected by browser extensions.
@@ -2423,6 +2486,24 @@ function showFooter() {
 function showDesktopSearch() {
   const el = document.querySelector('.desktop-search');
   if (el) el.style.display = 'flex';
+}
+
+function initMobileCategoryDropdown(){
+  const nav=document.getElementById('desktopNav');
+  if(!nav || nav.dataset.mobileCatBound==='1')return;
+  nav.dataset.mobileCatBound='1';
+  nav.addEventListener('click',e=>{
+    if(window.innerWidth>=768)return;
+    const link=e.target.closest('.nav-item > .nav-link');
+    if(!link)return;
+    const item=link.parentElement;
+    const dropdown=item?.querySelector(':scope > .dropdown');
+    if(!dropdown)return;
+    e.preventDefault();e.stopPropagation();
+    const open=item.classList.contains('category-open');
+    nav.querySelectorAll('.nav-item.category-open').forEach(x=>x.classList.remove('category-open'));
+    if(!open)item.classList.add('category-open');
+  },true);
 }
 
 function showHamburger() {
@@ -3846,8 +3927,34 @@ function renderMobileNav() {
   const items=(adminData?.menu||[]).filter(x=>x.visible!==false);
   const nav=items.length?items:[{id:'home',title:'Home',url:'#home',parent:null}];
   const container=document.getElementById('mobileNavContent'); if(!container)return;
-  function tree(parent=null,depth=0){return nav.filter(x=>(x.parent||null)===(parent||null)).map(n=>{const kids=nav.filter(x=>(x.parent||null)===n.id);let action="location.hash='"+String(n.url||'#shop').replace(/'/g,"%27")+"'";if(n.url==='#home')action="navigate('home')";else if(n.url==='#shop')action="navigate('shop')";else if(n.url==='#care')action="navigate('care')";return `<div class="mobile-nav-item" style="padding-left:${16+depth*18}px;font-weight:${depth===0?700:500}" onclick="${action}"><span>${E(n.title||'Menu')}</span>${kids.length?'<span>›</span>':''}</div>`+tree(n.id,depth+1)}).join('')}
-  container.innerHTML=tree();
+  function children(parent){return nav.filter(x=>(x.parent||null)===(parent||null));}
+  function node(n,depth=0){
+    const kids=children(n.id);
+    const id='mobmenu_'+String(n.id).replace(/[^a-zA-Z0-9_-]/g,'_');
+    let action="location.hash='"+String(n.url||'#shop').replace(/'/g,'%27')+"'";
+    if(n.url==='#home')action="navigate('home')";
+    else if(n.url==='#shop')action="navigate('shop')";
+    else if(n.url==='#care')action="navigate('care')";
+    if(kids.length){
+      return `<div class="mobile-menu-group">
+        <div class="mobile-nav-item mobile-parent-item" style="padding-left:${16+depth*18}px;font-weight:${depth===0?700:600}" onclick="toggleMobileSubmenu('${id}')">
+          <span>${E(n.title||'Menu')}</span><span class="mobile-chevron" id="${id}_chev">›</span>
+        </div>
+        <div class="mobile-sub" id="${id}" style="display:none">${kids.map(k=>node(k,depth+1)).join('')}</div>
+      </div>`;
+    }
+    return `<div class="mobile-nav-item" style="padding-left:${16+depth*18}px;font-weight:${depth===0?700:500}" onclick="${action}"><span>${E(n.title||'Menu')}</span></div>`;
+  }
+  container.innerHTML=children(null).map(n=>node(n,0)).join('');
+}
+
+function toggleMobileSubmenu(id){
+  const el=document.getElementById(id);
+  const chev=document.getElementById(id+'_chev');
+  if(!el)return;
+  const open=el.style.display!=='none';
+  el.style.display=open?'none':'block';
+  if(chev)chev.style.transform=open?'rotate(0deg)':'rotate(90deg)';
 }
 
 function openMobileMenu() {
@@ -4620,8 +4727,38 @@ function applyAdminMenu(){
    const kids=children(m.id); const wrap=document.createElement('div'); wrap.className='admin-menu-node'; wrap.style.cssText='position:relative;display:inline-block';
    const a=document.createElement('div'); a.className='nav-link'; a.style.cssText='display:flex;align-items:center;gap:4px;cursor:pointer'; a.textContent=m.title||'Menu';
    if(kids.length){const ic=document.createElement('span');ic.textContent='⌄';ic.style.fontSize='11px';a.appendChild(ic)}
-   a.onclick=e=>{e.stopPropagation();const u=m.url||'#shop';if(m.category)navigate('shop',m.category);else if(u==='#shop')navigate('shop');else if(u==='#care')navigate('care');else if(u==='#home')navigate('home');else if(u.startsWith('#'))location.hash=u;else if(/^https?:/i.test(u))location.href=u;else location.hash=u}; wrap.appendChild(a);
-   if(kids.length){const panel=document.createElement('div');panel.className='admin-menu-dropdown';panel.style.cssText='display:none;position:absolute;top:100%;left:0;min-width:220px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:8px;box-shadow:0 18px 50px #0002;z-index:100';kids.forEach(k=>panel.appendChild(build(k,depth+1)));wrap.appendChild(panel);wrap.onmouseenter=()=>panel.style.display='block';wrap.onmouseleave=()=>panel.style.display='none'} return wrap;
+   a.onclick=e=>{
+     e.stopPropagation();
+     if(kids.length){
+       /* On touch/mobile the first tap opens the child menu instead of navigating away. */
+       if(window.innerWidth < 768){
+         const wasOpen=panel && panel.classList.contains('is-open');
+         nav.querySelectorAll('.admin-menu-dropdown.is-open').forEach(x=>{x.classList.remove('is-open');x.style.display='none';});
+         if(!wasOpen){panel.classList.add('is-open');panel.style.display='block';}
+         return;
+       }
+     }
+     const u=m.url||'#shop';
+     if(m.category)navigate('shop',m.category);
+     else if(u==='#shop')navigate('shop');
+     else if(u==='#care')navigate('care');
+     else if(u==='#home')navigate('home');
+     else if(u.startsWith('#'))location.hash=u;
+     else if(/^https?:/i.test(u))location.href=u;
+     else location.hash=u;
+   };
+   wrap.appendChild(a);
+   let panel=null;
+   if(kids.length){
+     panel=document.createElement('div');
+     panel.className='admin-menu-dropdown';
+     panel.style.cssText='display:none;position:absolute;top:100%;left:0;min-width:220px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:8px;box-shadow:0 18px 50px #0002;z-index:100';
+     kids.forEach(k=>panel.appendChild(build(k,depth+1)));
+     wrap.appendChild(panel);
+     wrap.onmouseenter=()=>{if(window.innerWidth>=768)panel.style.display='block'};
+     wrap.onmouseleave=()=>{if(window.innerWidth>=768)panel.style.display='none'};
+   }
+   return wrap;
  }
  const wrap=document.createElement('div');wrap.className='admin-managed-menu';wrap.style.cssText='display:flex;align-items:center;gap:4px';const home=document.createElement('div');home.className='nav-link';home.textContent='Home';home.onclick=()=>navigate('home');wrap.appendChild(home);children(null).filter(m=>String(m.title||'').toLowerCase()!=='home').forEach(m=>wrap.appendChild(build(m))); const anchor=nav.querySelector('[style*="margin-left:auto"]');nav.insertBefore(wrap,anchor||nav.lastElementChild); renderStorefrontCategories();
 }

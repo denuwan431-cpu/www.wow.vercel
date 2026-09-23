@@ -3019,6 +3019,152 @@ html,body{overflow-x:hidden!important}
   .hero-section .wow-video-failed video{display:none!important;}
 }
 </style>
+
+<style id="wow-mobile-left-text-final-v5">
+/* =========================================================
+   WOWSHOPPING MOBILE FINAL — SAME HERO VIDEO + LEFT TEXT
+   This is the last mobile override and intentionally wins over
+   all previous responsive hero/header rules.
+   ========================================================= */
+@media (max-width:767px){
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+
+  /* Mobile app header: never show the desktop navigation row. */
+  #site-header{position:sticky!important;top:0!important;z-index:9000!important;background:#fff!important}
+  #site-header #desktopNav,
+  #site-header .desktop-nav,
+  #site-header nav.desktop-nav,
+  #site-header .wow-desktop-nav{display:none!important}
+  #site-header .top-bar{display:none!important}
+  #site-header .wow-main-header-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"brand actions" "search search"!important;
+    gap:10px!important;
+    padding:10px 12px 12px!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+  }
+  #site-header .wow-main-header-row>div:first-child{grid-area:brand!important;min-width:0!important}
+  #site-header .desktop-search{grid-area:search!important;display:flex!important;width:100%!important;max-width:none!important;min-width:0!important}
+  #site-header .wow-header-actions{grid-area:actions!important;display:flex!important;gap:8px!important;margin:0!important;justify-content:flex-end!important}
+  #site-header .wow-header-actions>*{display:none!important}
+  #site-header .wow-header-actions #headerAccountBtn,
+  #site-header .wow-header-actions #wishlistBtn{display:flex!important;width:44px!important;height:44px!important;align-items:center!important;justify-content:center!important;border-radius:14px!important;background:#fff!important;border:1px solid #edf0f4!important;box-shadow:0 4px 14px rgba(15,23,42,.06)!important}
+  #site-header .brand-name{font-size:18px!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  #site-header #siteBrandIcon{width:34px!important;height:34px!important;display:flex!important}
+  #site-header .search-input{height:46px!important;border-radius:15px!important;font-size:15px!important}
+
+  /* HERO: one full-bleed media layer, text anchored to LEFT. */
+  .hero-section{
+    position:relative!important;
+    width:100vw!important;
+    max-width:none!important;
+    height:clamp(250px,64vw,360px)!important;
+    min-height:250px!important;
+    max-height:360px!important;
+    margin:0!important;
+    padding:0!important;
+    display:flex!important;
+    align-items:flex-end!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+    isolation:isolate!important;
+    background:#050b16!important;
+  }
+
+  /* All known hero media wrappers are full-screen. */
+  .hero-section .wow-clean-media,
+  .hero-section .wow-hero-media,
+  .hero-section .wow-absolute-hero-media,
+  .hero-section .v6-media,
+  .hero-section .hero-media-shell,
+  .hero-section .v34-hero-video{
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
+    display:block!important;visibility:visible!important;opacity:1!important;overflow:hidden!important;
+    z-index:0!important;background:#050b16!important;
+  }
+  .hero-section .wow-clean-media video,
+  .hero-section .wow-clean-media iframe,
+  .hero-section .wow-clean-media img,
+  .hero-section .wow-hero-media video,
+  .hero-section .wow-hero-media iframe,
+  .hero-section .wow-hero-media img,
+  .hero-section .wow-absolute-hero-media video,
+  .hero-section .wow-absolute-hero-media iframe,
+  .hero-section .wow-absolute-hero-media img,
+  .hero-section .v6-media video,
+  .hero-section .v6-media iframe,
+  .hero-section .v6-media img,
+  .hero-section .hero-media-shell video,
+  .hero-section .hero-media-shell img,
+  .hero-section .v34-hero-video video,
+  .hero-section .v34-hero-video iframe{
+    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+    min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;
+    display:block!important;visibility:visible!important;opacity:1!important;border:0!important;
+    object-fit:cover!important;object-position:center center!important;background:#050b16!important;
+  }
+  .hero-section .wow-clean-media video,
+  .hero-section .wow-hero-media video,
+  .hero-section .wow-absolute-hero-media video,
+  .hero-section .v6-media video,
+  .hero-section .hero-media-shell video,
+  .hero-section .v34-hero-video video{z-index:2!important}
+  .hero-section .wow-clean-media img,
+  .hero-section .wow-hero-media img,
+  .hero-section .wow-absolute-hero-media img{z-index:1!important}
+
+  /* Strong left-side readability gradient, without creating a split panel. */
+  .hero-section .wow-clean-shade,
+  .hero-section .wow-hero-shade,
+  .hero-section .wow-absolute-hero-shade,
+  .hero-section .wow-final-shade,
+  .hero-section::after{
+    position:absolute!important;inset:0!important;z-index:3!important;pointer-events:none!important;
+    background:linear-gradient(90deg,rgba(2,7,16,.78) 0%,rgba(2,7,16,.50) 34%,rgba(2,7,16,.16) 68%,rgba(2,7,16,.02) 100%)!important;
+  }
+
+  /* IMPORTANT: content is always LEFT — never centered/right. */
+  .hero-section>.wow-clean-content,
+  .hero-section>.wow-absolute-hero-content,
+  .hero-section>.wow-hero-content,
+  .hero-section>div:not(.wow-clean-media):not(.wow-hero-media):not(.wow-absolute-hero-media):not(.v6-media):not(.hero-media-shell):not(.v34-hero-video):not(.wow-clean-shade):not(.wow-hero-shade):not(.wow-absolute-hero-shade):not(.wow-final-shade){
+    position:relative!important;
+    z-index:6!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0 18px 22px!important;
+    box-sizing:border-box!important;
+    display:flex!important;
+    align-items:flex-end!important;
+    justify-content:flex-start!important;
+  }
+  .hero-section .hero-content,
+  .hero-section .wow-clean-content .hero-content,
+  .hero-section .wow-absolute-hero-content .hero-content,
+  .hero-section .wow-hero-content .hero-content{
+    position:relative!important;
+    z-index:8!important;
+    width:min(78%,360px)!important;
+    max-width:360px!important;
+    margin:0!important;
+    padding:0!important;
+    background:transparent!important;
+    text-align:left!important;
+  }
+  .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.8px!important;margin:0 0 6px!important;text-align:left!important}
+  .hero-section .hero-title{font-size:clamp(28px,8.8vw,42px)!important;line-height:1.02!important;letter-spacing:-.6px!important;margin:0 0 8px!important;text-align:left!important;max-width:100%!important}
+  .hero-section .hero-sub{font-size:12px!important;line-height:1.4!important;margin:0 0 12px!important;max-width:320px!important;text-align:left!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+  .hero-section .hero-actions{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;flex-wrap:wrap!important}
+  .hero-section .hero-actions .btn{width:auto!important;min-width:0!important;height:38px!important;min-height:38px!important;padding:8px 13px!important;font-size:11px!important;line-height:1!important;border-radius:7px!important;white-space:nowrap!important}
+
+  /* Keep the phone page from exposing desktop-only controls. */
+  #wow-mobile-bottom-nav{display:flex!important;z-index:10000!important}
+}
+</style>
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>

@@ -5086,8 +5086,18 @@ function showAdminTab(tab) {
         <h3 style="font-size:15px;font-weight:700;margin-bottom:20px;">Branding Settings</h3>
         <div style="display:grid;gap:16px;">
           <div><label class="form-label">Website Title</label><input class="form-input" placeholder="Your website title" id="brand_title"/></div>
-          <div><label class="form-label">Logo URL</label><input class="form-input" placeholder="https://..." id="brand_logo"/></div>
-          <div><label class="form-label">Favicon URL</label><input class="form-input" placeholder="https://..." id="brand_favicon"/></div>
+          <div>
+            <label class="form-label">Logo</label>
+            <input class="form-input" type="file" id="brand_logo_file" accept="image/png,image/jpeg,image/webp,image/svg+xml" onchange="uploadBrandAsset(this,'logo')"/>
+            <input type="hidden" id="brand_logo"/>
+            <div id="brand_logo_status" style="font-size:11px;color:#64748b;margin-top:6px">Choose a logo file. It will upload to Firebase Storage and save automatically.</div>
+          </div>
+          <div>
+            <label class="form-label">Favicon</label>
+            <input class="form-input" type="file" id="brand_favicon_file" accept="image/png,image/jpeg,image/webp,image/x-icon,image/svg+xml" onchange="uploadBrandAsset(this,'favicon')"/>
+            <input type="hidden" id="brand_favicon"/>
+            <div id="brand_favicon_status" style="font-size:11px;color:#64748b;margin-top:6px">Choose a favicon file. It will upload to Firebase Storage and save automatically.</div>
+          </div>
           <div><label class="form-label">Footer Description</label><textarea class="form-input" rows="3" id="brand_footer_desc" placeholder="Short footer description"></textarea></div>
           <div><label class="form-label">Meta Description</label><textarea class="form-input" rows="2" id="brand_meta" placeholder="Search-engine description"></textarea></div>
           <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="saveBranding()">Save Branding</button>
@@ -5104,20 +5114,25 @@ function showAdminTab(tab) {
             <div><label class="form-label">Media Type</label>
               <select class="form-select" id="heroMediaType"><option value="image">Image</option><option value="video">Video</option></select>
             </div>
-            <div><label class="form-label">Image URL</label><input class="form-input" value="https://images.pexels.com/photos/3055008/pexels-photo-3055008.jpeg" id="heroImg"/></div>
+            <div id="heroVideoUploadBox" style="padding:14px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;">
+              <label class="form-label">Hero Video — Choose File</label>
+              <input class="form-input" type="file" id="heroVideoFile" accept="video/mp4,video/webm,video/quicktime" onchange="uploadHeroVideo(this)"/>
+              <input type="hidden" id="heroVideoUrl"/>
+              <div id="hero_video_status" style="font-size:11px;color:#64748b;margin-top:7px">Upload one video. The same cloud video is used on desktop and phone.</div>
+            </div>
             <div><label class="form-label">Eyebrow Text</label><input class="form-input" value="New Season 2025" id="heroEyebrow"/></div>
             <div><label class="form-label">Main Title</label><input class="form-input" value="Dress Your Confidence" id="heroTitle"/></div>
             <div><label class="form-label">Subtitle</label><textarea class="form-input" rows="2" id="heroSub">Discover premium fashion that speaks before you do.</textarea></div>
             <div><label class="form-label">Button Text</label><input class="form-input" value="Shop Collection" id="heroBtnText"/></div>
             <div><label class="form-label">Button Link</label><input class="form-input" value="#shop" id="heroBtnLink"/></div>
-            <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="showToast('Hero settings saved','success')">Save Hero</button>
+            <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="saveHeroSettings()">Save Hero</button>
           </div>
         </div>
         <div class="admin-card">
           <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Preview</h3>
-          <div style="border-radius:8px;overflow:hidden;position:relative;height:200px;background:#0f172a;">
-            <img src="https://images.pexels.com/photos/3055008/pexels-photo-3055008.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=400" style="width:100%;height:100%;object-fit:cover;opacity:0.5;"/>
-            <div style="position:absolute;inset:0;display:flex;align-items:center;padding:20px;">
+          <div id="heroAdminPreview" style="border-radius:8px;overflow:hidden;position:relative;height:200px;background:#0f172a;">
+            <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.15));z-index:1;"></div>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;padding:20px;z-index:2;">
               <div style="color:#fff;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;margin-bottom:6px;">New Season 2025</div><div style="font-size:20px;font-weight:800;line-height:1.1;margin-bottom:8px;">Dress Your Confidence</div><div style="background:#2563eb;display:inline-block;padding:5px 14px;border-radius:5px;font-size:11px;font-weight:700;">Shop Collection</div></div>
             </div>
           </div>
@@ -5496,7 +5511,20 @@ function ensureCategoryDefaults(target){
   });
 }
 ensureCategoryDefaults(adminData);
-function saveAdminData(){window.__WOW_REMOTE_STORE=adminData;window.__WOW_STORE_DATA=adminData}
+async function persistStorefrontToCloud(){
+  if(!firebaseDb) throw new Error('Cloud database is not ready. Please wait a moment and try again.');
+  const ref=firebaseDb.collection('siteConfig').doc('storefront');
+  await ref.set({data:adminData,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
+  window.__WOW_REMOTE_STORE=adminData;
+  window.__WOW_STORE_DATA=adminData;
+  return true;
+}
+function saveAdminData(){
+  window.__WOW_REMOTE_STORE=adminData;
+  window.__WOW_STORE_DATA=adminData;
+  try{localStorage.setItem(ADMIN_KEY,JSON.stringify(adminData));}catch(e){}
+  persistStorefrontToCloud().catch(e=>console.warn('WOWSHOPPING cloud save:',e));
+}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#039;"}[m]))}
 function uid(prefix){return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function readSingleImage(input,targetId){const f=input.files&&input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const e=document.getElementById(targetId);if(e)e.value=r.result};r.readAsDataURL(f)}
@@ -5682,8 +5710,12 @@ function applyAdminMenu(){
  const wrap=document.createElement('div');wrap.className='admin-managed-menu';wrap.style.cssText='display:flex;align-items:center;gap:4px';const home=document.createElement('div');home.className='nav-link';home.textContent='Home';home.onclick=()=>navigate('home');wrap.appendChild(home);children(null).filter(m=>String(m.title||'').toLowerCase()!=='home').forEach(m=>wrap.appendChild(build(m))); const anchor=nav.querySelector('[style*="margin-left:auto"]');nav.insertBefore(wrap,anchor||nav.lastElementChild); renderStorefrontCategories();
 }
 
-function loadHeroForm(){const h=adminData.hero;const map={heroMediaType:h.mediaType,heroVideoUrl:h.videoUrl,heroImageUrls:(h.images||[]).join('\n'),heroEyebrow:h.eyebrow,heroTitle:h.title,heroSubtitle:h.subtitle,heroButtonText:h.buttonText,heroButtonUrl:h.buttonUrl};Object.keys(map).forEach(id=>{const e=document.getElementById(id);if(e)e.value=map[id]||''});const v=document.getElementById('heroVisible');if(v)v.checked=h.visible!==false}
-function saveHeroSettings(){adminData.hero={mediaType:document.getElementById('heroMediaType').value,videoUrl:document.getElementById('heroVideoUrl').value,images:document.getElementById('heroImageUrls').value.split('\n').map(x=>x.trim()).filter(Boolean),eyebrow:document.getElementById('heroEyebrow').value,title:document.getElementById('heroTitle').value,subtitle:document.getElementById('heroSubtitle').value,buttonText:document.getElementById('heroButtonText').value,buttonUrl:document.getElementById('heroButtonUrl').value,visible:document.getElementById('heroVisible').checked};saveAdminData();applyHeroToSite();renderHeroPreview();showToast('Hero saved','success')}
+function loadHeroForm(){const h=adminData.hero||{};const map={heroMediaType:'video',heroVideoUrl:h.videoUrl||'',heroEyebrow:h.eyebrow||'',heroTitle:h.title||'',heroSub:h.subtitle||'',heroBtnText:h.buttonText||'Shop Now',heroBtnLink:h.buttonUrl||'#shop'};Object.keys(map).forEach(id=>{const e=document.getElementById(id);if(e)e.value=map[id]||''});const st=document.getElementById('hero_video_status');if(st)st.textContent=h.videoUrl?'Video already uploaded to cloud. Choose another file to replace it.':'Choose one hero video file.'}
+async function saveHeroSettings(){
+  const videoUrl=(document.getElementById('heroVideoUrl')?.value||'').trim();
+  adminData.hero={...(adminData.hero||{}),mediaType:'video',videoUrl,images:[],eyebrow:document.getElementById('heroEyebrow')?.value||'',title:document.getElementById('heroTitle')?.value||'',subtitle:document.getElementById('heroSubtitle')?.value||'',buttonText:document.getElementById('heroBtnText')?.value||document.getElementById('heroButtonText')?.value||'Shop Now',buttonUrl:document.getElementById('heroBtnLink')?.value||document.getElementById('heroButtonUrl')?.value||'#shop',visible:true};
+  try{await persistStorefrontToCloud();applyHeroToSite();renderHeroPreview();showToast(videoUrl?'Hero saved to cloud':'Hero saved','success')}catch(e){showToast(e.message||'Cloud save failed','error')}
+}
 function renderHeroPreview(){const el=document.getElementById('heroAdminPreview');if(!el)return;const h=adminData.hero;if(!h.visible){el.innerHTML='<span>Hero hidden</span>';return}if(h.mediaType==='video'&&h.videoUrl)el.innerHTML=`<video src="${esc(h.videoUrl)}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>`;else if(h.images.length)el.innerHTML=`<img src="${esc(h.images[0])}" style="width:100%;height:100%;object-fit:cover">`;else el.innerHTML='<span>Add a video URL or image URLs</span>'}
 function applyPromiseToSite(){const el=document.getElementById('storePromiseSection');if(!el)return;const d=loadAdminData(),p=d.promise||{};const cards=Array.isArray(p.cards)?p.cards.filter(x=>x&&x.visible!==false).slice(0,3):[];if(p.visible===false||!cards.length){el.style.display='none';el.innerHTML='';return;}el.style.display='block';el.innerHTML=`<section class="wow-promise-section"><div class="wow-promise-wrap"><div class="wow-promise-label">${esc(p.label||'Our Promise')}</div><h2 class="wow-promise-title">${esc(p.title||'Why Shop With Us?')}</h2><p class="wow-promise-desc">${esc(p.description||'')}</p><div class="wow-promise-grid">${cards.map(c=>`<div class="wow-promise-card"><div class="wow-promise-icon"><i data-lucide="${esc(c.icon||'star')}"></i></div><h3>${esc(c.title||'')}</h3><p>${esc(c.text||'')}</p></div>`).join('')}</div></div></section>`;if(window.lucide?.createIcons)lucide.createIcons();}
 function applyBenefitsToSite(){
@@ -5776,8 +5808,42 @@ function renderThemePresets(){const el=document.getElementById('themePresets');i
 function useThemePreset(name){const t=THEME_PRESETS[name];if(!t)return;adminData.theme={...adminData.theme,...t};saveAdminData();loadThemeForm();applyAdminTheme();showToast(name+' theme applied','success')}
 function saveTheme(){['primary','background','text','header','footer','sale'].forEach(k=>adminData.theme[k]=document.getElementById('theme'+k.charAt(0).toUpperCase()+k.slice(1)).value);saveAdminData();applyAdminTheme();showToast('Theme saved','success')}
 function resetTheme(){useThemePreset('Midnight')}
-function loadBrandingForm(){const b=adminData.branding||{};[['brand_title',b.title],['brand_logo',b.logo],['brand_favicon',b.favicon],['brand_footer_desc',b.footer],['brand_meta',b.meta]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''})}
-function saveBranding(){const title=(document.getElementById('brand_title')?.value||'').trim();const logo=(document.getElementById('brand_logo')?.value||'').trim();const favicon=(document.getElementById('brand_favicon')?.value||'').trim();const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();const meta=(document.getElementById('brand_meta')?.value||'').trim();adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};saveAdminData();applyBranding();showToast('Branding saved','success')}
+function loadBrandingForm(){const b=adminData.branding||{};[['brand_title',b.title],['brand_logo',b.logo],['brand_favicon',b.favicon],['brand_footer_desc',b.footer],['brand_meta',b.meta]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''});if(document.getElementById('brand_logo_status'))document.getElementById('brand_logo_status').textContent=b.logo?'Logo already uploaded to cloud. Choose another file to replace it.':'Choose a logo file.';if(document.getElementById('brand_favicon_status'))document.getElementById('brand_favicon_status').textContent=b.favicon?'Favicon already uploaded to cloud. Choose another file to replace it.':'Choose a favicon file.'}
+async function uploadSiteAsset(input,type,targetId,statusId){
+  const file=input?.files?.[0]; if(!file)return;
+  if(!window.firebase?.storage) {showToast('Firebase Storage is not ready','error');return}
+  if(type==='hero-video' && file.size>80*1024*1024){showToast('Video is too large. Keep it under 80MB for fast mobile loading.','error');input.value='';return}
+  const allowed=type==='hero-video'?/^video\/(mp4|webm|quicktime)$/:/^image\/(png|jpe?g|webp|svg\+xml|x-icon)$/i;
+  if(!allowed.test(file.type)){showToast('Unsupported file type','error');input.value='';return}
+  const status=document.getElementById(statusId); if(status)status.textContent='Uploading '+file.name+'… 0%';
+  try{
+    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+    const path='site-assets/'+type+'/'+Date.now()+'-'+safeName;
+    const ref=firebase.storage().ref().child(path);
+    const task=ref.put(file,{contentType:file.type,cacheControl:'public,max-age=31536000,immutable'});
+    await new Promise((resolve,reject)=>{task.on('state_changed',snap=>{const pct=Math.round((snap.bytesTransferred/snap.totalBytes)*100);if(status)status.textContent='Uploading '+file.name+'… '+pct+'%';},reject,resolve)});
+    const url=await ref.getDownloadURL();
+    const target=document.getElementById(targetId);if(target)target.value=url;
+    if(type==='hero-video'){adminData.hero={...(adminData.hero||{}),mediaType:'video',videoUrl:url,images:[]};}
+    else {adminData.branding={...(adminData.branding||{}),[type]:url};}
+    await persistStorefrontToCloud();
+    if(type!=='hero-video'){applyBranding();}
+    else {applyHeroToSite();}
+    if(status)status.textContent='Uploaded successfully ✓';
+    showToast(type==='hero-video'?'Video uploaded to cloud':'File uploaded to cloud','success');
+  }catch(e){console.error(e);if(status)status.textContent='Upload failed: '+(e.message||e);showToast('Upload failed. Check Firebase Storage rules.','error')}
+}
+function uploadHeroVideo(input){return uploadSiteAsset(input,'hero-video','heroVideoUrl','hero_video_status')}
+function uploadBrandAsset(input,type){return uploadSiteAsset(input,type,type==='logo'?'brand_logo':'brand_favicon',type==='logo'?'brand_logo_status':'brand_favicon_status')}
+async function saveBranding(){
+  const title=(document.getElementById('brand_title')?.value||'').trim();
+  const logo=(document.getElementById('brand_logo')?.value||'').trim();
+  const favicon=(document.getElementById('brand_favicon')?.value||'').trim();
+  const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();
+  const meta=(document.getElementById('brand_meta')?.value||'').trim();
+  adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};
+  try{await persistStorefrontToCloud();applyBranding();showToast('Branding saved to cloud','success')}catch(e){showToast(e.message||'Cloud save failed','error')}
+}
 function loadShippingForm(){const a=document.getElementById('shipStandard'),b=document.getElementById('shipExpress');if(a)a.value=adminData.shipping.standard;if(b)b.value=adminData.shipping.express}
 function saveShipping(){adminData.shipping.standard=Number(document.getElementById('shipStandard').value||0);adminData.shipping.express=Number(document.getElementById('shipExpress').value||0);saveAdminData();showToast('Shipping saved','success')}
 function loadSettingsForm(){const a=document.getElementById('adminEmail'),b=document.getElementById('requireFirebase');if(a)a.value=adminData.settings.adminEmail;if(b)b.checked=adminData.settings.requireFirebase!==false}
@@ -6972,5 +7038,105 @@ try{renderCategoryAwareFilters();}catch(e){}
   setTimeout(render,3500);
 })();
 </script>
-<!-- WOWSHOPPING: single authoritative hero video build --></body>
+<!-- WOWSHOPPING FINAL: MOBILE + DESKTOP SINGLE HERO VIDEO -->
+<style id="wowshopping-single-video-v3-css">
+.hero-section{position:relative!important;width:100%!important;max-width:none!important;height:clamp(360px,48vw,650px)!important;min-height:360px!important;margin:0!important;padding:0!important;overflow:hidden!important;background:#050914!important;isolation:isolate!important;display:flex!important;align-items:center!important}
+.hero-section .wow-v3-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important}
+.hero-section .wow-v3-video video,.hero-section .wow-v3-video iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;border:0!important;margin:0!important;padding:0!important;display:block!important;object-fit:cover!important;object-position:center center!important;background:#050914!important}
+.hero-section .wow-v3-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.34) 48%,rgba(0,0,0,.08))!important}
+.hero-section>.hero-content{position:relative!important;z-index:3!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;box-sizing:border-box!important;text-align:left!important;background:transparent!important}
+@media(max-width:767px){
+ .hero-section{width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,70vw,390px)!important;min-height:300px!important;max-height:390px!important;align-items:flex-end!important}
+ .hero-section .wow-v3-video video,.hero-section .wow-v3-video iframe{object-position:center center!important}
+ .hero-section .wow-v3-shade{background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.42) 55%,rgba(0,0,0,.08))!important}
+ .hero-section>.hero-content{max-width:68%!important;padding:0 0 20px 18px!important;margin:0!important}
+ .hero-section .hero-eyebrow{font-size:8px!important;line-height:1!important;letter-spacing:1.6px!important;margin:0 0 6px!important}
+ .hero-section .hero-title{max-width:235px!important;font-size:clamp(27px,8.5vw,40px)!important;line-height:.98!important;letter-spacing:-.5px!important;margin:0 0 8px!important}
+ .hero-section .hero-sub{max-width:195px!important;font-size:11px!important;line-height:1.35!important;margin:0 0 11px!important}
+ .hero-section .hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:6px!important}
+ .hero-section .hero-actions .btn{width:auto!important;min-width:0!important;height:34px!important;min-height:34px!important;padding:7px 11px!important;font-size:10px!important;line-height:1!important;border-radius:7px!important;white-space:nowrap!important}
+}
+</style>
+<script id="wowshopping-single-video-v3-js">
+(function(){
+ 'use strict';
+ const clean=v=>String(v??'').trim();
+ let busy=false,last='';
+ const VIDEO_KEYS=['videoUrl','videoURL','videoSrc','videoSource','video_url','bannerVideo','bannerVideoUrl','heroVideo','heroVideoUrl','video'];
+ function roots(){
+   const a=[]; const add=x=>{if(x&&typeof x==='object'&&!a.includes(x))a.push(x)};
+   add(window.__WOW_REMOTE_STORE);add(window.__WOW_STORE_DATA);add(window.adminData);
+   try{const raw=localStorage.getItem('wow_admin_data_v4');if(raw)add(JSON.parse(raw))}catch(e){}
+   return a;
+ }
+ function findVideo(root,depth=0,seen=new Set()){
+   if(!root||typeof root!=='object'||depth>6||seen.has(root))return '';
+   seen.add(root);
+   if(Array.isArray(root)){
+     for(const x of root){const r=findVideo(x,depth+1,seen);if(r)return r} return '';
+   }
+   // Prefer hero object, then explicit video fields anywhere in the storefront data.
+   for(const k of VIDEO_KEYS){const v=clean(root[k]);if(v)return v}
+   if(root.hero){const r=findVideo(root.hero,depth+1,seen);if(r)return r}
+   if(root.banners){const r=findVideo(root.banners,depth+1,seen);if(r)return r}
+   for(const [k,v] of Object.entries(root)){
+     if(k==='products'||k==='categories'||k==='orders'||k==='users')continue;
+     if(v&&typeof v==='object'){const r=findVideo(v,depth+1,seen);if(r)return r}
+   }
+   return '';
+ }
+ function getVideo(){for(const r of roots()){const u=findVideo(r);if(u)return u}return ''}
+ function ytvm(url){try{
+   const u=new URL(url,location.href);let id='';
+   if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';
+   if(u.hostname.includes('youtube.com')){id=u.searchParams.get('v')||'';const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]}
+   if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0&modestbranding=1';
+   if(u.hostname.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1'}
+  }catch(e){} return ''}
+ async function storage(url){
+   if(!/^gs:\/\//i.test(url))return url;
+   try{if(window.firebase?.storage)return await window.firebase.storage().refFromURL(url).getDownloadURL()}catch(e){}
+   return url;
+ }
+ function removeOld(hero){
+   hero.querySelectorAll('.wow-v3-video,.wow-v3-shade,.wow-final-video-media,.wow-clean-media,.wow-hero-media,.wow-absolute-hero-media,.wow-video-only-media,.v6-media,.hero-media-shell,.v34-hero-video,.wow-final-media,.wow-hero-poster').forEach(x=>x.remove());
+   hero.querySelectorAll('img').forEach(x=>x.remove());
+   hero.querySelectorAll('[style*="background-image"]').forEach(x=>x.style.backgroundImage='none');
+ }
+ function play(v){if(!v||document.hidden)return;try{v.muted=true;v.defaultMuted=true;const p=v.play();if(p?.catch)p.catch(()=>{})}catch(e){}}
+ async function render(){
+   if(busy)return; const hero=document.querySelector('.hero-section');if(!hero)return; busy=true;
+   try{
+     let url=clean(getVideo()); if(!url)return; url=clean(await storage(url)); if(!url)return;
+     const existing=hero.querySelector('.wow-v3-video video,.wow-v3-video iframe');
+     if(existing&&hero.dataset.wowV3Url===url){if(existing.tagName==='VIDEO')play(existing);return}
+     removeOld(hero);
+     const media=document.createElement('div');media.className='wow-v3-video';
+     const embed=ytvm(url);
+     if(embed){const f=document.createElement('iframe');f.src=embed;f.title='WOWSHOPPING banner video';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.setAttribute('allowfullscreen','');f.setAttribute('playsinline','');f.setAttribute('loading','eager');media.appendChild(f)}
+     else{
+       const v=document.createElement('video');
+       v.muted=true;v.defaultMuted=true;v.autoplay=true;v.loop=true;v.playsInline=true;v.preload='auto';
+       v.setAttribute('muted','');v.setAttribute('autoplay','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');v.src=url;
+       ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(e=>v.addEventListener(e,()=>play(v)));
+       v.addEventListener('pause',()=>setTimeout(()=>play(v),100));
+       v.addEventListener('error',()=>console.warn('WOWSHOPPING video load failed',url));
+       media.appendChild(v);setTimeout(()=>play(v),0);setTimeout(()=>play(v),600);setTimeout(()=>play(v),1800);
+     }
+     hero.insertBefore(media,hero.firstChild);
+     const shade=document.createElement('div');shade.className='wow-v3-shade';hero.appendChild(shade);
+     const content=hero.querySelector('.hero-content');if(content){content.style.position='relative';content.style.zIndex='3'}
+     hero.dataset.wowV3Url=url;last=url;
+   }finally{busy=false}
+ }
+ // This renderer is the only active hero video renderer.
+ window.renderHero=render;
+ window.addEventListener('load',()=>setTimeout(render,300));
+ window.addEventListener('pageshow',()=>setTimeout(render,300));
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
+ setTimeout(render,800);setTimeout(render,1800);setTimeout(render,3500);
+ setInterval(()=>{const h=document.querySelector('.hero-section');if(!h)return;const v=h.querySelector('.wow-v3-video video');if(v)play(v);else render()},1200);
+})();
+</script>
+</body>
 </html>

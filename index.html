@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <title>WOWSHOPPING.lk — Premium Fashion & Lifestyle</title>
   <meta name="description" content="Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000."/>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <script>
   function getCategoryFilterKey(){ return String(window.currentCategory||window.selectedCategory||''); }
   function getLiveCategoryDef(cat){
@@ -30,11 +32,11 @@
     box.innerHTML=vals.length?`<div class="filter-section"><div class="filter-title">${def.filterLabel||'Filter'}</div><div class="filter-options">${vals.map(v=>`<label class="filter-item"><input type="checkbox" value="${String(v).replace(/"/g,'&quot;')}" data-cat-filter="1" onchange="applyFilters()"> ${v}</label>`).join('')}</div></div>`:'';
   }
   </script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <!-- Firebase Authentication / Firestore. Add your Firebase web config in the FIREBASE_CONFIG object below. -->
-  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
   <style>
     :root {
       --color-primary: #111827;
@@ -238,7 +240,7 @@
 .prof-category-dropdown .dropdown-link:hover{background:#f5f7fa!important}
 #site-header{opacity:0;transition:opacity .15s ease}
 body.wow-ready #site-header{opacity:1}
-.wow-loader{position:fixed;inset:0;background:#fff;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity .42s ease,visibility .42s ease}.wow-loader.hide{opacity:0;visibility:hidden;pointer-events:none}.wow-loader-inner{text-align:center;min-width:220px}.wow-loader-brand{font-size:22px;font-weight:900;letter-spacing:-.5px;animation:wowBrandIn .65s ease both}.wow-loader-line{width:150px;height:2px;background:#e5e7eb;margin:18px auto 0;overflow:hidden;border-radius:9px}.wow-loader-line:after{content:'';display:block;width:55%;height:100%;background:#111827;border-radius:9px;animation:wowLoadLine 1s ease-in-out infinite}.wow-loader-dot{margin-top:10px;font-size:11px;letter-spacing:2px;color:#94a3b8;animation:wowPulse 1s ease-in-out infinite}@keyframes wowBrandIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}@keyframes wowLoadLine{0%{transform:translateX(-100%)}50%{transform:translateX(80%)}100%{transform:translateX(180%)}}@keyframes wowPulse{50%{opacity:.45}}
+.wow-loader{position:fixed;inset:0;background:#fff;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity .42s ease,visibility .42s ease}.wow-loader.hide{opacity:0;visibility:hidden;pointer-events:none}.wow-loader-inner{text-align:center;min-width:80px}.wow-loader-spinner{width:28px;height:28px;border:2px solid #e5e7eb;border-top-color:#111827;border-radius:50%;animation:wowSpin .7s linear infinite;margin:auto}@keyframes wowSpin{to{transform:rotate(360deg)}}.wow-loader-brand{font-size:22px;font-weight:900;letter-spacing:-.5px;animation:wowBrandIn .65s ease both}.wow-loader-line{width:150px;height:2px;background:#e5e7eb;margin:18px auto 0;overflow:hidden;border-radius:9px}.wow-loader-line:after{content:'';display:block;width:55%;height:100%;background:#111827;border-radius:9px;animation:wowLoadLine 1s ease-in-out infinite}.wow-loader-dot{margin-top:10px;font-size:11px;letter-spacing:2px;color:#94a3b8;animation:wowPulse 1s ease-in-out infinite}@keyframes wowBrandIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}@keyframes wowLoadLine{0%{transform:translateX(-100%)}50%{transform:translateX(80%)}100%{transform:translateX(180%)}}@keyframes wowPulse{50%{opacity:.45}}
 @media(max-width:767px){.prof-category-dropdown{grid-template-columns:repeat(2,minmax(120px,1fr));min-width:280px!important}.cat-grid .cat-card{flex-basis:140px!important;width:140px!important;height:170px!important}}
 
     /* Mobile menu */
@@ -1641,13 +1643,13 @@ html,body{overflow-x:hidden!important}
   }
 }
 </style>
-
+<style id="wow-brand-logo-only-v1">#siteBrandName,#siteBrandSuffix{display:none!important}#siteBrandIcon{flex-shrink:0!important} @media(max-width:767px){#siteBrandIcon{width:38px!important;height:34px!important}#site-header .wow-main-header-row{min-height:58px!important}}</style>
 
   <!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
 </head>
 <body>
-<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
+<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
 
 <!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
@@ -4195,12 +4197,11 @@ function showAdminTab(tab) {
       <div class="admin-card" style="max-width:600px;">
         <h3 style="font-size:15px;font-weight:700;margin-bottom:20px;">Branding Settings</h3>
         <div style="display:grid;gap:16px;">
-          <div><label class="form-label">Website Title</label><input class="form-input" value="WOWSHOPPING.lk — Premium Fashion & Lifestyle" id="brand_title"/></div>
-          <div><label class="form-label">Brand Name</label><input class="form-input" value="WOWSHOPPING" id="brand_name"/></div>
+          <div><label class="form-label">Website Title</label><input class="form-input" placeholder="Your website title" id="brand_title"/></div>
           <div><label class="form-label">Logo URL</label><input class="form-input" placeholder="https://..." id="brand_logo"/></div>
           <div><label class="form-label">Favicon URL</label><input class="form-input" placeholder="https://..." id="brand_favicon"/></div>
-          <div><label class="form-label">Footer Description</label><textarea class="form-input" rows="3" id="brand_footer_desc"><span class="v6-footer-desc"></span></textarea></div>
-          <div><label class="form-label">Meta Description</label><textarea class="form-input" rows="2" id="brand_meta">Shop the latest fashion at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000.</textarea></div>
+          <div><label class="form-label">Footer Description</label><textarea class="form-input" rows="3" id="brand_footer_desc" placeholder="Short footer description"></textarea></div>
+          <div><label class="form-label">Meta Description</label><textarea class="form-input" rows="2" id="brand_meta" placeholder="Search-engine description"></textarea></div>
           <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="saveBranding()">Save Branding</button>
         </div>
       </div>`;
@@ -4482,9 +4483,15 @@ function saveCustomTheme() {
 }
 
 function saveBranding() {
-  const title = document.getElementById('brand_title')?.value;
-  if (title) document.title = title;
-  showToast('Branding settings saved!', 'success');
+  const title=(document.getElementById('brand_title')?.value||'').trim();
+  const logo=(document.getElementById('brand_logo')?.value||'').trim();
+  const favicon=(document.getElementById('brand_favicon')?.value||'').trim();
+  const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();
+  const meta=(document.getElementById('brand_meta')?.value||'').trim();
+  adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};
+  saveAdminData();
+  applyBranding();
+  showToast('Branding saved!', 'success');
 }
 
 // ==================== DARK MODE ====================
@@ -4559,7 +4566,7 @@ const defaultAdminData = {
   categories:[], products:[],
   menu:[{id:"m1",title:"Home",url:"#home",parent:null,visible:true},{id:"m2",title:"Shop",url:"#shop",parent:null,visible:true},{id:"m3",title:"New Arrivals",url:"#shop",parent:null,visible:true},{id:"m4",title:"Customer Care",url:"#care",parent:null,visible:true}],
   theme:{primary:"#2563eb",background:"#ffffff",text:"#111827",header:"#ffffff",footer:"#111827",sale:"#dc2626",card:"#ffffff",muted:"#6b7280",badge:"#2563eb"},
-  branding:{name:"WOWSHOPPING",title:"WOWSHOPPING",logo:"",footer:"Premium online shopping experience."},
+  branding:{name:"",title:"WOWSHOPPING.lk — Premium Fashion & Lifestyle",logo:"",favicon:"",meta:"Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000.",footer:"Premium online shopping experience."},
   shipping:{standard:350,express:650},
   settings:{adminEmail:"",requireFirebase:true},
   care:{image:"",cards:[
@@ -4653,15 +4660,16 @@ function applyBranding(){
  const b=adminData.branding||{};
  const clean=x=>{x=String(x||'').trim();if(/^['"]/.test(x)&&/["']$/.test(x))x=x.slice(1,-1);return x};
  const logo=clean(b.logo), favicon=clean(b.favicon);
- document.title=b.title||b.name||'WOWSHOPPING';
+ document.title=b.title||'WOWSHOPPING';
+ const meta=document.querySelector('meta[name="description"]'); if(meta && b.meta) meta.setAttribute('content',b.meta);
  const name=document.getElementById('siteBrandName');
- if(name) name.textContent=b.name||'WOWSHOPPING';
+ if(name){name.textContent='';name.style.display='none';}
  const suffix=document.getElementById('siteBrandSuffix');
  if(suffix){const parts=String(b.name||'').split('.');suffix.textContent=parts.length>1?'.'+parts.slice(1).join('.') : ''}
  const icon=document.getElementById('siteBrandIcon');
  if(icon){
    icon.style.width='62px';icon.style.height='48px';icon.style.background='transparent';icon.style.borderRadius='0';
-   const fallback=`<span style="display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;font-weight:900;font-size:20px;color:#111827;letter-spacing:-.5px">${esc(b.name||'WOWSHOPPING')}</span>`;
+   const fallback=`<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:100%;height:100%;font-weight:900;font-size:20px;color:#111827">W</span>`;
    if(logo){
      icon.innerHTML=`<img src="${esc(logo)}" alt="${esc(b.name||'Store logo')}" style="display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent" onerror="this.parentElement.innerHTML=${JSON.stringify(fallback)}">`;
    }else{
@@ -4886,8 +4894,8 @@ function renderThemePresets(){const el=document.getElementById('themePresets');i
 function useThemePreset(name){const t=THEME_PRESETS[name];if(!t)return;adminData.theme={...adminData.theme,...t};saveAdminData();loadThemeForm();applyAdminTheme();showToast(name+' theme applied','success')}
 function saveTheme(){['primary','background','text','header','footer','sale'].forEach(k=>adminData.theme[k]=document.getElementById('theme'+k.charAt(0).toUpperCase()+k.slice(1)).value);saveAdminData();applyAdminTheme();showToast('Theme saved','success')}
 function resetTheme(){useThemePreset('Midnight')}
-function loadBrandingForm(){const b=adminData.branding||{};[['brandName',b.name],['brandTitle',b.title],['brandLogo',b.logo],['brandFavicon',b.favicon],['brandFooter',b.footer]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''})}
-function saveBranding(){adminData.branding={name:document.getElementById('brandName').value.trim(),title:document.getElementById('brandTitle').value.trim(),logo:document.getElementById('brandLogo').value.trim(),favicon:(document.getElementById('brandFavicon')?.value||'').trim(),footer:document.getElementById('brandFooter').value};saveAdminData();applyBranding();showToast('Branding saved','success')}
+function loadBrandingForm(){const b=adminData.branding||{};[['brand_title',b.title],['brand_logo',b.logo],['brand_favicon',b.favicon],['brand_footer_desc',b.footer],['brand_meta',b.meta]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''})}
+function saveBranding(){const title=(document.getElementById('brand_title')?.value||'').trim();const logo=(document.getElementById('brand_logo')?.value||'').trim();const favicon=(document.getElementById('brand_favicon')?.value||'').trim();const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();const meta=(document.getElementById('brand_meta')?.value||'').trim();adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};saveAdminData();applyBranding();showToast('Branding saved','success')}
 function loadShippingForm(){const a=document.getElementById('shipStandard'),b=document.getElementById('shipExpress');if(a)a.value=adminData.shipping.standard;if(b)b.value=adminData.shipping.express}
 function saveShipping(){adminData.shipping.standard=Number(document.getElementById('shipStandard').value||0);adminData.shipping.express=Number(document.getElementById('shipExpress').value||0);saveAdminData();showToast('Shipping saved','success')}
 function loadSettingsForm(){const a=document.getElementById('adminEmail'),b=document.getElementById('requireFirebase');if(a)a.value=adminData.settings.adminEmail;if(b)b.checked=adminData.settings.requireFirebase!==false}
@@ -4974,7 +4982,7 @@ function patch(){
  if(Array.isArray(d.products)){PRODUCTS.splice(0,PRODUCTS.length,...d.products.filter(p=>p.visible!==false).map(p=>({...p,price:Number(p.price||0),salePrice:Number(p.salePrice||p.price||0),discount:Number(p.discount||0),images:Array.isArray(p.images)&&p.images.length?p.images:[p.image||'https://via.placeholder.com/600x800?text=Product']})));renderNewArrivals();renderBestSellers();}
  applyAdminTheme();applyBranding();applyAdminMenu();
  [['--color-accent',t.primary],['--color-bg',t.background],['--color-text',t.text],['--color-header',t.header],['--color-footer',t.footer],['--color-card',t.card],['--color-muted',t.muted],['--color-sale',t.sale]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
- if(d.branding){document.title=d.branding.title||d.branding.name||document.title;document.querySelectorAll('.brand-name,.site-logo,.logo-text').forEach(x=>{if(d.branding.name)x.textContent=d.branding.name});if(d.branding.logo)document.querySelectorAll('.logo img').forEach(x=>x.src=d.branding.logo)}
+ if(d.branding){document.title=d.branding.title||d.branding.name||document.title;document.querySelectorAll('.brand-name,.site-logo,.logo-text').forEach(x=>{if(x.id!=='siteBrandName' && d.branding.name)x.textContent=d.branding.name});if(d.branding.logo)document.querySelectorAll('.logo img').forEach(x=>x.src=d.branding.logo)}
  // Remove top Shop All button permanently.
  document.querySelectorAll('#site-header button').forEach(b=>{if(b.textContent.trim()==='Shop All')b.parentElement.remove()});
  // Hero media: supports direct MP4/WebM/Ogg URLs, YouTube URLs, Vimeo URLs and image URLs.
@@ -5009,7 +5017,7 @@ function patch(){
     // Be forgiving if Admin selected image but supplied a video URL.
     const embed=heroVideoEmbedUrl(h.videoUrl);
     if(embed){const frame=document.createElement('iframe');frame.src=embed;frame.title='WOWSHOPPING banner video';frame.allow='autoplay; fullscreen; picture-in-picture';frame.setAttribute('allowfullscreen','');frame.setAttribute('playsinline','');media.appendChild(frame);}
-    else{const v=document.createElement('video');v.src=h.videoUrl;v.autoplay=true;v.muted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.addEventListener('error',()=>v.remove());media.appendChild(v);v.play().catch(()=>{});}
+    else{const v=document.createElement('video');v.src=h.videoUrl;v.autoplay=true;v.muted=true;v.loop=true;v.playsInline=true;v.preload='metadata';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.addEventListener('error',()=>v.remove());media.appendChild(v);v.play().catch(()=>{});}
   }
   // Keep the content above every media/overlay layer.
   const contentWrap=hero.querySelector(':scope > div:not(.wow-hero-media):not(.wow-hero-shade)');
@@ -5038,7 +5046,7 @@ function patch(){
  // Footer manager data.
  const f=document.getElementById('site-footer');if(f){f.style.display=d.footer?.visible===false?'none':'block';const pay=f.querySelector('.v6-payment');if(pay)pay.innerHTML=(d.footer?.payments||[]).filter(x=>x.visible!==false).map(x=>'<span style="padding:5px 9px;border-radius:5px;background:#1f2937;color:#cbd5e1;font-size:10px;font-weight:800">'+E(x.name||x)+'</span>').join('');const desc=f.querySelector('.v6-footer-desc');if(desc)desc.textContent=d.footer?.description||d.branding?.footer||'';const copy=f.querySelector('.v6-footer-copy');if(copy)copy.textContent=d.footer?.copyright||''}
 }
-window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window.addEventListener('load',()=>{patch();renderStorefrontCategories();document.body.classList.add('wow-ready');const l=document.getElementById('wowLoader');if(l){setTimeout(()=>{l.classList.add('hide');setTimeout(()=>l.remove(),420)},650)}});window.addEventListener('hashchange',()=>setTimeout(patch,100));
+window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window.addEventListener('load',()=>{patch();renderStorefrontCategories();document.body.classList.add('wow-ready');const l=document.getElementById('wowLoader');if(l){setTimeout(()=>{l.classList.add('hide');setTimeout(()=>l.remove(),220)},280)}});window.addEventListener('hashchange',()=>setTimeout(patch,100));
 })();
 </script>
 
@@ -5261,14 +5269,14 @@ const safe=v=>String(v==null?'':v).trim();
 const getData=()=>window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||{};
 function embed(url){try{const u=new URL(safe(url),location.href);let id=u.searchParams.get('v')||'';if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(u.hostname.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';const vm=u.pathname.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(u.hostname.includes('vimeo.com')&&vm)return'https://player.vimeo.com/video/'+vm[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}catch(e){}return'';}
 function direct(url){const s=safe(url).toLowerCase();return/\.(mp4|webm|ogg|mov)(?:[?#].*)?$/i.test(s)||(/^https?:\/\//i.test(s)&&!embed(s));}
-function addMedia(parent,url,image){const e=embed(url);if(e){const f=document.createElement('iframe');f.src=e;f.title='WOWSHOPPING video banner';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');parent.appendChild(f);return f;}if(direct(url)){const v=document.createElement('video');v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.addEventListener('loadeddata',()=>v.play().catch(()=>{}));v.addEventListener('canplay',()=>v.play().catch(()=>{}));v.onerror=()=>{v.remove();if(image)addImage(parent,image);};parent.appendChild(v);v.play().catch(()=>{});return v;}if(image)addImage(parent,image);return null;}
-function addImage(parent,url){if(!url)return;const im=document.createElement('img');im.src=url;im.alt='WOWSHOPPING';im.loading='eager';im.onerror=()=>im.remove();parent.appendChild(im);}
-async function loadCloud(){for(let i=0;i<25;i++){try{const db=window.firebaseDb;if(db){const snap=await db.collection('siteConfig').doc('storefront').get();if(snap.exists&&snap.data()&&snap.data().data){window.__WOW_REMOTE_STORE=snap.data().data;window.__WOW_STORE_DATA=snap.data().data;return true;}}}catch(e){}await sleep(400);}return !!getData().hero;}
+function addMedia(parent,url,image){const e=embed(url);if(e){const f=document.createElement('iframe');f.src=e;f.title='WOWSHOPPING video banner';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');parent.appendChild(f);return f;}if(direct(url)){const v=document.createElement('video');v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='metadata';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.addEventListener('loadeddata',()=>v.play().catch(()=>{}));v.addEventListener('canplay',()=>v.play().catch(()=>{}));v.onerror=()=>{v.remove();if(image)addImage(parent,image);};parent.appendChild(v);v.play().catch(()=>{});return v;}if(image)addImage(parent,image);return null;}
+function addImage(parent,url,eager=false){if(!url)return;const im=document.createElement('img');im.src=url;im.alt='';im.decoding='async';im.loading=eager?'eager':'lazy';if(eager)im.fetchPriority='high';im.onerror=()=>im.remove();parent.appendChild(im);}
+async function loadCloud(){for(let i=0;i<10;i++){try{const db=window.firebaseDb;if(db){const snap=await db.collection('siteConfig').doc('storefront').get();if(snap.exists&&snap.data()&&snap.data().data){window.__WOW_REMOTE_STORE=snap.data().data;window.__WOW_STORE_DATA=snap.data().data;return true;}}}catch(e){}await sleep(250);}return !!getData().hero;}
 function cleanLegacy(){document.querySelectorAll('.wow-clean-promo,#wow-home-banner-carousel,#wow-mobile-managed-banners,#v9ManagedBanners,#wow-mobile-managed-banners,#v6ManagedBannerTop,#adminMidBanners,#adminBottomBanners,.v6-managed-banner').forEach(e=>e.remove());}
-function renderHero(){const hero=document.querySelector('.hero-section');if(!hero)return;const d=getData(),h=d.hero||{};const image=Array.isArray(h.images)?safe(h.images[0]):safe(h.image);const url=safe(h.videoUrl||h.video);hero.querySelectorAll('.v6-media,.hero-media-shell,.v34-hero-video,.wow-hero-media,.wow-hero-shade,.wow-final-media,.wow-final-shade').forEach(e=>e.remove());let media=hero.querySelector('.wow-clean-media');if(!media||media.dataset.url!==url){if(media)media.remove();media=document.createElement('div');media.className='wow-clean-media';media.dataset.url=url;const shadeOld=hero.querySelector('.wow-clean-shade');if(shadeOld)shadeOld.remove();hero.insertBefore(media,hero.firstChild);if(url)addMedia(media,url,image);else if(image)addImage(media,image);}else{const existing=media.querySelector('video,iframe,img');if(!existing&&url)addMedia(media,url,image);}let shade=hero.querySelector('.wow-clean-shade');if(!shade){shade=document.createElement('div');shade.className='wow-clean-shade';hero.appendChild(shade);}let content=hero.querySelector(':scope > div:not(.wow-clean-media):not(.wow-clean-shade)');if(content){content.classList.add('wow-clean-content');}const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub'),pb=hero.querySelector('#heroPrimaryBtn'),sb=hero.querySelector('#heroSecondaryBtn');if(he)he.textContent=safe(h.eyebrow);if(ht)ht.innerHTML=safe(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');if(hs)hs.textContent=safe(h.subtitle);if(pb){const t=safe(h.buttonText||'Shop Now');if(pb.firstChild)pb.firstChild.nodeValue=t+' ';pb.onclick=()=>go(h.buttonUrl||'#shop');}if(sb){const t=safe(h.button2Text);sb.textContent=t;sb.style.display=t?'inline-flex':'none';sb.onclick=()=>go(h.button2Url||'#new');}hero.style.display=h.visible===false?'none':'flex';}
+function renderHero(){const hero=document.querySelector('.hero-section');if(!hero)return;const d=getData(),h=d.hero||{};const image=Array.isArray(h.images)?safe(h.images[0]):safe(h.image);const url=safe(h.videoUrl||h.video);hero.querySelectorAll('.v6-media,.hero-media-shell,.v34-hero-video,.wow-hero-media,.wow-hero-shade,.wow-final-media,.wow-final-shade').forEach(e=>e.remove());let media=hero.querySelector('.wow-clean-media');if(!media||media.dataset.url!==url){if(media)media.remove();media=document.createElement('div');media.className='wow-clean-media';media.dataset.url=url;const shadeOld=hero.querySelector('.wow-clean-shade');if(shadeOld)shadeOld.remove();hero.insertBefore(media,hero.firstChild);if(url)addMedia(media,url,image);else if(image)addImage(media,image,true);}else{const existing=media.querySelector('video,iframe,img');if(!existing&&url)addMedia(media,url,image);}let shade=hero.querySelector('.wow-clean-shade');if(!shade){shade=document.createElement('div');shade.className='wow-clean-shade';hero.appendChild(shade);}let content=hero.querySelector(':scope > div:not(.wow-clean-media):not(.wow-clean-shade)');if(content){content.classList.add('wow-clean-content');}const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub'),pb=hero.querySelector('#heroPrimaryBtn'),sb=hero.querySelector('#heroSecondaryBtn');if(he)he.textContent=safe(h.eyebrow);if(ht)ht.innerHTML=safe(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');if(hs)hs.textContent=safe(h.subtitle);if(pb){const t=safe(h.buttonText||'Shop Now');if(pb.firstChild)pb.firstChild.nodeValue=t+' ';pb.onclick=()=>go(h.buttonUrl||'#shop');}if(sb){const t=safe(h.button2Text);sb.textContent=t;sb.style.display=t?'inline-flex':'none';sb.onclick=()=>go(h.button2Url||'#new');}hero.style.display=h.visible===false?'none':'flex';}
 function go(url){const u=safe(url||'#shop');if(u.startsWith('#')){if(u==='#new'||u==='#new-arrivals')return typeof navigate==='function'?navigate('shop','new'):null;return typeof navigate==='function'?navigate('shop'):null;}location.href=u;}
-function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');const newArrivalsGrid=document.getElementById('newArrivalsGrid');const newArrivalsSection=newArrivalsGrid?newArrivalsGrid.closest('section'):null;if(newArrivalsSection)newArrivalsSection.insertAdjacentElement('afterend',sec);else if(hero)hero.insertAdjacentElement('afterend',sec);}
-async function boot(){await loadCloud();cleanLegacy();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){}}
+function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img,false);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');const newArrivalsGrid=document.getElementById('newArrivalsGrid');const newArrivalsSection=newArrivalsGrid?newArrivalsGrid.closest('section'):null;if(newArrivalsSection)newArrivalsSection.insertAdjacentElement('afterend',sec);else if(hero)hero.insertAdjacentElement('afterend',sec);}
+async function boot(){cleanLegacy();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){};await loadCloud();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){}}
 let sig='';function watch(){const d=getData();let s='';try{s=JSON.stringify({hero:d.hero,banners:d.banners})}catch(e){}if(s&&s!==sig){sig=s;renderHero();renderPromo();}}
 window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200);window.addEventListener('pageshow',()=>setTimeout(boot,300));
 })();
@@ -5548,13 +5556,15 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
       title:val(rb.title)||val(lb.title)||'WOWSHOPPING',
       logo:val(rb.logo)||val(lb.logo),
       favicon:val(rb.favicon)||val(lb.favicon),
+      meta:val(rb.meta)||val(lb.meta),
       footer:rb.footer||lb.footer||''
     };
   }
   function render(){
     const b=getBrand();
-    document.title=b.title||b.name||'WOWSHOPPING';
-    const name=document.getElementById('siteBrandName'); if(name) name.textContent=b.name||'WOWSHOPPING';
+    document.title=b.title||'WOWSHOPPING';
+    const meta=document.querySelector('meta[name="description"]'); if(meta && b.meta) meta.setAttribute('content',b.meta);
+    const name=document.getElementById('siteBrandName'); if(name){name.textContent='';name.style.display='none';}
     const suffix=document.getElementById('siteBrandSuffix'); if(suffix){const parts=String(b.name||'').split('.');suffix.textContent=parts.length>1?'.'+parts.slice(1).join('.') : '';}
     const icon=document.getElementById('siteBrandIcon');
     if(icon){
@@ -5564,7 +5574,7 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
           icon.dataset.logo=b.logo;
           icon.innerHTML='';
           const img=document.createElement('img');
-          img.src=b.logo; img.alt=b.name+' logo'; img.decoding='async'; img.loading='eager';
+          img.src=b.logo; img.alt=b.name+' logo'; img.decoding='async'; img.loading='eager'; img.fetchPriority='high';
           img.style.cssText='display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent;';
           img.onerror=function(){icon.dataset.logo='';icon.innerHTML='<span style="display:flex;align-items:center;justify-content:flex-start;width:100%;height:100%;font-weight:900;font-size:18px;color:#111827;letter-spacing:-.6px">'+safeText(b.name)+'</span>';};
           icon.appendChild(img);
@@ -5579,6 +5589,19 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   window.addEventListener('load',boot); window.addEventListener('pageshow',boot);
   window.addEventListener('wow:branding-updated',render);
   setInterval(()=>{try{const b=getBrand();const icon=document.getElementById('siteBrandIcon');if(icon && b.logo && icon.dataset.logo!==b.logo) render();}catch(e){}},2500);
+})();
+</script>
+<script id="wow-performance-v1">
+(function(){
+  function tune(){
+    document.querySelectorAll('img:not(#siteBrandIcon img):not(.wow-hero-poster)').forEach((im,i)=>{
+      if(!im.hasAttribute('loading')) im.loading='lazy';
+      if(!im.hasAttribute('decoding')) im.decoding='async';
+    });
+    document.querySelectorAll('iframe:not([loading])').forEach(f=>f.loading='lazy');
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(tune,0),{once:true}); else setTimeout(tune,0);
+  window.addEventListener('load',()=>setTimeout(tune,50),{once:true});
 })();
 </script>
 </body>

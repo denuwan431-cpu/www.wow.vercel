@@ -5383,5 +5383,125 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
 })();
 </script>
 
+
+<style id="wow-mobile-menu-visible-v2">
+@media (max-width:767px){
+  /* The horizontal menu must stay scrollable, while dropdowns escape its clipping. */
+  #site-header #desktopNav{overflow-x:auto!important;overflow-y:hidden!important;}
+  #site-header #desktopNav .admin-menu-dropdown.wow-mobile-fixed-open{
+    position:fixed!important;
+    display:block!important;
+    z-index:2147483000!important;
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    width:max-content!important;
+    min-width:190px!important;
+    max-width:calc(100vw - 20px)!important;
+    max-height:58vh!important;
+    box-sizing:border-box!important;
+    background:#fff!important;
+    border:1px solid #e5e7eb!important;
+    border-radius:12px!important;
+    padding:6px!important;
+    box-shadow:0 16px 42px rgba(15,23,42,.20)!important;
+  }
+  #site-header #desktopNav .admin-menu-dropdown.wow-mobile-fixed-open .admin-menu-dropdown{
+    position:fixed!important;
+  }
+}
+</style>
+<script id="wow-mobile-menu-visible-v2-js">
+(function(){
+  'use strict';
+  const MOBILE=767;
+  function label(el){return (el?.textContent||'').replace(/[⌄▼▾]/g,'').replace(/\s+/g,' ').trim().toLowerCase();}
+  function closeAll(nav,except){
+    nav.querySelectorAll('.admin-menu-dropdown.wow-mobile-fixed-open').forEach(p=>{
+      if(p!==except){p.classList.remove('wow-mobile-fixed-open','is-open');p.style.display='none';}
+    });
+  }
+  function place(panel,anchor){
+    if(!panel||!anchor)return;
+    const r=anchor.getBoundingClientRect();
+    const w=Math.min(Math.max(panel.scrollWidth||205,190),window.innerWidth-20);
+    let left=Math.max(10,Math.min(r.left,window.innerWidth-w-10));
+    let top=r.bottom+5;
+    const h=Math.min(panel.scrollHeight||360,Math.floor(window.innerHeight*.58));
+    if(top+h>window.innerHeight-8) top=Math.max(8,r.top-h-5);
+    panel.style.position='fixed';
+    panel.style.left=left+'px';
+    panel.style.top=top+'px';
+    panel.style.width=w+'px';
+    panel.style.maxWidth=(window.innerWidth-20)+'px';
+    panel.style.maxHeight=Math.floor(window.innerHeight*.58)+'px';
+    panel.style.zIndex='2147483000';
+    panel.style.display='block';
+  }
+  function cleanTop(){
+    const nav=document.getElementById('desktopNav');
+    const managed=nav?.querySelector('.admin-managed-menu');
+    if(!managed)return;
+    const seen=new Set();
+    Array.from(managed.children).forEach(el=>{
+      const a=el.matches('.nav-link')?el:el.querySelector(':scope > .nav-link');
+      const t=label(a); if(!t)return;
+      if(seen.has(t)) el.remove(); else seen.add(t);
+    });
+  }
+  function bind(){
+    const nav=document.getElementById('desktopNav');
+    if(!nav||window.innerWidth>MOBILE)return;
+    cleanTop();
+    nav.querySelectorAll('.admin-menu-node > .nav-link').forEach(link=>{
+      const node=link.parentElement;
+      const panel=node?.querySelector(':scope > .admin-menu-dropdown');
+      if(!panel)return;
+      if(link.dataset.wowV2==='1')return;
+      link.dataset.wowV2='1';
+      link.addEventListener('click',function(e){
+        e.preventDefault();e.stopPropagation();
+        const open=panel.classList.contains('wow-mobile-fixed-open');
+        closeAll(nav,panel);
+        if(open){panel.classList.remove('wow-mobile-fixed-open','is-open');panel.style.display='none';return;}
+        panel.classList.add('wow-mobile-fixed-open','is-open');
+        place(panel,link);
+        /* Make nested child clicks independently position their own panels. */
+        requestAnimationFrame(()=>{
+          panel.querySelectorAll('.admin-menu-node > .nav-link').forEach(child=>{
+            const childNode=child.parentElement;
+            const childPanel=childNode?.querySelector(':scope > .admin-menu-dropdown');
+            if(!childPanel||child.dataset.wowV2Child==='1')return;
+            child.dataset.wowV2Child='1';
+            child.addEventListener('click',function(ev){
+              ev.preventDefault();ev.stopPropagation();
+              const isOpen=childPanel.classList.contains('wow-mobile-fixed-open');
+              closeAll(nav,childPanel);
+              if(isOpen){childPanel.classList.remove('wow-mobile-fixed-open','is-open');childPanel.style.display='none';return;}
+              childPanel.classList.add('wow-mobile-fixed-open','is-open');
+              place(childPanel,child);
+            },true);
+          });
+        });
+      },true);
+    });
+  }
+  document.addEventListener('click',e=>{
+    if(window.innerWidth>MOBILE)return;
+    const nav=document.getElementById('desktopNav');
+    if(nav&&!nav.contains(e.target))closeAll(nav,null);
+  },true);
+  window.addEventListener('scroll',()=>{
+    if(window.innerWidth>MOBILE)return;
+    const nav=document.getElementById('desktopNav');
+    nav?.querySelectorAll('.admin-menu-dropdown.wow-mobile-fixed-open').forEach(p=>{
+      const owner=p.parentElement?.querySelector(':scope > .nav-link');
+      if(owner)place(p,owner);
+    });
+  },{passive:true});
+  window.addEventListener('resize',()=>setTimeout(bind,80),{passive:true});
+  window.addEventListener('load',()=>setTimeout(bind,500));
+  setInterval(bind,1000);
+})();
+</script>
 </body>
 </html>

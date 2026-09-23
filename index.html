@@ -5064,3 +5064,115 @@ try{renderCategoryAwareFilters();}catch(e){}
   let last='';setInterval(()=>{const x=window.__WOW_REMOTE_STORE;if(!x)return;try{const s=JSON.stringify({hero:x.hero,banners:x.banners,products:x.products});if(s!==last){last=s;run()}}catch(e){}},900);
 })();
 </script>
+
+
+<style id="wow-final-left-text-small-video">
+/* FINAL REQUEST: compact hero, video fills the banner, text stays on the LEFT. */
+.hero-section{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  min-height:0!important;
+  height:clamp(360px,34vw,500px)!important;
+  display:flex!important;
+  align-items:center!important;
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:#07111f!important;
+}
+.hero-section .wow-hero-media{
+  position:absolute!important; inset:0!important; z-index:0!important;
+  width:100%!important; height:100%!important; overflow:hidden!important;
+  background:#07111f!important;
+}
+.hero-section .wow-hero-media video,
+.hero-section .wow-hero-media iframe,
+.hero-section .wow-hero-media img{
+  position:absolute!important; inset:0!important;
+  width:100%!important; height:100%!important;
+  min-width:100%!important; min-height:100%!important;
+  max-width:none!important; max-height:none!important;
+  border:0!important; display:block!important;
+  object-fit:cover!important; object-position:center center!important;
+}
+.hero-section .wow-hero-media video{z-index:2!important;opacity:1!important;visibility:visible!important;}
+.hero-section .wow-hero-media iframe{z-index:2!important;opacity:1!important;visibility:visible!important;}
+.hero-section .wow-hero-media .wow-hero-poster{z-index:1!important;}
+.hero-section .wow-hero-shade{
+  position:absolute!important; inset:0!important; z-index:3!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.40) 30%,rgba(0,0,0,.12) 62%,rgba(0,0,0,.02) 100%)!important;
+}
+.hero-section>div:first-child{
+  position:relative!important; z-index:5!important;
+  width:100%!important; max-width:1400px!important;
+  margin:0 auto!important; padding:0 6vw!important;
+  box-sizing:border-box!important;
+  display:flex!important; justify-content:flex-start!important; align-items:center!important;
+}
+.hero-section .hero-content{
+  position:relative!important; z-index:6!important;
+  width:min(560px,46vw)!important; max-width:560px!important;
+  margin:0!important; text-align:left!important;
+  color:#fff!important;
+}
+.hero-section .hero-eyebrow{font-size:10px!important;letter-spacing:2.5px!important;margin-bottom:11px!important;}
+.hero-section .hero-title{font-size:clamp(36px,4.2vw,62px)!important;line-height:1.02!important;letter-spacing:-1.2px!important;margin:0 0 13px!important;}
+.hero-section .hero-sub{font-size:15px!important;line-height:1.5!important;max-width:500px!important;margin:0 0 22px!important;}
+.hero-section .hero-actions{justify-content:flex-start!important;gap:10px!important;}
+.hero-section .hero-actions .btn{min-height:42px!important;padding:10px 16px!important;font-size:13px!important;}
+
+@media(max-width:767px){
+  .hero-section{
+    height:clamp(285px,76vw,390px)!important;
+    min-height:285px!important;
+    max-height:390px!important;
+    align-items:center!important;
+  }
+  .hero-section>div:first-child{
+    padding:0 17px!important;
+    justify-content:flex-start!important;
+  }
+  .hero-section .hero-content{
+    width:72%!important;
+    max-width:72%!important;
+    text-align:left!important;
+  }
+  .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.7px!important;margin-bottom:7px!important;}
+  .hero-section .hero-title{font-size:clamp(25px,8.2vw,38px)!important;line-height:1.03!important;letter-spacing:-.5px!important;margin-bottom:8px!important;}
+  .hero-section .hero-sub{font-size:11px!important;line-height:1.4!important;margin-bottom:12px!important;max-width:100%!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;}
+  .hero-section .hero-actions{justify-content:flex-start!important;gap:7px!important;}
+  .hero-section .hero-actions .btn{min-height:34px!important;padding:8px 11px!important;font-size:10px!important;border-radius:6px!important;}
+  .hero-section .wow-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.70) 0%,rgba(0,0,0,.35) 42%,rgba(0,0,0,.08) 100%)!important;}
+  .hero-section .wow-hero-media video,.hero-section .wow-hero-media iframe,.hero-section .wow-hero-media img{object-position:center center!important;}
+}
+</style>
+
+<script id="wow-final-video-autoplay-left-text">
+(function(){
+  'use strict';
+  function ensureVideoPlaying(){
+    document.querySelectorAll('.hero-section .wow-hero-media video').forEach(function(v){
+      try{
+        v.muted=true; v.defaultMuted=true; v.autoplay=true; v.loop=true; v.playsInline=true;
+        v.setAttribute('muted',''); v.setAttribute('autoplay',''); v.setAttribute('loop','');
+        v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+        var p=v.play(); if(p&&p.catch)p.catch(function(){});
+      }catch(e){}
+    });
+  }
+  function finalHeroLayout(){
+    var hero=document.querySelector('.hero-section'); if(!hero)return;
+    hero.style.display='flex';
+    var media=hero.querySelector('.wow-hero-media');
+    if(media){media.style.display='block';media.style.visibility='visible';media.style.opacity='1';}
+    var content=hero.querySelector('.hero-content');
+    if(content){content.style.textAlign='left';content.style.marginLeft='0';content.style.marginRight='0';}
+    ensureVideoPlaying();
+  }
+  document.addEventListener('DOMContentLoaded',function(){setTimeout(finalHeroLayout,250);setTimeout(finalHeroLayout,1200);setTimeout(finalHeroLayout,2500);});
+  window.addEventListener('load',function(){setTimeout(finalHeroLayout,150);});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(finalHeroLayout,100);});
+})();
+</script>

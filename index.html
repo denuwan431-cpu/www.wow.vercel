@@ -2012,6 +2012,542 @@ html,body{overflow-x:hidden!important}
   }
 </style>
 
+
+<style id="wow-mobile-final-polish">
+/* FINAL PHONE OPTIMIZATION — keeps every section/content, only reflows and resizes it. */
+@media (max-width: 767px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden;}
+  body{min-width:0;}
+  .container,.section-container,.section-inner,.wow-promise-wrap,.v9-footer-inner{width:100%!important;max-width:100%!important;}
+
+  /* Header/search/navigation */
+  #site-header{width:100%!important;overflow:visible!important;}
+  #site-header>div{width:100%!important;}
+  .nav-link{white-space:nowrap;}
+
+  /* Keep product/category content fully available without horizontal overflow. */
+  .product-grid-4,.product-grid-3,.product-grid{width:100%!important;min-width:0!important;}
+  .product-card{min-width:0!important;}
+  .product-img-wrap img{width:100%;height:100%;object-fit:cover;}
+
+  /* Promise: all 3 promise cards remain; stack cleanly on phones. */
+  .wow-promise-section{padding:42px 0 44px!important;}
+  .wow-promise-wrap{padding:0 16px!important;}
+  .wow-promise-label{font-size:10px!important;letter-spacing:.14em!important;}
+  .wow-promise-title{font-size:25px!important;line-height:1.18!important;margin-bottom:12px!important;}
+  .wow-promise-desc{font-size:13px!important;line-height:1.65!important;margin-bottom:30px!important;}
+  .wow-promise-grid{grid-template-columns:1fr!important;gap:24px!important;}
+  .wow-promise-card{width:100%!important;padding:0 4px!important;}
+  .wow-promise-icon{width:54px!important;height:54px!important;margin-bottom:12px!important;}
+  .wow-promise-icon svg{width:24px!important;height:24px!important;}
+  .wow-promise-card h3{font-size:15px!important;margin-bottom:6px!important;}
+  .wow-promise-card p{font-size:12px!important;line-height:1.6!important;max-width:430px;margin-left:auto!important;margin-right:auto!important;}
+
+  /* Footer: NOTHING removed — all sections stay visible and become a clean phone layout. */
+  .v9-footer-inner{padding:38px 16px 20px!important;}
+  .v9-footer-main{display:block!important;width:100%!important;}
+  .v9-footer-brand{width:100%!important;max-width:none!important;min-width:0!important;margin-bottom:30px!important;}
+  .v9-footer-brand-name{font-size:19px!important;margin-bottom:9px!important;}
+  .v9-footer-desc{font-size:12px!important;line-height:1.65!important;max-width:430px;}
+  .v9-follow-title{margin-top:20px!important;margin-bottom:10px!important;}
+  .v9-social-row{gap:8px!important;}
+  .v9-social{width:38px!important;height:38px!important;}
+  .v9-footer-sections{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:26px 18px!important;
+  }
+  .v9-footer-sections>div{min-width:0!important;}
+  .v9-footer-title{font-size:11px!important;letter-spacing:1.2px!important;margin-bottom:9px!important;}
+  .v9-footer-link{font-size:12px!important;line-height:1.4!important;padding:5px 0!important;word-break:break-word;}
+  .v9-footer-contact{font-size:11px!important;line-height:1.45!important;}
+  .v9-footer-bottom{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:12px!important;
+    margin-top:28px!important;
+    padding-top:16px!important;
+    font-size:10px!important;
+  }
+  .v9-footer-payments{width:100%!important;gap:6px!important;}
+  .v9-footer-payments span{font-size:8px!important;padding:5px 7px!important;}
+
+  /* Prevent long labels/links from breaking the phone width. */
+  .v9-footer a,.v9-footer span,.v9-footer div{max-width:100%;}
+
+  /* Wishlist count badge: keep Wishlist itself, remove only the red dot/count. */
+  #wishlistBadge{display:none!important;}
+}
+
+@media (max-width:390px){
+  .v9-footer-inner{padding-left:14px!important;padding-right:14px!important;}
+  .v9-footer-sections{gap:22px 14px!important;}
+  .v9-footer-link{font-size:11px!important;}
+  .wow-promise-wrap{padding-left:14px!important;padding-right:14px!important;}
+}
+</style>
+
+
+<style id="mobile-footer-optimization">
+/* WOWSHOPPING mobile footer optimization */
+@media (max-width: 768px) {
+  .footer, footer {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  footer .container,
+  .footer .container,
+  footer .footer-container,
+  .footer .footer-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    box-sizing: border-box;
+  }
+
+  footer .footer-grid,
+  .footer .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  footer .footer-brand,
+  .footer .footer-brand {
+    width: 100% !important;
+  }
+
+  footer h2, footer h3,
+  .footer h2, .footer h3 {
+    margin-bottom: 10px;
+  }
+
+  footer a,
+  .footer a {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* Social icons: compact, touch-friendly row */
+  footer .social-links,
+  .footer .social-links,
+  footer .social-icons,
+  .footer .social-icons {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+
+  footer .social-links a,
+  .footer .social-links a,
+  footer .social-icons a,
+  .footer .social-icons a {
+    min-width: 42px;
+    min-height: 42px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Promise cards: keep all three, stack cleanly */
+  .promise-grid,
+  .promises-grid,
+  .features-grid,
+  .why-shop-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .promise-card,
+  .promise-item,
+  .feature-card,
+  .why-shop-card {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Prevent horizontal overflow from long text/links */
+  body {
+    overflow-x: hidden;
+  }
+
+  img, svg {
+    max-width: 100%;
+  }
+}
+</style>
+
+
+<style id="wow-mobile-pro-final">
+/* =========================================================
+   WOWSHOPPING — FINAL MOBILE APP UI / PERFORMANCE LAYER
+   Keeps all existing content & functionality intact.
+   ========================================================= */
+@media (max-width:767px){
+  :root{
+    --mobile-pad:14px;
+    --mobile-radius:14px;
+    --mobile-shadow:0 8px 24px rgba(15,23,42,.07);
+  }
+
+  html{scroll-padding-top:112px;overscroll-behavior-x:none;}
+  body{
+    min-width:0!important;
+    width:100%!important;
+    overflow-x:hidden!important;
+    background:#fff;
+    padding-bottom:calc(78px + env(safe-area-inset-bottom))!important;
+  }
+
+  /* ---------- Compact app header ---------- */
+  #site-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:6000!important;
+    background:rgba(255,255,255,.96)!important;
+    border-bottom:1px solid #edf0f4!important;
+    box-shadow:0 2px 16px rgba(15,23,42,.055)!important;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+  #site-header .top-bar{
+    height:26px!important;
+    min-height:26px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    padding:0 10px!important;
+    font-size:9px!important;
+    letter-spacing:.35px!important;
+  }
+  #site-header>div{
+    padding:0 var(--mobile-pad)!important;
+  }
+  #site-header .wow-main-header-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:50px 48px!important;
+    gap:0 8px!important;
+    padding:7px 0 9px!important;
+    align-items:center!important;
+  }
+
+  /* Logo */
+  #site-header .wow-main-header-row>div:first-child{
+    min-width:0!important;
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  #siteBrandIcon{display:none!important;}
+  #siteBrandName{
+    font-size:18px!important;
+    letter-spacing:-.65px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+
+  /* Header actions */
+  #site-header .wow-header-actions{
+    grid-column:2!important;
+    grid-row:1!important;
+    gap:2px!important;
+    margin-left:0!important;
+  }
+  #site-header .wow-header-actions .btn-ghost{
+    width:40px!important;
+    height:40px!important;
+    min-width:40px!important;
+    min-height:40px!important;
+    padding:0!important;
+    border-radius:11px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    color:#111827!important;
+  }
+  #site-header .wow-header-actions .btn-ghost:active{
+    background:#f1f5f9!important;
+    transform:scale(.95);
+  }
+  /* Desktop duplicate search action is unnecessary on phone */
+  #site-header .wow-header-actions .btn-ghost[title="Search"]{display:none!important;}
+  /* Wishlist stays available in the account/menu area, not the bottom bar */
+  #site-header .wow-header-actions .btn-ghost[title="Wishlist"]{display:none!important;}
+  #hamburgerBtn{
+    display:flex!important;
+    order:9!important;
+  }
+
+  /* Search */
+  #site-header .desktop-search{
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    display:flex!important;
+  }
+  #site-header .desktop-search .search-input{
+    width:100%!important;
+    height:44px!important;
+    min-height:44px!important;
+    border:1px solid #e1e6ed!important;
+    border-radius:13px!important;
+    background:#f7f8fa!important;
+    padding:0 14px 0 42px!important;
+    font-size:16px!important;
+    color:#111827!important;
+    box-shadow:none!important;
+  }
+  #site-header .desktop-search .search-input:focus{
+    background:#fff!important;
+    border-color:#111827!important;
+    box-shadow:0 0 0 3px rgba(17,24,39,.07)!important;
+  }
+  #site-header .desktop-search i{
+    left:14px!important;
+    width:17px!important;
+    height:17px!important;
+    color:#64748b!important;
+  }
+  #desktopNav{display:none!important;}
+
+  /* ---------- Hero ---------- */
+  .hero-section{
+    width:100%!important;
+    height:min(66svh,570px)!important;
+    min-height:430px!important;
+    border-radius:0!important;
+  }
+  .hero-section > div:first-child{
+    padding:0 16px 25px!important;
+  }
+  .hero-content{width:100%!important;max-width:100%!important;}
+  .hero-eyebrow{
+    font-size:9px!important;
+    letter-spacing:2px!important;
+    margin-bottom:9px!important;
+  }
+  .hero-title{
+    font-size:clamp(32px,10.5vw,50px)!important;
+    line-height:1.02!important;
+    letter-spacing:-1.1px!important;
+    margin-bottom:12px!important;
+  }
+  .hero-sub{
+    font-size:14px!important;
+    line-height:1.5!important;
+    margin-bottom:17px!important;
+  }
+  .hero-content .btn{
+    min-height:46px!important;
+    width:auto!important;
+    padding:0 20px!important;
+    border-radius:11px!important;
+  }
+
+  /* ---------- Page containers ---------- */
+  #mainContent>section,
+  #mainContent>.page>section{
+    max-width:100%!important;
+  }
+  .section-title{
+    font-size:24px!important;
+    line-height:1.15!important;
+  }
+  .section-sub{font-size:13px!important;}
+  .section-label{font-size:9px!important;letter-spacing:1.6px!important;}
+
+  /* ---------- Category rail ---------- */
+  .category-rail-head{
+    gap:10px!important;
+    margin-bottom:14px!important;
+  }
+  .category-rail-controls{display:none!important;}
+  .category-rail-hint{font-size:9px!important;letter-spacing:1px!important;}
+  .cat-grid{
+    gap:10px!important;
+    padding:3px 2px 12px!important;
+    scroll-snap-type:x mandatory!important;
+  }
+  .cat-grid .cat-card{
+    flex:0 0 132px!important;
+    width:132px!important;
+    height:164px!important;
+    border-radius:15px!important;
+    box-shadow:0 7px 20px rgba(15,23,42,.09)!important;
+  }
+  .cat-grid .cat-card-label{
+    font-size:13px!important;
+    padding:27px 11px 13px!important;
+  }
+
+  /* ---------- Product grids ---------- */
+  .product-grid-4,.product-grid-3,.product-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  .product-card{
+    min-width:0!important;
+    border-radius:13px!important;
+    border-color:#edf0f3!important;
+    box-shadow:0 4px 16px rgba(15,23,42,.045)!important;
+  }
+  .product-img-wrap{
+    aspect-ratio:3/4!important;
+    border-radius:12px 12px 0 0!important;
+  }
+  .product-info{padding:10px 10px 12px!important;}
+  .product-cat{font-size:8px!important;letter-spacing:.65px!important;margin-bottom:3px!important;}
+  .product-name{
+    font-size:12.5px!important;
+    line-height:1.35!important;
+    margin-bottom:6px!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:2!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+  .price-main{font-size:14px!important;}
+  .price-old{font-size:10px!important;}
+  .price-disc{font-size:9px!important;}
+  .star-wrap{margin-bottom:4px!important;}
+  .product-badges{top:7px!important;left:7px!important;}
+  .badge{min-height:21px!important;padding:4px 6px!important;font-size:7.5px!important;border-radius:7px!important;}
+  .product-img-overlay{
+    padding:7px!important;
+    gap:5px!important;
+    pointer-events:none!important;
+  }
+  .product-action-btn{
+    width:38px!important;height:38px!important;
+    min-width:38px!important;min-height:38px!important;
+    pointer-events:auto!important;
+  }
+
+  /* ---------- Promo / media ---------- */
+  .single-promo-banner{margin-left:0!important;margin-right:0!important;}
+  .single-promo-banner img{
+    width:100%!important;
+    max-height:205px!important;
+    border-radius:13px!important;
+  }
+  .promo-card{min-height:210px!important;border-radius:13px!important;}
+  .promo-card-content{padding:18px!important;}
+
+  /* ---------- Benefits ---------- */
+  .wow-benefits-inner{overflow:hidden!important;}
+  .wow-benefits-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    padding:12px 12px!important;
+    gap:2px 6px!important;
+  }
+  .wow-benefit-card{padding:9px 3px!important;gap:9px!important;}
+  .wow-benefit-icon{width:38px!important;height:38px!important;flex-basis:38px!important;border-radius:10px!important;}
+  .wow-benefit-icon svg{width:18px!important;height:18px!important;}
+  .wow-benefit-title{font-size:11px!important;}
+  .wow-benefit-text{font-size:9.5px!important;line-height:1.3!important;}
+
+  /* ---------- Promise ---------- */
+  .wow-promise-section{padding:44px 0!important;}
+  .wow-promise-wrap{padding:0 16px!important;}
+  .wow-promise-title{font-size:26px!important;}
+  .wow-promise-desc{font-size:13px!important;line-height:1.6!important;margin-bottom:30px!important;}
+  .wow-promise-grid{grid-template-columns:1fr!important;gap:26px!important;}
+  .wow-promise-icon{width:52px!important;height:52px!important;margin-bottom:12px!important;}
+  .wow-promise-card h3{font-size:14px!important;}
+  .wow-promise-card p{font-size:12px!important;}
+
+  /* ---------- Footer ---------- */
+  #site-footer{
+    padding-bottom:calc(16px + env(safe-area-inset-bottom))!important;
+  }
+  #site-footer .footer-grid,
+  .v9-footer-sections{
+    grid-template-columns:1fr 1fr!important;
+    gap:22px 14px!important;
+  }
+  #site-footer .footer-title{font-size:10px!important;margin-bottom:9px!important;}
+  #site-footer .footer-link{font-size:11px!important;padding:4px 0!important;}
+  #site-footer .social-link{width:34px!important;height:34px!important;}
+  #site-footer .v6-payment{gap:5px!important;flex-wrap:wrap!important;}
+
+  /* ---------- Drawers / modals ---------- */
+  .mobile-drawer{
+    width:min(88vw,340px)!important;
+    border-radius:0 18px 18px 0!important;
+  }
+  .mobile-nav-item{min-height:50px!important;}
+  .cart-drawer{
+    width:100vw!important;
+    border-radius:18px 18px 0 0!important;
+  }
+  .modal-overlay{padding:10px!important;}
+  .modal{
+    width:100%!important;
+    max-width:100%!important;
+    max-height:92svh!important;
+    border-radius:18px!important;
+  }
+
+  /* ---------- Bottom app navigation ---------- */
+  #wow-mobile-bottom-nav{
+    height:calc(64px + env(safe-area-inset-bottom))!important;
+    min-height:64px!important;
+    padding:5px 8px env(safe-area-inset-bottom)!important;
+    background:rgba(255,255,255,.97)!important;
+    border-top:1px solid #e8edf2!important;
+    box-shadow:0 -8px 28px rgba(15,23,42,.10)!important;
+    backdrop-filter:blur(18px)!important;
+    -webkit-backdrop-filter:blur(18px)!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab{
+    height:54px!important;
+    gap:3px!important;
+    border-radius:12px!important;
+    font-size:9px!important;
+    font-weight:700!important;
+    color:#64748b!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab.active{
+    color:#111827!important;
+    background:#f4f6f8!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab svg{
+    width:20px!important;height:20px!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-badge{
+    top:4px!important;
+    margin-left:18px!important;
+    min-width:14px!important;height:14px!important;
+    line-height:14px!important;font-size:7px!important;
+  }
+
+  /* Touch & motion */
+  button,a,.cat-card,.product-card,.wow-mobile-tab{ -webkit-tap-highlight-color:transparent!important; }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}
+  }
+}
+
+@media (max-width:380px){
+  #site-header .wow-main-header-row{grid-template-rows:48px 46px!important;}
+  #site-header .wow-header-actions .btn-ghost{width:38px!important;height:38px!important;min-width:38px!important;}
+  #siteBrandName{font-size:17px!important;}
+  #site-header .desktop-search .search-input{height:42px!important;}
+  .hero-section{height:500px!important;min-height:500px!important;}
+  .product-grid-4,.product-grid-3,.product-grid{gap:8px!important;}
+  .cat-grid .cat-card{flex-basis:124px!important;width:124px!important;height:154px!important;}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
@@ -2123,7 +2659,7 @@ html,body{overflow-x:hidden!important}
         </button>
         <button class="btn-ghost" onclick="navigate('wishlist')" title="Wishlist" style="position:relative;">
           <i data-lucide="heart" style="width:20px;height:20px;"></i>
-          <span id="wishlistBadge" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#ef4444;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
+          <span id="wishlistBadge" style="display:none!important;"></span>
         </button>
         <button class="btn-ghost" onclick="openCart()" title="Cart" style="position:relative;">
           <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
@@ -6159,5 +6695,47 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   setInterval(ensureHeader,1500);
 })();
 </script>
+
+<script id="wow-mobile-performance-final">
+(function(){
+  "use strict";
+  /* Keep media light on phones without changing product functionality. */
+  function optimizeImages(){
+    document.querySelectorAll('img').forEach(function(img){
+      if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
+      if(!img.closest('.hero-section') && !img.hasAttribute('loading')){
+        img.setAttribute('loading','lazy');
+      }
+    });
+    document.querySelectorAll('.product-img').forEach(function(img){
+      img.setAttribute('loading','lazy');
+      img.setAttribute('decoding','async');
+    });
+  }
+
+  function addMobileSectionSpacing(){
+    if(window.innerWidth>767) return;
+    document.querySelectorAll('#mainContent > section, #mainContent > .page > section').forEach(function(el){
+      if(!el.dataset.wowMobileOptimized){
+        el.dataset.wowMobileOptimized='1';
+        el.style.contentVisibility='auto';
+        el.style.containIntrinsicSize='1px 500px';
+      }
+    });
+  }
+
+  function sync(){
+    optimizeImages();
+    addMobileSectionSpacing();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',sync,{once:true});
+  }else sync();
+
+  window.addEventListener('load',sync,{once:true});
+})();
+</script>
+
 </body>
 </html>

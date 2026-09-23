@@ -8097,5 +8097,111 @@ window.addEventListener('resize',()=>setTimeout(wake,100));
 })();
 </script>
 
+
+<style id="wow-video-only-final-css">
+/* FINAL: hero is VIDEO ONLY. Never render a photo fallback. */
+.hero-section{position:relative!important;overflow:hidden!important;isolation:isolate!important;width:100%!important;background:#050914!important;}
+.hero-section .wow-video-only-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important;}
+.hero-section .wow-video-only-media video,
+.hero-section .wow-video-only-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important;background:#050914!important;}
+.hero-section .wow-video-only-media img{display:none!important!important;}
+.hero-section .wow-video-only-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(2,7,18,.78) 0%,rgba(2,7,18,.42) 42%,rgba(2,7,18,.08) 75%,rgba(2,7,18,.04) 100%)!important;}
+.hero-section .wow-video-only-content{position:relative!important;z-index:3!important;}
+@media(max-width:767px){
+  .hero-section{height:clamp(360px,72vw,520px)!important;min-height:360px!important;max-height:520px!important;align-items:flex-end!important;}
+  .hero-section .wow-video-only-shade{background:linear-gradient(90deg,rgba(2,7,18,.82) 0%,rgba(2,7,18,.50) 48%,rgba(2,7,18,.12) 100%)!important;}
+  .hero-section .wow-video-only-media video,.hero-section .wow-video-only-media iframe{object-position:center center!important;}
+  .hero-section .hero-content,.hero-section .wow-video-only-content{width:100%!important;max-width:100%!important;padding:0 18px 24px!important;}
+  .hero-section .hero-eyebrow{font-size:9px!important;letter-spacing:2px!important;margin-bottom:7px!important;}
+  .hero-section .hero-title{font-size:clamp(30px,9.5vw,46px)!important;line-height:.98!important;max-width:235px!important;margin:0 0 9px!important;}
+  .hero-section .hero-sub{font-size:12px!important;line-height:1.35!important;max-width:210px!important;margin:0 0 13px!important;}
+  .hero-section .hero-actions{display:flex!important;gap:7px!important;flex-wrap:nowrap!important;}
+  .hero-section .hero-actions .btn{min-height:36px!important;height:36px!important;padding:7px 12px!important;font-size:11px!important;border-radius:8px!important;white-space:nowrap!important;}
+}
+</style>
+
+<script id="wow-video-only-final-js">
+(function(){
+  'use strict';
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  const clean=v=>String(v??'').trim();
+  function allHero(){return document.querySelector('.hero-section');}
+  function candidates(obj){
+    const out=[]; if(!obj||typeof obj!=='object') return out;
+    ['videoUrl','videoURL','video','videoSrc','videoSource','bannerVideo','bannerVideoUrl','mediaUrl','mediaURL','src','url'].forEach(k=>{const v=clean(obj[k]);if(v)out.push(v);});
+    if(obj.media&&typeof obj.media==='object') out.push(...candidates(obj.media));
+    if(Array.isArray(obj.videos)) obj.videos.forEach(x=>{if(typeof x==='string')out.push(clean(x));else out.push(...candidates(x));});
+    return out.filter(Boolean);
+  }
+  function heroData(){
+    const d=[];
+    try{if(window.__WOW_REMOTE_STORE)d.push(window.__WOW_REMOTE_STORE);}catch(e){}
+    try{if(window.__WOW_STORE_DATA)d.push(window.__WOW_STORE_DATA);}catch(e){}
+    try{d.push(JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}'));}catch(e){}
+    try{d.push(JSON.parse(localStorage.getItem('wow_admin_data')||'{}'));}catch(e){}
+    return d;
+  }
+  function findVideo(){
+    for(const root of heroData()){
+      const h=root?.hero||root?.storefront?.hero||root?.home?.hero||{};
+      const b=Array.isArray(root?.banners)?root.banners.find(x=>x&&x.visible!==false):null;
+      const vals=[...candidates(h),...candidates(root),...candidates(b)];
+      const v=vals.find(Boolean); if(v)return v;
+    }
+    return '';
+  }
+  function yt(url){
+    try{const u=new URL(url,location.href);let id=u.searchParams.get('v')||'';if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(u.hostname.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';}catch(e){}return '';
+  }
+  function vim(url){try{const u=new URL(url,location.href),m=u.pathname.match(/(?:video\/)?(\d+)/);if(u.hostname.includes('vimeo.com')&&m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}catch(e){}return '';}
+  async function resolveStorage(url){
+    if(!/^gs:\/\//i.test(url)) return url;
+    try{if(window.firebase?.storage){return await window.firebase.storage().refFromURL(url).getDownloadURL();}}catch(e){}
+    return url;
+  }
+  function isEmbed(url){return !!(yt(url)||vim(url));}
+  function isLikelyVideo(url){return /\.(mp4|webm|ogg|m4v|mov)(?:[?#].*)?$/i.test(url)||/^blob:|^data:video\//i.test(url)||/^https?:\/\//i.test(url)||/^gs:\/\//i.test(url);}
+  function removeAllPhotoFallbacks(hero){
+    hero.querySelectorAll('.wow-clean-media,.wow-hero-media,.wow-absolute-hero-media,.wow-final-media,.v6-media,.hero-media-shell,.v34-hero-video').forEach(e=>{if(!e.classList.contains('wow-video-only-media'))e.remove();});
+    hero.querySelectorAll('img').forEach(img=>img.remove());
+    hero.querySelectorAll('[style*="background-image"]').forEach(e=>e.style.backgroundImage='none');
+  }
+  async function render(){
+    const hero=allHero(); if(!hero)return;
+    let url=findVideo();
+    if(!url){await sleep(900);url=findVideo();}
+    removeAllPhotoFallbacks(hero);
+    let media=hero.querySelector('.wow-video-only-media');
+    if(!media){media=document.createElement('div');media.className='wow-video-only-media';hero.insertBefore(media,hero.firstChild);}
+    media.innerHTML='';
+    if(!url){
+      media.setAttribute('aria-label','Hero video is not configured');
+      return;
+    }
+    url=await resolveStorage(url);
+    const ye=yt(url), ve=vim(url);
+    if(ye||ve){
+      const f=document.createElement('iframe');f.src=ye||ve;f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');f.title='WOWSHOPPING hero video';media.appendChild(f);
+    }else if(isLikelyVideo(url)){
+      const v=document.createElement('video');
+      v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');
+      const play=()=>{v.muted=true;const p=v.play();if(p?.catch)p.catch(()=>{});};
+      ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>v.addEventListener(ev,play));
+      v.addEventListener('error',()=>{media.innerHTML='';});
+      media.appendChild(v);play();
+      setTimeout(play,500);setTimeout(play,1500);setTimeout(play,3000);
+    }
+    let shade=hero.querySelector('.wow-video-only-shade');if(!shade){shade=document.createElement('div');shade.className='wow-video-only-shade';hero.appendChild(shade);}
+    let content=hero.querySelector('.hero-content');if(content)content.classList.add('wow-video-only-content');
+  }
+  function watch(){const h=allHero();if(!h)return;h.querySelectorAll('img').forEach(x=>x.remove());const media=h.querySelector('.wow-video-only-media');if(media&&media.querySelector('video')){const v=media.querySelector('video');if(v.paused&&!document.hidden){try{v.play();}catch(e){}}}}
+  window.addEventListener('load',()=>setTimeout(render,300));
+  window.addEventListener('pageshow',()=>setTimeout(render,300));
+  window.addEventListener('orientationchange',()=>setTimeout(render,500));
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)watch();});
+  setInterval(watch,1800);
+})();
+</script>
+
 </body>
 </html>

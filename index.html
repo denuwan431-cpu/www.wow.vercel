@@ -972,6 +972,23 @@ button,input,select,textarea{font:inherit}
 }
 </style>
 
+
+<style id="wow-single-hero-final-v10">
+/* FINAL: exactly ONE homepage promotional hero. */
+#v9ManagedBanners, #v6ManagedBannerTop, #adminMidBanners, #adminBottomBanners, #adminCategoryShowcase, .v6-managed-banner { display:none !important; }
+.hero-section { width:100% !important; max-width:none !important; margin:0 !important; border-radius:0 !important; overflow:hidden !important; min-height:620px !important; height:min(72vw,760px) !important; }
+.hero-section .wow-hero-media, .hero-section .wow-hero-media img, .hero-section .wow-hero-media video, .hero-section .wow-hero-media iframe { position:absolute !important; inset:0 !important; width:100% !important; height:100% !important; max-width:none !important; object-fit:cover !important; border:0 !important; }
+.hero-section .wow-hero-media { z-index:0 !important; overflow:hidden !important; background:#07101d !important; }
+.hero-section .wow-hero-poster { display:block !important; object-fit:cover !important; }
+@media (max-width:767px){
+  .hero-section { min-height:520px !important; height:78svh !important; max-height:700px !important; }
+  .hero-section>div:first-child { padding:0 18px 28px !important; }
+  .hero-section .hero-title { font-size:clamp(34px,10vw,54px) !important; line-height:1.03 !important; }
+  .hero-section .hero-sub { font-size:15px !important; line-height:1.5 !important; max-width:95% !important; }
+  .hero-section .hero-actions { gap:9px !important; }
+  .hero-section .hero-actions .btn { min-height:46px !important; padding:12px 18px !important; }
+}
+</style>
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
@@ -4204,7 +4221,7 @@ function patch(){
  // Remove top Shop All button permanently.
  document.querySelectorAll('#site-header button').forEach(b=>{if(b.textContent.trim()==='Shop All')b.parentElement.remove()});
  // Hero media: supports direct MP4/WebM/Ogg URLs, YouTube URLs, Vimeo URLs and image URLs.
- const h={...(d.hero||{}),mediaType:String(d.hero?.mediaType||'image').toLowerCase(),videoUrl:String(d.hero?.videoUrl||'').trim(),images:Array.isArray(d.hero?.images)?d.hero.images.filter(Boolean).map(x=>String(x).trim()).filter(Boolean):[]}, hero=document.querySelector('.hero-section');
+ const firstBanner=Array.isArray(d.banners)?d.banners.find(b=>b&&b.visible!==false):null; const h={...(d.hero||{}),mediaType:String(d.hero?.mediaType||'image').toLowerCase(),videoUrl:String(d.hero?.videoUrl||firstBanner?.videoUrl||'').trim(),images:Array.isArray(d.hero?.images)?d.hero.images.filter(Boolean).map(x=>String(x).trim()).filter(Boolean):[]}, hero=document.querySelector('.hero-section'); if(!h.videoUrl && !h.images.length && firstBanner){ if(firstBanner.desktop) h.images=[String(firstBanner.desktop)]; if(firstBanner.mobile) h.images.unshift(String(firstBanner.mobile)); }
  if(hero){
   hero.style.display=h.visible===false?'none':'flex';
   hero.querySelectorAll('.v6-media,.hero-media-shell,.wow-hero-media,.wow-hero-shade').forEach(el=>el.remove());
@@ -4477,6 +4494,18 @@ try{renderCategoryAwareFilters();}catch(e){}
 })();
 </script>
 
+<script id="wow-single-hero-final-v10-js">
+(function(){
+  function clean(){
+    document.querySelectorAll('#v9ManagedBanners,#v6ManagedBannerTop,#adminMidBanners,#adminBottomBanners,#adminCategoryShowcase,.v6-managed-banner').forEach(function(el){el.remove();});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',clean); else clean();
+  new MutationObserver(clean).observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+</body>
+</html>
+
 <!-- WOWSHOPPING FINAL MOBILE + FULL VIDEO BANNER FIX -->
 <style id="wow-final-mobile-video-fix">
   /* Keep one storefront; only layout changes on small screens. */
@@ -4595,6 +4624,3 @@ try{renderCategoryAwareFilters();}catch(e){}
   let last='';setInterval(()=>{const x=window.__WOW_REMOTE_STORE;if(!x)return;try{const s=JSON.stringify({hero:x.hero,banners:x.banners,products:x.products});if(s!==last){last=s;run()}}catch(e){}},900);
 })();
 </script>
-
-</body>
-</html>

@@ -6708,88 +6708,109 @@ try{renderCategoryAwareFilters();}catch(e){}
 
 
 
-<!-- WOWSHOPPING: FAST SINGLE HERO VIDEO — authoritative renderer -->
-<style id="wow-fast-hero-css">
-.hero-section{position:relative!important;width:100%!important;max-width:none!important;height:clamp(340px,48vw,650px)!important;min-height:340px!important;margin:0!important;padding:0!important;overflow:hidden!important;background:#050914!important;isolation:isolate!important;display:flex!important;align-items:center!important}
-.hero-section .wow-fast-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important}
-.hero-section .wow-fast-hero-media video,.hero-section .wow-fast-hero-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;border:0!important;margin:0!important;padding:0!important;display:block!important;object-fit:cover!important;object-position:center!important;background:#050914!important}
-.hero-section .wow-fast-hero-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.34) 48%,rgba(0,0,0,.06))!important}
-.hero-section>.hero-content{position:relative!important;z-index:3!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;box-sizing:border-box!important;text-align:left!important;background:transparent!important}
+<!-- WOWSHOPPING FINAL: SINGLE CLOUD HERO VIDEO -->
+<style id="wow-final-cloud-hero-css">
+.hero-section{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;height:clamp(360px,46vw,620px)!important;min-height:360px!important;overflow:hidden!important;background:#050914!important;isolation:isolate!important;display:flex!important;align-items:center!important}
+.hero-section .wow-final-cloud-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important}
+.hero-section .wow-final-cloud-video video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;border:0!important;margin:0!important;padding:0!important;object-fit:cover!important;object-position:center center!important;background:#050914!important}
+.hero-section .wow-final-cloud-overlay{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(2,6,23,.62) 0%,rgba(2,6,23,.28) 48%,rgba(2,6,23,.06) 100%)!important}
+.hero-section>.hero-content{position:relative!important;z-index:3!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;background:transparent!important}
+/* Hide every legacy hero media layer. Only the final cloud video may be visible. */
+.hero-section>.v6-media,.hero-section>.hero-media-shell,.hero-section>.wow-hero-media,.hero-section>.wow-clean-media,.hero-section>.wow-fast-hero-media,.hero-section>.wow-final-media,.hero-section>.wow-final-video-media,.hero-section>.wow-absolute-hero-media,.hero-section>.wow-video-only-media,.hero-section>.v34-hero-video{display:none!important}
 @media(max-width:767px){
- .hero-section{width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,70vw,390px)!important;min-height:300px!important;max-height:390px!important;align-items:flex-end!important}
- .hero-section .wow-fast-hero-media video,.hero-section .wow-fast-hero-media iframe{object-position:center center!important}
- .hero-section .wow-fast-hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.42) 55%,rgba(0,0,0,.07))!important}
- .hero-section>.hero-content{max-width:70%!important;padding:0 0 20px 18px!important;margin:0!important}
- .hero-section .hero-eyebrow{font-size:8px!important;line-height:1!important;letter-spacing:1.6px!important;margin:0 0 6px!important}
- .hero-section .hero-title{max-width:235px!important;font-size:clamp(27px,8.5vw,40px)!important;line-height:.98!important;letter-spacing:-.5px!important;margin:0 0 8px!important}
- .hero-section .hero-sub{max-width:205px!important;font-size:11px!important;line-height:1.35!important;margin:0 0 11px!important}
- .hero-section .hero-actions{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:6px!important}
- .hero-section .hero-actions .btn{width:auto!important;min-width:0!important;height:34px!important;min-height:34px!important;padding:7px 11px!important;font-size:10px!important;line-height:1!important;border-radius:7px!important;white-space:nowrap!important}
+ .hero-section{width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,72vw,390px)!important;min-height:300px!important;max-height:390px!important;align-items:flex-end!important}
+ .hero-section .wow-final-cloud-video video{object-position:center center!important}
+ .hero-section .wow-final-cloud-overlay{background:linear-gradient(90deg,rgba(2,6,23,.70) 0%,rgba(2,6,23,.30) 62%,rgba(2,6,23,.05) 100%)!important}
+ .hero-section>.hero-content{max-width:76%!important;padding:0 0 20px 18px!important;margin:0!important}
+ .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.5px!important;margin-bottom:6px!important}
+ .hero-section .hero-title{max-width:230px!important;font-size:clamp(27px,8.5vw,40px)!important;line-height:.98!important;margin-bottom:8px!important}
+ .hero-section .hero-sub{max-width:205px!important;font-size:11px!important;line-height:1.35!important;margin-bottom:11px!important}
+ .hero-section .hero-actions{display:flex!important;flex-wrap:nowrap!important;gap:6px!important}
+ .hero-section .hero-actions .btn{height:34px!important;min-height:34px!important;padding:7px 11px!important;font-size:10px!important;border-radius:7px!important;white-space:nowrap!important}
 }
 </style>
-<script id="wow-fast-hero-js">
+<script id="wow-final-cloud-hero-js">
 (function(){
- 'use strict';
- const VIDEO_KEYS=['videoUrl','videoURL','videoSrc','videoSource','video_url','bannerVideoUrl','heroVideoUrl'];
- const clean=v=>typeof v==='string'?v.trim():'';
- let renderBusy=false, currentUrl='';
- function getStore(){return window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||window.adminData||null}
- function findVideo(data){
-   if(!data||typeof data!=='object') return '';
-   const hero=data.hero;
-   if(hero&&typeof hero==='object'){
-     for(const k of VIDEO_KEYS){const v=clean(hero[k]);if(v)return v}
-   }
-   const banners=Array.isArray(data.banners)?data.banners:[];
-   for(const b of banners){if(!b||typeof b!=='object')continue;for(const k of VIDEO_KEYS){const v=clean(b[k]);if(v)return v}}
-   return '';
- }
- function isYoutubeOrVimeo(url){return /(?:youtube\.com|youtu\.be|vimeo\.com)/i.test(url)}
- function embedUrl(url){try{
-   const u=new URL(url,location.href); let id='';
-   if(u.hostname.includes('youtu.be')) id=u.pathname.split('/').filter(Boolean)[0]||'';
-   if(u.hostname.includes('youtube.com')){id=u.searchParams.get('v')||'';const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]}
-   if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0&modestbranding=1';
-   if(u.hostname.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0'}
-  }catch(e){} return ''}
- function removeOld(hero){
-   hero.querySelectorAll('.wow-fast-hero-media,.wow-fast-hero-shade,.wow-v3-video,.wow-v3-shade,.wow-final-video-media,.wow-clean-media,.wow-hero-media,.wow-absolute-hero-media,.wow-video-only-media,.v6-media,.hero-media-shell,.v34-hero-video,.wow-final-media,.wow-hero-poster').forEach(e=>e.remove());
-   hero.querySelectorAll('img').forEach(e=>e.remove());
-   hero.querySelectorAll('[style*="background-image"]').forEach(e=>e.style.backgroundImage='none');
- }
- function play(v){if(!v||document.hidden)return;try{v.muted=true;v.defaultMuted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{})}catch(e){}}
- async function render(){
-   if(renderBusy)return; const hero=document.querySelector('.hero-section'); if(!hero)return;
-   const store=getStore(), url=clean(findVideo(store)); if(!url)return;
-   if(hero.dataset.fastHeroUrl===url){const v=hero.querySelector('.wow-fast-hero-media video');if(v)play(v);return}
-   renderBusy=true;
-   try{
-     removeOld(hero);
-     const media=document.createElement('div');media.className='wow-fast-hero-media';
-     const shade=document.createElement('div');shade.className='wow-fast-hero-shade';
-     const embed=embedUrl(url);
-     if(embed){
-       const f=document.createElement('iframe');f.src=embed;f.title='WOWSHOPPING banner video';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');f.setAttribute('loading','eager');media.appendChild(f);
-     }else{
-       const v=document.createElement('video');
-       v.muted=true;v.defaultMuted=true;v.autoplay=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('muted','');v.setAttribute('autoplay','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');v.src=url;
-       ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>v.addEventListener(ev,()=>play(v),{passive:true}));
-       v.addEventListener('pause',()=>setTimeout(()=>play(v),80),{passive:true});
-       v.addEventListener('error',()=>console.warn('WOWSHOPPING hero video failed:',url));
-       media.appendChild(v);
-     }
-     hero.insertBefore(media,hero.firstChild);hero.appendChild(shade);hero.dataset.fastHeroUrl=url;currentUrl=url;
-     const content=hero.querySelector('.hero-content');if(content){content.style.position='relative';content.style.zIndex='3'}
-     const v=media.querySelector('video');if(v)play(v);
-   }finally{renderBusy=false}
- }
- window.renderHero=render;
- window.addEventListener('load',()=>setTimeout(render,100),{once:true});
- window.addEventListener('pageshow',()=>setTimeout(render,100),{once:true});
- window.addEventListener('wow:storefront-ready',()=>render());
- document.addEventListener('visibilitychange',()=>{if(!document.hidden)render()});
- // Only a few startup retries while Firestore initializes. No permanent polling loop.
- setTimeout(render,400);setTimeout(render,1000);setTimeout(render,2000);setTimeout(render,4000);
+'use strict';
+var VIDEO_KEYS=['videoUrl','videoURL','videoSrc','videoSource','video_url','heroVideoUrl','bannerVideoUrl'];
+var state={url:'',rendered:false,loading:false};
+function clean(v){return typeof v==='string'?v.trim():'';}
+function store(){return window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||null;}
+function pick(d){
+  if(!d||typeof d!=='object')return '';
+  var h=d.hero;
+  if(h&&typeof h==='object'){
+    for(var i=0;i<VIDEO_KEYS.length;i++){var v=clean(h[VIDEO_KEYS[i]]);if(v)return v;}
+  }
+  var bs=Array.isArray(d.banners)?d.banners:[];
+  for(var j=0;j<bs.length;j++){
+    var b=bs[j]; if(!b||typeof b!=='object')continue;
+    for(var k=0;k<VIDEO_KEYS.length;k++){var x=clean(b[VIDEO_KEYS[k]]);if(x)return x;}
+  }
+  return '';
+}
+function directUrl(u){
+  return /^https?:\/\//i.test(u) && !/(youtube\.com|youtu\.be|vimeo\.com)/i.test(u);
+}
+function removeLegacy(hero){
+  hero.querySelectorAll('.wow-final-cloud-video,.wow-final-cloud-overlay,.v6-media,.hero-media-shell,.wow-hero-media,.wow-clean-media,.wow-fast-hero-media,.wow-final-media,.wow-final-video-media,.wow-absolute-hero-media,.wow-video-only-media,.v34-hero-video,.wow-hero-poster').forEach(function(e){e.remove();});
+  hero.querySelectorAll('img').forEach(function(e){e.remove();});
+  hero.style.backgroundImage='none';
+}
+function play(v){
+  if(!v)return;
+  try{
+    v.muted=true;v.defaultMuted=true;v.volume=0;
+    var p=v.play(); if(p&&p.catch)p.catch(function(){});
+  }catch(e){}
+}
+function build(hero,url){
+  removeLegacy(hero);
+  var media=document.createElement('div');media.className='wow-final-cloud-video';
+  var overlay=document.createElement('div');overlay.className='wow-final-cloud-overlay';
+  var v=document.createElement('video');
+  v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('preload','auto');v.setAttribute('disablepictureinpicture','');
+  v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.controls=false;
+  var source=document.createElement('source');source.src=url;source.type=/\.webm(?:[?#]|$)/i.test(url)?'video/webm':/\.ogg(?:[?#]|$)/i.test(url)?'video/ogg':'video/mp4';
+  v.appendChild(source);
+  ['loadedmetadata','loadeddata','canplay','canplaythrough','durationchange'].forEach(function(ev){v.addEventListener(ev,function(){play(v);},{passive:true});});
+  v.addEventListener('pause',function(){setTimeout(function(){play(v);},60),{passive:true}});
+  v.addEventListener('error',function(){console.warn('WOWSHOPPING hero video could not load:',url);});
+  media.appendChild(v);hero.insertBefore(media,hero.firstChild);hero.appendChild(overlay);
+  hero.dataset.finalCloudHeroUrl=url;state.url=url;state.rendered=true;
+  play(v);setTimeout(function(){play(v);},250);setTimeout(function(){play(v);},1000);
+}
+async function cloudLoad(){
+  var d=store();var u=pick(d);if(u)return u;
+  for(var i=0;i<12;i++){
+    try{
+      if(window.firebaseDb){
+        var snap=await window.firebaseDb.collection('siteConfig').doc('storefront').get();
+        if(snap.exists){var remote=snap.data()&&snap.data().data; if(remote){window.__WOW_REMOTE_STORE=remote;window.__WOW_STORE_DATA=remote;u=pick(remote);if(u)return u;}}
+      }
+    }catch(e){}
+    await new Promise(function(r){setTimeout(r,250);});
+  }
+  return '';
+}
+async function render(){
+  if(state.loading)return;var hero=document.querySelector('.hero-section');if(!hero)return;
+  state.loading=true;
+  try{
+    var url=pick(store())||await cloudLoad();
+    if(!url||!directUrl(url))return;
+    var old=hero.querySelector('.wow-final-cloud-video video');
+    if(old&&hero.dataset.finalCloudHeroUrl===url){play(old);return;}
+    build(hero,url);
+  }finally{state.loading=false;}
+}
+function start(){
+  render();
+  window.addEventListener('wow:storefront-ready',render);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden){var v=document.querySelector('.wow-final-cloud-video video');if(v)play(v);else render();}});
+  window.addEventListener('pageshow',function(){render();});
+}
+if(document.readyState==='complete')start();else window.addEventListener('load',start,{once:true});
 })();
 </script>
 </body>

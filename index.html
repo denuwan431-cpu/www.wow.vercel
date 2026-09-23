@@ -2199,9 +2199,6 @@ html,body{overflow-x:hidden!important}
   <button class="wow-mobile-tab" data-mobile-page="search" onclick="openSearch()" aria-label="Search">
     <i data-lucide="search"></i><span>Search</span>
   </button>
-  <button class="wow-mobile-tab" data-mobile-page="wishlist" onclick="navigate('wishlist')" aria-label="My Wishlist">
-    <i data-lucide="heart"></i><span>My Wishlist</span><b class="wow-mobile-badge wow-mobile-wishlist-badge" id="wowMobileWishlistBadge"></b>
-  </button>
   <button class="wow-mobile-tab" data-mobile-page="cart" onclick="openCart()" aria-label="Cart">
     <i data-lucide="shopping-cart"></i><span>Cart</span><b class="wow-mobile-badge" id="wowMobileCartBadge"></b>
   </button>
@@ -6031,6 +6028,83 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   window.addEventListener('pageshow',renderHeaderLogo);
   window.addEventListener('wow:branding-updated',renderHeaderLogo);
   setInterval(renderHeaderLogo,3000);
+})();
+</script>
+
+<style id="wow-wishlist-top-mobile-final">
+/* FINAL: Wishlist belongs in the header on mobile, not the bottom navigation. */
+@media screen and (max-width:767px){
+  #site-header{position:sticky!important;top:0!important;z-index:30000!important;background:#fff!important;box-shadow:0 1px 0 rgba(15,23,42,.06)!important;}
+  #site-header .wow-main-header-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"logo actions" "search search"!important;
+    align-items:center!important;
+    gap:8px!important;
+    padding:9px 12px 10px!important;
+  }
+  #site-header .wow-main-header-row>div:first-child{grid-area:logo!important;min-width:0!important;}
+  #site-header .desktop-search{grid-area:search!important;order:initial!important;display:flex!important;width:100%!important;min-width:0!important;max-width:none!important;}
+  #site-header .wow-header-actions{
+    grid-area:actions!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:3px!important;
+    margin-left:auto!important;
+  }
+  /* Only Account + Wishlist stay beside the mobile logo. */
+  #site-header .wow-header-actions>*{display:none!important;}
+  #site-header .wow-header-actions #headerAccountBtn,
+  #site-header .wow-header-actions button[title="Wishlist"]{
+    display:flex!important;
+    width:38px!important;height:38px!important;min-width:38px!important;
+    align-items:center!important;justify-content:center!important;
+    padding:0!important;border:1px solid #e6eaf0!important;border-radius:11px!important;
+    background:#fff!important;color:#111827!important;
+    box-shadow:0 2px 8px rgba(15,23,42,.055)!important;
+  }
+  #site-header .wow-header-actions button[title="Wishlist"]{position:relative!important;}
+  #site-header .wow-header-actions #headerAccountBtn svg,
+  #site-header .wow-header-actions button[title="Wishlist"] svg{width:19px!important;height:19px!important;stroke-width:1.9!important;}
+  #site-header .wow-header-actions button[title="Wishlist"] #wishlistBadge{display:none!important;}
+  #site-header #siteBrandIcon{width:44px!important;height:34px!important;border-radius:7px!important;}
+  #site-header #siteBrandIcon svg{width:19px!important;height:19px!important;}
+  #site-header #siteBrandName{display:none!important;}
+  #site-header .desktop-search .search-input{
+    height:44px!important;width:100%!important;box-sizing:border-box!important;
+    padding-left:42px!important;padding-right:14px!important;
+    border:1px solid #dfe5ec!important;border-radius:13px!important;
+    background:#f8fafc!important;color:#111827!important;font-size:13.5px!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 3px 12px rgba(15,23,42,.045)!important;
+    outline:none!important;
+  }
+  #site-header .desktop-search .search-input:focus{background:#fff!important;border-color:#cbd5e1!important;box-shadow:0 0 0 3px rgba(37,99,235,.08),0 5px 16px rgba(15,23,42,.06)!important;}
+  #site-header .desktop-search>i{left:14px!important;width:17px!important;height:17px!important;color:#64748b!important;z-index:1!important;}
+  #site-header #desktopNav{margin-top:0!important;}
+  #wow-mobile-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important;}
+}
+@media screen and (max-width:380px){
+  #site-header .wow-main-header-row{padding-left:10px!important;padding-right:10px!important;gap:7px!important;}
+  #site-header .wow-header-actions #headerAccountBtn,
+  #site-header .wow-header-actions button[title="Wishlist"]{width:35px!important;height:35px!important;min-width:35px!important;border-radius:10px!important;}
+  #site-header .desktop-search .search-input{height:42px!important;font-size:13px!important;border-radius:12px!important;}
+  #site-header #siteBrandIcon{width:40px!important;height:32px!important;}
+}
+</style>
+<script id="wow-wishlist-top-mobile-final-js">
+(function(){
+  function syncTopWishlist(){
+    try{
+      var count=(JSON.parse(localStorage.getItem('wow_wishlist')||'[]')||[]).length;
+      var b=document.getElementById('wishlistBadge');
+      if(b){b.textContent=count>99?'99+':String(count);b.style.display=count?'block':'none';}
+    }catch(e){}
+  }
+  window.syncTopWishlist=syncTopWishlist;
+  window.addEventListener('load',function(){setTimeout(syncTopWishlist,100);});
+  window.addEventListener('storage',syncTopWishlist);
+  setInterval(syncTopWishlist,1200);
 })();
 </script>
 </body>

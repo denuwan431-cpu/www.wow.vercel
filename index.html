@@ -1159,6 +1159,365 @@ html,body{overflow-x:hidden!important}
   }
 }
 </style>
+
+<style id="wow-mobile-professional-v2">
+/* WOWSHOPPING — final phone app-style optimization */
+@media screen and (max-width:767px){
+  :root{--wow-mobile-gutter:12px}
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
+  body{
+    margin:0!important;
+    padding-bottom:calc(78px + env(safe-area-inset-bottom))!important;
+    background:#f7f8fa!important;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Header: logo + actions, then search */
+  #site-header{
+    position:sticky!important;top:0!important;z-index:4200!important;
+    background:rgba(255,255,255,.97)!important;
+    border-bottom:1px solid #edf0f3!important;
+    box-shadow:0 3px 16px rgba(15,23,42,.06)!important;
+    backdrop-filter:blur(14px)!important;
+    -webkit-backdrop-filter:blur(14px)!important;
+  }
+  #site-header .top-bar{display:none!important}
+  #site-header>div{width:100%!important;max-width:none!important;padding:0!important}
+  .wow-main-header-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"brand actions" "search search"!important;
+    align-items:center!important;
+    gap:9px!important;
+    padding:10px var(--wow-mobile-gutter) 10px!important;
+  }
+  .wow-main-header-row>div:first-child{
+    grid-area:brand!important;
+    width:auto!important;
+    min-width:0!important;
+    flex:none!important;
+    padding:0!important;
+  }
+  #siteBrandIcon{display:none!important}
+  #siteBrandName{
+    font-size:19px!important;
+    font-weight:950!important;
+    letter-spacing:-.8px!important;
+    color:#101828!important;
+  }
+  .wow-header-actions{
+    grid-area:actions!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:2px!important;
+    margin:0!important;
+  }
+  .wow-header-actions>button{
+    width:34px!important;height:34px!important;
+    padding:0!important;border-radius:10px!important;
+  }
+  .wow-header-actions>button:first-child,
+  #hamburgerBtn{display:none!important}
+  .wow-header-actions svg{width:19px!important;height:19px!important}
+  .wow-main-header-row .desktop-search{
+    grid-area:search!important;
+    display:flex!important;
+    width:100%!important;min-width:0!important;max-width:none!important;
+  }
+  .wow-main-header-row .desktop-search .search-input{
+    width:100%!important;height:43px!important;min-height:43px!important;
+    border-radius:12px!important;
+    padding:0 42px!important;
+    background:#f5f7fa!important;
+    border:1px solid #e1e6ec!important;
+    font-size:14px!important;
+  }
+  .wow-main-header-row .desktop-search>svg{
+    left:14px!important;width:17px!important;height:17px!important
+  }
+  #desktopNav{display:none!important}
+
+  /* Hero: short, premium, media-first */
+  .hero-section{
+    position:relative!important;
+    width:100vw!important;max-width:none!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+    height:clamp(208px,58vw,290px)!important;
+    min-height:0!important;
+    display:flex!important;
+    align-items:flex-end!important;
+    overflow:hidden!important;
+    background:#07101d!important;
+  }
+  .hero-section .wow-clean-media{
+    position:absolute!important;inset:0!important;z-index:0!important;
+    width:100%!important;height:100%!important;
+  }
+  .hero-section .wow-clean-media video,
+  .hero-section .wow-clean-media iframe,
+  .hero-section .wow-clean-media img{
+    position:absolute!important;inset:0!important;
+    width:100%!important;height:100%!important;
+    object-fit:cover!important;border:0!important;
+  }
+  .hero-section .wow-clean-shade{
+    position:absolute!important;inset:0!important;z-index:1!important;
+    background:linear-gradient(90deg,rgba(2,7,15,.78) 0%,rgba(2,7,15,.42) 48%,rgba(2,7,15,.08) 100%)!important;
+    pointer-events:none!important;
+  }
+  .hero-section>.wow-clean-content{
+    position:relative!important;z-index:3!important;
+    width:100%!important;max-width:none!important;
+    margin:0!important;padding:0 14px 18px!important;
+    box-sizing:border-box!important;
+  }
+  .hero-eyebrow{
+    font-size:8px!important;letter-spacing:2px!important;
+    margin-bottom:6px!important;
+  }
+  .hero-title{
+    max-width:270px!important;
+    font-size:clamp(27px,8vw,36px)!important;
+    line-height:.98!important;
+    letter-spacing:-1.2px!important;
+    margin:0!important;
+  }
+  .hero-sub{
+    max-width:280px!important;
+    font-size:11px!important;line-height:1.35!important;
+    margin:8px 0 11px!important;
+  }
+  .hero-actions{gap:7px!important;flex-wrap:nowrap!important}
+  .hero-actions .btn{
+    min-height:35px!important;
+    height:35px!important;
+    padding:7px 12px!important;
+    font-size:11px!important;
+    border-radius:8px!important;
+    white-space:nowrap!important;
+  }
+  .hero-actions .btn svg{width:13px!important;height:13px!important}
+
+  /* Benefits: compact 2 x 2 */
+  #storeBenefitsBar{
+    background:#fff!important;
+    border-bottom:1px solid #edf0f3!important;
+  }
+  .wow-benefits-inner{width:100%!important}
+  .wow-benefits-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:0!important;
+    padding:8px 10px!important;
+  }
+  .wow-benefit-card{
+    min-width:0!important;
+    padding:9px 5px!important;
+    gap:8px!important;
+  }
+  .wow-benefit-icon{
+    width:32px!important;height:32px!important;flex-basis:32px!important;
+    border-radius:9px!important;
+  }
+  .wow-benefit-icon svg{width:16px!important;height:16px!important}
+  .wow-benefit-title{font-size:10.5px!important;line-height:1.2!important}
+  .wow-benefit-text{font-size:9px!important;line-height:1.25!important;margin-top:2px!important}
+
+  /* Category rail */
+  #whyShopSection{
+    padding:24px 0 20px!important;
+    background:#f7f8fa!important;
+  }
+  #whyShopSection>div{
+    max-width:none!important;padding:0!important;
+  }
+  .category-rail-head{
+    padding:0 12px!important;
+    margin-bottom:12px!important;
+    align-items:flex-end!important;
+  }
+  .section-label{
+    font-size:8px!important;letter-spacing:1.7px!important;
+  }
+  .section-title{
+    font-size:22px!important;
+    line-height:1.1!important;
+    letter-spacing:-.5px!important;
+  }
+  .category-rail-hint{
+    font-size:9px!important;margin-top:5px!important;
+  }
+  .category-rail-controls{gap:5px!important}
+  .category-rail-btn{
+    width:31px!important;height:31px!important;
+    border-radius:50%!important;
+  }
+  .category-rail-btn svg{width:14px!important;height:14px!important}
+  .category-rail-shell{width:100%!important}
+  .cat-grid{
+    gap:9px!important;
+    padding:2px 12px 10px!important;
+    scroll-padding-left:12px!important;
+  }
+  .cat-grid .cat-card{
+    flex:0 0 118px!important;
+    width:118px!important;
+    height:148px!important;
+    border-radius:13px!important;
+    box-shadow:0 4px 14px rgba(15,23,42,.08)!important;
+  }
+  .cat-grid .cat-card img{height:100%!important}
+  .cat-grid .cat-card .cat-card-overlay{padding:9px!important}
+  .cat-grid .cat-card h3{font-size:12px!important}
+  .cat-grid .cat-card p{font-size:9px!important}
+
+  /* New Arrivals: dense shopping-app grid */
+  #newArrivalsGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+  #newArrivalsGrid .product-card{
+    border-radius:12px!important;
+  }
+  #newArrivalsGrid .product-card .product-img-wrap{
+    aspect-ratio:1/1.08!important;
+  }
+  #newArrivalsGrid .product-card .product-info,
+  #newArrivalsGrid .product-card>div:last-child{
+    padding:9px!important;
+  }
+  #newArrivalsGrid .product-card h3,
+  #newArrivalsGrid .product-card .product-name{
+    font-size:12px!important;
+    line-height:1.3!important;
+  }
+  #newArrivalsGrid .product-card .product-price{
+    font-size:13px!important;
+  }
+
+  /* New Arrivals section spacing */
+  #newArrivalsGrid{
+    margin-top:0!important;
+  }
+  #newArrivalsGrid{
+    /* keeps inline desktop grid overridden */
+  }
+  #newArrivalsGrid{
+    width:100%!important;
+  }
+  #newArrivalsGrid{
+    box-sizing:border-box!important;
+  }
+  #newArrivalsGrid{
+    /* no extra horizontal overflow */
+  }
+  #newArrivalsGrid{
+    max-width:100%!important;
+  }
+  #newArrivalsGrid{
+    /* end */
+  }
+  /* Target the section containing New Arrivals */
+  #newArrivalsGrid{
+    scroll-margin-top:90px!important;
+  }
+
+  /* Promo banner after New Arrivals */
+  .wow-clean-promo{
+    width:100%!important;
+    margin:0!important;
+    padding:6px 12px 20px!important;
+    background:#f7f8fa!important;
+    box-sizing:border-box!important;
+  }
+  .wow-clean-promo-shell{
+    width:100%!important;
+    max-width:none!important;
+    border-radius:13px!important;
+    box-shadow:0 5px 18px rgba(15,23,42,.10)!important;
+  }
+  .wow-clean-promo-slide{
+    height:clamp(165px,46vw,215px)!important;
+  }
+  .wow-clean-promo-copy{
+    left:16px!important;
+    right:16px!important;
+    bottom:17px!important;
+    max-width:78%!important;
+  }
+  .wow-clean-promo-copy small{font-size:8px!important;letter-spacing:1.4px!important}
+  .wow-clean-promo-copy strong{font-size:21px!important;line-height:1.05!important}
+  .wow-clean-promo-copy p{font-size:9px!important;margin:4px 0 7px!important}
+  .wow-clean-promo-copy button{
+    min-height:29px!important;
+    padding:6px 10px!important;
+    font-size:9px!important;
+    border-radius:7px!important;
+  }
+  .wow-clean-promo-arrow{
+    width:27px!important;height:27px!important;
+    font-size:17px!important;
+  }
+  .wow-clean-promo-prev{left:8px!important}
+  .wow-clean-promo-next{right:8px!important}
+  .wow-clean-promo-dots{bottom:7px!important;gap:4px!important}
+  .wow-clean-promo-dot{width:5px!important;height:5px!important}
+  .wow-clean-promo-dot.active{width:14px!important;border-radius:6px!important}
+
+  /* Hide unnecessary desktop-only showcase density on phone */
+  #adminCategoryShowcase{
+    padding:24px 0!important;
+  }
+  #adminCategoryShowcase>div{padding:0 12px!important}
+  #adminCategoryShowcase .product-grid-4{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:9px!important;
+  }
+
+  /* Footer */
+  #site-footer{margin-bottom:0!important}
+  #site-footer>div{padding:30px 14px 24px!important}
+  .footer-grid{grid-template-columns:1fr 1fr!important;gap:20px!important}
+  .footer-bottom{font-size:10px!important}
+
+  /* App bottom nav */
+  #wow-mobile-bottom-nav{
+    display:grid!important;
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    position:fixed!important;
+    left:0!important;right:0!important;bottom:0!important;
+    width:100%!important;
+    min-height:66px!important;
+    padding:6px 5px calc(6px + env(safe-area-inset-bottom))!important;
+    box-sizing:border-box!important;
+    background:rgba(255,255,255,.98)!important;
+    backdrop-filter:blur(18px)!important;
+    -webkit-backdrop-filter:blur(18px)!important;
+    border-top:1px solid #e7ebef!important;
+    box-shadow:0 -6px 22px rgba(15,23,42,.10)!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab{
+    gap:3px!important;
+    font-size:9px!important;
+    color:#667085!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab svg{
+    width:20px!important;height:20px!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab.active{color:#111827!important}
+}
+
+@media screen and (max-width:380px){
+  #siteBrandName{font-size:17px!important}
+  .wow-header-actions>button{width:31px!important;height:31px!important}
+  .hero-section{height:215px!important}
+  .hero-title{font-size:26px!important}
+  .hero-sub{font-size:10px!important}
+  .hero-actions .btn{font-size:10px!important;padding:6px 10px!important}
+  .cat-grid .cat-card{flex-basis:108px!important;width:108px!important;height:138px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
@@ -4686,5 +5045,35 @@ let sig='';function watch(){const d=getData();let s='';try{s=JSON.stringify({her
 window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200);window.addEventListener('pageshow',()=>setTimeout(boot,300));
 })();
 </script>
+
+<script id="wow-mobile-professional-v2-js">
+(function(){
+  'use strict';
+  function tuneMobile(){
+    if(window.innerWidth>767) return;
+    try{
+      document.querySelectorAll('#newArrivalsGrid').forEach(function(g){
+        var sec=g.closest('section');
+        if(sec){
+          sec.style.padding='28px 0 8px';
+          var inner=sec.querySelector(':scope > div');
+          if(inner){inner.style.padding='0 12px';}
+          var head=sec.querySelector(':scope > div > div:first-child');
+          if(head){
+            head.style.marginBottom='14px';
+            head.style.alignItems='center';
+          }
+        }
+      });
+      if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+    }catch(e){}
+  }
+  window.addEventListener('load',function(){setTimeout(tuneMobile,250);});
+  window.addEventListener('resize',tuneMobile,{passive:true});
+  window.addEventListener('orientationchange',function(){setTimeout(tuneMobile,180);});
+  setInterval(tuneMobile,1800);
+})();
+</script>
+
 </body>
 </html>

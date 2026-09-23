@@ -4196,7 +4196,7 @@ function heroVideoEmbedUrl(url){
  return '';
 }
 function patch(){
- const d=R(); const t=d.theme||{};
+ const d=window.__WOW_REMOTE_STORE || window.__WOW_STORE_DATA || R() || {}; const t=d.theme||{};
  if(Array.isArray(d.products)){PRODUCTS.splice(0,PRODUCTS.length,...d.products.filter(p=>p.visible!==false).map(p=>({...p,price:Number(p.price||0),salePrice:Number(p.salePrice||p.price||0),discount:Number(p.discount||0),images:Array.isArray(p.images)&&p.images.length?p.images:[p.image||'https://via.placeholder.com/600x800?text=Product']})));renderNewArrivals();renderBestSellers();}
  applyAdminTheme();applyBranding();applyAdminMenu();
  [['--color-accent',t.primary],['--color-bg',t.background],['--color-text',t.text],['--color-header',t.header],['--color-footer',t.footer],['--color-card',t.card],['--color-muted',t.muted],['--color-sale',t.sale]].forEach(x=>x[1]&&document.documentElement.style.setProperty(x[0],x[1]));
@@ -4224,7 +4224,7 @@ function patch(){
     }else{
       const v=document.createElement('video'); v.src=h.videoUrl; v.autoplay=true; v.muted=true; v.defaultMuted=true; v.loop=true; v.playsInline=true; v.preload='auto'; v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline',''); v.setAttribute('aria-hidden','true');
       const play=()=>{v.muted=true;const q=v.play();if(q&&q.catch)q.catch(()=>{});};
-      v.addEventListener('loadeddata',play);v.addEventListener('canplay',play);v.addEventListener('loadedmetadata',play);v.addEventListener('error',()=>{v.remove(); if(!media.querySelector('img')) addPoster();}); media.appendChild(v); play();
+      v.addEventListener('loadeddata',play);v.addEventListener('canplay',play);v.addEventListener('loadedmetadata',play);v.addEventListener('error',()=>{v.style.display='none'; if(!media.querySelector('img')) addPoster();}); media.appendChild(v); play();
     }
   }else if(h.images.length){
     addImage();
@@ -4247,9 +4247,9 @@ function patch(){
   const hs=hero?.querySelector('.hero-sub');
   const pb=hero?.querySelector('#heroPrimaryBtn');
   const sb=hero?.querySelector('#heroSecondaryBtn');
-  if(he) he.textContent=h.eyebrow||'';
-  if(ht) ht.innerHTML=E(h.title||'').replace(/\n/g,'<br>');
-  if(hs) hs.textContent=h.subtitle||'';
+  if(he) he.textContent=h.eyebrow||'New Season';
+  if(ht) ht.innerHTML=E(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');
+  if(hs) hs.textContent=h.subtitle||'Discover our latest collection.';
   if(pb){ pb.childNodes[0].nodeValue=(h.buttonText||'Shop Collection')+' '; pb.onclick=()=>openHeroLink(h.buttonUrl||'#shop'); }
   if(sb){ sb.textContent=h.button2Text||'New Arrivals'; sb.onclick=()=>openHeroLink(h.button2Url||'#shop'); sb.style.display=(h.button2Text||'').trim()?'inline-flex':'none'; }
   // Two managed banners: one below the product area and one directly below it.

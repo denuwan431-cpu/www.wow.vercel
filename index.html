@@ -4776,6 +4776,7 @@ try{renderCategoryAwareFilters();}catch(e){}
     if(btn2)btn2.style.display='none';
   }
 
+  window.__WOW_FORCE_HERO_RENDER = render;
   let last='';
   function watch(){
     try{
@@ -4920,5 +4921,60 @@ try{renderCategoryAwareFilters();}catch(e){}
   window.addEventListener('load',()=>setTimeout(run,1100));window.addEventListener('resize',()=>{if(window.innerWidth<=767)run()},{passive:true});
   // Firestore listener in the main storefront calls patch(); observe the remote object changing.
   let last='';setInterval(()=>{const x=window.__WOW_REMOTE_STORE;if(!x)return;try{const s=JSON.stringify({hero:x.hero,banners:x.banners,products:x.products});if(s!==last){last=s;run()}}catch(e){}},900);
+})();
+</script>
+
+
+<!-- WOWSHOPPING CLOUD STOREFRONT BOOTSTRAP — runs after every script is loaded.
+     This intentionally does NOT use localStorage for storefront content. -->
+<script id="wow-cloud-storefront-final-boot">
+(function(){
+  let started=false;
+  async function boot(){
+    if(started)return;
+    started=true;
+    try{
+      let db=window.firebaseDb||window.firebase?.firestore?.();
+      let tries=0;
+      while(!db && tries<100){
+        await new Promise(r=>setTimeout(r,100));
+        db=window.firebaseDb||window.firebase?.firestore?.();
+        tries++;
+      }
+      if(!db){console.warn('WOW cloud storefront: Firestore is not available');return;}
+      window.firebaseDb=db;
+      const ref=db.collection('siteConfig').doc('storefront');
+      ref.onSnapshot(function(snap){
+        if(!snap.exists)return;
+        const remote=snap.data()?.data;
+        if(!remote || typeof remote!=='object')return;
+        window.__WOW_REMOTE_STORE=remote;
+        window.__WOW_STORE_DATA=remote;
+        try{
+          if(typeof patch==='function') patch();
+        }catch(e){}
+        try{
+          if(typeof window.__WOW_FORCE_HERO_RENDER==='function') window.__WOW_FORCE_HERO_RENDER();
+        }catch(e){console.warn('WOW hero render:',e)}
+        try{
+          if(typeof window.renderEnhancedBanners==='function') window.renderEnhancedBanners();
+        }catch(e){}
+      },function(err){console.warn('WOW cloud storefront listener:',err);});
+
+      const snap=await ref.get();
+      if(snap.exists){
+        const remote=snap.data()?.data;
+        if(remote && typeof remote==='object'){
+          window.__WOW_REMOTE_STORE=remote;
+          window.__WOW_STORE_DATA=remote;
+          try{if(typeof window.__WOW_FORCE_HERO_RENDER==='function')window.__WOW_FORCE_HERO_RENDER();}catch(e){}
+          try{if(typeof window.renderEnhancedBanners==='function')window.renderEnhancedBanners();}catch(e){}
+        }
+      }
+    }catch(e){console.warn('WOW cloud storefront final boot:',e)}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(boot,0));
+  else setTimeout(boot,0);
+  window.addEventListener('load',()=>setTimeout(boot,50));
 })();
 </script>

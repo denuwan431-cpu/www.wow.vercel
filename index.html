@@ -1518,6 +1518,68 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+
+<style id="wow-mobile-search-menu-v1">
+@media (max-width: 767px){
+  /* Mobile primary menu: directly under the search bar */
+  #site-header #desktopNav{
+    display:flex !important;
+    width:100%;
+    align-items:center;
+    gap:4px;
+    padding:6px 2px 8px !important;
+    margin:0 !important;
+    border-top:0 !important;
+    border-bottom:1px solid #eef1f5 !important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    background:#fff;
+  }
+  #site-header #desktopNav::-webkit-scrollbar{display:none;}
+  #site-header #desktopNav .nav-link{
+    flex:0 0 auto;
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    min-height:34px;
+    padding:7px 12px !important;
+    margin:0 !important;
+    border-radius:9px;
+    color:#253047;
+    font-size:12px !important;
+    font-weight:700;
+    line-height:1;
+    background:transparent;
+  }
+  #site-header #desktopNav .nav-link:active{background:#f1f5f9;}
+  #site-header #desktopNav .nav-item{
+    flex:0 0 auto;
+    position:static !important;
+  }
+  #site-header #desktopNav .nav-item > .nav-link{
+    display:inline-flex !important;
+  }
+  #site-header #desktopNav .mega-menu,
+  #site-header #desktopNav .dropdown{
+    display:none !important;
+  }
+  /* Keep the menu immediately after the wrapped search row. */
+  #site-header > div:last-child{
+    width:100%;
+  }
+  #site-header .desktop-search{
+    order:3 !important;
+    flex-basis:100% !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin-top:6px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>

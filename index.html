@@ -6031,80 +6031,132 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
 })();
 </script>
 
-<style id="wow-wishlist-top-mobile-final">
-/* FINAL: Wishlist belongs in the header on mobile, not the bottom navigation. */
-@media screen and (max-width:767px){
-  #site-header{position:sticky!important;top:0!important;z-index:30000!important;background:#fff!important;box-shadow:0 1px 0 rgba(15,23,42,.06)!important;}
+
+<style id="wow-mobile-header-final-v4">
+@media (max-width:767px){
+  #site-header{position:sticky!important;top:0!important;z-index:30000!important;background:#fff!important;border-bottom:1px solid #edf0f4!important;box-shadow:0 3px 18px rgba(15,23,42,.055)!important;}
+  #site-header>.top-bar{display:none!important;}
+  #site-header>div{width:100%!important;max-width:none!important;padding:0!important;}
   #site-header .wow-main-header-row{
     display:grid!important;
     grid-template-columns:minmax(0,1fr) auto!important;
     grid-template-areas:"logo actions" "search search"!important;
     align-items:center!important;
-    gap:8px!important;
-    padding:9px 12px 10px!important;
+    gap:9px!important;
+    width:100%!important;
+    box-sizing:border-box!important;
+    padding:9px 11px 10px!important;
   }
-  #site-header .wow-main-header-row>div:first-child{grid-area:logo!important;min-width:0!important;}
-  #site-header .desktop-search{grid-area:search!important;order:initial!important;display:flex!important;width:100%!important;min-width:0!important;max-width:none!important;}
+  #site-header .wow-main-header-row>div:first-child{
+    grid-area:logo!important;width:auto!important;min-width:0!important;display:flex!important;align-items:center!important;padding:0!important;
+  }
+  #site-header .wow-main-header-row>div:first-child>div{display:flex!important;align-items:center!important;gap:0!important;min-width:0!important;}
+  #site-header #siteBrandIcon{
+    display:flex!important;align-items:center!important;justify-content:flex-start!important;
+    width:92px!important;height:34px!important;min-width:92px!important;
+    overflow:hidden!important;background:transparent!important;border:0!important;border-radius:0!important;
+  }
+  #site-header #siteBrandIcon img{
+    display:block!important;width:92px!important;height:34px!important;max-width:92px!important;max-height:34px!important;
+    object-fit:contain!important;object-position:left center!important;
+  }
+  #site-header #siteBrandName,#site-header #siteBrandSuffix{display:none!important;}
   #site-header .wow-header-actions{
-    grid-area:actions!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:flex-end!important;
-    gap:3px!important;
-    margin-left:auto!important;
+    grid-area:actions!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;
+    gap:7px!important;margin:0!important;min-width:max-content!important;
   }
-  /* Only Account + Wishlist stay beside the mobile logo. */
   #site-header .wow-header-actions>*{display:none!important;}
   #site-header .wow-header-actions #headerAccountBtn,
   #site-header .wow-header-actions button[title="Wishlist"]{
-    display:flex!important;
-    width:38px!important;height:38px!important;min-width:38px!important;
-    align-items:center!important;justify-content:center!important;
-    padding:0!important;border:1px solid #e6eaf0!important;border-radius:11px!important;
-    background:#fff!important;color:#111827!important;
-    box-shadow:0 2px 8px rgba(15,23,42,.055)!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    width:38px!important;height:38px!important;min-width:38px!important;padding:0!important;
+    border:1px solid #e3e8ee!important;border-radius:11px!important;background:#fff!important;color:#172033!important;
+    box-shadow:0 2px 9px rgba(15,23,42,.06)!important;
   }
-  #site-header .wow-header-actions button[title="Wishlist"]{position:relative!important;}
   #site-header .wow-header-actions #headerAccountBtn svg,
   #site-header .wow-header-actions button[title="Wishlist"] svg{width:19px!important;height:19px!important;stroke-width:1.9!important;}
-  #site-header .wow-header-actions button[title="Wishlist"] #wishlistBadge{display:none!important;}
-  #site-header #siteBrandIcon{width:44px!important;height:34px!important;border-radius:7px!important;}
-  #site-header #siteBrandIcon svg{width:19px!important;height:19px!important;}
-  #site-header #siteBrandName{display:none!important;}
-  #site-header .desktop-search .search-input{
-    height:44px!important;width:100%!important;box-sizing:border-box!important;
-    padding-left:42px!important;padding-right:14px!important;
-    border:1px solid #dfe5ec!important;border-radius:13px!important;
-    background:#f8fafc!important;color:#111827!important;font-size:13.5px!important;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 3px 12px rgba(15,23,42,.045)!important;
-    outline:none!important;
+  #site-header .wow-header-actions button[title="Wishlist"]{position:relative!important;}
+  #site-header #wishlistBadge{display:flex!important;align-items:center!important;justify-content:center!important;}
+  #site-header .desktop-search{
+    grid-area:search!important;display:flex!important;position:relative!important;width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;order:initial!important;
   }
-  #site-header .desktop-search .search-input:focus{background:#fff!important;border-color:#cbd5e1!important;box-shadow:0 0 0 3px rgba(37,99,235,.08),0 5px 16px rgba(15,23,42,.06)!important;}
-  #site-header .desktop-search>i{left:14px!important;width:17px!important;height:17px!important;color:#64748b!important;z-index:1!important;}
-  #site-header #desktopNav{margin-top:0!important;}
+  #site-header .desktop-search .search-input{
+    width:100%!important;height:43px!important;min-height:43px!important;box-sizing:border-box!important;
+    padding:0 42px 0 42px!important;border:1px solid #dce3eb!important;border-radius:13px!important;
+    background:#f7f9fb!important;color:#111827!important;font-size:13.5px!important;outline:none!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 3px 12px rgba(15,23,42,.045)!important;
+  }
+  #site-header .desktop-search>i{left:14px!important;width:17px!important;height:17px!important;color:#64748b!important;z-index:2!important;}
+  #site-header .desktop-search .search-input:focus{background:#fff!important;border-color:#c7d1dc!important;box-shadow:0 0 0 3px rgba(37,99,235,.07),0 5px 16px rgba(15,23,42,.06)!important;}
+  /* Remove duplicated admin-generated top menu on phones; keep the original clean navigation. */
+  #site-header #desktopNav .admin-managed-menu{display:none!important;}
+  #site-header #desktopNav{
+    display:flex!important;position:relative!important;width:100%!important;box-sizing:border-box!important;
+    align-items:center!important;gap:1px!important;padding:5px 8px 6px!important;margin:0!important;
+    overflow-x:auto!important;overflow-y:visible!important;white-space:nowrap!important;scrollbar-width:none!important;
+    border-top:1px solid #f2f4f7!important;border-bottom:1px solid #edf0f3!important;background:#fff!important;
+    -webkit-overflow-scrolling:touch!important;
+  }
+  #site-header #desktopNav::-webkit-scrollbar{display:none!important;}
+  #site-header #desktopNav>.nav-link,#site-header #desktopNav>.nav-item>.nav-link{
+    flex:0 0 auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    min-height:31px!important;padding:6px 10px!important;margin:0!important;border-radius:8px!important;
+    font-size:11.5px!important;font-weight:700!important;line-height:1!important;color:#172033!important;white-space:nowrap!important;
+  }
+  #site-header #desktopNav>.nav-item{flex:0 0 auto!important;display:block!important;position:relative!important;}
+  #site-header #desktopNav>.nav-item>.mega-menu{display:none!important;}
+  #site-header #desktopNav>.nav-item>.dropdown{display:none!important;position:absolute!important;top:calc(100% + 4px)!important;left:0!important;z-index:99999!important;}
+  #site-header #desktopNav>.nav-item.category-open>.dropdown{display:block!important;}
   #wow-mobile-bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important;}
 }
-@media screen and (max-width:380px){
-  #site-header .wow-main-header-row{padding-left:10px!important;padding-right:10px!important;gap:7px!important;}
-  #site-header .wow-header-actions #headerAccountBtn,
-  #site-header .wow-header-actions button[title="Wishlist"]{width:35px!important;height:35px!important;min-width:35px!important;border-radius:10px!important;}
-  #site-header .desktop-search .search-input{height:42px!important;font-size:13px!important;border-radius:12px!important;}
-  #site-header #siteBrandIcon{width:40px!important;height:32px!important;}
+@media(max-width:380px){
+  #site-header .wow-main-header-row{padding-left:9px!important;padding-right:9px!important;gap:7px!important;}
+  #site-header #siteBrandIcon{width:82px!important;min-width:82px!important;}
+  #site-header #siteBrandIcon img{width:82px!important;max-width:82px!important;}
+  #site-header .wow-header-actions{gap:5px!important;}
+  #site-header .wow-header-actions #headerAccountBtn,#site-header .wow-header-actions button[title="Wishlist"]{width:35px!important;height:35px!important;min-width:35px!important;border-radius:10px!important;}
+  #site-header .desktop-search .search-input{height:41px!important;min-height:41px!important;font-size:13px!important;border-radius:12px!important;}
+  #site-header #desktopNav>.nav-link,#site-header #desktopNav>.nav-item>.nav-link{padding-left:9px!important;padding-right:9px!important;font-size:11px!important;}
 }
 </style>
-<script id="wow-wishlist-top-mobile-final-js">
+
+<script id="wow-mobile-header-final-v4-js">
 (function(){
-  function syncTopWishlist(){
-    try{
-      var count=(JSON.parse(localStorage.getItem('wow_wishlist')||'[]')||[]).length;
-      var b=document.getElementById('wishlistBadge');
-      if(b){b.textContent=count>99?'99+':String(count);b.style.display=count?'block':'none';}
-    }catch(e){}
+  'use strict';
+  function ensureHeader(){
+    if(window.innerWidth>767)return;
+    const header=document.getElementById('site-header');
+    if(!header)return;
+    const actions=header.querySelector('.wow-header-actions');
+    if(actions){
+      actions.querySelectorAll(':scope > button').forEach(b=>{
+        const t=(b.getAttribute('title')||'').toLowerCase();
+        if(t==='search'||t==='cart'||t==='menu') b.style.setProperty('display','none','important');
+        if(t==='account'||t==='wishlist') b.style.setProperty('display','flex','important');
+      });
+    }
+    const nav=document.getElementById('desktopNav');
+    if(nav){
+      const managed=nav.querySelector('.admin-managed-menu');
+      if(managed) managed.style.setProperty('display','none','important');
+      const seen=new Set();
+      Array.from(nav.children).forEach(el=>{
+        if(el.classList.contains('admin-managed-menu')) return;
+        const link=el.matches('.nav-link')?el:el.querySelector(':scope > .nav-link');
+        if(!link)return;
+        const key=(link.textContent||'').replace(/[⌄▼▾]/g,'').replace(/\s+/g,' ').trim().toLowerCase();
+        if(!key)return;
+        if(seen.has(key)) el.remove(); else seen.add(key);
+      });
+    }
+    const logo=document.getElementById('siteBrandIcon');
+    const img=logo?.querySelector('img');
+    if(img){img.style.setProperty('width','92px','important');img.style.setProperty('height','34px','important');img.style.setProperty('object-fit','contain','important');img.style.setProperty('object-position','left center','important');}
   }
-  window.syncTopWishlist=syncTopWishlist;
-  window.addEventListener('load',function(){setTimeout(syncTopWishlist,100);});
-  window.addEventListener('storage',syncTopWishlist);
-  setInterval(syncTopWishlist,1200);
+  function boot(){ensureHeader();setTimeout(ensureHeader,300);setTimeout(ensureHeader,1200);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+  window.addEventListener('load',ensureHeader);window.addEventListener('pageshow',ensureHeader);window.addEventListener('resize',ensureHeader,{passive:true});
+  setInterval(ensureHeader,1500);
 })();
 </script>
 </body>

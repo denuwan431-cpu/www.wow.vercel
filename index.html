@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#ffffff"/>
-  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <title>WOWSHOPPING.lk — Premium Fashion & Lifestyle</title>
-  <meta name="description" content="Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000."/>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#ffffff" name="theme-color"/>
+<link crossorigin="" href="https://www.gstatic.com" rel="preconnect"/>
+<link crossorigin="" href="https://unpkg.com" rel="preconnect"/>
+<title>WOWSHOPPING.lk — Premium Fashion &amp; Lifestyle</title>
+<meta content="Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000." name="description"/>
+<script>
   function getCategoryFilterKey(){ return String(window.currentCategory||window.selectedCategory||''); }
   function getLiveCategoryDef(cat){
     const key=String(cat||'').trim().toLowerCase();
@@ -32,12 +33,12 @@
     box.innerHTML=vals.length?`<div class="filter-section"><div class="filter-title">${def.filterLabel||'Filter'}</div><div class="filter-options">${vals.map(v=>`<label class="filter-item"><input type="checkbox" value="${String(v).replace(/"/g,'&quot;')}" data-cat-filter="1" onchange="applyFilters()"> ${v}</label>`).join('')}</div></div>`:'';
   }
   </script>
-  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <!-- Firebase Authentication / Firestore. Add your Firebase web config in the FIREBASE_CONFIG object below. -->
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-  <style>
+<script defer="" src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<!-- Firebase Authentication / Firestore. Add your Firebase web config in the FIREBASE_CONFIG object below. -->
+<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<style>
     :root {
       --color-primary: #111827;
       --color-accent: #2563eb;
@@ -422,7 +423,6 @@ body.wow-ready #site-header{opacity:1}
 
 .pay-option{display:flex;align-items:center;gap:14px;border:1.5px solid #e5e7eb;border-radius:10px;padding:16px;cursor:pointer;background:#fff}.pay-option:has(input:checked){border-color:#2563eb;background:#eff6ff}.pay-option input{accent-color:#2563eb}
 </style>
-
 <style>
 .admin-media{width:54px;height:54px;object-fit:cover;border-radius:8px;background:#f3f4f6}.admin-form .admin-field input,.admin-form .admin-field textarea,.admin-form .admin-field select{width:100%;box-sizing:border-box}.admin-list-row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px;border-bottom:1px solid #f0f0f0}.admin-list-row:last-child{border-bottom:0}.admin-three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hero-media-shell video,.hero-media-shell img{display:block;width:100%;height:100%;object-fit:cover}.hero-section>.hero-overlay-admin~*{position:relative}@media(max-width:768px){.admin-three{grid-template-columns:1fr}.admin-list-row{align-items:flex-start;flex-direction:column}.admin-list-row>div:last-child{display:flex;flex-wrap:wrap}.promo-grid{grid-template-columns:1fr!important}}
 </style>
@@ -471,7 +471,6 @@ body.wow-ready #site-header{opacity:1}
   font-weight:600;
 }
 </style>
-
 <style>
 .color-preview-visible{
   display:inline-flex!important; align-items:center!important; justify-content:center!important;
@@ -481,7 +480,6 @@ body.wow-ready #site-header{opacity:1}
   background-color:#fff;
 }
 </style>
-
 <style>
 #dynamicCategoryFilters .filter-group{margin-top:0}
 #dynamicCategoryFilters .filter-title{font-weight:700;margin-bottom:9px}
@@ -501,7 +499,7 @@ body.wow-ready #site-header{opacity:1}
 @media(max-width:560px){.wow-benefits-grid{grid-template-columns:1fr;padding:12px 16px;gap:4px}.wow-benefit-card{padding:8px 2px;}}
 </style>
 <style id="wow-promise-pro">.wow-promise-section{padding:64px 0;background:#f9fafb}.wow-promise-wrap{max-width:1000px;margin:0 auto;padding:0 20px;text-align:center}.wow-promise-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#111;margin-bottom:10px}.wow-promise-title{font-size:32px;line-height:1.15;font-weight:800;color:#111;margin:0 0 14px}.wow-promise-desc{font-size:15px;line-height:1.7;color:#6b7280;margin:0 auto 44px;max-width:760px}.wow-promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}.wow-promise-card{text-align:center}.wow-promise-icon{width:60px;height:60px;border-radius:14px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#111}.wow-promise-icon svg{width:26px;height:26px}.wow-promise-card h3{font-size:15px;font-weight:700;margin:0 0 8px;color:#111}.wow-promise-card p{font-size:13px;color:#6b7280;line-height:1.6;margin:0}@media(max-width:760px){.wow-promise-section{padding:48px 0}.wow-promise-grid{grid-template-columns:1fr;gap:28px}.wow-promise-title{font-size:27px}.wow-promise-desc{margin-bottom:34px}}</style>
-  <style id="wow-mobile-optimization">
+<style id="wow-mobile-optimization">
     html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;}
     body{-webkit-tap-highlight-color:transparent;}
     button,a,input,select,textarea{touch-action:manipulation;}
@@ -559,7 +557,6 @@ body.wow-ready #site-header{opacity:1}
       .hero-section{height:500px!important;min-height:500px!important;}
     }
   </style>
-
 <style id="wow-auth-pro">
   .auth-modal{backdrop-filter:blur(12px);background:rgba(15,23,42,.58)!important;padding:16px!important;}
   .auth-card{width:100%;overflow:hidden;border:1px solid rgba(15,23,42,.08);box-shadow:0 28px 90px rgba(15,23,42,.28);border-radius:22px!important;background:#fff;}
@@ -600,8 +597,6 @@ body.wow-ready #site-header{opacity:1}
     .auth-close{top:12px!important;right:12px!important;}
   }
 </style>
-
-
 <style id="wow-mobile-pro">
   @media(max-width:767px){
     #site-header>div>div:first-child{gap:10px!important;padding:10px 0!important;}
@@ -620,8 +615,6 @@ body.wow-ready #site-header{opacity:1}
     .auth-card{max-height:90vh;}
   }
 </style>
-
-
 <style id="wow-mobile-pro-layout">
 /* =========================================================
    WOWSHOPPING — Mobile storefront shell
@@ -802,8 +795,6 @@ body.wow-ready #site-header{opacity:1}
   #wow-mobile-bottom-nav { display:none !important; }
 }
 </style>
-
-
 <style id="wow-mobile-bottom-nav-hard-fix">
 /* FINAL MOBILE NAV FIX — must stay visible on real phones */
 @media screen and (max-width: 767px) {
@@ -872,7 +863,6 @@ body.wow-ready #site-header{opacity:1}
   #wow-mobile-bottom-nav { display:none !important; }
 }
 </style>
-
 <style id="wow-v10-stability-mobile">
 html,body{max-width:100%;overflow-x:hidden}
 img,video,iframe{max-width:100%}
@@ -921,187 +911,6 @@ button,input,select,textarea{font:inherit}
 </style>
 
 
-<style id="wow-clean-video-banner-v1">
-html,body{overflow-x:hidden!important}
-/* One authoritative responsive hero */
-.hero-section{position:relative!important;width:100vw!important;max-width:none!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,31vw,460px)!important;min-height:300px!important;overflow:hidden!important;background:#07111f!important;display:flex!important;align-items:center!important;isolation:isolate!important;opacity:1!important}
-.hero-section .wow-clean-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;background:#07111f!important;overflow:hidden!important}
-.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important}
-.hero-section .wow-clean-media img{z-index:0!important}.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe{z-index:1!important}
-.hero-section .wow-clean-shade{position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.38) 42%,rgba(0,0,0,.08) 100%)!important}
-.hero-section>.wow-clean-content{position:relative!important;z-index:4!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;box-sizing:border-box!important;display:flex!important;align-items:center!important}
-.hero-section .hero-content{position:relative!important;z-index:5!important;width:min(560px,55vw)!important;max-width:560px!important;margin:0!important;padding:0!important;background:transparent!important;text-align:left!important}
-.hero-section .hero-eyebrow,.hero-section .hero-title,.hero-section .hero-sub,.hero-section .hero-actions{opacity:1!important;visibility:visible!important}
-.hero-section .hero-title{max-width:560px!important}
-.wow-clean-promo{width:100%!important;background:#fff!important;padding:16px 0!important;box-sizing:border-box!important}
-.wow-clean-promo-shell{position:relative!important;width:min(1200px,calc(100% - 40px))!important;max-width:1200px!important;margin:0 auto!important;overflow:hidden!important;border-radius:14px!important;background:#07111f!important;box-shadow:0 8px 24px rgba(15,23,42,.10)!important}
-.wow-clean-promo-track{display:flex!important;width:100%!important;transition:transform .45s ease!important}
-.wow-clean-promo-slide{position:relative!important;min-width:100%!important;width:100%!important;height:clamp(190px,25vw,300px)!important;overflow:hidden!important;background:#07111f!important}
-.wow-clean-promo-slide video,.wow-clean-promo-slide iframe,.wow-clean-promo-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important}
-.wow-clean-promo-shade{position:absolute!important;inset:0!important;z-index:2!important;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.12) 75%)!important;pointer-events:none!important}
-.wow-clean-promo-copy{position:absolute!important;z-index:4!important;left:clamp(42px,8vw,105px)!important;bottom:clamp(18px,4vw,42px)!important;color:#fff!important;max-width:520px!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important}
-.wow-clean-promo-copy small{display:block!important;font-size:9px!important;letter-spacing:1.8px!important;font-weight:800!important;text-transform:uppercase!important;margin-bottom:6px!important}
-.wow-clean-promo-copy strong{display:block!important;font-size:clamp(20px,3.5vw,40px)!important;line-height:1.05!important;margin-bottom:7px!important}
-.wow-clean-promo-copy p{margin:0 0 10px!important;font-size:13px!important;line-height:1.4!important}
-.wow-clean-promo-copy button{border:0!important;border-radius:7px!important;background:#fff!important;color:#111827!important;font-weight:800!important;padding:9px 13px!important;font-size:11px!important;cursor:pointer!important}
-.wow-clean-promo-arrow{position:absolute!important;z-index:7!important;top:50%!important;transform:translateY(-50%)!important;width:36px!important;height:36px!important;border:0!important;border-radius:50%!important;background:rgba(255,255,255,.95)!important;color:#111827!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;box-shadow:0 5px 16px rgba(0,0,0,.18)!important}
-.wow-clean-promo-prev{left:10px!important}.wow-clean-promo-next{right:10px!important}
-.wow-clean-promo-dots{position:absolute!important;z-index:8!important;left:50%!important;bottom:9px!important;transform:translateX(-50%)!important;display:flex!important;gap:5px!important}
-.wow-clean-promo-dot{width:7px!important;height:7px!important;padding:0!important;border:0!important;border-radius:99px!important;background:rgba(255,255,255,.55)!important}.wow-clean-promo-dot.active{width:22px!important;background:#fff!important}
-@media(max-width:767px){
- .hero-section{height:clamp(205px,61vw,320px)!important;min-height:205px!important;max-height:320px!important}
- .hero-section>.wow-clean-content{padding:0 16px 20px!important;align-items:flex-end!important}
- .hero-section .hero-content{width:100%!important;max-width:78%!important}
- .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.5px!important;margin-bottom:6px!important}
- .hero-section .hero-title{font-size:clamp(23px,7.6vw,34px)!important;line-height:1.04!important;letter-spacing:-.4px!important;margin-bottom:7px!important}
- .hero-section .hero-sub{font-size:11px!important;line-height:1.35!important;margin-bottom:10px!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
- .hero-section .hero-actions{gap:6px!important}.hero-section .hero-actions .btn{min-height:33px!important;padding:7px 10px!important;font-size:10px!important;border-radius:6px!important}
- .hero-section .wow-clean-shade{background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.30) 55%,rgba(0,0,0,.06))!important}
- .hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{object-position:center center!important}
- .wow-clean-promo{padding:10px 0!important}.wow-clean-promo-shell{width:calc(100% - 20px)!important;border-radius:10px!important}
- .wow-clean-promo-slide{height:clamp(145px,48vw,230px)!important}
- .wow-clean-promo-copy{left:24px!important;bottom:16px!important;max-width:72%!important}.wow-clean-promo-copy small{font-size:7px!important;margin-bottom:4px!important}.wow-clean-promo-copy strong{font-size:clamp(18px,6vw,28px)!important;margin-bottom:4px!important}.wow-clean-promo-copy p{font-size:10px!important;margin-bottom:7px!important;max-width:100%!important}.wow-clean-promo-copy button{font-size:9px!important;padding:7px 9px!important}
- .wow-clean-promo-arrow{width:30px!important;height:30px!important}.wow-clean-promo-prev{left:7px!important}.wow-clean-promo-next{right:7px!important}.wow-clean-promo-dots{bottom:6px!important}
-}
-</style>
-
-<style id="wow-video-final-fix-v3">
-.hero-section .wow-clean-media{position:absolute!important;inset:0!important;z-index:0!important;display:block!important;visibility:visible!important;opacity:1!important;overflow:hidden!important;background:#07111f!important}
-.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;display:block!important;visibility:visible!important;opacity:1!important;border:0!important;object-fit:cover!important;object-position:center!important;background:#07111f!important}
-.hero-section .wow-clean-media img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;display:block!important;object-fit:cover!important;object-position:center!important}
-.hero-section .wow-clean-shade{z-index:2!important}
-@media(max-width:767px){.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{object-position:center center!important}}
-</style>
-<style id="wow-mobile-compact-final-v2">
-/* FINAL MOBILE COMPACT UI — overrides older responsive rules */
-@media (max-width: 767px){
-  /* Main hero: compact and balanced */
-  .hero-section{
-    height:clamp(225px,58vw,285px)!important;
-    min-height:225px!important;
-    max-height:285px!important;
-  }
-  .hero-section>.wow-clean-content{
-    padding:0 14px 16px!important;
-    align-items:flex-end!important;
-  }
-  .hero-section .hero-content{
-    width:auto!important;
-    max-width:76%!important;
-  }
-  .hero-section .hero-eyebrow{
-    font-size:7px!important;
-    letter-spacing:1.3px!important;
-    margin-bottom:4px!important;
-  }
-  .hero-section .hero-title{
-    font-size:clamp(21px,6.6vw,30px)!important;
-    line-height:1.02!important;
-    margin-bottom:5px!important;
-    max-width:100%!important;
-  }
-  .hero-section .hero-sub{
-    font-size:9.5px!important;
-    line-height:1.25!important;
-    margin-bottom:7px!important;
-    max-width:100%!important;
-    -webkit-line-clamp:1!important;
-  }
-  .hero-section .hero-actions{
-    display:flex!important;
-    flex-direction:row!important;
-    flex-wrap:wrap!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    gap:5px!important;
-    width:auto!important;
-  }
-  .hero-section .hero-actions .btn,
-  .hero-section .hero-content .btn{
-    width:auto!important;
-    min-width:0!important;
-    max-width:none!important;
-    min-height:29px!important;
-    height:29px!important;
-    flex:0 0 auto!important;
-    padding:5px 9px!important;
-    font-size:9px!important;
-    line-height:1!important;
-    border-radius:5px!important;
-    white-space:nowrap!important;
-  }
-
-  /* Second banner: centered, compact, not oversized */
-  .wow-clean-promo{
-    padding:8px 0!important;
-  }
-  .wow-clean-promo-shell{
-    width:calc(100% - 24px)!important;
-    max-width:1180px!important;
-    border-radius:9px!important;
-  }
-  .wow-clean-promo-slide{
-    height:clamp(135px,43vw,190px)!important;
-    min-height:135px!important;
-    max-height:190px!important;
-  }
-  .wow-clean-promo-copy{
-    left:12px!important;
-    bottom:13px!important;
-    max-width:65%!important;
-  }
-  .wow-clean-promo-copy small{
-    font-size:6.5px!important;
-    letter-spacing:1.2px!important;
-    margin-bottom:3px!important;
-  }
-  .wow-clean-promo-copy strong{
-    font-size:clamp(16px,5.2vw,24px)!important;
-    line-height:1.02!important;
-    margin-bottom:3px!important;
-  }
-  .wow-clean-promo-copy p{
-    font-size:8.5px!important;
-    line-height:1.2!important;
-    margin-bottom:5px!important;
-    max-width:100%!important;
-    display:-webkit-box!important;
-    -webkit-line-clamp:1!important;
-    -webkit-box-orient:vertical!important;
-    overflow:hidden!important;
-  }
-  .wow-clean-promo-copy button{
-    width:auto!important;
-    min-width:0!important;
-    height:25px!important;
-    padding:5px 8px!important;
-    font-size:8px!important;
-    line-height:1!important;
-    border-radius:5px!important;
-  }
-  .wow-clean-promo-arrow{
-    width:25px!important;
-    height:25px!important;
-    font-size:15px!important;
-    box-shadow:0 3px 9px rgba(0,0,0,.16)!important;
-  }
-  .wow-clean-promo-prev{left:5px!important}
-  .wow-clean-promo-next{right:5px!important}
-  .wow-clean-promo-dots{bottom:5px!important;gap:3px!important}
-  .wow-clean-promo-dot{width:5px!important;height:5px!important}
-  .wow-clean-promo-dot.active{width:15px!important}
-
-  /* Keep common storefront buttons compact on phones */
-  .hero-section button,
-  .wow-clean-promo button{box-sizing:border-box!important}
-  .btn.btn-sm{font-size:9px!important;padding:6px 9px!important;min-height:28px!important}
-}
-@media (min-width:768px){
-  /* Keep promo banner visually centered in the desktop content column */
-  .wow-clean-promo-shell{max-width:1200px!important}
-}
-</style>
-
 
 <style id="wow-centered-promo-copy-v2">
 /* Center the lower promotional banner content (e.g. Men's Collection) */
@@ -1137,7 +946,6 @@ html,body{overflow-x:hidden!important}
   .wow-clean-promo-copy button{font-size:10px!important;padding:7px 11px!important}
 }
 </style>
-
 <style id="wow-promotional-banner-left-top-v3">
 /* Promotional banner text: top-left, not centered/bottom */
 .wow-clean-promo-slide .wow-clean-promo-copy{
@@ -1168,7 +976,6 @@ html,body{overflow-x:hidden!important}
   }
 }
 </style>
-
 <style id="wow-mobile-professional-v2">
 /* WOWSHOPPING — final phone app-style optimization */
 @media screen and (max-width:767px){
@@ -1526,8 +1333,6 @@ html,body{overflow-x:hidden!important}
   .cat-grid .cat-card{flex-basis:108px!important;width:108px!important;height:138px!important}
 }
 </style>
-
-
 <style id="wow-mobile-search-menu-v1">
 /* Child-menu fix: admin-managed menu items can open their children on touch/mobile. */
 .admin-menu-node{position:relative;}
@@ -1651,10 +1456,8 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 <style id="wow-brand-logo-only-v1">#siteBrandName,#siteBrandSuffix{display:none!important}#siteBrandIcon{flex-shrink:0!important} @media(max-width:767px){#siteBrandIcon{width:38px!important;height:34px!important}#site-header .wow-main-header-row{min-height:58px!important}}</style>
-
-  <!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
-
+<!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml">
 <style id="wow-header-pro-v3">
 /* WOWSHOPPING — authoritative header polish + mobile logo fix */
 #site-header .wow-main-header-row{box-sizing:border-box!important}
@@ -1763,7 +1566,6 @@ html,body{overflow-x:hidden!important}
   #site-header .wow-main-header-row{padding-left:10px!important;padding-right:10px!important}
 }
 </style>
-
 <style id="wow-final-mobile-sticky-pro-search">
 /* FINAL MOBILE HEADER / STICKY PRO SEARCH */
 @media (max-width: 767px){
@@ -1958,7 +1760,6 @@ html,body{overflow-x:hidden!important}
   #desktopNav .nav-link,#desktopNav .nav-item>.nav-link{font-size:11.5px!important;padding:6px 9px!important;}
 }
 </style>
-
 <style id="wow-wishlist-pro-v1">
   .wishlist-page-shell{max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,52px) clamp(16px,3vw,28px) 64px;}
   .wishlist-page-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px;padding:22px 24px;border:1px solid #e8ecf2;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);box-shadow:0 10px 35px rgba(15,23,42,.055);}
@@ -2018,8 +1819,6 @@ html,body{overflow-x:hidden!important}
     .wishlist-product-grid .product-info{padding:9px 9px 11px;}
   }
 </style>
-
-
 <style id="wow-mobile-final-polish">
 /* FINAL PHONE OPTIMIZATION — keeps every section/content, only reflows and resizes it. */
 @media (max-width: 767px){
@@ -2096,8 +1895,6 @@ html,body{overflow-x:hidden!important}
   .wow-promise-wrap{padding-left:14px!important;padding-right:14px!important;}
 }
 </style>
-
-
 <style id="mobile-footer-optimization">
 /* WOWSHOPPING mobile footer optimization */
 @media (max-width: 768px) {
@@ -2188,8 +1985,6 @@ html,body{overflow-x:hidden!important}
   }
 }
 </style>
-
-
 <style id="wow-mobile-pro-final">
 /* =========================================================
    WOWSHOPPING — FINAL MOBILE APP UI / PERFORMANCE LAYER
@@ -2554,8 +2349,6 @@ html,body{overflow-x:hidden!important}
   .cat-grid .cat-card{flex-basis:124px!important;width:124px!important;height:154px!important;}
 }
 </style>
-
-
 <style id="wow-phone-daraz-style">
 /* =========================================================
    WOWSHOPPING — phone storefront refresh
@@ -2754,610 +2547,192 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+\n
 
-<style id="wow-full-banner-left-text-final">
-/* FINAL HERO: video fills the entire banner, copy stays on the left */
-.hero-section{
-  position:relative!important;
-  width:100vw!important;
-  max-width:none!important;
-  margin-left:calc(50% - 50vw)!important;
-  margin-right:calc(50% - 50vw)!important;
-  height:clamp(430px,36vw,560px)!important;
-  min-height:430px!important;
-  max-height:560px!important;
-  padding:0!important;
-  overflow:hidden!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-  background:#070b12!important;
-}
-.hero-section .wow-clean-media{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  z-index:0!important;
-  display:block!important;
-  overflow:hidden!important;
-  background:#070b12!important;
-}
-.hero-section .wow-clean-media video,
-.hero-section .wow-clean-media iframe,
-.hero-section .wow-clean-media img{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  min-width:100%!important;
-  min-height:100%!important;
-  max-width:none!important;
-  max-height:none!important;
-  border:0!important;
-  display:block!important;
-  object-fit:cover!important;
-  object-position:center center!important;
-}
-.hero-section .wow-clean-content{
-  position:relative!important;
-  z-index:4!important;
-  width:100%!important;
-  max-width:1440px!important;
-  margin:0 auto!important;
-  padding:0 7vw!important;
-  box-sizing:border-box!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:flex-start!important;
-}
-.hero-section .hero-content{
-  position:relative!important;
-  z-index:6!important;
-  width:min(570px,45vw)!important;
-  max-width:570px!important;
-  margin:0!important;
-  padding:0!important;
-  text-align:left!important;
-}
-.hero-section .wow-clean-shade{
-  position:absolute!important;
-  inset:0!important;
-  z-index:2!important;
-  pointer-events:none!important;
-  background:linear-gradient(90deg,rgba(2,7,16,.82) 0%,rgba(2,7,16,.62) 28%,rgba(2,7,16,.25) 55%,rgba(2,7,16,.04) 100%)!important;
-}
-.hero-section .hero-eyebrow,
-.hero-section .hero-title,
-.hero-section .hero-sub,
-.hero-section .hero-actions{
-  position:relative!important;
-  z-index:7!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-.hero-section .hero-eyebrow{margin-bottom:14px!important}
-.hero-section .hero-title{
-  max-width:570px!important;
-  font-size:clamp(48px,5vw,76px)!important;
-  line-height:1.02!important;
-  margin-bottom:18px!important;
-  text-align:left!important;
-}
-.hero-section .hero-sub{
-  max-width:520px!important;
-  font-size:16px!important;
-  line-height:1.65!important;
-  margin-bottom:28px!important;
-  text-align:left!important;
-}
-.hero-section .hero-actions{
-  justify-content:flex-start!important;
-}
-@media(max-width:767px){
-  .hero-section{
-    height:clamp(255px,68vw,340px)!important;
-    min-height:255px!important;
-    max-height:340px!important;
-  }
-  .hero-section .wow-clean-content{
-    padding:0 18px 22px!important;
-    align-items:flex-end!important;
-  }
-  .hero-section .hero-content{
-    width:78%!important;
-    max-width:78%!important;
-  }
-  .hero-section .wow-clean-shade{
-    background:linear-gradient(90deg,rgba(2,7,16,.78) 0%,rgba(2,7,16,.42) 52%,rgba(2,7,16,.08) 100%)!important;
-  }
-  .hero-section .hero-eyebrow{font-size:8px!important;margin-bottom:6px!important}
-  .hero-section .hero-title{
-    font-size:clamp(25px,7.8vw,36px)!important;
-    line-height:1.04!important;
-    margin-bottom:7px!important;
-  }
-  .hero-section .hero-sub{
-    font-size:10.5px!important;
-    line-height:1.35!important;
-    margin-bottom:11px!important;
-    display:-webkit-box!important;
-    -webkit-line-clamp:2!important;
-    -webkit-box-orient:vertical!important;
-    overflow:hidden!important;
-  }
-  .hero-section .hero-actions{gap:6px!important}
-  .hero-section .hero-actions .btn{
-    min-height:34px!important;
-    padding:7px 11px!important;
-    font-size:10px!important;
-  }
-}
-</style>
 
-<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<style id="wow-absolute-hero-video-fix-v4">
-/* V4 FINAL: one authoritative full-bleed hero media layer */
-.hero-section{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#070b14!important;width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding:0!important;display:flex!important;align-items:center!important;}
-.hero-section .wow-absolute-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;display:block!important;overflow:hidden!important;background:#070b14!important;}
-.hero-section .wow-absolute-hero-media::before{content:"";position:absolute;inset:0;background:#070b14;z-index:0;}
-.hero-section .wow-absolute-hero-media img,.hero-section .wow-absolute-hero-media video,.hero-section .wow-absolute-hero-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important;}
-.hero-section .wow-absolute-hero-media img{z-index:1!important;}
-.hero-section .wow-absolute-hero-media video,.hero-section .wow-absolute-hero-media iframe{z-index:2!important;background:#070b14!important;}
-.hero-section .wow-absolute-hero-media video{opacity:1!important;visibility:visible!important;}
-.hero-section .wow-absolute-hero-media.wow-video-failed video{display:none!important;}
-.hero-section .wow-absolute-hero-content{position:relative!important;z-index:6!important;width:100%!important;max-width:1440px!important;margin:0 auto!important;padding:0 6vw!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;}
-.hero-section .wow-absolute-hero-content .hero-content{position:relative!important;z-index:8!important;width:min(580px,48vw)!important;max-width:580px!important;margin:0!important;padding:0!important;text-align:left!important;}
-.hero-section .wow-absolute-hero-shade{position:absolute!important;inset:0!important;z-index:3!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(2,7,16,.82) 0%,rgba(2,7,16,.58) 32%,rgba(2,7,16,.20) 62%,rgba(2,7,16,.03) 100%)!important;}
-@media(max-width:767px){
-  .hero-section{width:100%!important;min-height:255px!important;height:clamp(255px,68vw,340px)!important;max-height:340px!important;}
-  .hero-section .wow-absolute-hero-content{padding:0 16px 22px!important;align-items:flex-end!important;}
-  .hero-section .wow-absolute-hero-content .hero-content{width:78%!important;max-width:78%!important;}
-  .hero-section .wow-absolute-hero-shade{background:linear-gradient(90deg,rgba(2,7,16,.80) 0%,rgba(2,7,16,.48) 50%,rgba(2,7,16,.08) 100%)!important;}
-  .hero-section .wow-absolute-hero-media img,.hero-section .wow-absolute-hero-media video,.hero-section .wow-absolute-hero-media iframe{object-position:center center!important;}
-}
-</style>\n
-<style id="wow-mobile-same-desktop-video-final">
-@media (max-width: 767px){
-  /* FINAL: phone uses the SAME hero media/video as desktop, full-bleed */
-  .hero-section{
-    position:relative!important;
-    display:flex!important;
-    width:100vw!important;
-    max-width:none!important;
-    min-height:0!important;
-    height:auto!important;
-    aspect-ratio:16/9!important;
-    margin:0!important;
-    padding:0!important;
-    overflow:hidden!important;
-    isolation:isolate!important;
-    align-items:flex-end!important;
-    background:#050b16!important;
-  }
-  .hero-section .wow-clean-media,
-  .hero-section .wow-hero-media,
-  .hero-section .wow-absolute-hero-media{
-    position:absolute!important;
-    inset:0!important;
-    width:100%!important;
-    height:100%!important;
-    min-width:0!important;
-    min-height:0!important;
-    max-width:none!important;
-    max-height:none!important;
-    display:block!important;
-    visibility:visible!important;
-    opacity:1!important;
-    z-index:0!important;
-    overflow:hidden!important;
-    background:#050b16!important;
-  }
-  .hero-section .wow-clean-media img,
-  .hero-section .wow-clean-media video,
-  .hero-section .wow-clean-media iframe,
-  .hero-section .wow-hero-media img,
-  .hero-section .wow-hero-media video,
-  .hero-section .wow-hero-media iframe,
-  .hero-section .wow-absolute-hero-media img,
-  .hero-section .wow-absolute-hero-media video,
-  .hero-section .wow-absolute-hero-media iframe{
-    position:absolute!important;
-    inset:0!important;
-    width:100%!important;
-    height:100%!important;
-    min-width:100%!important;
-    min-height:100%!important;
-    max-width:none!important;
-    max-height:none!important;
-    display:block!important;
-    visibility:visible!important;
-    border:0!important;
-    object-fit:cover!important;
-    object-position:center center!important;
-  }
-  /* When video exists, let it sit above its poster image. */
-  .hero-section .wow-clean-media img,
-  .hero-section .wow-hero-media img,
-  .hero-section .wow-absolute-hero-media img{z-index:0!important;}
-  .hero-section .wow-clean-media video,
-  .hero-section .wow-hero-media video,
-  .hero-section .wow-absolute-hero-media video{z-index:2!important;}
-  .hero-section .wow-clean-media iframe,
-  .hero-section .wow-hero-media iframe,
-  .hero-section .wow-absolute-hero-media iframe{z-index:2!important;}
-  .hero-section::after{z-index:3!important;}
-  .hero-section .wow-clean-shade,
-  .hero-section .wow-hero-shade,
-  .hero-section .wow-absolute-hero-shade,
-  .hero-section .wow-final-shade{z-index:3!important;}
-  .hero-section > div:not(.wow-clean-media):not(.wow-hero-media):not(.wow-absolute-hero-media):not(.wow-clean-shade):not(.wow-hero-shade):not(.wow-absolute-hero-shade):not(.wow-final-shade){
-    position:relative!important;
-    z-index:6!important;
-    width:100%!important;
-    max-width:none!important;
-    margin:0!important;
-    padding:0 20px 24px!important;
-    box-sizing:border-box!important;
-  }
-  .hero-section .hero-content,
-  .hero-section .wow-clean-content,
-  .hero-section .wow-hero-content,
-  .hero-section .wow-absolute-hero-content{
-    width:min(82%,520px)!important;
-    max-width:520px!important;
-    margin:0!important;
-    padding:0!important;
-    text-align:left!important;
-  }
-  .hero-section .hero-eyebrow{font-size:9px!important;letter-spacing:2px!important;margin-bottom:7px!important;}
-  .hero-section .hero-title{font-size:clamp(30px,9vw,48px)!important;line-height:1.02!important;letter-spacing:-.7px!important;margin-bottom:10px!important;}
-  .hero-section .hero-sub{font-size:13px!important;line-height:1.45!important;margin:0 0 14px!important;max-width:330px!important;}
-  .hero-section .hero-actions{display:flex!important;gap:8px!important;flex-wrap:wrap!important;}
-  .hero-section .hero-actions .btn{min-height:40px!important;padding:9px 14px!important;font-size:13px!important;}
-  /* If the video has failed, poster remains visible. */
-  .hero-section .wow-video-failed video{display:none!important;}
-}
-</style>
-
-<style id="wow-mobile-left-text-final-v5">
-/* =========================================================
-   WOWSHOPPING MOBILE FINAL — SAME HERO VIDEO + LEFT TEXT
-   This is the last mobile override and intentionally wins over
-   all previous responsive hero/header rules.
-   ========================================================= */
-@media (max-width:767px){
-  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important}
-
-  /* Mobile app header: never show the desktop navigation row. */
-  #site-header{position:sticky!important;top:0!important;z-index:9000!important;background:#fff!important}
-  #site-header #desktopNav,
-  #site-header .desktop-nav,
-  #site-header nav.desktop-nav,
-  #site-header .wow-desktop-nav{display:none!important}
-  #site-header .top-bar{display:none!important}
-  #site-header .wow-main-header-row{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) auto!important;
-    grid-template-areas:"brand actions" "search search"!important;
-    gap:10px!important;
-    padding:10px 12px 12px!important;
-    width:100%!important;
-    box-sizing:border-box!important;
-  }
-  #site-header .wow-main-header-row>div:first-child{grid-area:brand!important;min-width:0!important}
-  #site-header .desktop-search{grid-area:search!important;display:flex!important;width:100%!important;max-width:none!important;min-width:0!important}
-  #site-header .wow-header-actions{grid-area:actions!important;display:flex!important;gap:8px!important;margin:0!important;justify-content:flex-end!important}
-  #site-header .wow-header-actions>*{display:none!important}
-  #site-header .wow-header-actions #headerAccountBtn,
-  #site-header .wow-header-actions #wishlistBtn{display:flex!important;width:44px!important;height:44px!important;align-items:center!important;justify-content:center!important;border-radius:14px!important;background:#fff!important;border:1px solid #edf0f4!important;box-shadow:0 4px 14px rgba(15,23,42,.06)!important}
-  #site-header .brand-name{font-size:18px!important;font-weight:800!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
-  #site-header #siteBrandIcon{width:34px!important;height:34px!important;display:flex!important}
-  #site-header .search-input{height:46px!important;border-radius:15px!important;font-size:15px!important}
-
-  /* HERO: one full-bleed media layer, text anchored to LEFT. */
-  .hero-section{
-    position:relative!important;
-    width:100vw!important;
-    max-width:none!important;
-    height:clamp(250px,64vw,360px)!important;
-    min-height:250px!important;
-    max-height:360px!important;
-    margin:0!important;
-    padding:0!important;
-    display:flex!important;
-    align-items:flex-end!important;
-    justify-content:flex-start!important;
-    overflow:hidden!important;
-    isolation:isolate!important;
-    background:#050b16!important;
-  }
-
-  /* All known hero media wrappers are full-screen. */
-  .hero-section .wow-clean-media,
-  .hero-section .wow-hero-media,
-  .hero-section .wow-absolute-hero-media,
-  .hero-section .v6-media,
-  .hero-section .hero-media-shell,
-  .hero-section .v34-hero-video{
-    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-    min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
-    display:block!important;visibility:visible!important;opacity:1!important;overflow:hidden!important;
-    z-index:0!important;background:#050b16!important;
-  }
-  .hero-section .wow-clean-media video,
-  .hero-section .wow-clean-media iframe,
-  .hero-section .wow-clean-media img,
-  .hero-section .wow-hero-media video,
-  .hero-section .wow-hero-media iframe,
-  .hero-section .wow-hero-media img,
-  .hero-section .wow-absolute-hero-media video,
-  .hero-section .wow-absolute-hero-media iframe,
-  .hero-section .wow-absolute-hero-media img,
-  .hero-section .v6-media video,
-  .hero-section .v6-media iframe,
-  .hero-section .v6-media img,
-  .hero-section .hero-media-shell video,
-  .hero-section .hero-media-shell img,
-  .hero-section .v34-hero-video video,
-  .hero-section .v34-hero-video iframe{
-    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-    min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;
-    display:block!important;visibility:visible!important;opacity:1!important;border:0!important;
-    object-fit:cover!important;object-position:center center!important;background:#050b16!important;
-  }
-  .hero-section .wow-clean-media video,
-  .hero-section .wow-hero-media video,
-  .hero-section .wow-absolute-hero-media video,
-  .hero-section .v6-media video,
-  .hero-section .hero-media-shell video,
-  .hero-section .v34-hero-video video{z-index:2!important}
-  .hero-section .wow-clean-media img,
-  .hero-section .wow-hero-media img,
-  .hero-section .wow-absolute-hero-media img{z-index:1!important}
-
-  /* Strong left-side readability gradient, without creating a split panel. */
-  .hero-section .wow-clean-shade,
-  .hero-section .wow-hero-shade,
-  .hero-section .wow-absolute-hero-shade,
-  .hero-section .wow-final-shade,
-  .hero-section::after{
-    position:absolute!important;inset:0!important;z-index:3!important;pointer-events:none!important;
-    background:linear-gradient(90deg,rgba(2,7,16,.78) 0%,rgba(2,7,16,.50) 34%,rgba(2,7,16,.16) 68%,rgba(2,7,16,.02) 100%)!important;
-  }
-
-  /* IMPORTANT: content is always LEFT — never centered/right. */
-  .hero-section>.wow-clean-content,
-  .hero-section>.wow-absolute-hero-content,
-  .hero-section>.wow-hero-content,
-  .hero-section>div:not(.wow-clean-media):not(.wow-hero-media):not(.wow-absolute-hero-media):not(.v6-media):not(.hero-media-shell):not(.v34-hero-video):not(.wow-clean-shade):not(.wow-hero-shade):not(.wow-absolute-hero-shade):not(.wow-final-shade){
-    position:relative!important;
-    z-index:6!important;
-    width:100%!important;
-    max-width:none!important;
-    margin:0!important;
-    padding:0 18px 22px!important;
-    box-sizing:border-box!important;
-    display:flex!important;
-    align-items:flex-end!important;
-    justify-content:flex-start!important;
-  }
-  .hero-section .hero-content,
-  .hero-section .wow-clean-content .hero-content,
-  .hero-section .wow-absolute-hero-content .hero-content,
-  .hero-section .wow-hero-content .hero-content{
-    position:relative!important;
-    z-index:8!important;
-    width:min(78%,360px)!important;
-    max-width:360px!important;
-    margin:0!important;
-    padding:0!important;
-    background:transparent!important;
-    text-align:left!important;
-  }
-  .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.8px!important;margin:0 0 6px!important;text-align:left!important}
-  .hero-section .hero-title{font-size:clamp(28px,8.8vw,42px)!important;line-height:1.02!important;letter-spacing:-.6px!important;margin:0 0 8px!important;text-align:left!important;max-width:100%!important}
-  .hero-section .hero-sub{font-size:12px!important;line-height:1.4!important;margin:0 0 12px!important;max-width:320px!important;text-align:left!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
-  .hero-section .hero-actions{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;flex-wrap:wrap!important}
-  .hero-section .hero-actions .btn{width:auto!important;min-width:0!important;height:38px!important;min-height:38px!important;padding:8px 13px!important;font-size:11px!important;line-height:1!important;border-radius:7px!important;white-space:nowrap!important}
-
-  /* Keep the phone page from exposing desktop-only controls. */
-  #wow-mobile-bottom-nav{display:flex!important;z-index:10000!important}
-}
-</style>
-</head>
+</link></head>
 <body>
-<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
-
+<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div aria-label="Loading" class="wow-loader-spinner"></div></div></div>
 <!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
-
 <!-- Cart Overlay -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-
 <!-- Cart Drawer -->
 <div class="cart-drawer" id="cartDrawer">
-  <div style="padding:20px 20px 0; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #f0f0f0; padding-bottom:16px;">
-    <div style="font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;">
-      <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i> Shopping Cart
+<div style="padding:20px 20px 0; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #f0f0f0; padding-bottom:16px;">
+<div style="font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;">
+<i data-lucide="shopping-bag" style="width:20px;height:20px;"></i> Shopping Cart
       <span id="cartBadgeDraw" style="background:#2563eb;color:#fff;border-radius:20px;padding:2px 8px;font-size:12px;">0</span>
-    </div>
-    <button class="btn-ghost" onclick="closeCart()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
-  </div>
-  <div id="cartItems" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
-  <div style="padding:20px;border-top:1px solid #f0f0f0;">
-    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
-      <span>Subtotal</span><span id="cartSubtotal">Rs. 0</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
-      <span>Shipping</span><span style="color:#10b981;font-weight:600;">Free</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:18px;font-size:17px;font-weight:700;">
-      <span>Total</span><span id="cartTotal">Rs. 0</span>
-    </div>
-    <button class="btn btn-dark" style="width:100%;justify-content:center;" onclick="goToCheckout()">
-      Proceed to Checkout <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
-    </button>
-    <button class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;" onclick="closeCart()">Continue Shopping</button>
-  </div>
 </div>
-
+<button class="btn-ghost" onclick="closeCart()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+</div>
+<div id="cartItems" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
+<div style="padding:20px;border-top:1px solid #f0f0f0;">
+<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
+<span>Subtotal</span><span id="cartSubtotal">Rs. 0</span>
+</div>
+<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
+<span>Shipping</span><span style="color:#10b981;font-weight:600;">Free</span>
+</div>
+<div style="display:flex;justify-content:space-between;margin-bottom:18px;font-size:17px;font-weight:700;">
+<span>Total</span><span id="cartTotal">Rs. 0</span>
+</div>
+<button class="btn btn-dark" onclick="goToCheckout()" style="width:100%;justify-content:center;">
+      Proceed to Checkout <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+</button>
+<button class="btn btn-outline" onclick="closeCart()" style="width:100%;justify-content:center;margin-top:8px;">Continue Shopping</button>
+</div>
+</div>
 <!-- Quick View Modal -->
 <div class="modal-overlay" id="quickViewModal">
-  <div class="modal" style="max-width:860px;">
-    <button class="modal-close" onclick="closeQuickView()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
-    <div id="quickViewContent" style="display:grid;grid-template-columns:1fr 1fr;gap:0;"></div>
-  </div>
+<div class="modal" style="max-width:860px;">
+<button class="modal-close" onclick="closeQuickView()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+<div id="quickViewContent" style="display:grid;grid-template-columns:1fr 1fr;gap:0;"></div>
 </div>
-
+</div>
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 <div class="mobile-drawer" id="mobileDrawer">
-  <div style="padding:16px 20px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;">
-    <span style="font-size:17px;font-weight:800;color:#111;">WOWSHOPPING</span>
-    <button class="btn-ghost" onclick="closeMobileMenu()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
-  </div>
-  <div id="mobileNavContent"></div>
+<div style="padding:16px 20px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;">
+<span style="font-size:17px;font-weight:800;color:#111;">WOWSHOPPING</span>
+<button class="btn-ghost" onclick="closeMobileMenu()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
 </div>
-
+<div id="mobileNavContent"></div>
+</div>
 <!-- Search Modal -->
 <div class="modal-overlay v6-search-overlay" id="searchModal" style="align-items:flex-start;padding-top:118px;background:transparent;pointer-events:none;">
-  <div class="v6-search-panel" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;width:100%;max-width:640px;padding:16px;position:relative;box-shadow:0 14px 35px rgba(15,23,42,.10);pointer-events:auto;">
-    <div style="position:relative;">
-      <i data-lucide="search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#9ca3af;"></i>
-      <input id="searchModalInput" type="text" placeholder="Search for products, brands, categories..." class="search-input" style="padding-left:44px;font-size:16px;border-radius:8px;" oninput="syncSearchInput(this.value)"/>
-    </div>
-    <div id="searchResults" style="margin-top:12px;"></div>
-    <button style="position:absolute;top:12px;right:12px;" class="btn-ghost" onclick="closeSearch()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
-  </div>
+<div class="v6-search-panel" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;width:100%;max-width:640px;padding:16px;position:relative;box-shadow:0 14px 35px rgba(15,23,42,.10);pointer-events:auto;">
+<div style="position:relative;">
+<i data-lucide="search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#9ca3af;"></i>
+<input class="search-input" id="searchModalInput" oninput="syncSearchInput(this.value)" placeholder="Search for products, brands, categories..." style="padding-left:44px;font-size:16px;border-radius:8px;" type="text"/>
 </div>
-
+<div id="searchResults" style="margin-top:12px;"></div>
+<button class="btn-ghost" onclick="closeSearch()" style="position:absolute;top:12px;right:12px;"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+</div>
+</div>
 <!-- AUTH Modal -->
 <div class="modal-overlay auth-modal" id="authModal">
-  <div class="modal auth-card" style="max-width:440px;padding:0;">
-    <button class="modal-close auth-close" onclick="closeAuth()" aria-label="Close login"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
-    <div id="authContent"></div>
-  </div>
+<div class="modal auth-card" style="max-width:440px;padding:0;">
+<button aria-label="Close login" class="modal-close auth-close" onclick="closeAuth()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+<div id="authContent"></div>
 </div>
-
+</div>
 <!-- ===== SITE HEADER ===== -->
 <header id="site-header">
-  <!-- Top Bar -->
-  <div class="top-bar">
-    Free delivery on orders over Rs. 3,000 &nbsp;|&nbsp; Easy Exchange Policy &nbsp;|&nbsp; Cash on Delivery Available
+<!-- Top Bar -->
+<div class="top-bar">
+    Free delivery on orders over Rs. 3,000  |  Easy Exchange Policy  |  Cash on Delivery Available
   </div>
-  <!-- Main Header -->
-  <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-    <div class="wow-main-header-row" style="display:flex;align-items:center;gap:16px;padding:14px 0;">
-      <!-- Logo -->
-      <div onclick="navigate('home')" style="cursor:pointer;flex-shrink:0;">
-        <div style="display:flex;align-items:center;gap:0;">
-          <div id="siteBrandIcon" style="width:62px;height:48px;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </div>
-          <div>
-            <div id="siteBrandName" class="brand-name" style="font-size:17px;font-weight:900;color:#111;letter-spacing:-0.5px;line-height:1;">WOWSHOPPING</div>
-            <div id="siteBrandSuffix" style="display:none">.LK</div>
-          </div>
-        </div>
-      </div>
-      <!-- Search Bar Desktop -->
-      <div style="flex:1;max-width:760px;min-width:360px;position:relative;display:flex;" class="desktop-search">
-        <i data-lucide="search" style="position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#9ca3af;"></i>
-        <input id="headerSearchInput" type="text" placeholder="Search products, brands..." class="search-input" onfocus="openSearch()" oninput="syncSearchInput(this.value)"/>
-      </div>
-      <!-- Actions -->
-      <div class="wow-header-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
-        <button class="btn-ghost" onclick="openSearch()" title="Search">
-          <i data-lucide="search" style="width:20px;height:20px;"></i>
-        </button>
-        <button class="btn-ghost" onclick="openAuth('login')" title="Account" id="headerAccountBtn">
-          <i data-lucide="user" style="width:20px;height:20px;"></i>
-        </button>
-        <button class="btn-ghost" onclick="navigate('wishlist')" title="Wishlist" style="position:relative;">
-          <i data-lucide="heart" style="width:20px;height:20px;"></i>
-          <span id="wishlistBadge" style="display:none!important;"></span>
-        </button>
-        <button class="btn-ghost" onclick="openCart()" title="Cart" style="position:relative;">
-          <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
-          <span id="cartBadgeHeader" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#2563eb;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
-        </button>
-        <!-- Mobile Hamburger -->
-        <button class="btn-ghost" id="hamburgerBtn" onclick="openMobileMenu()" style="display:none;" title="Menu">
-          <i data-lucide="menu" style="width:22px;height:22px;"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Navigation Desktop -->
-    <nav id="desktopNav" style="border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:2px;padding:4px 0;">
-      <div class="nav-link" onclick="navigate('home')">Home</div>
-      <!-- Shop Mega Menu -->
-      <div class="nav-item" style="position:relative;">
-        <div class="nav-link" style="display:flex;align-items:center;gap:4px;" onclick="navigate('shop')">
+<!-- Main Header -->
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div class="wow-main-header-row" style="display:flex;align-items:center;gap:16px;padding:14px 0;">
+<!-- Logo -->
+<div onclick="navigate('home')" style="cursor:pointer;flex-shrink:0;">
+<div style="display:flex;align-items:center;gap:0;">
+<div id="siteBrandIcon" style="width:62px;height:48px;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;flex-shrink:0;">
+<svg fill="none" height="20" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="20"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+</div>
+<div>
+<div class="brand-name" id="siteBrandName" style="font-size:17px;font-weight:900;color:#111;letter-spacing:-0.5px;line-height:1;">WOWSHOPPING</div>
+<div id="siteBrandSuffix" style="display:none">.LK</div>
+</div>
+</div>
+</div>
+<!-- Search Bar Desktop -->
+<div class="desktop-search" style="flex:1;max-width:760px;min-width:360px;position:relative;display:flex;">
+<i data-lucide="search" style="position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#9ca3af;"></i>
+<input class="search-input" id="headerSearchInput" onfocus="openSearch()" oninput="syncSearchInput(this.value)" placeholder="Search products, brands..." type="text"/>
+</div>
+<!-- Actions -->
+<div class="wow-header-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
+<button class="btn-ghost" onclick="openSearch()" title="Search">
+<i data-lucide="search" style="width:20px;height:20px;"></i>
+</button>
+<button class="btn-ghost" id="headerAccountBtn" onclick="openAuth('login')" title="Account">
+<i data-lucide="user" style="width:20px;height:20px;"></i>
+</button>
+<button class="btn-ghost" onclick="navigate('wishlist')" style="position:relative;" title="Wishlist">
+<i data-lucide="heart" style="width:20px;height:20px;"></i>
+<span id="wishlistBadge" style="display:none!important;"></span>
+</button>
+<button class="btn-ghost" onclick="openCart()" style="position:relative;" title="Cart">
+<i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+<span id="cartBadgeHeader" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#2563eb;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
+</button>
+<!-- Mobile Hamburger -->
+<button class="btn-ghost" id="hamburgerBtn" onclick="openMobileMenu()" style="display:none;" title="Menu">
+<i data-lucide="menu" style="width:22px;height:22px;"></i>
+</button>
+</div>
+</div>
+<!-- Navigation Desktop -->
+<nav id="desktopNav" style="border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:2px;padding:4px 0;">
+<div class="nav-link" onclick="navigate('home')">Home</div>
+<!-- Shop Mega Menu -->
+<div class="nav-item" style="position:relative;">
+<div class="nav-link" onclick="navigate('shop')" style="display:flex;align-items:center;gap:4px;">
           Shop <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
-        </div>
-        <div class="mega-menu" style="display:none;">
-          <div class="mega-col" style="margin-right:32px;">
-            <div class="mega-col-title">Men</div>
-            <div class="mega-link" onclick="navigate('shop','Men','T-Shirts')">T-Shirts</div>
-            <div class="mega-link" onclick="navigate('shop','Men','Shirts')">Shirts</div>
-            <div class="mega-link" onclick="navigate('shop','Men','Pants')">Pants</div>
-            <div class="mega-link" onclick="navigate('shop','Men','Hoodies')">Hoodies</div>
-          </div>
-          <div class="mega-col" style="margin-right:32px;">
-            <div class="mega-col-title">Women</div>
-            <div class="mega-link" onclick="navigate('shop','Women','Dresses')">Dresses</div>
-            <div class="mega-link" onclick="navigate('shop','Women','Tops')">Tops</div>
-            <div class="mega-link" onclick="navigate('shop','Women','Bottoms')">Bottoms</div>
-            <div class="mega-link" onclick="navigate('shop','Women','Accessories')">Accessories</div>
-          </div>
-          <div class="mega-col" style="margin-right:32px;">
-            <div class="mega-col-title">Kids</div>
-            <div class="mega-link" onclick="navigate('shop','Kids','Boys')">Boys</div>
-            <div class="mega-link" onclick="navigate('shop','Kids','Girls')">Girls</div>
-            <div class="mega-link" onclick="navigate('shop','Kids','Infants')">Infants</div>
-          </div>
-          <div class="mega-col">
-            <div class="mega-col-title">Accessories</div>
-            <div class="mega-link" onclick="navigate('shop','Accessories','Bags')">Bags</div>
-            <div class="mega-link" onclick="navigate('shop','Accessories','Watches')">Watches</div>
-            <div class="mega-link" onclick="navigate('shop','Accessories','Shoes')">Shoes</div>
-            <div class="mega-link" onclick="navigate('shop','Accessories','Belts')">Belts</div>
-          </div>
-        </div>
-      </div>
-      <div class="nav-link" onclick="navigate('shop','new')">New Arrivals</div>
-      <!-- Categories dropdown -->
-      <div class="nav-item" style="position:relative;">
-        <div class="nav-link" style="display:flex;align-items:center;gap:4px;">
+</div>
+<div class="mega-menu" style="display:none;">
+<div class="mega-col" style="margin-right:32px;">
+<div class="mega-col-title">Men</div>
+<div class="mega-link" onclick="navigate('shop','Men','T-Shirts')">T-Shirts</div>
+<div class="mega-link" onclick="navigate('shop','Men','Shirts')">Shirts</div>
+<div class="mega-link" onclick="navigate('shop','Men','Pants')">Pants</div>
+<div class="mega-link" onclick="navigate('shop','Men','Hoodies')">Hoodies</div>
+</div>
+<div class="mega-col" style="margin-right:32px;">
+<div class="mega-col-title">Women</div>
+<div class="mega-link" onclick="navigate('shop','Women','Dresses')">Dresses</div>
+<div class="mega-link" onclick="navigate('shop','Women','Tops')">Tops</div>
+<div class="mega-link" onclick="navigate('shop','Women','Bottoms')">Bottoms</div>
+<div class="mega-link" onclick="navigate('shop','Women','Accessories')">Accessories</div>
+</div>
+<div class="mega-col" style="margin-right:32px;">
+<div class="mega-col-title">Kids</div>
+<div class="mega-link" onclick="navigate('shop','Kids','Boys')">Boys</div>
+<div class="mega-link" onclick="navigate('shop','Kids','Girls')">Girls</div>
+<div class="mega-link" onclick="navigate('shop','Kids','Infants')">Infants</div>
+</div>
+<div class="mega-col">
+<div class="mega-col-title">Accessories</div>
+<div class="mega-link" onclick="navigate('shop','Accessories','Bags')">Bags</div>
+<div class="mega-link" onclick="navigate('shop','Accessories','Watches')">Watches</div>
+<div class="mega-link" onclick="navigate('shop','Accessories','Shoes')">Shoes</div>
+<div class="mega-link" onclick="navigate('shop','Accessories','Belts')">Belts</div>
+</div>
+</div>
+</div>
+<div class="nav-link" onclick="navigate('shop','new')">New Arrivals</div>
+<!-- Categories dropdown -->
+<div class="nav-item" style="position:relative;">
+<div class="nav-link" style="display:flex;align-items:center;gap:4px;">
           Categories <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
-        </div>
-        <div class="dropdown" id="storefrontCategoryDropdown"></div>
-      </div>
-      <div class="nav-link" onclick="navigate('care')">Customer Care</div>
-      
-    </nav>
-  </div>
+</div>
+<div class="dropdown" id="storefrontCategoryDropdown"></div>
+</div>
+<div class="nav-link" onclick="navigate('care')">Customer Care</div>
+</nav>
+</div>
 </header>
-
-
 <!-- ===== MOBILE APP NAVIGATION ===== -->
-<nav id="wow-mobile-bottom-nav" aria-label="Mobile navigation">
-  <button class="wow-mobile-tab active" data-mobile-page="home" onclick="navigate('home')" aria-label="Home">
-    <i data-lucide="home"></i><span>Home</span>
-  </button>
-  <button class="wow-mobile-tab" data-mobile-page="shop" onclick="navigate('shop')" aria-label="Shop">
-    <i data-lucide="shopping-bag"></i><span>Shop</span>
-  </button>
-  <button class="wow-mobile-tab" data-mobile-page="search" onclick="openSearch()" aria-label="Search">
-    <i data-lucide="search"></i><span>Search</span>
-  </button>
-  <button class="wow-mobile-tab" data-mobile-page="cart" onclick="openCart()" aria-label="Cart">
-    <i data-lucide="shopping-cart"></i><span>Cart</span><b class="wow-mobile-badge" id="wowMobileCartBadge"></b>
-  </button>
-  <button class="wow-mobile-tab" data-mobile-page="account" onclick="openAuth('login')" aria-label="Account">
-    <i data-lucide="user-round"></i><span>Account</span>
-  </button>
+<nav aria-label="Mobile navigation" id="wow-mobile-bottom-nav">
+<button aria-label="Home" class="wow-mobile-tab active" data-mobile-page="home" onclick="navigate('home')">
+<i data-lucide="home"></i><span>Home</span>
+</button>
+<button aria-label="Shop" class="wow-mobile-tab" data-mobile-page="shop" onclick="navigate('shop')">
+<i data-lucide="shopping-bag"></i><span>Shop</span>
+</button>
+<button aria-label="Search" class="wow-mobile-tab" data-mobile-page="search" onclick="openSearch()">
+<i data-lucide="search"></i><span>Search</span>
+</button>
+<button aria-label="Cart" class="wow-mobile-tab" data-mobile-page="cart" onclick="openCart()">
+<i data-lucide="shopping-cart"></i><span>Cart</span><b class="wow-mobile-badge" id="wowMobileCartBadge"></b>
+</button>
+<button aria-label="Account" class="wow-mobile-tab" data-mobile-page="account" onclick="openAuth('login')">
+<i data-lucide="user-round"></i><span>Account</span>
+</button>
 </nav>
 <script>
 (function(){
@@ -3392,412 +2767,385 @@ html,body{overflow-x:hidden!important}
   setInterval(syncMobileNav,1200);
 })();
 </script>
-
-
 <!-- ===== PAGES ===== -->
 <main id="mainContent">
-
 <!-- ===== HOME PAGE ===== -->
-<div id="page-home" class="page active">
-
-  <!-- Hero -->
-  <section class="hero-section">
-    <div style="max-width:1400px;margin:0 auto;padding:40px 20px;width:100%;">
-      <div class="hero-content">
-        <div class="hero-eyebrow">New Season 2025</div>
-        <h1 class="hero-title font-display">Dress Your<br/>Confidence</h1>
-        <p class="hero-sub">Discover premium fashion that speaks before you do. Curated collections for every style, every moment.</p>
-        <div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
-          <button id="heroPrimaryBtn" class="btn btn-primary" onclick="navigate('shop')" style="padding:14px 28px;font-size:15px;">Shop Collection <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
-          <button id="heroSecondaryBtn" class="btn btn-outline" onclick="navigate('shop','new')" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);color:#fff;padding:14px 28px;font-size:15px;">New Arrivals</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Bar -->
-  <div id="storeBenefitsBar"></div>
-
-  <!-- Categories -->
-  <section id="whyShopSection" style="display:block;padding:64px 0;background:#f9fafb;">
-    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-      <div class="category-rail-head">
-        <div>
-          <div class="section-label">Browse By</div>
-          <h2 class="section-title">Shop Categories</h2>
-          <div class="category-rail-hint"><span class="category-rail-dot"></span> Explore collections</div>
-        </div>
-        <div class="category-rail-controls" aria-label="Category navigation">
-          <button type="button" class="category-rail-btn" id="catPrevBtn" onclick="scrollCategoryRail(-1)" aria-label="Previous categories"><i data-lucide="arrow-left"></i></button>
-          <button type="button" class="category-rail-btn category-rail-btn-dark" id="catNextBtn" onclick="scrollCategoryRail(1)" aria-label="Next categories"><i data-lucide="arrow-right"></i></button>
-        </div>
-      </div>
-      <div class="category-rail-shell">
-        <div class="category-rail-fade category-rail-fade-left"></div>
-        <div id="homeCategoryRail" class="cat-grid" aria-label="Shop categories"></div>
-        <div class="category-rail-fade category-rail-fade-right"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- New Arrivals -->
-  <section style="padding:64px 0;background:#fff;">
-    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
-        <div>
-          <div class="section-label">Just In</div>
-          <h2 class="section-title">New Arrivals</h2>
-        </div>
-        <button class="btn btn-outline btn-sm" onclick="navigate('shop','new')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
-      </div>
-      <div id="newArrivalsGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="product-grid-4"></div>
-    </div>
-  </section>
-
-  <!-- Managed promotional banners are rendered here from Admin -> Banners -->
-  <section id="v6ManagedBannerTop" class="v6-managed-banner" style="display:none;"></section>
-
-  <!-- Dynamic Category Banners -->
-  <section id="adminCategoryShowcase" style="padding:54px 0;background:#fff;display:none;">
-    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:12px;">
-        <div><div class="section-label">Shop By Category</div><h2 class="section-title">Explore Collections</h2></div>
-        <button class="btn btn-outline btn-sm" onclick="navigate('shop')">View All</button>
-      </div>
-      <div id="adminCategoryGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="product-grid-4"></div>
-    </div>
-  </section>
-
-  <!-- Dynamic Bottom Promotional Banners -->
-  <section id="adminBottomBanners" style="padding:50px 0;background:#f9fafb;display:none;">
-    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-      <div id="adminBottomBannerGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="promo-grid"></div>
-    </div>
-  </section>
-
-  <!-- Best Sellers -->
-  <section style="padding:64px 0;background:#fff;">
-    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
-        <div>
-          <div class="section-label">Customer Favorites</div>
-          <h2 class="section-title">Best Sellers</h2>
-        </div>
-        <button class="btn btn-outline btn-sm" onclick="navigate('shop','best')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
-      </div>
-      <div id="bestSellersGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="product-grid-4"></div>
-    </div>
-  </section>
-
-  <section id="storePromiseSection"></section>
-
+<div class="page active" id="page-home">
+<!-- Hero -->
+<section class="hero-section">
+<div style="max-width:1400px;margin:0 auto;padding:40px 20px;width:100%;">
+<div class="hero-content">
+<div class="hero-eyebrow">New Season 2025</div>
+<h1 class="hero-title font-display">Dress Your<br/>Confidence</h1>
+<p class="hero-sub">Discover premium fashion that speaks before you do. Curated collections for every style, every moment.</p>
+<div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+<button class="btn btn-primary" id="heroPrimaryBtn" onclick="navigate('shop')" style="padding:14px 28px;font-size:15px;">Shop Collection <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
+<button class="btn btn-outline" id="heroSecondaryBtn" onclick="navigate('shop','new')" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);color:#fff;padding:14px 28px;font-size:15px;">New Arrivals</button>
 </div>
-
+</div>
+</div>
+</section>
+<!-- Features Bar -->
+<div id="storeBenefitsBar"></div>
+<!-- Categories -->
+<section id="whyShopSection" style="display:block;padding:64px 0;background:#f9fafb;">
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div class="category-rail-head">
+<div>
+<div class="section-label">Browse By</div>
+<h2 class="section-title">Shop Categories</h2>
+<div class="category-rail-hint"><span class="category-rail-dot"></span> Explore collections</div>
+</div>
+<div aria-label="Category navigation" class="category-rail-controls">
+<button aria-label="Previous categories" class="category-rail-btn" id="catPrevBtn" onclick="scrollCategoryRail(-1)" type="button"><i data-lucide="arrow-left"></i></button>
+<button aria-label="Next categories" class="category-rail-btn category-rail-btn-dark" id="catNextBtn" onclick="scrollCategoryRail(1)" type="button"><i data-lucide="arrow-right"></i></button>
+</div>
+</div>
+<div class="category-rail-shell">
+<div class="category-rail-fade category-rail-fade-left"></div>
+<div aria-label="Shop categories" class="cat-grid" id="homeCategoryRail"></div>
+<div class="category-rail-fade category-rail-fade-right"></div>
+</div>
+</div>
+</section>
+<!-- New Arrivals -->
+<section style="padding:64px 0;background:#fff;">
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
+<div>
+<div class="section-label">Just In</div>
+<h2 class="section-title">New Arrivals</h2>
+</div>
+<button class="btn btn-outline btn-sm" onclick="navigate('shop','new')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
+</div>
+<div class="product-grid-4" id="newArrivalsGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;"></div>
+</div>
+</section>
+<!-- Managed promotional banners are rendered here from Admin -> Banners -->
+<section class="v6-managed-banner" id="v6ManagedBannerTop" style="display:none;"></section>
+<!-- Dynamic Category Banners -->
+<section id="adminCategoryShowcase" style="padding:54px 0;background:#fff;display:none;">
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:12px;">
+<div><div class="section-label">Shop By Category</div><h2 class="section-title">Explore Collections</h2></div>
+<button class="btn btn-outline btn-sm" onclick="navigate('shop')">View All</button>
+</div>
+<div class="product-grid-4" id="adminCategoryGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;"></div>
+</div>
+</section>
+<!-- Dynamic Bottom Promotional Banners -->
+<section id="adminBottomBanners" style="padding:50px 0;background:#f9fafb;display:none;">
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div class="promo-grid" id="adminBottomBannerGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
+</div>
+</section>
+<!-- Best Sellers -->
+<section style="padding:64px 0;background:#fff;">
+<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
+<div>
+<div class="section-label">Customer Favorites</div>
+<h2 class="section-title">Best Sellers</h2>
+</div>
+<button class="btn btn-outline btn-sm" onclick="navigate('shop','best')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
+</div>
+<div class="product-grid-4" id="bestSellersGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;"></div>
+</div>
+</section>
+<section id="storePromiseSection"></section>
+</div>
 <!-- ===== SHOP PAGE ===== -->
-<div id="page-shop" class="page">
-  <div style="max-width:1400px;margin:0 auto;padding:32px 20px;">
-    <!-- Breadcrumb -->
-    <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280;margin-bottom:24px;" id="shopBreadcrumb">
-      <span onclick="navigate('home')" style="cursor:pointer;hover:color:#111;">Home</span>
-      <i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
-      <span style="color:#111;font-weight:600;" id="shopPageTitle">All Products</span>
-    </div>
-    <div style="display:grid;grid-template-columns:240px 1fr;gap:32px;" class="shop-layout">
-      <!-- Sidebar Filters -->
-      <aside id="shopSidebar">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
-          <span style="font-size:15px;font-weight:700;">Filters</span>
-          <button onclick="clearAllFilters()" style="font-size:12px;color:#6b7280;cursor:pointer;border:none;background:none;">Clear all</button>
-        </div>
-        <!-- Category filter -->
-        <div class="filter-section">
-          <div class="filter-title">Category <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-          <div id="dynamicCategoryList"></div>
-        </div>
-        <!-- Price Range -->
-        <div class="filter-section">
-          <div class="filter-title">Price Range <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-          <div style="padding:0 4px;">
-            <div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px;">
-              <span>Rs. 0</span><span id="priceRangeVal">Rs. 15,000</span>
-            </div>
-            <input type="range" min="0" max="15000" value="15000" id="priceRange" oninput="updatePriceFilter(this.value)" style="width:100%;"/>
-          </div>
-        </div>
-        <!-- Category-specific filter -->
-        <div id="dynamicCategoryFilters"></div>
-        <!-- Availability -->
-        <div class="filter-section">
-          <div class="filter-title">Availability <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-          <label class="filter-item"><input type="checkbox" class="filter-checkbox" onchange="applyFilters()"/> In Stock</label>
-          <label class="filter-item"><input type="checkbox" class="filter-checkbox" onchange="applyFilters()"/> On Sale</label>
-        </div>
-      </aside>
-      <!-- Product Grid -->
-      <div>
-        <!-- Sort + Count -->
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px;">
-          <span id="shopResultCount" style="font-size:14px;color:#6b7280;"></span>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <label style="font-size:13px;color:#6b7280;">Sort by:</label>
-            <select class="form-select" style="width:auto;padding:7px 12px;font-size:13px;" onchange="sortProducts(this.value)" id="sortSelect">
-              <option value="featured">Featured</option>
-              <option value="newest">Newest</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="rating">Rating</option>
-            </select>
-            <!-- Mobile filter toggle -->
-            <button class="btn btn-outline btn-sm" id="mobileFilterBtn" style="display:none;" onclick="openMobileFilters()">
-              <i data-lucide="sliders-horizontal" style="width:14px;height:14px;"></i> Filters
+<div class="page" id="page-shop">
+<div style="max-width:1400px;margin:0 auto;padding:32px 20px;">
+<!-- Breadcrumb -->
+<div id="shopBreadcrumb" style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280;margin-bottom:24px;">
+<span onclick="navigate('home')" style="cursor:pointer;hover:color:#111;">Home</span>
+<i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
+<span id="shopPageTitle" style="color:#111;font-weight:600;">All Products</span>
+</div>
+<div class="shop-layout" style="display:grid;grid-template-columns:240px 1fr;gap:32px;">
+<!-- Sidebar Filters -->
+<aside id="shopSidebar">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+<span style="font-size:15px;font-weight:700;">Filters</span>
+<button onclick="clearAllFilters()" style="font-size:12px;color:#6b7280;cursor:pointer;border:none;background:none;">Clear all</button>
+</div>
+<!-- Category filter -->
+<div class="filter-section">
+<div class="filter-title">Category <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+<div id="dynamicCategoryList"></div>
+</div>
+<!-- Price Range -->
+<div class="filter-section">
+<div class="filter-title">Price Range <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+<div style="padding:0 4px;">
+<div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px;">
+<span>Rs. 0</span><span id="priceRangeVal">Rs. 15,000</span>
+</div>
+<input id="priceRange" max="15000" min="0" oninput="updatePriceFilter(this.value)" style="width:100%;" type="range" value="15000"/>
+</div>
+</div>
+<!-- Category-specific filter -->
+<div id="dynamicCategoryFilters"></div>
+<!-- Availability -->
+<div class="filter-section">
+<div class="filter-title">Availability <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+<label class="filter-item"><input class="filter-checkbox" onchange="applyFilters()" type="checkbox"/> In Stock</label>
+<label class="filter-item"><input class="filter-checkbox" onchange="applyFilters()" type="checkbox"/> On Sale</label>
+</div>
+</aside>
+<!-- Product Grid -->
+<div>
+<!-- Sort + Count -->
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px;">
+<span id="shopResultCount" style="font-size:14px;color:#6b7280;"></span>
+<div style="display:flex;align-items:center;gap:8px;">
+<label style="font-size:13px;color:#6b7280;">Sort by:</label>
+<select class="form-select" id="sortSelect" onchange="sortProducts(this.value)" style="width:auto;padding:7px 12px;font-size:13px;">
+<option value="featured">Featured</option>
+<option value="newest">Newest</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="rating">Rating</option>
+</select>
+<!-- Mobile filter toggle -->
+<button class="btn btn-outline btn-sm" id="mobileFilterBtn" onclick="openMobileFilters()" style="display:none;">
+<i data-lucide="sliders-horizontal" style="width:14px;height:14px;"></i> Filters
             </button>
-          </div>
-        </div>
-        <div id="shopProductGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="product-grid-3"></div>
-        <!-- Load more -->
-        <div style="text-align:center;margin-top:36px;">
-          <button id="loadMoreBtn" class="btn btn-outline" onclick="loadMoreProducts()" style="padding:12px 32px;">Load More Products</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-
+</div>
+<div class="product-grid-3" id="shopProductGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"></div>
+<!-- Load more -->
+<div style="text-align:center;margin-top:36px;">
+<button class="btn btn-outline" id="loadMoreBtn" onclick="loadMoreProducts()" style="padding:12px 32px;">Load More Products</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== PRODUCT DETAIL PAGE ===== -->
-<div id="page-product" class="page">
-  <div style="max-width:1400px;margin:0 auto;padding:32px 20px;" id="productDetailContent"></div>
+<div class="page" id="page-product">
+<div id="productDetailContent" style="max-width:1400px;margin:0 auto;padding:32px 20px;"></div>
 </div>
-
 <!-- ===== CART PAGE ===== -->
-<div id="page-cart" class="page">
-  <div style="max-width:1200px;margin:0 auto;padding:40px 20px;">
-    <h1 style="font-size:26px;font-weight:800;margin-bottom:28px;">Shopping Cart</h1>
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:28px;" class="cart-layout">
-      <div id="cartPageItems"></div>
-      <div>
-        <div class="admin-card" style="position:sticky;top:90px;">
-          <h3 style="font-size:16px;font-weight:700;margin-bottom:20px;">Order Summary</h3>
-          <!-- Promo Code -->
-          <div style="display:flex;gap:8px;margin-bottom:20px;">
-            <input type="text" placeholder="Promo code" class="form-input" id="promoInput" style="flex:1;padding:9px 12px;font-size:13px;"/>
-            <button class="btn btn-dark btn-sm" onclick="applyPromo()">Apply</button>
-          </div>
-          <div style="border-top:1px solid #f0f0f0;padding-top:16px;">
-            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Subtotal</span><span id="summarySubtotal">Rs. 0</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Discount</span><span id="summaryDisc" style="color:#10b981;">-Rs. 0</span></div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Shipping</span><span id="summaryShip">Rs. 350</span></div>
-            <div style="border-top:1px solid #f0f0f0;margin:14px 0;"></div>
-            <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:20px;"><span>Total</span><span id="summaryTotal">Rs. 0</span></div>
-            <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;" onclick="navigate('checkout')">Proceed to Checkout</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="page" id="page-cart">
+<div style="max-width:1200px;margin:0 auto;padding:40px 20px;">
+<h1 style="font-size:26px;font-weight:800;margin-bottom:28px;">Shopping Cart</h1>
+<div class="cart-layout" style="display:grid;grid-template-columns:1fr 360px;gap:28px;">
+<div id="cartPageItems"></div>
+<div>
+<div class="admin-card" style="position:sticky;top:90px;">
+<h3 style="font-size:16px;font-weight:700;margin-bottom:20px;">Order Summary</h3>
+<!-- Promo Code -->
+<div style="display:flex;gap:8px;margin-bottom:20px;">
+<input class="form-input" id="promoInput" placeholder="Promo code" style="flex:1;padding:9px 12px;font-size:13px;" type="text"/>
+<button class="btn btn-dark btn-sm" onclick="applyPromo()">Apply</button>
 </div>
-
+<div style="border-top:1px solid #f0f0f0;padding-top:16px;">
+<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Subtotal</span><span id="summarySubtotal">Rs. 0</span></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Discount</span><span id="summaryDisc" style="color:#10b981;">-Rs. 0</span></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Shipping</span><span id="summaryShip">Rs. 350</span></div>
+<div style="border-top:1px solid #f0f0f0;margin:14px 0;"></div>
+<div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:20px;"><span>Total</span><span id="summaryTotal">Rs. 0</span></div>
+<button class="btn btn-dark" onclick="navigate('checkout')" style="width:100%;justify-content:center;padding:13px;">Proceed to Checkout</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== CHECKOUT PAGE ===== -->
-<div id="page-checkout" class="page">
-  <div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
-    <div style="display:flex;align-items:center;gap:0;margin-bottom:40px;flex-wrap:wrap;gap:12px;" id="checkoutStepIndicator"></div>
-    <div style="display:grid;grid-template-columns:1fr 340px;gap:28px;" class="checkout-layout">
-      <div id="checkoutStepContent"></div>
-      <div>
-        <div class="admin-card" style="position:sticky;top:90px;">
-          <h3 style="font-size:14px;font-weight:700;margin-bottom:16px;">Your Order</h3>
-          <div id="checkoutOrderSummary" style="margin-bottom:16px;"></div>
-          <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
-            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Shipping</span><span>Rs. 350</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:17px;font-weight:800;margin-top:12px;"><span>Total</span><span id="coTotal">Rs. 0</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="page" id="page-checkout">
+<div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
+<div id="checkoutStepIndicator" style="display:flex;align-items:center;gap:0;margin-bottom:40px;flex-wrap:wrap;gap:12px;"></div>
+<div class="checkout-layout" style="display:grid;grid-template-columns:1fr 340px;gap:28px;">
+<div id="checkoutStepContent"></div>
+<div>
+<div class="admin-card" style="position:sticky;top:90px;">
+<h3 style="font-size:14px;font-weight:700;margin-bottom:16px;">Your Order</h3>
+<div id="checkoutOrderSummary" style="margin-bottom:16px;"></div>
+<div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+<div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
+<div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Shipping</span><span>Rs. 350</span></div>
+<div style="display:flex;justify-content:space-between;font-size:17px;font-weight:800;margin-top:12px;"><span>Total</span><span id="coTotal">Rs. 0</span></div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ===== ACCOUNT PAGE ===== -->
-<div id="page-account" class="page">
-  <div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
-    <div style="display:grid;grid-template-columns:220px 1fr;gap:28px;" class="account-layout">
-      <div>
-        <div class="admin-card">
-          <div style="text-align:center;padding:16px 0 20px;">
-            <div style="width:70px;height:70px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-              <i data-lucide="user" style="width:28px;height:28px;color:#2563eb;"></i>
-            </div>
-            <div style="font-weight:700;font-size:15px;" id="accName">Guest User</div>
-            <div style="font-size:12px;color:#6b7280;" id="accEmail">Sign in to access account</div>
-          </div>
-          <div style="border-top:1px solid #f0f0f0;padding-top:12px;">
-            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('overview')"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i> Overview</div>
-            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('orders')"><i data-lucide="package" style="width:16px;height:16px;"></i> My Orders</div>
-            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('addresses')"><i data-lucide="map-pin" style="width:16px;height:16px;"></i> Addresses</div>
-            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('wishlist')"><i data-lucide="heart" style="width:16px;height:16px;"></i> Wishlist</div>
-            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('profile')"><i data-lucide="settings" style="width:16px;height:16px;"></i> Profile</div>
-            <div class="admin-nav-item" style="color:#ef4444;margin-top:8px;" onclick="logout()"><i data-lucide="log-out" style="width:16px;height:16px;"></i> Sign Out</div>
-          </div>
-        </div>
-      </div>
-      <div id="accContent"></div>
-    </div>
-  </div>
+<div class="page" id="page-account">
+<div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
+<div class="account-layout" style="display:grid;grid-template-columns:220px 1fr;gap:28px;">
+<div>
+<div class="admin-card">
+<div style="text-align:center;padding:16px 0 20px;">
+<div style="width:70px;height:70px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+<i data-lucide="user" style="width:28px;height:28px;color:#2563eb;"></i>
 </div>
-
+<div id="accName" style="font-weight:700;font-size:15px;">Guest User</div>
+<div id="accEmail" style="font-size:12px;color:#6b7280;">Sign in to access account</div>
+</div>
+<div style="border-top:1px solid #f0f0f0;padding-top:12px;">
+<div class="admin-nav-item" onclick="showAccTab('overview')" style="color:#374151;"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i> Overview</div>
+<div class="admin-nav-item" onclick="showAccTab('orders')" style="color:#374151;"><i data-lucide="package" style="width:16px;height:16px;"></i> My Orders</div>
+<div class="admin-nav-item" onclick="showAccTab('addresses')" style="color:#374151;"><i data-lucide="map-pin" style="width:16px;height:16px;"></i> Addresses</div>
+<div class="admin-nav-item" onclick="showAccTab('wishlist')" style="color:#374151;"><i data-lucide="heart" style="width:16px;height:16px;"></i> Wishlist</div>
+<div class="admin-nav-item" onclick="showAccTab('profile')" style="color:#374151;"><i data-lucide="settings" style="width:16px;height:16px;"></i> Profile</div>
+<div class="admin-nav-item" onclick="logout()" style="color:#ef4444;margin-top:8px;"><i data-lucide="log-out" style="width:16px;height:16px;"></i> Sign Out</div>
+</div>
+</div>
+</div>
+<div id="accContent"></div>
+</div>
+</div>
+</div>
 <!-- ===== WISHLIST PAGE ===== -->
-<div id="page-wishlist" class="page">
-  <div class="wishlist-page-shell">
-    <div class="wishlist-page-head">
-      <div class="wishlist-heading">
-        <div class="wishlist-heading-icon"><i data-lucide="heart"></i></div>
-        <div>
-          <div class="wishlist-kicker">SAVED FOR LATER</div>
-          <h1>My Wishlist</h1>
-          <p id="wishlistSummary">Your saved products in one place.</p>
-        </div>
-      </div>
-      <button type="button" class="wishlist-browse-btn" onclick="navigate('shop')"><i data-lucide="shopping-bag"></i><span>Continue Shopping</span></button>
-    </div>
-    <div id="wishlistGrid" class="wishlist-product-grid"></div>
-  </div>
+<div class="page" id="page-wishlist">
+<div class="wishlist-page-shell">
+<div class="wishlist-page-head">
+<div class="wishlist-heading">
+<div class="wishlist-heading-icon"><i data-lucide="heart"></i></div>
+<div>
+<div class="wishlist-kicker">SAVED FOR LATER</div>
+<h1>My Wishlist</h1>
+<p id="wishlistSummary">Your saved products in one place.</p>
 </div>
-
+</div>
+<button class="wishlist-browse-btn" onclick="navigate('shop')" type="button"><i data-lucide="shopping-bag"></i><span>Continue Shopping</span></button>
+</div>
+<div class="wishlist-product-grid" id="wishlistGrid"></div>
+</div>
+</div>
 <!-- ===== CARE PAGE ===== -->
-<div id="page-care" class="page">
-  <div style="max-width:900px;margin:0 auto;padding:60px 20px;">
-    <div style="text-align:center;margin-bottom:50px;">
-      <div class="section-label">We're Here For You</div>
-      <h1 class="section-title" style="font-size:36px;">Customer Care</h1>
-      <p class="section-sub">Our team is ready to help you with anything you need.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;" class="care-grid">
-      <div class="admin-card" style="text-align:center;padding:30px 20px;">
-        <div style="width:52px;height:52px;background:#eff6ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <i data-lucide="phone" style="width:22px;height:22px;color:#2563eb;"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Call Us</h3>
-        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Mon - Sat, 9AM - 6PM</p>
-        <a href="tel:+94112345678" style="color:#2563eb;font-weight:600;font-size:14px;">+94 11 234 5678</a>
-      </div>
-      <div class="admin-card" style="text-align:center;padding:30px 20px;">
-        <div style="width:52px;height:52px;background:#f0fdf4;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <i data-lucide="message-circle" style="width:22px;height:22px;color:#10b981;"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">WhatsApp</h3>
-        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Quick response guaranteed</p>
-        <a href="https://wa.me/94112345678" target="_blank" style="color:#10b981;font-weight:600;font-size:14px;">Chat Now</a>
-      </div>
-      <div class="admin-card" style="text-align:center;padding:30px 20px;">
-        <div style="width:52px;height:52px;background:#fef3c7;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-          <i data-lucide="mail" style="width:22px;height:22px;color:#d97706;"></i>
-        </div>
-        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Email Us</h3>
-        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">We reply within 24 hours</p>
-        <a href="mailto:support@wowshopping.lk" style="color:#d97706;font-weight:600;font-size:14px;">support@wowshopping.lk</a>
-      </div>
-    </div>
-    <!-- FAQ -->
-    <div class="admin-card">
-      <h2 style="font-size:20px;font-weight:700;margin-bottom:20px;">Frequently Asked Questions</h2>
-      <div id="faqList"></div>
-    </div>
-  </div>
+<div class="page" id="page-care">
+<div style="max-width:900px;margin:0 auto;padding:60px 20px;">
+<div style="text-align:center;margin-bottom:50px;">
+<div class="section-label">We're Here For You</div>
+<h1 class="section-title" style="font-size:36px;">Customer Care</h1>
+<p class="section-sub">Our team is ready to help you with anything you need.</p>
 </div>
-
+<div class="care-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;">
+<div class="admin-card" style="text-align:center;padding:30px 20px;">
+<div style="width:52px;height:52px;background:#eff6ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+<i data-lucide="phone" style="width:22px;height:22px;color:#2563eb;"></i>
+</div>
+<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Call Us</h3>
+<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Mon - Sat, 9AM - 6PM</p>
+<a href="tel:+94112345678" style="color:#2563eb;font-weight:600;font-size:14px;">+94 11 234 5678</a>
+</div>
+<div class="admin-card" style="text-align:center;padding:30px 20px;">
+<div style="width:52px;height:52px;background:#f0fdf4;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+<i data-lucide="message-circle" style="width:22px;height:22px;color:#10b981;"></i>
+</div>
+<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">WhatsApp</h3>
+<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Quick response guaranteed</p>
+<a href="https://wa.me/94112345678" style="color:#10b981;font-weight:600;font-size:14px;" target="_blank">Chat Now</a>
+</div>
+<div class="admin-card" style="text-align:center;padding:30px 20px;">
+<div style="width:52px;height:52px;background:#fef3c7;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+<i data-lucide="mail" style="width:22px;height:22px;color:#d97706;"></i>
+</div>
+<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Email Us</h3>
+<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">We reply within 24 hours</p>
+<a href="mailto:support@wowshopping.lk" style="color:#d97706;font-weight:600;font-size:14px;">support@wowshopping.lk</a>
+</div>
+</div>
+<!-- FAQ -->
+<div class="admin-card">
+<h2 style="font-size:20px;font-weight:700;margin-bottom:20px;">Frequently Asked Questions</h2>
+<div id="faqList"></div>
+</div>
+</div>
+</div>
 <!-- ===== ORDER TRACKING PAGE ===== -->
-<div id="page-tracking" class="page">
-  <div style="max-width:700px;margin:0 auto;padding:60px 20px;">
-    <div style="text-align:center;margin-bottom:40px;">
-      <h1 style="font-size:28px;font-weight:800;margin-bottom:8px;">Track Your Order</h1>
-      <p style="font-size:15px;color:#6b7280;">Enter your order number to get real-time status updates</p>
-    </div>
-    <div class="admin-card" style="margin-bottom:24px;">
-      <div style="display:flex;gap:10px;">
-        <input type="text" placeholder="Order #WOW-XXXXXX" class="form-input" id="trackInput" style="flex:1;"/>
-        <button class="btn btn-dark" onclick="trackOrder()">Track</button>
-      </div>
-    </div>
-    <div id="trackResult"></div>
-  </div>
+<div class="page" id="page-tracking">
+<div style="max-width:700px;margin:0 auto;padding:60px 20px;">
+<div style="text-align:center;margin-bottom:40px;">
+<h1 style="font-size:28px;font-weight:800;margin-bottom:8px;">Track Your Order</h1>
+<p style="font-size:15px;color:#6b7280;">Enter your order number to get real-time status updates</p>
 </div>
-
-
-
+<div class="admin-card" style="margin-bottom:24px;">
+<div style="display:flex;gap:10px;">
+<input class="form-input" id="trackInput" placeholder="Order #WOW-XXXXXX" style="flex:1;" type="text"/>
+<button class="btn btn-dark" onclick="trackOrder()">Track</button>
+</div>
+</div>
+<div id="trackResult"></div>
+</div>
+</div>
 <!-- ===== 404 PAGE ===== -->
-<div id="page-404" class="page">
-  <div style="text-align:center;padding:100px 20px;">
-    <div style="font-size:80px;font-weight:900;color:#e5e7eb;margin-bottom:16px;">404</div>
-    <h2 style="font-size:24px;font-weight:700;margin-bottom:10px;">Page Not Found</h2>
-    <p style="color:#6b7280;margin-bottom:28px;">The page you're looking for doesn't exist or has been moved.</p>
-    <button class="btn btn-dark" onclick="navigate('home')"><i data-lucide="home" style="width:16px;height:16px;"></i> Back to Home</button>
-  </div>
+<div class="page" id="page-404">
+<div style="text-align:center;padding:100px 20px;">
+<div style="font-size:80px;font-weight:900;color:#e5e7eb;margin-bottom:16px;">404</div>
+<h2 style="font-size:24px;font-weight:700;margin-bottom:10px;">Page Not Found</h2>
+<p style="color:#6b7280;margin-bottom:28px;">The page you're looking for doesn't exist or has been moved.</p>
+<button class="btn btn-dark" onclick="navigate('home')"><i data-lucide="home" style="width:16px;height:16px;"></i> Back to Home</button>
 </div>
-
+</div>
 </main>
-
 <!-- ===== FOOTER ===== -->
 <footer id="site-footer">
-  <div style="max-width:1400px;margin:0 auto;padding:56px 20px 32px;">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;" class="footer-grid">
-      <!-- Brand -->
-      <div>
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-          <div style="width:32px;height:32px;background:#2563eb;border-radius:7px;display:flex;align-items:center;justify-content:center;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </div>
-          <span style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.3px;">WOWSHOPPING<span style="color:#60a5fa;">.lk</span></span>
+<div style="max-width:1400px;margin:0 auto;padding:56px 20px 32px;">
+<div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
+<!-- Brand -->
+<div>
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+<div style="width:32px;height:32px;background:#2563eb;border-radius:7px;display:flex;align-items:center;justify-content:center;">
+<svg fill="none" height="17" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="17"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+</div>
+<span style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.3px;">WOWSHOPPING<span style="color:#60a5fa;">.lk</span></span>
+</div>
+<p style="font-size:13px;color:#6b7280;line-height:1.7;max-width:280px;margin-bottom:20px;"><span class="v6-footer-desc"></span></p>
+<div style="display:flex;gap:8px;">
+<a class="social-link" href="#" title="Facebook"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+<a class="social-link" href="#" title="Instagram"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+<a class="social-link" href="#" title="YouTube"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>
+<a class="social-link" href="#" title="TikTok"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+<a class="social-link" href="https://wa.me/94112345678" title="WhatsApp"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
+</div>
+</div>
+<!-- Shopping -->
+<div>
+<div class="footer-title">Shopping</div>
+<a class="footer-link" onclick="navigate('shop','Men')">Men</a>
+<a class="footer-link" onclick="navigate('shop','Women')">Women</a>
+<a class="footer-link" onclick="navigate('shop','Kids')">Kids</a>
+<a class="footer-link" onclick="navigate('shop','Accessories')">Accessories</a>
+<a class="footer-link" onclick="navigate('shop','new')">New Arrivals</a>
+<a class="footer-link" onclick="navigate('shop','sale')">Sale</a>
+</div>
+<!-- Customer Care -->
+<div>
+<div class="footer-title">Customer Care</div>
+<a class="footer-link" onclick="navigate('care')">Contact Us</a>
+<a class="footer-link" onclick="navigate('tracking')">Order Tracking</a>
+<a class="footer-link" onclick="navigate('care')">FAQ</a>
+<a class="footer-link" onclick="navigate('care')">Exchange Policy</a>
+<a class="footer-link" onclick="navigate('care')">Delivery Info</a>
+</div>
+<!-- Company -->
+<div>
+<div class="footer-title">Company</div>
+<a class="footer-link" href="#">About Us</a>
+<a class="footer-link" href="#">Privacy Policy</a>
+<a class="footer-link" href="#">Terms &amp; Conditions</a>
+<a class="footer-link" href="#">Shipping Policy</a>
+<a class="footer-link" href="admin.html">Admin Panel</a>
+</div>
+</div>
+<div style="border-top:1px solid #1f2937;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+<div style="font-size:12px;color:#4b5563;"><span class="v6-footer-copy"></span></div>
+<div style="display:flex;align-items:center;gap:16px;">
+<div class="v6-payment" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"></div>
+<div style="font-size:12px;color:#4b5563;display:flex;align-items:center;gap:4px;">
+<i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i> Secure Checkout
         </div>
-        <p style="font-size:13px;color:#6b7280;line-height:1.7;max-width:280px;margin-bottom:20px;"><span class="v6-footer-desc"></span></p>
-        <div style="display:flex;gap:8px;">
-          <a href="#" class="social-link" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="social-link" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="#" class="social-link" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-          <a href="#" class="social-link" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
-          <a href="https://wa.me/94112345678" class="social-link" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-        </div>
-      </div>
-      <!-- Shopping -->
-      <div>
-        <div class="footer-title">Shopping</div>
-        <a class="footer-link" onclick="navigate('shop','Men')">Men</a>
-        <a class="footer-link" onclick="navigate('shop','Women')">Women</a>
-        <a class="footer-link" onclick="navigate('shop','Kids')">Kids</a>
-        <a class="footer-link" onclick="navigate('shop','Accessories')">Accessories</a>
-        <a class="footer-link" onclick="navigate('shop','new')">New Arrivals</a>
-        <a class="footer-link" onclick="navigate('shop','sale')">Sale</a>
-      </div>
-      <!-- Customer Care -->
-      <div>
-        <div class="footer-title">Customer Care</div>
-        <a class="footer-link" onclick="navigate('care')">Contact Us</a>
-        <a class="footer-link" onclick="navigate('tracking')">Order Tracking</a>
-        <a class="footer-link" onclick="navigate('care')">FAQ</a>
-        <a class="footer-link" onclick="navigate('care')">Exchange Policy</a>
-        <a class="footer-link" onclick="navigate('care')">Delivery Info</a>
-      </div>
-      <!-- Company -->
-      <div>
-        <div class="footer-title">Company</div>
-        <a class="footer-link" href="#">About Us</a>
-        <a class="footer-link" href="#">Privacy Policy</a>
-        <a class="footer-link" href="#">Terms & Conditions</a>
-        <a class="footer-link" href="#">Shipping Policy</a>
-        <a class="footer-link" href="admin.html">Admin Panel</a>
-      </div>
-    </div>
-    <div style="border-top:1px solid #1f2937;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:12px;color:#4b5563;"><span class="v6-footer-copy"></span></div>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <div class="v6-payment" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"></div>
-        <div style="font-size:12px;color:#4b5563;display:flex;align-items:center;gap:4px;">
-          <i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i> Secure Checkout
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </footer>
-
 <script>
 // ==================== DATA ====================
 const PRODUCTS = [];
@@ -6071,7 +5419,6 @@ function toggleDarkMode() {
   document.head.appendChild(style);
 })();
 </script>
-
 <!--
 WOWSHOPPING REAL AUTH SETUP
 1. Create a Firebase project.
@@ -6089,12 +5436,7 @@ WOWSHOPPING REAL AUTH SETUP
     console.error("WOWSHOPPING runtime error:", e.error || e.message);
   });
 </script>
-
-
-
-<div id="adminModal" class="admin-modal"><div class="admin-modal-box"><div id="adminModalContent"></div></div></div>
-
-
+<div class="admin-modal" id="adminModal"><div class="admin-modal-box"><div id="adminModalContent"></div></div></div>
 <script>
 /* ==================== WOWSHOPPING ADMIN v3 ==================== */
 const ADMIN_KEY = "wow_admin_data_v4";
@@ -6447,8 +5789,6 @@ window.addEventListener('storage',e=>{if(e.key!==ADMIN_KEY)return;adminData=load
 window.addEventListener('load',()=>setTimeout(()=>{seedAdminCatalog();syncStoreProducts();applyAdminTheme();applyBranding();applyAdminMenu();renderStorefrontCategories();renderNewArrivals();renderBestSellers();applyHeroToSite();applyBenefitsToSite();applyPromiseToSite();applyBannersToSite();applyCategoryShowcase();applyCustomerCareToSite();},400));
 window.addEventListener('wow:benefits-updated',()=>applyBenefitsToSite());
 </script>
-
-
 <style id="wow-v6-patch">
 .top-bar{display:none!important}
 .product-card{border-radius:16px!important;box-shadow:0 2px 12px rgba(15,23,42,.05)!important;transition:transform .28s,box-shadow .28s!important}
@@ -6589,8 +5929,6 @@ function patch(){
 window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window.addEventListener('load',()=>{patch();renderStorefrontCategories();document.body.classList.add('wow-ready');const l=document.getElementById('wowLoader');if(l){setTimeout(()=>{l.classList.add('hide');setTimeout(()=>l.remove(),220)},280)}});window.addEventListener('hashchange',()=>setTimeout(patch,100));
 })();
 </script>
-
-
 <!-- WOWSHOPPING V9 ENHANCEMENT PATCH -->
 <style id="wow-v9-enhancements">
   .v9-banner-wrap{padding:34px 20px;background:var(--color-bg,#fff)}
@@ -6733,7 +6071,6 @@ window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window
   window.addEventListener('load',()=>setTimeout(run,900));window.addEventListener('storage',e=>{if(e.key===KEY)setTimeout(run,120)});window.addEventListener('hashchange',()=>setTimeout(run,150));
 })();
 </script>
-
 <script>
 try{renderCategoryAwareFilters();}catch(e){}
 </script>
@@ -6751,7 +6088,6 @@ try{renderCategoryAwareFilters();}catch(e){}
   }
 })();
 </script>
-
 <script id="wow-v10-stability-js">
 (function(){
   'use strict';
@@ -6788,8 +6124,6 @@ try{renderCategoryAwareFilters();}catch(e){}
   mobileRefresh(); window.addEventListener('resize',mobileRefresh,{passive:true});
 })();
 </script>
-
-
 <script id="wow-cloud-authoritative-v1">
 (function(){
   // WOWSHOPPING v1 architecture rule: storefront content is always Firestore-authoritative.
@@ -6798,56 +6132,7 @@ try{renderCategoryAwareFilters();}catch(e){}
   try{ localStorage.removeItem('wow_admin_data_v4'); }catch(e){}
 })();
 </script>
-
 <!-- WOWSHOPPING FINAL HERO OVERRIDE: ONE FULL-WIDTH VIDEO/IMAGE HERO -->
-<script id="wow-clean-video-banner-v1-js">
-(function(){
-'use strict';
-const REMOTE='siteConfig/storefront';
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const safe=v=>String(v==null?'':v).trim();
-const getData=()=>window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||{};
-function resolveVideo(obj, fallbackBanner){
-  const h=obj&&typeof obj==='object'?obj:{};
-  const b=fallbackBanner&&typeof fallbackBanner==='object'?fallbackBanner:{};
-  const vals=[h.videoUrl,h.videoURL,h.video,h.videoSrc,h.videoSource,h.bannerVideo,h.bannerVideoUrl,b.videoUrl,b.videoURL,b.video,b.videoSrc,b.bannerVideo,b.bannerVideoUrl].map(safe);
-  return vals.find(Boolean)||'';
-}
-function embed(url){try{const u=new URL(safe(url),location.href);let id=u.searchParams.get('v')||'';if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(u.hostname.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';const vm=u.pathname.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(u.hostname.includes('vimeo.com')&&vm)return'https://player.vimeo.com/video/'+vm[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}catch(e){}return'';}
-function direct(url){const s=safe(url).toLowerCase();return/\.(mp4|webm|ogg|mov)(?:[?#].*)?$/i.test(s)||(/^https?:\/\//i.test(s)&&!embed(s));}
-function addMedia(parent,url,image){
-  url=safe(url);
-  const e=embed(url);
-  if(e){
-    const f=document.createElement('iframe');
-    f.src=e; f.title='WOWSHOPPING video banner';
-    f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
-    f.allowFullscreen=true; f.setAttribute('playsinline',''); f.setAttribute('loading','eager');
-    f.style.background='#07111f'; parent.appendChild(f); return f;
-  }
-  if(direct(url)||/^(blob:|data:video\/)/i.test(url)){
-    const v=document.createElement('video');
-    v.src=url; v.autoplay=true; v.muted=true; v.defaultMuted=true; v.loop=true; v.playsInline=true; v.preload='auto';
-    v.setAttribute('autoplay',''); v.setAttribute('muted',''); v.setAttribute('loop',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
-    v.setAttribute('aria-hidden','true'); v.setAttribute('disablepictureinpicture','');
-    const play=()=>{try{v.muted=true;const q=v.play();if(q&&q.catch)q.catch(()=>{});}catch(e){}};
-    v.addEventListener('loadedmetadata',play); v.addEventListener('loadeddata',play); v.addEventListener('canplay',play); v.addEventListener('visibilitychange',play);
-    v.onerror=()=>{v.remove();if(image)addImage(parent,image,true);};
-    parent.appendChild(v); play(); return v;
-  }
-  if(image)addImage(parent,image,true); return null;
-}
-function addImage(parent,url,eager=false){if(!url)return;const im=document.createElement('img');im.src=url;im.alt='';im.decoding='async';im.loading=eager?'eager':'lazy';if(eager)im.fetchPriority='high';im.onerror=()=>im.remove();parent.appendChild(im);}
-async function loadCloud(){for(let i=0;i<10;i++){try{const db=window.firebaseDb;if(db){const snap=await db.collection('siteConfig').doc('storefront').get();if(snap.exists&&snap.data()&&snap.data().data){window.__WOW_REMOTE_STORE=snap.data().data;window.__WOW_STORE_DATA=snap.data().data;return true;}}}catch(e){}await sleep(250);}return !!getData().hero;}
-function cleanLegacy(){document.querySelectorAll('.wow-clean-promo,#wow-home-banner-carousel,#wow-mobile-managed-banners,#v9ManagedBanners,#wow-mobile-managed-banners,#v6ManagedBannerTop,#adminMidBanners,#adminBottomBanners,.v6-managed-banner').forEach(e=>e.remove());}
-function renderHero(){const hero=document.querySelector('.hero-section');if(!hero)return;const d=getData(),h=d.hero||{},firstBanner=Array.isArray(d.banners)?d.banners.find(b=>b&&b.visible!==false):null;const image=Array.isArray(h.images)?safe(h.images[0]):safe(h.image||firstBanner?.mobile||firstBanner?.desktop||firstBanner?.image);let url=resolveVideo(h,firstBanner);if(!url&&String(h.mediaType||'').toLowerCase()==='video'){url=resolveVideo(firstBanner,firstBanner);}if(!url&&image&&/\.(mp4|webm|ogg|mov)(?:[?#].*)?$/i.test(image)){url=image;}hero.querySelectorAll('.v6-media,.hero-media-shell,.v34-hero-video,.wow-hero-media,.wow-hero-shade,.wow-final-media,.wow-final-shade').forEach(e=>e.remove());let media=hero.querySelector('.wow-clean-media');if(!media||media.dataset.url!==url){if(media)media.remove();media=document.createElement('div');media.className='wow-clean-media';media.dataset.url=url;const shadeOld=hero.querySelector('.wow-clean-shade');if(shadeOld)shadeOld.remove();hero.insertBefore(media,hero.firstChild);if(url)addMedia(media,url,image);else if(image)addImage(media,image,true);}else{const existing=media.querySelector('video,iframe,img');if(!existing&&url)addMedia(media,url,image);}let shade=hero.querySelector('.wow-clean-shade');if(!shade){shade=document.createElement('div');shade.className='wow-clean-shade';hero.appendChild(shade);}let content=hero.querySelector(':scope > div:not(.wow-clean-media):not(.wow-clean-shade)');if(content){content.classList.add('wow-clean-content');}const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub'),pb=hero.querySelector('#heroPrimaryBtn'),sb=hero.querySelector('#heroSecondaryBtn');if(he)he.textContent=safe(h.eyebrow);if(ht)ht.innerHTML=safe(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');if(hs)hs.textContent=safe(h.subtitle);if(pb){const t=safe(h.buttonText||'Shop Now');if(pb.firstChild)pb.firstChild.nodeValue=t+' ';pb.onclick=()=>go(h.buttonUrl||'#shop');}if(sb){const t=safe(h.button2Text);sb.textContent=t;sb.style.display=t?'inline-flex':'none';sb.onclick=()=>go(h.button2Url||'#new');}hero.style.display=h.visible===false?'none':'flex';}
-function go(url){const u=safe(url||'#shop');if(u.startsWith('#')){if(u==='#new'||u==='#new-arrivals')return typeof navigate==='function'?navigate('shop','new'):null;return typeof navigate==='function'?navigate('shop'):null;}location.href=u;}
-function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img,false);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');const newArrivalsGrid=document.getElementById('newArrivalsGrid');const newArrivalsSection=newArrivalsGrid?newArrivalsGrid.closest('section'):null;if(newArrivalsSection)newArrivalsSection.insertAdjacentElement('afterend',sec);else if(hero)hero.insertAdjacentElement('afterend',sec);}
-async function boot(){cleanLegacy();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){};await loadCloud();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){}}
-let sig='';function watch(){const d=getData();let s='';try{s=JSON.stringify({hero:d.hero,banners:d.banners})}catch(e){}if(s&&s!==sig){sig=s;renderHero();renderPromo();}}
-window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200);window.addEventListener('pageshow',()=>setTimeout(boot,300));
-})();
-</script>
 
 <script id="wow-mobile-professional-v2-js">
 (function(){
@@ -6877,8 +6162,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   setInterval(tuneMobile,1800);
 })();
 </script>
-
-
 <style id="wow-mobile-menu-final-fix">
 @media (max-width:767px){
   html,body{overflow-x:hidden!important;width:100%;}
@@ -6932,7 +6215,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   #site-header #desktopNav .nav-item.category-open > .dropdown{display:block!important;}
 }
 </style>
-
 <script id="wow-mobile-menu-final-fix-js">
 (function(){
   'use strict';
@@ -6986,8 +6268,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   setInterval(bindMobileMenu,1200);
 })();
 </script>
-
-
 <style id="wow-mobile-menu-visible-v2">
 @media (max-width:767px){
   /* The horizontal menu must stay scrollable, while dropdowns escape its clipping. */
@@ -7171,7 +6451,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   window.addEventListener('load',()=>setTimeout(tune,50),{once:true});
 })();
 </script>
-
 <script id="wow-header-pro-v3-js">
 (function(){
   const DEFAULT_LOGO='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70"%3E%3Ctext x="0" y="49" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="%23111827"%3EWOWSHOPPING%3C/text%3E%3C/svg%3E';
@@ -7210,8 +6489,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   setInterval(renderHeaderLogo,3000);
 })();
 </script>
-
-
 <style id="wow-mobile-header-final-v4">
 @media (max-width:767px){
   #site-header{position:sticky!important;top:0!important;z-index:30000!important;background:#fff!important;border-bottom:1px solid #edf0f4!important;box-shadow:0 3px 18px rgba(15,23,42,.055)!important;}
@@ -7299,7 +6576,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   #site-header #desktopNav>.nav-link,#site-header #desktopNav>.nav-item>.nav-link{padding-left:9px!important;padding-right:9px!important;font-size:11px!important;}
 }
 </style>
-
 <script id="wow-mobile-header-final-v4-js">
 (function(){
   'use strict';
@@ -7340,48 +6616,6 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
 })();
 </script>
 
-<script id="wow-mobile-performance-final">
-(function(){
-  "use strict";
-  /* Keep media light on phones without changing product functionality. */
-  function optimizeImages(){
-    document.querySelectorAll('img').forEach(function(img){
-      if(!img.hasAttribute('decoding')) img.setAttribute('decoding','async');
-      if(!img.closest('.hero-section') && !img.hasAttribute('loading')){
-        img.setAttribute('loading','lazy');
-      }
-    });
-    document.querySelectorAll('.product-img').forEach(function(img){
-      img.setAttribute('loading','lazy');
-      img.setAttribute('decoding','async');
-    });
-  }
-
-  function addMobileSectionSpacing(){
-    if(window.innerWidth>767) return;
-    document.querySelectorAll('#mainContent > section, #mainContent > .page > section').forEach(function(el){
-      if(!el.dataset.wowMobileOptimized){
-        el.dataset.wowMobileOptimized='1';
-        el.style.contentVisibility='auto';
-        el.style.containIntrinsicSize='1px 500px';
-      }
-    });
-  }
-
-  function sync(){
-    optimizeImages();
-    addMobileSectionSpacing();
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',sync,{once:true});
-  }else sync();
-
-  window.addEventListener('load',sync,{once:true});
-})();
-</script>
-
-
 <script id="wow-phone-marketplace-labels">
 (function(){
   function mobileRefresh(){
@@ -7405,803 +6639,335 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
 </script>
 
 
-<style id="wow-phone-logo-video-final-v1">
-@media (max-width:767px){
-  /* Real admin logo — keep it visible on phones */
-  #site-header .wow-main-header-row>div:first-child{display:flex!important;align-items:center!important;min-height:42px!important;width:auto!important;flex:1 1 auto!important;padding:0!important;}
-  #site-header #siteBrandIcon{display:flex!important;width:132px!important;height:42px!important;min-width:132px!important;max-width:132px!important;align-items:center!important;justify-content:flex-start!important;overflow:hidden!important;background:transparent!important;}
-  #site-header #siteBrandIcon img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:left center!important;}
-  #site-header .wow-main-header-row{padding:9px 12px 10px!important;gap:8px!important;}
-  #site-header .desktop-search{margin-top:2px!important;}
-  /* Hero/video: compact marketplace-style mobile banner */
-  .hero-section{height:clamp(210px,58vw,300px)!important;min-height:210px!important;max-height:300px!important;background:#111827!important;}
-  .hero-section .wow-clean-media,.hero-section .wow-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#111827!important;display:block!important;}
-  .hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img,
-  .hero-section .wow-hero-media video,.hero-section .wow-hero-media iframe,.hero-section .wow-hero-media img,
-  .hero-section video,.hero-section iframe,.hero-section .wow-hero-poster{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important;}
-  .hero-section .wow-clean-shade,.hero-section .wow-hero-shade{position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;display:block!important;background:linear-gradient(180deg,rgba(0,0,0,.03) 0%,rgba(0,0,0,.08) 42%,rgba(0,0,0,.55) 100%)!important;}
-  .hero-section>.wow-clean-content,.hero-section>.wow-hero-content,.hero-section>div:not(.wow-clean-media):not(.wow-clean-shade):not(.wow-hero-media):not(.wow-hero-shade){position:relative!important;z-index:4!important;}
-  .hero-section .hero-content{width:100%!important;max-width:72%!important;padding:0!important;}
-  .hero-section .hero-eyebrow{font-size:7px!important;margin-bottom:3px!important;letter-spacing:1.1px!important;}
-  .hero-section .hero-title{font-size:clamp(20px,6.4vw,30px)!important;line-height:1.03!important;margin-bottom:4px!important;}
-  .hero-section .hero-sub{font-size:10px!important;line-height:1.35!important;margin-bottom:8px!important;max-width:100%!important;}
-  .hero-section .hero-actions{gap:6px!important;}
-  .hero-section .hero-actions .btn{padding:7px 11px!important;font-size:10px!important;border-radius:8px!important;}
-}
-@media (min-width:768px){
-  #site-header #siteBrandIcon img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;}
-}
-</style>
+\n
 
 
-<script id="wow-phone-logo-video-final-v1-js">
-(function(){
-  'use strict';
-  function clean(v){return typeof v==='string'?v.trim():'';}
-  function stores(){return [window.__WOW_REMOTE_STORE,window.__WOW_STORE_DATA,window.adminData].filter(Boolean);}
-  function localData(){try{return JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}')}catch(e){return {}}}
-  function getBrandLogo(){
-    for(const d of stores()) if(d&&d.branding&&clean(d.branding.logo)) return clean(d.branding.logo);
-    const l=localData(); return clean(l&&l.branding&&l.branding.logo);
-  }
-  function getStore(){
-    for(const d of stores()) if(d&&((d.hero)||Array.isArray(d.banners))) return d;
-    const l=localData(); return l||{};
-  }
-  function ytVimeo(url){
-    try{
-      const u=new URL(url,location.href), host=u.hostname.toLowerCase(); let id='';
-      if(host.includes('youtu.be')) id=u.pathname.split('/').filter(Boolean)[0]||'';
-      if(host.includes('youtube.com')){id=u.searchParams.get('v')||''; const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/); if(m) id=m[1]||id;}
-      if(id) return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';
-      const m=host.includes('vimeo.com')&&u.pathname.match(/\/(?:video\/)?(\d+)/); if(m) return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1';
-    }catch(e){} return '';
-  }
-  function directVideo(url){return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)||/^blob:/i.test(url);}
-  function makeMedia(hero,url,poster){
-    let box=hero.querySelector('.wow-final-media');
-    if(box&&box.dataset.url===url&&box.querySelector('video,iframe,img')) return;
-    if(box) box.remove();
-    box=document.createElement('div'); box.className='wow-final-media'; box.dataset.url=url||'';
-    box.style.cssText='position:absolute;inset:0;width:100%;height:100%;overflow:hidden;background:#111827;z-index:0;';
-    hero.insertBefore(box,hero.firstChild);
-    function addPoster(){if(!poster||box.querySelector('img'))return;const im=document.createElement('img');im.src=poster;im.alt='WOWSHOPPING';im.loading='eager';im.decoding='async';im.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;';im.onerror=function(){im.remove()};box.appendChild(im);}
-    if(url){
-      const emb=ytVimeo(url);
-      if(emb){addPoster();const f=document.createElement('iframe');f.src=emb;f.title='WOWSHOPPING video banner';f.allow='autoplay; fullscreen; picture-in-picture';f.setAttribute('allowfullscreen','');f.setAttribute('playsinline','');f.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0;';f.onerror=addPoster;box.appendChild(f);}
-      else if(directVideo(url)){
-        addPoster();const v=document.createElement('video');v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';v.onerror=function(){v.remove();addPoster()};v.addEventListener('canplay',function(){v.play().catch(function(){})});box.appendChild(v);v.play().catch(function(){});
-      } else addPoster();
-    } else addPoster();
-  }
-  function fixLogo(){
-    const icon=document.getElementById('siteBrandIcon'); if(!icon)return;
-    const logo=getBrandLogo();
-    if(logo){
-      let im=icon.querySelector('img');
-      if(!im){icon.innerHTML='';im=document.createElement('img');icon.appendChild(im);}
-      if(im.src!==logo) im.src=logo;
-      im.alt='WOWSHOPPING'; im.decoding='async';
-      icon.style.display='flex';
-    }
-  }
-  function fixHero(){
-    const hero=document.querySelector('.hero-section'); if(!hero)return;
-    const d=getStore(),h=d.hero||{}; let poster=Array.isArray(h.images)?clean(h.images[0]):clean(h.image); let url=clean(h.videoUrl||h.video);
-    const first=Array.isArray(d.banners)?d.banners.find(b=>b&&b.visible!==false):null;
-    if(!url && !poster && first){poster=clean(first.mobile||first.desktop||first.image);url=clean(first.videoUrl||first.video);}
-    if(!url && !poster)return;
-    makeMedia(hero,url,poster);
-    let shade=hero.querySelector('.wow-final-shade'); if(!shade){shade=document.createElement('div');shade.className='wow-final-shade';shade.style.cssText='position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.5));';hero.appendChild(shade);}
-    hero.style.display=h.visible===false?'none':'flex';
-  }
-  function run(){fixLogo();fixHero();}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
-  window.addEventListener('load',run);window.addEventListener('pageshow',run);setTimeout(run,900);setTimeout(run,2200);setTimeout(run,5000);setInterval(run,5000);
-})();
-</script>
-
-<script id="wow-absolute-hero-video-fix-v4">
-(function(){
-  'use strict';
-  const LOCAL_KEY='wow_admin_data_v4';
-  let lastKey='';
-  let running=false;
-  const clean=v=>typeof v==='string'?v.trim():'';
-  const readLocal=()=>{try{return JSON.parse(localStorage.getItem(LOCAL_KEY)||'{}')}catch(e){return {}}};
-  const stores=()=>[window.__WOW_REMOTE_STORE,window.__WOW_STORE_DATA,window.adminData,readLocal()].filter(Boolean);
-  function value(v){
-    if(typeof v==='string') return clean(v);
-    if(v&&typeof v==='object'){
-      for(const k of ['url','src','downloadURL','downloadUrl','videoUrl','videoURL','href']){const x=value(v[k]);if(x)return x;}
-    }
-    return '';
-  }
-  function candidates(obj){
-    const out=[];
-    if(!obj||typeof obj!=='object')return out;
-    const keys=['videoUrl','videoURL','video','videoSrc','videoSource','bannerVideo','bannerVideoUrl','mediaUrl','mediaURL','src','url'];
-    for(const k of keys){const x=value(obj[k]);if(x)out.push(x);}
-    if(obj.media&&typeof obj.media==='object'){const x=value(obj.media);if(x)out.push(x);}
-    if(Array.isArray(obj.videos)) obj.videos.forEach(x=>{const v=value(x);if(v)out.push(v);});
-    return out;
-  }
-  function findHeroData(){
-    for(const d of stores()){
-      if(!d||typeof d!=='object')continue;
-      const h=d.hero||d.homeHero||d.heroBanner||{};
-      const heroCandidates=candidates(h);
-      if(heroCandidates.length)return {data:d,hero:h,url:heroCandidates[0]};
-      const bs=Array.isArray(d.banners)?d.banners:Array.isArray(d.heroBanners)?d.heroBanners:[];
-      for(const b of bs){if(!b||b.visible===false)continue;const bc=candidates(b);if(bc.length)return {data:d,hero:h,url:bc[0],banner:b};}
-      if(h&&Array.isArray(h.images)){
-        const image=value(h.images[0]); if(image)return {data:d,hero:h,url:'',poster:image};
-      }
-    }
-    return null;
-  }
-  function posterFor(info){
-    const h=info&&info.hero||{},b=info&&info.banner||{};
-    const vals=[h.poster,h.posterUrl,h.thumbnail,h.image,Array.isArray(h.images)?h.images[0]:'',b.poster,b.posterUrl,b.thumbnail,b.image,b.mobile,b.desktop];
-    for(const x of vals){const v=value(x);if(v)return v;}
-    return '';
-  }
-  function ytVimeo(url){
-    try{
-      const u=new URL(url,location.href),host=u.hostname.toLowerCase();let id='';
-      if(host.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';
-      if(host.includes('youtube.com')){id=u.searchParams.get('v')||'';const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}
-      if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';
-      if(host.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1';}
-    }catch(e){}
-    return '';
-  }
-  function isHls(url){return /\.m3u8(?:[?#].*)?$/i.test(url);}
-  function isVideoLike(url){return /^(blob:|data:video\/)/i.test(url)||/\.(mp4|webm|ogg|mov|m4v)(?:[?#].*)?$/i.test(url)||/^https?:\/\//i.test(url);}
-  function gsDownload(url){
-    if(!/^gs:\/\//i.test(url)||!window.firebase||!firebase.storage)return Promise.resolve(url);
-    try{return firebase.storage().refFromURL(url).getDownloadURL().catch(()=>url);}catch(e){return Promise.resolve(url);}
-  }
-  function loadHls(url,video){
-    if(!isHls(url))return Promise.resolve(false);
-    if(video.canPlayType('application/vnd.apple.mpegurl')){video.src=url;return Promise.resolve(true);}
-    return new Promise(resolve=>{
-      const use=()=>{if(window.Hls&&window.Hls.isSupported()){const h=new Hls({enableWorker:true});h.loadSource(url);h.attachMedia(video);video.__wowHls=h;resolve(true);}else resolve(false);};
-      if(window.Hls)return use();
-      const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js';s.onload=use;s.onerror=()=>resolve(false);document.head.appendChild(s);
-    });
-  }
-  function makeMedia(info){
-    const hero=document.querySelector('.hero-section');if(!hero)return;
-    let box=hero.querySelector('.wow-absolute-hero-media');
-    const raw=value(info&&info.url)||'';
-    const poster=posterFor(info);
-    const key=raw+'|'+poster;
-    if(box&&box.dataset.key===key&&box.querySelector('video,iframe,img'))return;
-    if(box)box.remove();
-    box=document.createElement('div');box.className='wow-absolute-hero-media';box.dataset.key=key;hero.insertBefore(box,hero.firstChild);
-    if(poster){const im=document.createElement('img');im.src=poster;im.alt='';im.loading='eager';im.decoding='async';im.fetchPriority='high';im.onerror=()=>im.remove();box.appendChild(im);}
-    const addFallback=()=>{box.classList.add('wow-video-failed');};
-    const emb=ytVimeo(raw);
-    if(emb){const f=document.createElement('iframe');f.src=emb;f.title='WOWSHOPPING banner video';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');f.setAttribute('loading','eager');box.appendChild(f);return;}
-    if(!raw)return;
-    gsDownload(raw).then(url=>{
-      if(!url||box.dataset.key!==key)return;
-      const v=document.createElement('video');v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('loop','');v.setAttribute('aria-hidden','true');v.style.zIndex='2';
-      v.addEventListener('error',addFallback,{once:true});
-      v.addEventListener('stalled',()=>{setTimeout(()=>{try{v.play()}catch(e){}},300)});
-      v.addEventListener('canplay',()=>{try{v.play()}catch(e){}});
-      v.addEventListener('playing',()=>box.classList.remove('wow-video-failed'));
-      box.appendChild(v);
-      loadHls(url,v).then(ok=>{
-        if(!ok){v.src=url;}
-        try{v.load();const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}
-      });
-      const retry=()=>{try{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}};
-      document.addEventListener('visibilitychange',retry,{passive:true});
-      window.addEventListener('scroll',retry,{passive:true,once:true});
-      setTimeout(()=>{if(v.readyState<2&&!box.classList.contains('wow-video-failed')){try{v.load();retry();}catch(e){}}},1800);
-      setTimeout(()=>{if(v.readyState===0||v.networkState===3) addFallback();},7000);
-    });
-  }
-  function apply(){
-    if(running)return;running=true;
-    try{
-      const hero=document.querySelector('.hero-section');if(!hero)return;
-      const info=findHeroData();
-      if(!info)return;
-      makeMedia(info);
-      let shade=hero.querySelector('.wow-absolute-hero-shade');if(!shade){shade=document.createElement('div');shade.className='wow-absolute-hero-shade';shade.style.cssText='position:absolute;inset:0;z-index:3;pointer-events:none;';hero.appendChild(shade);}
-      let content=hero.querySelector('.wow-absolute-hero-content');
-      if(!content){
-        const first=hero.querySelector(':scope > div:not(.wow-absolute-hero-media):not(.wow-absolute-hero-shade)');
-        if(first){first.classList.add('wow-absolute-hero-content');content=first;}
-      }
-      if(content){content.style.position='relative';content.style.zIndex='6';}
-      const h=info.hero||{};
-      const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub');
-      if(he&&h.eyebrow!=null)he.textContent=value(h.eyebrow);
-      if(ht&&h.title!=null)ht.innerHTML=value(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');
-      if(hs&&h.subtitle!=null)hs.textContent=value(h.subtitle);
-      hero.style.display=h.visible===false?'none':'flex';
-      const sig=info.url+'|'+posterFor(info);
-      if(sig!==lastKey){lastKey=sig;}
-    }catch(e){console.warn('WOW hero video fix:',e);}
-    finally{running=false;}
-  }
-  function boot(){apply();setTimeout(apply,600);setTimeout(apply,1800);setTimeout(apply,3500);}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
-  window.addEventListener('load',boot);window.addEventListener('pageshow',boot);
-  setInterval(apply,2500);
-})();
-</script>\n
-<script id="wow-mobile-same-video-runtime-final">
-(function(){
-  'use strict';
-  function wake(){
-    if(window.innerWidth>767) return;
-    document.querySelectorAll('.hero-section video').forEach(function(v){
-      try{
-        v.muted=true; v.defaultMuted=true; v.autoplay=true; v.loop=true; v.playsInline=true;
-        v.setAttribute('muted','');v.setAttribute('autoplay','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');
-        if(v.readyState===0) v.load();
-        var p=v.play(); if(p&&p.catch) p.catch(function(){});
-      }catch(e){}
-    });
-  }
-  ['load','pageshow','orientationchange'].forEach(function(ev){window.addEventListener(ev,wake,{passive:true});});
-  document.addEventListener('visibilitychange',wake,{passive:true});
-  setTimeout(wake,300);setTimeout(wake,1000);setTimeout(wake,2500);setTimeout(wake,5000);
-})();
-</script>
-
-<style id="wow-hero-final-v100">
-/* =========================================================
-   WOWSHOPPING HERO — FINAL SINGLE SOURCE OF TRUTH
-   Same video on desktop + phone, full banner, text left.
-   ========================================================= */
-.hero-section{
-  position:relative!important;
-  width:100%!important;
-  height:clamp(420px,34vw,560px)!important;
-  min-height:420px!important;
-  max-height:560px!important;
-  display:flex!important;
-  align-items:stretch!important;
-  overflow:hidden!important;
-  isolation:isolate!important;
-  background:#050b16!important;
-  padding:0!important;
-}
-.hero-section .wow-final-hero-media{
-  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  z-index:0!important;overflow:hidden!important;background:#050b16!important;
-}
-.hero-section .wow-final-hero-media video,
-.hero-section .wow-final-hero-media iframe,
-.hero-section .wow-final-hero-media img{
-  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  min-width:100%!important;min-height:100%!important;border:0!important;
-  display:block!important;object-fit:cover!important;object-position:center center!important;
-}
-.hero-section .wow-final-hero-poster{opacity:1!important;}
-.hero-section .wow-final-hero-video{opacity:1!important;background:#050b16!important;}
-.hero-section .wow-final-hero-shade{
-  position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;
-  background:linear-gradient(90deg,rgba(2,7,18,.76) 0%,rgba(2,7,18,.50) 32%,rgba(2,7,18,.16) 62%,rgba(2,7,18,.04) 100%)!important;
-}
-.hero-section>.wow-final-hero-content{
-  position:relative!important;z-index:5!important;width:100%!important;max-width:none!important;
-  margin:0!important;padding:0 clamp(24px,7vw,110px)!important;
-  display:flex!important;align-items:center!important;justify-content:flex-start!important;
-  box-sizing:border-box!important;background:transparent!important;
-}
-.hero-section .wow-final-hero-content .hero-content{
-  width:min(620px,52vw)!important;max-width:620px!important;padding:0!important;margin:0!important;
-}
-.hero-section .hero-eyebrow{font-size:11px!important;letter-spacing:3px!important;margin-bottom:15px!important;color:#dbeafe!important;}
-.hero-section .hero-title{font-size:clamp(44px,5.2vw,78px)!important;line-height:1.0!important;margin-bottom:18px!important;color:#fff!important;}
-.hero-section .hero-sub{font-size:17px!important;line-height:1.55!important;margin-bottom:28px!important;color:#f8fafc!important;max-width:540px!important;}
-.hero-section .hero-actions{display:flex!important;gap:12px!important;flex-wrap:wrap!important;}
-.hero-section .hero-actions .btn{min-height:46px!important;padding:12px 24px!important;font-size:14px!important;}
-@media(max-width:767px){
-  .hero-section{
-    height:58vw!important;min-height:0!important;max-height:none!important;
-    aspect-ratio:16/9!important;
-  }
-  .hero-section>.wow-final-hero-content{
-    padding:0 18px!important;align-items:center!important;justify-content:flex-start!important;
-  }
-  .hero-section .wow-final-hero-content .hero-content{
-    width:61%!important;max-width:61%!important;
-  }
-  .hero-section .hero-eyebrow{font-size:7px!important;letter-spacing:1.5px!important;margin-bottom:6px!important;}
-  .hero-section .hero-title{font-size:clamp(25px,7.2vw,38px)!important;line-height:1.02!important;margin-bottom:8px!important;letter-spacing:-.5px!important;}
-  .hero-section .hero-sub{font-size:11px!important;line-height:1.35!important;margin-bottom:11px!important;max-width:100%!important;}
-  .hero-section .hero-actions{gap:6px!important;}
-  .hero-section .hero-actions .btn{min-height:0!important;padding:8px 12px!important;font-size:10px!important;border-radius:7px!important;}
-  .hero-section .wow-final-hero-shade{
-    background:linear-gradient(90deg,rgba(2,7,18,.78) 0%,rgba(2,7,18,.48) 43%,rgba(2,7,18,.10) 78%,rgba(2,7,18,.02) 100%)!important;
-  }
-}
-@media(max-width:380px){
-  .hero-section .hero-title{font-size:25px!important;}
-  .hero-section .hero-sub{font-size:10px!important;}
-  .hero-section .hero-actions .btn{padding:7px 10px!important;font-size:9px!important;}
-}
-@media(prefers-reduced-motion:reduce){.hero-section video{animation:none!important;}}
-</style>
-
-<script id="wow-hero-final-v100-js">
-(function(){
-'use strict';
-const clean=v=>typeof v==='string'?v.trim():'';
-function getStore(){
-  const candidates=[window.__WOW_REMOTE_STORE,window.__WOW_STORE_DATA,window.adminData];
-  for(const d of candidates){if(d&&typeof d==='object'&&(d.hero||Array.isArray(d.banners)))return d;}
-  try{return JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}')||{};}catch(e){return {};}
-}
-function videoUrl(h,b){
-  h=h||{};b=b||{};
-  const vals=[h.videoUrl,h.videoURL,h.video,h.videoSrc,h.videoSource,h.bannerVideo,h.bannerVideoUrl,b.videoUrl,b.videoURL,b.video,b.videoSrc,b.bannerVideo,b.bannerVideoUrl];
-  return vals.map(clean).find(Boolean)||'';
-}
-function imageUrl(h,b){
-  h=h||{};b=b||{};
-  if(Array.isArray(h.images)&&h.images.length)return clean(h.images[0]);
-  return clean(h.image||b.mobile||b.desktop||b.image||'');
-}
-function embedUrl(url){
-  try{
-    const u=new URL(url,location.href),host=u.hostname.toLowerCase();let id='';
-    if(host.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';
-    if(host.includes('youtube.com')){id=u.searchParams.get('v')||'';const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}
-    if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';
-    if(host.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}
-  }catch(e){}
-  return '';
-}
-function render(){
-  const hero=document.querySelector('.hero-section');if(!hero)return;
-  const d=getStore(),h=d.hero||{},b=(Array.isArray(d.banners)?d.banners.find(x=>x&&x.visible!==false):null)||{};
-  let url=videoUrl(h,b),poster=imageUrl(h,b);
-  const type=clean(h.mediaType).toLowerCase();
-  if(!url&&type==='video'&&poster&&/\.(mp4|webm|ogg|mov|m4v)(?:[?#].*)?$/i.test(poster))url=poster;
-  const sig=url+'|'+poster+'|'+(h.visible===false?'0':'1');
-  if(hero.dataset.finalHeroSig===sig){wake();return;}
-  hero.dataset.finalHeroSig=sig;
-  hero.querySelectorAll('.wow-final-hero-media,.wow-final-hero-shade').forEach(x=>x.remove());
-  const media=document.createElement('div');media.className='wow-final-hero-media';
-  const shade=document.createElement('div');shade.className='wow-final-hero-shade';
-  hero.insertBefore(media,hero.firstChild);hero.appendChild(shade);
-  if(url){
-    const emb=embedUrl(url);
-    if(emb){
-      const f=document.createElement('iframe');f.src=emb;f.title='WOWSHOPPING Hero Video';
-      f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.setAttribute('allowfullscreen','');f.setAttribute('playsinline','');f.setAttribute('loading','eager');
-      media.appendChild(f);
-    }else{
-      const v=document.createElement('video');v.className='wow-final-hero-video';v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.src=url;
-      v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');
-      const play=()=>{try{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}};
-      v.addEventListener('loadedmetadata',play);v.addEventListener('loadeddata',play);v.addEventListener('canplay',play);v.addEventListener('canplaythrough',play);v.addEventListener('visibilitychange',play);
-      v.addEventListener('error',()=>{if(poster&&!media.querySelector('img')){const im=document.createElement('img');im.className='wow-final-hero-poster';im.src=poster;im.alt='';media.appendChild(im);}});
-      media.appendChild(v);play();
-    }
-  }else if(poster){const im=document.createElement('img');im.className='wow-final-hero-poster';im.src=poster;im.alt='';media.appendChild(im);}
-  let content=hero.querySelector(':scope > div:not(.wow-final-hero-media):not(.wow-final-hero-shade)');
-  if(content){content.classList.add('wow-final-hero-content');content.style.position='relative';content.style.zIndex='5';}
-  const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub');
-  if(he)he.textContent=clean(h.eyebrow)||'NEW COLLECTION';
-  if(ht)ht.innerHTML=(clean(h.title)||'Discover Your Style').replace(/\n/g,'<br>');
-  if(hs)hs.textContent=clean(h.subtitle)||'Premium products. Modern shopping.';
-  const p=hero.querySelector('#heroPrimaryBtn'),s=hero.querySelector('#heroSecondaryBtn');
-  if(p){const t=clean(h.buttonText)||'Shop Now';p.childNodes[0]&&(p.childNodes[0].nodeValue=t+' ');p.onclick=()=>{const u=clean(h.buttonUrl)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop');else if(u)location.href=u;};}
-  if(s){const t=clean(h.button2Text)||'New Arrivals';s.textContent=t;s.style.display=t?'inline-flex':'none';s.onclick=()=>{const u=clean(h.button2Url)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop','new');else if(u)location.href=u;};}
-  hero.style.display=h.visible===false?'none':'flex';
-  try{window.lucide&&lucide.createIcons()}catch(e){}
-}
-function wake(){document.querySelectorAll('.hero-section .wow-final-hero-media video').forEach(v=>{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});});}
-function boot(){render();wake();}
-window.addEventListener('load',()=>setTimeout(boot,500));
-window.addEventListener('pageshow',()=>setTimeout(boot,250));
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)wake();});
-setInterval(boot,1500);
-window.addEventListener('resize',()=>setTimeout(wake,100));
-})();
-</script>
 
 <!-- WOWSHOPPING FINAL HERO HARD RESET: ONE VIDEO, FULL BANNER, TEXT LEFT -->
-<style id="wow-single-video-hero-final">
-.hero-section{
-  position:relative!important;
-  display:block!important;
-  width:100%!important;
-  height:clamp(430px,34vw,560px)!important;
-  min-height:430px!important;
-  max-height:560px!important;
-  padding:0!important;
-  margin:0!important;
-  overflow:hidden!important;
-  isolation:isolate!important;
-  background:#050b16!important;
-}
-/* Hide every legacy hero media layer. The single layer below is the only visible media. */
-.hero-section > .wow-clean-media,
-.hero-section > .wow-hero-media,
-.hero-section > .wow-absolute-hero-media,
-.hero-section > .v6-media,
-.hero-section > .hero-media-shell,
-.hero-section > .v34-hero-video,
-.hero-section > .wow-final-hero-media,
-.hero-section > .wow-final-media,
-.hero-section > .wow-hero-shade,
-.hero-section > .wow-absolute-hero-shade,
-.hero-section > .wow-final-hero-shade,
-.hero-section > .wow-final-shade,
-.hero-section > .wow-clean-shade{display:none!important;}
-#wow-single-hero-media{
-  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  display:block!important;z-index:0!important;overflow:hidden!important;background:#050b16!important;
-}
-#wow-single-hero-media video,
-#wow-single-hero-media iframe,
-#wow-single-hero-media img{
-  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-  min-width:100%!important;min-height:100%!important;border:0!important;display:block!important;
-  object-fit:cover!important;object-position:center center!important;
-}
-#wow-single-hero-shade{
-  position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;
-  display:block!important;
-  background:linear-gradient(90deg,rgba(3,8,20,.78) 0%,rgba(3,8,20,.55) 30%,rgba(3,8,20,.18) 55%,rgba(3,8,20,0) 78%)!important;
-}
-.hero-section > .wow-single-hero-content{
-  position:absolute!important;inset:0!important;z-index:5!important;
-  width:100%!important;max-width:none!important;margin:0!important;padding:0 clamp(24px,7vw,110px)!important;
-  display:flex!important;align-items:center!important;justify-content:flex-start!important;
-  box-sizing:border-box!important;background:transparent!important;
-}
-.hero-section > .wow-single-hero-content > div{
-  width:min(560px,46vw)!important;max-width:560px!important;margin:0!important;padding:0!important;
-}
-.hero-section > .wow-single-hero-content .hero-content{
-  width:100%!important;max-width:560px!important;margin:0!important;padding:0!important;
-}
-.hero-section .hero-eyebrow{color:#dbeafe!important;font-size:11px!important;letter-spacing:3px!important;margin:0 0 15px!important;}
-.hero-section .hero-title{color:#fff!important;font-size:clamp(46px,5.2vw,78px)!important;line-height:1!important;margin:0 0 18px!important;}
-.hero-section .hero-sub{color:#f8fafc!important;font-size:17px!important;line-height:1.5!important;max-width:520px!important;margin:0 0 28px!important;}
-.hero-section .hero-actions{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;flex-wrap:wrap!important;}
-.hero-section .hero-actions .btn{min-height:46px!important;padding:12px 24px!important;}
-@media(max-width:767px){
-  .hero-section{height:68vw!important;min-height:260px!important;max-height:none!important;aspect-ratio:16/10!important;}
-  #wow-single-hero-shade{background:linear-gradient(90deg,rgba(3,8,20,.82) 0%,rgba(3,8,20,.55) 38%,rgba(3,8,20,.12) 72%,rgba(3,8,20,0) 100%)!important;}
-  .hero-section > .wow-single-hero-content{padding:0 18px!important;}
-  .hero-section > .wow-single-hero-content > div,
-  .hero-section > .wow-single-hero-content .hero-content{width:min(58%,360px)!important;max-width:360px!important;}
-  .hero-section .hero-eyebrow{font-size:7px!important;letter-spacing:1.6px!important;margin-bottom:6px!important;}
-  .hero-section .hero-title{font-size:clamp(25px,7.5vw,38px)!important;line-height:1.02!important;margin-bottom:8px!important;}
-  .hero-section .hero-sub{font-size:10.5px!important;line-height:1.35!important;margin-bottom:11px!important;max-width:100%!important;}
-  .hero-section .hero-actions{gap:6px!important;}
-  .hero-section .hero-actions .btn{min-height:0!important;padding:8px 12px!important;font-size:10px!important;border-radius:7px!important;}
-}
-</style>
-<script id="wow-single-video-hero-final-js">
-(function(){
-  'use strict';
-  const clean=v=>typeof v==='string'?v.trim():'';
-  const oldMedia=['.wow-clean-media','.wow-hero-media','.wow-absolute-hero-media','.v6-media','.hero-media-shell','.v34-hero-video','.wow-final-hero-media','.wow-final-media'];
-  function store(){
-    const xs=[window.__WOW_REMOTE_STORE,window.__WOW_STORE_DATA,window.adminData];
-    for(const x of xs){if(x&&typeof x==='object'&&(x.hero||Array.isArray(x.banners)))return x;}
-    try{return JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}')||{};}catch(e){return {};}
-  }
-  function videoUrl(h,b){
-    h=h||{};b=b||{};
-    return [h.videoUrl,h.videoURL,h.video,h.videoSrc,h.videoSource,h.bannerVideo,h.bannerVideoUrl,b.videoUrl,b.videoURL,b.video,b.videoSrc,b.bannerVideo,b.bannerVideoUrl].map(clean).find(Boolean)||'';
-  }
-  function posterUrl(h,b){
-    h=h||{};b=b||{};
-    if(Array.isArray(h.images)&&h.images.length)return clean(h.images[0]);
-    return clean(h.image||b.mobile||b.desktop||b.image||'');
-  }
-  function embed(url){
-    try{
-      const u=new URL(url,location.href), host=u.hostname.toLowerCase(); let id='';
-      if(host.includes('youtu.be')) id=u.pathname.split('/').filter(Boolean)[0]||'';
-      if(host.includes('youtube.com')){id=u.searchParams.get('v')||'';const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}
-      if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';
-      if(host.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}
-    }catch(e){}
-    return '';
-  }
-  function purge(hero){
-    oldMedia.forEach(sel=>hero.querySelectorAll(':scope > '+sel).forEach(e=>e.remove()));
-    hero.querySelectorAll(':scope > .wow-clean-shade,:scope > .wow-hero-shade,:scope > .wow-absolute-hero-shade,:scope > .wow-final-hero-shade,:scope > .wow-final-shade').forEach(e=>e.remove());
-    const direct=[...hero.children];
-    direct.forEach(el=>{
-      if(el.id==='wow-single-hero-media'||el.id==='wow-single-hero-shade'||el.classList.contains('wow-single-hero-content'))return;
-      if(/media|shade|video/i.test(el.className||''))el.remove();
-    });
-  }
-  function render(){
-    const hero=document.querySelector('.hero-section'); if(!hero)return;
-    const d=store(), h=d.hero||{}, b=(Array.isArray(d.banners)?d.banners.find(x=>x&&x.visible!==false):null)||{};
-    const url=videoUrl(h,b), poster=posterUrl(h,b), key=url+'|'+poster+'|'+(h.title||'')+'|'+(h.visible===false?'0':'1');
-    purge(hero);
-    let media=document.getElementById('wow-single-hero-media');
-    if(!media){media=document.createElement('div');media.id='wow-single-hero-media';hero.insertBefore(media,hero.firstChild);}
-    if(media.dataset.key!==key){
-      media.dataset.key=key; media.innerHTML='';
-      const emb=embed(url);
-      if(emb){
-        const f=document.createElement('iframe');f.src=emb;f.title='WOWSHOPPING Hero Video';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.setAttribute('allowfullscreen','');f.setAttribute('playsinline','');media.appendChild(f);
-      }else if(url){
-        const v=document.createElement('video');v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.src=url;v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');
-        const play=()=>{try{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});}catch(e){}};
-        ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>v.addEventListener(ev,play));
-        v.addEventListener('error',()=>{if(poster&&!media.querySelector('img')){const im=document.createElement('img');im.src=poster;im.alt='';media.appendChild(im);}});
-        media.appendChild(v);play();
-      }else if(poster){const im=document.createElement('img');im.src=poster;im.alt='';media.appendChild(im);}
-    }
-    let shade=document.getElementById('wow-single-hero-shade');
-    if(!shade){shade=document.createElement('div');shade.id='wow-single-hero-shade';hero.appendChild(shade);}
-    let content=hero.querySelector('.wow-single-hero-content');
-    if(!content){
-      content=document.createElement('div');content.className='wow-single-hero-content';
-      const original=hero.querySelector(':scope > div:not(#wow-single-hero-media):not(#wow-single-hero-shade)');
-      if(original){content.appendChild(original);} else {const inner=document.createElement('div');inner.innerHTML='<div class="hero-content"><div class="hero-eyebrow"></div><h1 class="hero-title font-display"></h1><p class="hero-sub"></p><div class="hero-actions"><button id="heroPrimaryBtn" class="btn btn-primary">Shop Now →</button><button id="heroSecondaryBtn" class="btn btn-outline">New Arrivals</button></div></div>';content.appendChild(inner);}
-      hero.appendChild(content);
-    }
-    const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub');
-    if(he)he.textContent=clean(h.eyebrow)||'NEW COLLECTION';
-    if(ht)ht.innerHTML=(clean(h.title)||'Discover Your Style').replace(/\n/g,'<br>');
-    if(hs)hs.textContent=clean(h.subtitle)||'Premium products. Modern shopping.';
-    const p=hero.querySelector('#heroPrimaryBtn'),s=hero.querySelector('#heroSecondaryBtn');
-    if(p){p.style.display='inline-flex';p.onclick=()=>{const u=clean(h.buttonUrl)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop');else location.href=u;};}
-    if(s){s.style.display='inline-flex';s.textContent=clean(h.button2Text)||'New Arrivals';s.onclick=()=>{const u=clean(h.button2Url)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop','new');else location.href=u;};}
-    hero.style.display=h.visible===false?'none':'block';
-    hero.dataset.singleHeroKey=key;
-  }
-  let running=false;
-  function boot(){if(running)return;running=true;try{render();}finally{running=false;}}
-  const observer=new MutationObserver(()=>{if(!running)requestAnimationFrame(boot);});
-  function start(){const hero=document.querySelector('.hero-section');if(hero)observer.observe(hero,{childList:true});boot();setTimeout(boot,700);setTimeout(boot,1800);}
-  window.addEventListener('load',start);window.addEventListener('pageshow',start);document.addEventListener('visibilitychange',()=>{if(!document.hidden){document.querySelectorAll('#wow-single-hero-media video').forEach(v=>{v.muted=true;v.play().catch(()=>{});});}});
-  setInterval(boot,3000);
-})();
-</script>
 
 
 <!-- WOWSHOPPING FINAL MOBILE VIDEO + BUTTON POLISH -->
-<style id="wow-phone-pro-hero-final">
-@media (max-width:767px){
-  html,body{overflow-x:hidden!important;width:100%!important;max-width:100%!important;}
-  /* One single full-bleed hero video on phones */
-  .hero-section{
-    width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;
-    height:clamp(310px,78vw,430px)!important;min-height:310px!important;max-height:430px!important;
-    display:block!important;position:relative!important;overflow:hidden!important;
-    background:#070d18!important;
-  }
-  #wow-single-hero-media{
-    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-    display:block!important;visibility:visible!important;opacity:1!important;z-index:0!important;
-  }
-  #wow-single-hero-media video,#wow-single-hero-media iframe,#wow-single-hero-media img{
-    position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
-    min-width:100%!important;min-height:100%!important;border:0!important;display:block!important;
-    object-fit:cover!important;object-position:center center!important;
-  }
-  #wow-single-hero-shade{
-    z-index:1!important;display:block!important;pointer-events:none!important;
-    background:linear-gradient(90deg,rgba(3,8,20,.78) 0%,rgba(3,8,20,.53) 34%,rgba(3,8,20,.17) 72%,rgba(3,8,20,0) 100%)!important;
-  }
-  .hero-section>.wow-single-hero-content{
-    position:absolute!important;inset:0!important;z-index:5!important;
-    width:100%!important;height:100%!important;margin:0!important;padding:0 18px!important;
-    display:flex!important;align-items:center!important;justify-content:flex-start!important;
-    box-sizing:border-box!important;
-  }
-  .hero-section>.wow-single-hero-content>div,
-  .hero-section>.wow-single-hero-content .hero-content{
-    width:min(57%,330px)!important;max-width:330px!important;margin:0!important;padding:0!important;
-  }
-  .hero-section .hero-eyebrow{font-size:8px!important;line-height:1!important;letter-spacing:1.8px!important;margin:0 0 7px!important;}
-  .hero-section .hero-title{font-size:clamp(28px,8.4vw,40px)!important;line-height:1.01!important;letter-spacing:-.5px!important;margin:0 0 9px!important;}
-  .hero-section .hero-sub{font-size:11px!important;line-height:1.38!important;max-width:240px!important;margin:0 0 12px!important;}
-  .hero-section .hero-actions{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:7px!important;flex-wrap:nowrap!important;}
-  .hero-section .hero-actions .btn{
-    display:inline-flex!important;align-items:center!important;justify-content:center!important;
-    min-height:36px!important;height:36px!important;padding:0 12px!important;
-    border-radius:8px!important;font-size:10px!important;font-weight:700!important;
-    line-height:1!important;white-space:nowrap!important;box-shadow:0 5px 14px rgba(0,0,0,.18)!important;
-  }
-  .hero-section .hero-actions .btn svg{width:13px!important;height:13px!important;}
-  #heroSecondaryBtn{background:rgba(255,255,255,.12)!important;border-color:rgba(255,255,255,.65)!important;}
-}
-@media (max-width:390px){
-  .hero-section{height:clamp(295px,78vw,335px)!important;min-height:295px!important;}
-  .hero-section>.wow-single-hero-content{padding:0 15px!important;}
-  .hero-section>.wow-single-hero-content>div,.hero-section>.wow-single-hero-content .hero-content{width:min(61%,285px)!important;}
-  .hero-section .hero-title{font-size:28px!important;}
-  .hero-section .hero-sub{font-size:10px!important;max-width:205px!important;}
-  .hero-section .hero-actions .btn{height:34px!important;min-height:34px!important;padding:0 10px!important;font-size:9.5px!important;}
-}
-</style>
-<script id="wow-phone-pro-hero-final-js">
-(function(){
-  'use strict';
-  const clean=v=>typeof v==='string'?v.trim():'';
-  const getStore=()=>{
-    const a=[window.__WOW_REMOTE_STORE,window.__WOW_STORE_DATA,window.adminData];
-    for(const x of a) if(x&&typeof x==='object'&&(x.hero||Array.isArray(x.banners))) return x;
-    try{return JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}')||{};}catch(e){return {};}
-  };
-  const getVideo=(h,b)=>[h?.videoUrl,h?.videoURL,h?.video,h?.videoSrc,h?.videoSource,h?.bannerVideo,h?.bannerVideoUrl,b?.videoUrl,b?.videoURL,b?.video,b?.videoSrc,b?.bannerVideo,b?.bannerVideoUrl].map(clean).find(Boolean)||'';
-  const getPoster=(h,b)=>Array.isArray(h?.images)&&h.images[0]?clean(h.images[0]):clean(h?.image||b?.mobile||b?.desktop||b?.image||'');
-  function youtubeVimeo(url){try{const u=new URL(url,location.href),host=u.hostname.toLowerCase();let id=u.searchParams.get('v')||'';if(host.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(host.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';if(host.includes('vimeo.com')){const m=u.pathname.match(/\/(?:video\/)?(\d+)/);if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}}catch(e){}return '';}
-  async function normalize(url){
-    url=clean(url); if(!url)return '';
-    if(/^gs:\/\//i.test(url) && window.firebase?.storage){try{return await firebase.storage().refFromURL(url).getDownloadURL();}catch(e){}}
-    return url;
-  }
-  async function render(){
-    const hero=document.querySelector('.hero-section');if(!hero)return;
-    const d=getStore(),h=d.hero||{},b=(Array.isArray(d.banners)?d.banners.find(x=>x&&x.visible!==false):null)||{};
-    let url=await normalize(getVideo(h,b));
-    const poster=getPoster(h,b);
-    let media=document.getElementById('wow-single-hero-media');
-    if(!media){media=document.createElement('div');media.id='wow-single-hero-media';hero.insertBefore(media,hero.firstChild);}
-    const key=url+'|'+poster+'|'+clean(h.title)+'|'+(h.visible===false?'0':'1');
-    if(media.dataset.key!==key){
-      media.dataset.key=key;media.innerHTML='';
-      const emb=youtubeVimeo(url);
-      if(emb){
-        const f=document.createElement('iframe');f.src=emb;f.title='WOWSHOPPING Hero Video';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.setAttribute('allowfullscreen','');f.setAttribute('playsinline','');f.setAttribute('loading','eager');media.appendChild(f);
-      }else if(url){
-        const v=document.createElement('video');
-        v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';
-        v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');
-        const play=()=>{v.muted=true;v.defaultMuted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{});};
-        ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>v.addEventListener(ev,play,{passive:true}));
-        v.addEventListener('error',()=>{if(poster&&!media.querySelector('img')){const im=document.createElement('img');im.src=poster;im.alt='';media.appendChild(im);}});
-        media.appendChild(v);play();
-        setTimeout(play,250);setTimeout(play,1000);
-        if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)play();}),{threshold:.1});io.observe(v);}
-      }else if(poster){const im=document.createElement('img');im.src=poster;im.alt='';media.appendChild(im);}
-    }else{
-      const v=media.querySelector('video');if(v){v.muted=true;if(v.paused)v.play().catch(()=>{});}
-    }
-    let shade=document.getElementById('wow-single-hero-shade');if(!shade){shade=document.createElement('div');shade.id='wow-single-hero-shade';hero.appendChild(shade);}
-    let content=hero.querySelector('.wow-single-hero-content');
-    if(!content){
-      content=document.createElement('div');content.className='wow-single-hero-content';
-      const original=hero.querySelector(':scope > div:not(#wow-single-hero-media):not(#wow-single-hero-shade)');
-      if(original)content.appendChild(original);hero.appendChild(content);
-    }
-    const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub');
-    if(he)he.textContent=clean(h.eyebrow)||'NEW COLLECTION';
-    if(ht)ht.innerHTML=(clean(h.title)||'Discover Your Style').replace(/\n/g,'<br>');
-    if(hs)hs.textContent=clean(h.subtitle)||'Premium products. Modern shopping.';
-    const p=hero.querySelector('#heroPrimaryBtn'),s=hero.querySelector('#heroSecondaryBtn');
-    if(p){p.style.display='inline-flex';p.onclick=()=>{const u=clean(h.buttonUrl)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop');else if(u)location.href=u;};}
-    if(s){s.style.display='inline-flex';s.textContent=clean(h.button2Text)||'New Arrivals';s.onclick=()=>{const u=clean(h.button2Url)||'#shop';if(u.startsWith('#')&&typeof navigate==='function')navigate('shop','new');else if(u)location.href=u;};}
-    hero.style.display=h.visible===false?'none':'block';
-    try{window.lucide&&lucide.createIcons()}catch(e){}
-  }
-  let busy=false;async function boot(){if(busy)return;busy=true;try{await render();}finally{busy=false;}}
-  window.addEventListener('load',()=>setTimeout(boot,350));window.addEventListener('pageshow',()=>setTimeout(boot,250));
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden){document.querySelectorAll('#wow-single-hero-media video').forEach(v=>{v.muted=true;v.play().catch(()=>{});});boot();}});
-  window.addEventListener('resize',()=>setTimeout(boot,150));setInterval(boot,4000);
-})();
-</script>
 
 
-<style id="wow-video-only-final-css">
-/* FINAL: hero is VIDEO ONLY. Never render a photo fallback. */
-.hero-section{position:relative!important;overflow:hidden!important;isolation:isolate!important;width:100%!important;background:#050914!important;}
-.hero-section .wow-video-only-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important;}
-.hero-section .wow-video-only-media video,
-.hero-section .wow-video-only-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important;background:#050914!important;}
-.hero-section .wow-video-only-media img{display:none!important!important;}
-.hero-section .wow-video-only-shade{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(2,7,18,.78) 0%,rgba(2,7,18,.42) 42%,rgba(2,7,18,.08) 75%,rgba(2,7,18,.04) 100%)!important;}
-.hero-section .wow-video-only-content{position:relative!important;z-index:3!important;}
+
+
+
+
+<style id="wow-final-single-video-hero-css">
+/* WOWSHOPPING FINAL HERO — ONE VIDEO, ALL DEVICES */
+.hero-section{
+  position:relative!important;
+  width:100%!important;
+  max-width:none!important;
+  min-height:420px!important;
+  height:clamp(420px,48vw,650px)!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  display:flex!important;
+  align-items:center!important;
+  background:#050914!important;
+}
+.hero-section .wow-final-video-media{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+  background:#050914!important;
+}
+.hero-section .wow-final-video-media video,
+.hero-section .wow-final-video-media iframe{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:100%!important;
+  min-height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  border:0!important;
+  margin:0!important;
+  padding:0!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+.hero-section .wow-final-video-shade{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  pointer-events:none!important;
+  background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.43) 38%,rgba(0,0,0,.12) 72%,rgba(0,0,0,.04) 100%)!important;
+}
+.hero-section > .hero-content,
+.hero-section .wow-final-hero-content{
+  position:relative!important;
+  z-index:3!important;
+  width:100%!important;
+  max-width:1400px!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+  padding:0 6vw!important;
+  text-align:left!important;
+}
+.hero-section .hero-eyebrow{margin-bottom:10px!important;}
+.hero-section .hero-title{max-width:620px!important;}
+.hero-section .hero-sub{max-width:500px!important;}
 @media(max-width:767px){
-  .hero-section{height:clamp(360px,72vw,520px)!important;min-height:360px!important;max-height:520px!important;align-items:flex-end!important;}
-  .hero-section .wow-video-only-shade{background:linear-gradient(90deg,rgba(2,7,18,.82) 0%,rgba(2,7,18,.50) 48%,rgba(2,7,18,.12) 100%)!important;}
-  .hero-section .wow-video-only-media video,.hero-section .wow-video-only-media iframe{object-position:center center!important;}
-  .hero-section .hero-content,.hero-section .wow-video-only-content{width:100%!important;max-width:100%!important;padding:0 18px 24px!important;}
-  .hero-section .hero-eyebrow{font-size:9px!important;letter-spacing:2px!important;margin-bottom:7px!important;}
-  .hero-section .hero-title{font-size:clamp(30px,9.5vw,46px)!important;line-height:.98!important;max-width:235px!important;margin:0 0 9px!important;}
-  .hero-section .hero-sub{font-size:12px!important;line-height:1.35!important;max-width:210px!important;margin:0 0 13px!important;}
-  .hero-section .hero-actions{display:flex!important;gap:7px!important;flex-wrap:nowrap!important;}
-  .hero-section .hero-actions .btn{min-height:36px!important;height:36px!important;padding:7px 12px!important;font-size:11px!important;border-radius:8px!important;white-space:nowrap!important;}
+  .hero-section{
+    width:100vw!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+    min-height:0!important;
+    height:clamp(300px,70vw,390px)!important;
+    max-height:390px!important;
+    align-items:flex-end!important;
+  }
+  .hero-section .wow-final-video-media video,
+  .hero-section .wow-final-video-media iframe{
+    object-position:center center!important;
+  }
+  .hero-section .wow-final-video-shade{
+    background:linear-gradient(90deg,rgba(0,0,0,.76) 0%,rgba(0,0,0,.46) 50%,rgba(0,0,0,.10) 100%)!important;
+  }
+  .hero-section > .hero-content,
+  .hero-section .wow-final-hero-content{
+    max-width:66%!important;
+    padding:0 0 22px 18px!important;
+    margin:0!important;
+  }
+  .hero-section .hero-eyebrow{
+    font-size:8px!important;
+    line-height:1!important;
+    letter-spacing:1.7px!important;
+    margin:0 0 6px!important;
+  }
+  .hero-section .hero-title{
+    max-width:235px!important;
+    font-size:clamp(27px,8.5vw,40px)!important;
+    line-height:.98!important;
+    letter-spacing:-.5px!important;
+    margin:0 0 8px!important;
+  }
+  .hero-section .hero-sub{
+    max-width:195px!important;
+    font-size:11px!important;
+    line-height:1.35!important;
+    margin:0 0 11px!important;
+  }
+  .hero-section .hero-actions{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    gap:6px!important;
+  }
+  .hero-section .hero-actions .btn{
+    width:auto!important;
+    min-width:0!important;
+    min-height:34px!important;
+    height:34px!important;
+    padding:7px 11px!important;
+    font-size:10px!important;
+    line-height:1!important;
+    border-radius:7px!important;
+    white-space:nowrap!important;
+  }
 }
 </style>
-
-<script id="wow-video-only-final-js">
+<script id="wow-final-single-video-hero-js">
 (function(){
   'use strict';
-  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
   const clean=v=>String(v??'').trim();
-  function allHero(){return document.querySelector('.hero-section');}
-  function candidates(obj){
-    const out=[]; if(!obj||typeof obj!=='object') return out;
-    ['videoUrl','videoURL','video','videoSrc','videoSource','bannerVideo','bannerVideoUrl','mediaUrl','mediaURL','src','url'].forEach(k=>{const v=clean(obj[k]);if(v)out.push(v);});
-    if(obj.media&&typeof obj.media==='object') out.push(...candidates(obj.media));
-    if(Array.isArray(obj.videos)) obj.videos.forEach(x=>{if(typeof x==='string')out.push(clean(x));else out.push(...candidates(x));});
-    return out.filter(Boolean);
+  let lastUrl='';
+  let rendering=false;
+  let playTimer=0;
+
+  function stores(){
+    const out=[];
+    try{if(window.__WOW_REMOTE_STORE&&typeof window.__WOW_REMOTE_STORE==='object')out.push(window.__WOW_REMOTE_STORE);}catch(e){}
+    try{if(window.__WOW_STORE_DATA&&typeof window.__WOW_STORE_DATA==='object'&&!out.includes(window.__WOW_STORE_DATA))out.push(window.__WOW_STORE_DATA);}catch(e){}
+    return out;
   }
-  function heroData(){
-    const d=[];
-    try{if(window.__WOW_REMOTE_STORE)d.push(window.__WOW_REMOTE_STORE);}catch(e){}
-    try{if(window.__WOW_STORE_DATA)d.push(window.__WOW_STORE_DATA);}catch(e){}
-    try{d.push(JSON.parse(localStorage.getItem('wow_admin_data_v4')||'{}'));}catch(e){}
-    try{d.push(JSON.parse(localStorage.getItem('wow_admin_data')||'{}'));}catch(e){}
-    return d;
-  }
-  function findVideo(){
-    for(const root of heroData()){
-      const h=root?.hero||root?.storefront?.hero||root?.home?.hero||{};
-      const b=Array.isArray(root?.banners)?root.banners.find(x=>x&&x.visible!==false):null;
-      const vals=[...candidates(h),...candidates(root),...candidates(b)];
-      const v=vals.find(Boolean); if(v)return v;
+
+  function videoUrlFromData(){
+    for(const d of stores()){
+      const h=d?.hero;
+      const u=clean(h?.videoUrl || h?.videoURL || h?.videoSrc || h?.videoSource);
+      if(u)return u;
+      const b=Array.isArray(d?.banners)?d.banners.find(x=>x&&x.visible!==false):null;
+      const bu=clean(b?.videoUrl || b?.videoURL || b?.videoSrc || b?.videoSource);
+      if(bu)return bu;
     }
     return '';
   }
-  function yt(url){
-    try{const u=new URL(url,location.href);let id=u.searchParams.get('v')||'';if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(u.hostname.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';}catch(e){}return '';
+
+  function embed(url){
+    try{
+      const u=new URL(url,location.href);
+      let id=u.searchParams.get('v')||'';
+      if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;
+      if(u.hostname.includes('youtube.com')){
+        const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);
+        if(m)id=m[1]||id;
+      }
+      if(id)return 'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';
+      if(u.hostname.includes('vimeo.com')){
+        const m=u.pathname.match(/\/(?:video\/)?(\d+)/);
+        if(m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';
+      }
+    }catch(e){}
+    return '';
   }
-  function vim(url){try{const u=new URL(url,location.href),m=u.pathname.match(/(?:video\/)?(\d+)/);if(u.hostname.includes('vimeo.com')&&m)return 'https://player.vimeo.com/video/'+m[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}catch(e){}return '';}
+
   async function resolveStorage(url){
-    if(!/^gs:\/\//i.test(url)) return url;
-    try{if(window.firebase?.storage){return await window.firebase.storage().refFromURL(url).getDownloadURL();}}catch(e){}
+    if(!/^gs:\/\//i.test(url))return url;
+    try{
+      if(window.firebase?.storage){
+        const r=window.firebase.storage().refFromURL(url);
+        return await r.getDownloadURL();
+      }
+    }catch(e){console.warn('WOWSHOPPING hero storage URL:',e);}
     return url;
   }
-  function isEmbed(url){return !!(yt(url)||vim(url));}
-  function isLikelyVideo(url){return /\.(mp4|webm|ogg|m4v|mov)(?:[?#].*)?$/i.test(url)||/^blob:|^data:video\//i.test(url)||/^https?:\/\//i.test(url)||/^gs:\/\//i.test(url);}
-  function removeAllPhotoFallbacks(hero){
-    hero.querySelectorAll('.wow-clean-media,.wow-hero-media,.wow-absolute-hero-media,.wow-final-media,.v6-media,.hero-media-shell,.v34-hero-video').forEach(e=>{if(!e.classList.contains('wow-video-only-media'))e.remove();});
-    hero.querySelectorAll('img').forEach(img=>img.remove());
+
+  function clearOldMedia(hero){
+    const selectors=[
+      '.wow-final-video-media','.wow-clean-media','.wow-hero-media','.wow-absolute-hero-media',
+      '.wow-final-media','.wow-video-only-media','.v6-media','.hero-media-shell','.v34-hero-video'
+    ].join(',');
+    hero.querySelectorAll(selectors).forEach(e=>e.remove());
+    hero.querySelectorAll('img').forEach(e=>e.remove());
     hero.querySelectorAll('[style*="background-image"]').forEach(e=>e.style.backgroundImage='none');
+    hero.querySelectorAll('.wow-final-video-shade,.wow-clean-shade,.wow-hero-shade,.wow-video-only-shade').forEach(e=>e.remove());
   }
+
+  function forcePlay(v){
+    if(!v||document.hidden)return;
+    try{
+      v.muted=true;
+      v.defaultMuted=true;
+      const p=v.play();
+      if(p&&typeof p.catch==='function')p.catch(()=>{});
+    }catch(e){}
+  }
+
   async function render(){
-    const hero=allHero(); if(!hero)return;
-    let url=findVideo();
-    if(!url){await sleep(900);url=findVideo();}
-    removeAllPhotoFallbacks(hero);
-    let media=hero.querySelector('.wow-video-only-media');
-    if(!media){media=document.createElement('div');media.className='wow-video-only-media';hero.insertBefore(media,hero.firstChild);}
-    media.innerHTML='';
-    if(!url){
-      media.setAttribute('aria-label','Hero video is not configured');
+    if(rendering)return;
+    const hero=document.querySelector('.hero-section');
+    if(!hero)return;
+    rendering=true;
+    try{
+      let url=videoUrlFromData();
+      if(!url){
+        // Firestore may still be loading. Do not render an image fallback.
+        return;
+      }
+      url=await resolveStorage(url);
+      url=clean(url);
+      if(!url)return;
+
+      const current=hero.querySelector('.wow-final-video-media video,.wow-final-video-media iframe');
+      if(current&&lastUrl===url){
+        if(current.tagName==='VIDEO')forcePlay(current);
+        return;
+      }
+
+      clearOldMedia(hero);
+
+      const media=document.createElement('div');
+      media.className='wow-final-video-media';
+      media.dataset.videoUrl=url;
+      hero.insertBefore(media,hero.firstChild);
+
+      const yv=embed(url);
+      if(yv){
+        const frame=document.createElement('iframe');
+        frame.src=yv;
+        frame.title='WOWSHOPPING hero video';
+        frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';
+        frame.setAttribute('allowfullscreen','');
+        frame.setAttribute('playsinline','');
+        frame.setAttribute('loading','eager');
+        media.appendChild(frame);
+      }else{
+        const v=document.createElement('video');
+        v.src=url;
+        v.autoplay=true;
+        v.muted=true;
+        v.defaultMuted=true;
+        v.loop=true;
+        v.playsInline=true;
+        v.preload='auto';
+        v.setAttribute('autoplay','');
+        v.setAttribute('muted','');
+        v.setAttribute('loop','');
+        v.setAttribute('playsinline','');
+        v.setAttribute('webkit-playsinline','');
+        v.setAttribute('aria-hidden','true');
+        v.addEventListener('loadedmetadata',()=>forcePlay(v));
+        v.addEventListener('loadeddata',()=>forcePlay(v));
+        v.addEventListener('canplay',()=>forcePlay(v));
+        v.addEventListener('canplaythrough',()=>forcePlay(v));
+        v.addEventListener('pause',()=>{if(!document.hidden)setTimeout(()=>forcePlay(v),80);});
+        v.addEventListener('error',()=>console.warn('WOWSHOPPING hero video cannot be played:',url));
+        media.appendChild(v);
+        forcePlay(v);
+        clearTimeout(playTimer);
+        playTimer=setTimeout(()=>forcePlay(v),500);
+        setTimeout(()=>forcePlay(v),1500);
+      }
+
+      const shade=document.createElement('div');
+      shade.className='wow-final-video-shade';
+      hero.appendChild(shade);
+
+      const content=hero.querySelector('.hero-content');
+      if(content){
+        content.classList.add('wow-final-hero-content');
+        content.style.position='relative';
+        content.style.zIndex='3';
+      }
+
+      lastUrl=url;
+      hero.dataset.wowHeroVideo=url;
+    }finally{
+      rendering=false;
+    }
+  }
+
+  function enforce(){
+    const hero=document.querySelector('.hero-section');
+    if(!hero)return;
+    const url=videoUrlFromData();
+    const media=hero.querySelector('.wow-final-video-media');
+    if(url && (!media || hero.dataset.wowHeroVideo!==url)){
+      render();
       return;
     }
-    url=await resolveStorage(url);
-    const ye=yt(url), ve=vim(url);
-    if(ye||ve){
-      const f=document.createElement('iframe');f.src=ye||ve;f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');f.title='WOWSHOPPING hero video';media.appendChild(f);
-    }else if(isLikelyVideo(url)){
-      const v=document.createElement('video');
-      v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');
-      const play=()=>{v.muted=true;const p=v.play();if(p?.catch)p.catch(()=>{});};
-      ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>v.addEventListener(ev,play));
-      v.addEventListener('error',()=>{media.innerHTML='';});
-      media.appendChild(v);play();
-      setTimeout(play,500);setTimeout(play,1500);setTimeout(play,3000);
-    }
-    let shade=hero.querySelector('.wow-video-only-shade');if(!shade){shade=document.createElement('div');shade.className='wow-video-only-shade';hero.appendChild(shade);}
-    let content=hero.querySelector('.hero-content');if(content)content.classList.add('wow-video-only-content');
+    const v=hero.querySelector('.wow-final-video-media video');
+    if(v)forcePlay(v);
   }
-  function watch(){const h=allHero();if(!h)return;h.querySelectorAll('img').forEach(x=>x.remove());const media=h.querySelector('.wow-video-only-media');if(media&&media.querySelector('video')){const v=media.querySelector('video');if(v.paused&&!document.hidden){try{v.play();}catch(e){}}}}
+
+  // Prevent the old global hero renderer from reintroducing image media.
+  try{window.renderHero=function(){render();};}catch(e){}
+
   window.addEventListener('load',()=>setTimeout(render,300));
   window.addEventListener('pageshow',()=>setTimeout(render,300));
   window.addEventListener('orientationchange',()=>setTimeout(render,500));
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)watch();});
-  setInterval(watch,1800);
+  window.addEventListener('resize',()=>setTimeout(enforce,100),{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)enforce();});
+
+  // Firestore snapshot arrives asynchronously, so keep a lightweight guard.
+  setInterval(enforce,1200);
+  setTimeout(render,700);
+  setTimeout(render,1800);
+  setTimeout(render,3500);
 })();
 </script>
-
-</body>
+<!-- WOWSHOPPING: single authoritative hero video build --></body>
 </html>

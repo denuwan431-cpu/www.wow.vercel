@@ -2012,6 +2012,84 @@ html,body{overflow-x:hidden!important}
   }
 </style>
 
+
+<style id="wow-mobile-final-polish">
+/* FINAL PHONE OPTIMIZATION — keeps every section/content, only reflows and resizes it. */
+@media (max-width: 767px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden;}
+  body{min-width:0;}
+  .container,.section-container,.section-inner,.wow-promise-wrap,.v9-footer-inner{width:100%!important;max-width:100%!important;}
+
+  /* Header/search/navigation */
+  #site-header{width:100%!important;overflow:visible!important;}
+  #site-header>div{width:100%!important;}
+  .nav-link{white-space:nowrap;}
+
+  /* Keep product/category content fully available without horizontal overflow. */
+  .product-grid-4,.product-grid-3,.product-grid{width:100%!important;min-width:0!important;}
+  .product-card{min-width:0!important;}
+  .product-img-wrap img{width:100%;height:100%;object-fit:cover;}
+
+  /* Promise: all 3 promise cards remain; stack cleanly on phones. */
+  .wow-promise-section{padding:42px 0 44px!important;}
+  .wow-promise-wrap{padding:0 16px!important;}
+  .wow-promise-label{font-size:10px!important;letter-spacing:.14em!important;}
+  .wow-promise-title{font-size:25px!important;line-height:1.18!important;margin-bottom:12px!important;}
+  .wow-promise-desc{font-size:13px!important;line-height:1.65!important;margin-bottom:30px!important;}
+  .wow-promise-grid{grid-template-columns:1fr!important;gap:24px!important;}
+  .wow-promise-card{width:100%!important;padding:0 4px!important;}
+  .wow-promise-icon{width:54px!important;height:54px!important;margin-bottom:12px!important;}
+  .wow-promise-icon svg{width:24px!important;height:24px!important;}
+  .wow-promise-card h3{font-size:15px!important;margin-bottom:6px!important;}
+  .wow-promise-card p{font-size:12px!important;line-height:1.6!important;max-width:430px;margin-left:auto!important;margin-right:auto!important;}
+
+  /* Footer: NOTHING removed — all sections stay visible and become a clean phone layout. */
+  .v9-footer-inner{padding:38px 16px 20px!important;}
+  .v9-footer-main{display:block!important;width:100%!important;}
+  .v9-footer-brand{width:100%!important;max-width:none!important;min-width:0!important;margin-bottom:30px!important;}
+  .v9-footer-brand-name{font-size:19px!important;margin-bottom:9px!important;}
+  .v9-footer-desc{font-size:12px!important;line-height:1.65!important;max-width:430px;}
+  .v9-follow-title{margin-top:20px!important;margin-bottom:10px!important;}
+  .v9-social-row{gap:8px!important;}
+  .v9-social{width:38px!important;height:38px!important;}
+  .v9-footer-sections{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:26px 18px!important;
+  }
+  .v9-footer-sections>div{min-width:0!important;}
+  .v9-footer-title{font-size:11px!important;letter-spacing:1.2px!important;margin-bottom:9px!important;}
+  .v9-footer-link{font-size:12px!important;line-height:1.4!important;padding:5px 0!important;word-break:break-word;}
+  .v9-footer-contact{font-size:11px!important;line-height:1.45!important;}
+  .v9-footer-bottom{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:12px!important;
+    margin-top:28px!important;
+    padding-top:16px!important;
+    font-size:10px!important;
+  }
+  .v9-footer-payments{width:100%!important;gap:6px!important;}
+  .v9-footer-payments span{font-size:8px!important;padding:5px 7px!important;}
+
+  /* Prevent long labels/links from breaking the phone width. */
+  .v9-footer a,.v9-footer span,.v9-footer div{max-width:100%;}
+
+  /* Wishlist count badge: keep Wishlist itself, remove only the red dot/count. */
+  #wishlistBadge{display:none!important;}
+}
+
+@media (max-width:390px){
+  .v9-footer-inner{padding-left:14px!important;padding-right:14px!important;}
+  .v9-footer-sections{gap:22px 14px!important;}
+  .v9-footer-link{font-size:11px!important;}
+  .wow-promise-wrap{padding-left:14px!important;padding-right:14px!important;}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>

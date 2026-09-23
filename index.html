@@ -1756,6 +1756,201 @@ html,body{overflow-x:hidden!important}
   #site-header .wow-main-header-row{padding-left:10px!important;padding-right:10px!important}
 }
 </style>
+
+<style id="wow-final-mobile-sticky-pro-search">
+/* FINAL MOBILE HEADER / STICKY PRO SEARCH */
+@media (max-width: 767px){
+  html{scroll-padding-top:118px!important;}
+  body{padding-top:0!important;overflow-x:hidden!important;}
+  #site-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:99999!important;
+    width:100%!important;
+    background:rgba(255,255,255,.97)!important;
+    border-bottom:1px solid #e9edf2!important;
+    box-shadow:0 2px 18px rgba(15,23,42,.07)!important;
+    backdrop-filter:saturate(180%) blur(14px)!important;
+    -webkit-backdrop-filter:saturate(180%) blur(14px)!important;
+    opacity:1!important;
+  }
+  #site-header>div{
+    width:100%!important;
+    max-width:none!important;
+    padding:0 12px!important;
+  }
+  #site-header .wow-main-header-row{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:"logo actions" "search search" "nav nav"!important;
+    align-items:center!important;
+    column-gap:10px!important;
+    row-gap:9px!important;
+    width:100%!important;
+    padding:10px 0 9px!important;
+  }
+  #site-header .wow-main-header-row>div:first-child{
+    grid-area:logo!important;
+    min-width:0!important;
+    width:auto!important;
+    height:34px!important;
+    display:flex!important;
+    align-items:center!important;
+    overflow:hidden!important;
+  }
+  #site-header #siteBrandIcon{
+    width:auto!important;
+    min-width:0!important;
+    height:34px!important;
+    max-width:145px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    overflow:hidden!important;
+    background:transparent!important;
+  }
+  #site-header #siteBrandIcon img{
+    display:block!important;
+    width:auto!important;
+    height:30px!important;
+    max-width:145px!important;
+    max-height:30px!important;
+    object-fit:contain!important;
+    object-position:left center!important;
+  }
+  #site-header #siteBrandIcon svg{display:none!important;}
+  #site-header #siteBrandName,
+  #site-header #siteBrandSuffix{display:none!important;}
+
+  #site-header .wow-header-actions{
+    grid-area:actions!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:5px!important;
+    margin:0!important;
+  }
+  #site-header .wow-header-actions .btn-ghost{
+    width:36px!important;
+    height:36px!important;
+    min-width:36px!important;
+    padding:0!important;
+    border:1px solid #e2e7ee!important;
+    border-radius:11px!important;
+    background:#fff!important;
+    color:#1f2937!important;
+    box-shadow:0 2px 7px rgba(15,23,42,.05)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+  #site-header .wow-header-actions .btn-ghost:first-child{display:none!important;}
+  #site-header .wow-header-actions .btn-ghost:nth-child(3),
+  #site-header .wow-header-actions .btn-ghost:nth-child(4){display:none!important;}
+  #site-header .wow-header-actions .btn-ghost i{width:18px!important;height:18px!important;}
+  #site-header #hamburgerBtn{display:none!important;}
+
+  #site-header .desktop-search{
+    grid-area:search!important;
+    order:initial!important;
+    flex:none!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    margin:0!important;
+    position:relative!important;
+    height:46px!important;
+  }
+  #site-header .desktop-search>i{
+    left:15px!important;
+    top:50%!important;
+    width:18px!important;
+    height:18px!important;
+    color:#7b8794!important;
+    z-index:2!important;
+    pointer-events:none!important;
+  }
+  #site-header .desktop-search .search-input{
+    width:100%!important;
+    height:46px!important;
+    min-height:46px!important;
+    padding:0 44px 0 44px!important;
+    border:1px solid #dfe5ec!important;
+    border-radius:15px!important;
+    background:linear-gradient(180deg,#fbfcfe 0%,#f6f8fb 100%)!important;
+    color:#172033!important;
+    font-size:15px!important;
+    font-weight:500!important;
+    letter-spacing:-.1px!important;
+    outline:none!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 8px rgba(15,23,42,.035)!important;
+    -webkit-appearance:none!important;
+  }
+  #site-header .desktop-search .search-input::placeholder{color:#8b95a3!important;opacity:1!important;}
+  #site-header .desktop-search .search-input:focus{
+    background:#fff!important;
+    border-color:#c8d1dc!important;
+    box-shadow:0 0 0 4px rgba(37,99,235,.07),0 4px 14px rgba(15,23,42,.06)!important;
+  }
+  #site-header .desktop-search::after{
+    content:'⌕';
+    position:absolute;
+    right:13px;
+    top:50%;
+    transform:translateY(-52%);
+    width:23px;
+    height:23px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#64748b;
+    font-size:17px;
+    font-weight:700;
+    pointer-events:none;
+    background:#eef2f6;
+  }
+
+  #desktopNav{
+    grid-area:nav!important;
+    display:flex!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    scrollbar-width:none!important;
+    border-top:0!important;
+    border-bottom:0!important;
+    padding:0 0 2px!important;
+    gap:2px!important;
+  }
+  #desktopNav::-webkit-scrollbar{display:none!important;}
+  #desktopNav .nav-link,
+  #desktopNav .nav-item>.nav-link{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    padding:7px 11px!important;
+    font-size:12px!important;
+    font-weight:650!important;
+    border-radius:8px!important;
+  }
+  #desktopNav .nav-link:first-child{padding-left:7px!important;}
+
+  /* Keep the entire search/header visible while scrolling. */
+  #site-header + #wow-mobile-bottom-nav{z-index:100000!important;}
+  .hero-section{scroll-margin-top:120px!important;}
+}
+
+@media (max-width:380px){
+  #site-header .wow-main-header-row{padding-top:8px!important;row-gap:7px!important;}
+  #site-header #siteBrandIcon img{height:27px!important;max-width:125px!important;}
+  #site-header .wow-header-actions .btn-ghost{width:34px!important;height:34px!important;min-width:34px!important;border-radius:10px!important;}
+  #site-header .desktop-search,#site-header .desktop-search .search-input{height:44px!important;min-height:44px!important;}
+  #site-header .desktop-search .search-input{font-size:14px!important;padding-left:42px!important;padding-right:42px!important;border-radius:14px!important;}
+  #desktopNav .nav-link,#desktopNav .nav-item>.nav-link{font-size:11.5px!important;padding:6px 9px!important;}
+}
+</style>
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>

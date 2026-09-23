@@ -932,9 +932,9 @@ html,body{overflow-x:hidden!important}
 .hero-section .hero-eyebrow,.hero-section .hero-title,.hero-section .hero-sub,.hero-section .hero-actions{opacity:1!important;visibility:visible!important}
 .hero-section .hero-title{max-width:560px!important}
 .wow-clean-promo{width:100%!important;background:#fff!important;padding:16px 0!important;box-sizing:border-box!important}
-.wow-clean-promo-shell{position:relative!important;width:min(1400px,calc(100% - 32px))!important;margin:0 auto!important;overflow:hidden!important;border-radius:14px!important;background:#07111f!important;box-shadow:0 8px 24px rgba(15,23,42,.10)!important}
+.wow-clean-promo-shell{position:relative!important;width:min(1200px,calc(100% - 40px))!important;max-width:1200px!important;margin:0 auto!important;overflow:hidden!important;border-radius:14px!important;background:#07111f!important;box-shadow:0 8px 24px rgba(15,23,42,.10)!important}
 .wow-clean-promo-track{display:flex!important;width:100%!important;transition:transform .45s ease!important}
-.wow-clean-promo-slide{position:relative!important;min-width:100%!important;width:100%!important;height:clamp(170px,27vw,360px)!important;overflow:hidden!important;background:#07111f!important}
+.wow-clean-promo-slide{position:relative!important;min-width:100%!important;width:100%!important;height:clamp(190px,25vw,300px)!important;overflow:hidden!important;background:#07111f!important}
 .wow-clean-promo-slide video,.wow-clean-promo-slide iframe,.wow-clean-promo-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important}
 .wow-clean-promo-shade{position:absolute!important;inset:0!important;z-index:2!important;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.12) 75%)!important;pointer-events:none!important}
 .wow-clean-promo-copy{position:absolute!important;z-index:4!important;left:clamp(18px,4vw,55px)!important;bottom:clamp(18px,4vw,42px)!important;color:#fff!important;max-width:520px!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important}
@@ -962,6 +962,137 @@ html,body{overflow-x:hidden!important}
  .wow-clean-promo-arrow{width:30px!important;height:30px!important}.wow-clean-promo-prev{left:7px!important}.wow-clean-promo-next{right:7px!important}.wow-clean-promo-dots{bottom:6px!important}
 }
 </style>
+
+<style id="wow-mobile-compact-final-v2">
+/* FINAL MOBILE COMPACT UI — overrides older responsive rules */
+@media (max-width: 767px){
+  /* Main hero: compact and balanced */
+  .hero-section{
+    height:clamp(225px,58vw,285px)!important;
+    min-height:225px!important;
+    max-height:285px!important;
+  }
+  .hero-section>.wow-clean-content{
+    padding:0 14px 16px!important;
+    align-items:flex-end!important;
+  }
+  .hero-section .hero-content{
+    width:auto!important;
+    max-width:76%!important;
+  }
+  .hero-section .hero-eyebrow{
+    font-size:7px!important;
+    letter-spacing:1.3px!important;
+    margin-bottom:4px!important;
+  }
+  .hero-section .hero-title{
+    font-size:clamp(21px,6.6vw,30px)!important;
+    line-height:1.02!important;
+    margin-bottom:5px!important;
+    max-width:100%!important;
+  }
+  .hero-section .hero-sub{
+    font-size:9.5px!important;
+    line-height:1.25!important;
+    margin-bottom:7px!important;
+    max-width:100%!important;
+    -webkit-line-clamp:1!important;
+  }
+  .hero-section .hero-actions{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:5px!important;
+    width:auto!important;
+  }
+  .hero-section .hero-actions .btn,
+  .hero-section .hero-content .btn{
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:29px!important;
+    height:29px!important;
+    flex:0 0 auto!important;
+    padding:5px 9px!important;
+    font-size:9px!important;
+    line-height:1!important;
+    border-radius:5px!important;
+    white-space:nowrap!important;
+  }
+
+  /* Second banner: centered, compact, not oversized */
+  .wow-clean-promo{
+    padding:8px 0!important;
+  }
+  .wow-clean-promo-shell{
+    width:calc(100% - 24px)!important;
+    max-width:1180px!important;
+    border-radius:9px!important;
+  }
+  .wow-clean-promo-slide{
+    height:clamp(135px,43vw,190px)!important;
+    min-height:135px!important;
+    max-height:190px!important;
+  }
+  .wow-clean-promo-copy{
+    left:12px!important;
+    bottom:13px!important;
+    max-width:65%!important;
+  }
+  .wow-clean-promo-copy small{
+    font-size:6.5px!important;
+    letter-spacing:1.2px!important;
+    margin-bottom:3px!important;
+  }
+  .wow-clean-promo-copy strong{
+    font-size:clamp(16px,5.2vw,24px)!important;
+    line-height:1.02!important;
+    margin-bottom:3px!important;
+  }
+  .wow-clean-promo-copy p{
+    font-size:8.5px!important;
+    line-height:1.2!important;
+    margin-bottom:5px!important;
+    max-width:100%!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:1!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+  .wow-clean-promo-copy button{
+    width:auto!important;
+    min-width:0!important;
+    height:25px!important;
+    padding:5px 8px!important;
+    font-size:8px!important;
+    line-height:1!important;
+    border-radius:5px!important;
+  }
+  .wow-clean-promo-arrow{
+    width:25px!important;
+    height:25px!important;
+    font-size:15px!important;
+    box-shadow:0 3px 9px rgba(0,0,0,.16)!important;
+  }
+  .wow-clean-promo-prev{left:5px!important}
+  .wow-clean-promo-next{right:5px!important}
+  .wow-clean-promo-dots{bottom:5px!important;gap:3px!important}
+  .wow-clean-promo-dot{width:5px!important;height:5px!important}
+  .wow-clean-promo-dot.active{width:15px!important}
+
+  /* Keep common storefront buttons compact on phones */
+  .hero-section button,
+  .wow-clean-promo button{box-sizing:border-box!important}
+  .btn.btn-sm{font-size:9px!important;padding:6px 9px!important;min-height:28px!important}
+}
+@media (min-width:768px){
+  /* Keep promo banner visually centered in the desktop content column */
+  .wow-clean-promo-shell{max-width:1200px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>

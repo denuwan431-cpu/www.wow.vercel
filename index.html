@@ -4886,8 +4886,8 @@ function renderThemePresets(){const el=document.getElementById('themePresets');i
 function useThemePreset(name){const t=THEME_PRESETS[name];if(!t)return;adminData.theme={...adminData.theme,...t};saveAdminData();loadThemeForm();applyAdminTheme();showToast(name+' theme applied','success')}
 function saveTheme(){['primary','background','text','header','footer','sale'].forEach(k=>adminData.theme[k]=document.getElementById('theme'+k.charAt(0).toUpperCase()+k.slice(1)).value);saveAdminData();applyAdminTheme();showToast('Theme saved','success')}
 function resetTheme(){useThemePreset('Midnight')}
-function loadBrandingForm(){const b=adminData.branding;['brandName','brandTitle','brandLogo','brandFooter'].forEach((id,i)=>{const e=document.getElementById(id);if(e)e.value=[b.name,b.title,b.logo,b.footer][i]})}
-function saveBranding(){adminData.branding={name:document.getElementById('brandName').value,title:document.getElementById('brandTitle').value,logo:document.getElementById('brandLogo').value,footer:document.getElementById('brandFooter').value};saveAdminData();applyBranding();showToast('Branding saved','success')}
+function loadBrandingForm(){const b=adminData.branding||{};[['brandName',b.name],['brandTitle',b.title],['brandLogo',b.logo],['brandFavicon',b.favicon],['brandFooter',b.footer]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''})}
+function saveBranding(){adminData.branding={name:document.getElementById('brandName').value.trim(),title:document.getElementById('brandTitle').value.trim(),logo:document.getElementById('brandLogo').value.trim(),favicon:(document.getElementById('brandFavicon')?.value||'').trim(),footer:document.getElementById('brandFooter').value};saveAdminData();applyBranding();showToast('Branding saved','success')}
 function loadShippingForm(){const a=document.getElementById('shipStandard'),b=document.getElementById('shipExpress');if(a)a.value=adminData.shipping.standard;if(b)b.value=adminData.shipping.express}
 function saveShipping(){adminData.shipping.standard=Number(document.getElementById('shipStandard').value||0);adminData.shipping.express=Number(document.getElementById('shipExpress').value||0);saveAdminData();showToast('Shipping saved','success')}
 function loadSettingsForm(){const a=document.getElementById('adminEmail'),b=document.getElementById('requireFirebase');if(a)a.value=adminData.settings.adminEmail;if(b)b.checked=adminData.settings.requireFirebase!==false}
@@ -5530,6 +5530,55 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   window.addEventListener('resize',()=>setTimeout(bind,80),{passive:true});
   window.addEventListener('load',()=>setTimeout(bind,500));
   setInterval(bind,1000);
+})();
+</script>
+<script id="wow-final-branding-robust-v1">
+(function(){
+  const ADMIN_KEY='wow_admin_data_v4';
+  function localBranding(){try{const x=JSON.parse(localStorage.getItem(ADMIN_KEY)||'{}');return x&&x.branding?x.branding:{}}catch(e){return {}}}
+  function val(v){return String(v||'').trim().replace(/^['"]|['"]$/g,'')}
+  function safeText(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+  const defaultFav="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E";
+  function getBrand(){
+    const r=window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||{};
+    const rb=r&&r.branding?r.branding:{};
+    const lb=localBranding();
+    return {
+      name:val(rb.name)||val(lb.name)||'WOWSHOPPING',
+      title:val(rb.title)||val(lb.title)||'WOWSHOPPING',
+      logo:val(rb.logo)||val(lb.logo),
+      favicon:val(rb.favicon)||val(lb.favicon),
+      footer:rb.footer||lb.footer||''
+    };
+  }
+  function render(){
+    const b=getBrand();
+    document.title=b.title||b.name||'WOWSHOPPING';
+    const name=document.getElementById('siteBrandName'); if(name) name.textContent=b.name||'WOWSHOPPING';
+    const suffix=document.getElementById('siteBrandSuffix'); if(suffix){const parts=String(b.name||'').split('.');suffix.textContent=parts.length>1?'.'+parts.slice(1).join('.') : '';}
+    const icon=document.getElementById('siteBrandIcon');
+    if(icon){
+      icon.style.background='transparent'; icon.style.borderRadius='0';
+      if(b.logo){
+        if(icon.dataset.logo!==b.logo){
+          icon.dataset.logo=b.logo;
+          icon.innerHTML='';
+          const img=document.createElement('img');
+          img.src=b.logo; img.alt=b.name+' logo'; img.decoding='async'; img.loading='eager';
+          img.style.cssText='display:block;width:100%;height:100%;object-fit:contain;object-position:left center;background:transparent;';
+          img.onerror=function(){icon.dataset.logo='';icon.innerHTML='<span style="display:flex;align-items:center;justify-content:flex-start;width:100%;height:100%;font-weight:900;font-size:18px;color:#111827;letter-spacing:-.6px">'+safeText(b.name)+'</span>';};
+          icon.appendChild(img);
+        }
+      }
+    }
+    let fav=document.querySelector('link[data-wow-final-favicon]');
+    if(!fav){fav=document.createElement('link');fav.rel='icon';fav.setAttribute('data-wow-final-favicon','1');document.head.appendChild(fav);}
+    const f=b.favicon||defaultFav; fav.href=f+(f===defaultFav?'':(f.includes('?')?'&':'?')+'v=wow1'); fav.type=/\.svg(?:\?|$)/i.test(f)?'image/svg+xml':'image/png'; fav.onerror=function(){fav.href=defaultFav;fav.type='image/svg+xml';};
+  }
+  function boot(){render();setTimeout(render,600);setTimeout(render,1800);setTimeout(render,4000);}
+  window.addEventListener('load',boot); window.addEventListener('pageshow',boot);
+  window.addEventListener('wow:branding-updated',render);
+  setInterval(()=>{try{const b=getBrand();const icon=document.getElementById('siteBrandIcon');if(icon && b.logo && icon.dataset.logo!==b.logo) render();}catch(e){}},2500);
 })();
 </script>
 </body>

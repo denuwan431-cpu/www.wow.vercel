@@ -5873,13 +5873,10 @@ function patch(){
   const media=document.createElement('div'); media.className='wow-hero-media';
   const shade=document.createElement('div'); shade.className='wow-hero-shade';
   hero.insertBefore(media,hero.firstChild); hero.appendChild(shade);
-  const poster=h.images[0]||'';
-  const addPoster=()=>{ if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt=''; img.loading='eager'; img.onerror=()=>img.remove(); media.appendChild(img); };
-  const addImage=()=>{
-    if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt='WOWSHOPPING banner'; img.loading='eager'; img.onerror=()=>{img.remove();}; media.appendChild(img);
-  };
+  const poster='';
+  const addPoster=()=>{};
+  const addImage=()=>{};
   if(h.mediaType==='video' && h.videoUrl){
-    addPoster();
     const embed=heroVideoEmbedUrl(h.videoUrl);
     if(embed){
       const frame=document.createElement('iframe'); frame.src=embed; frame.title='WOWSHOPPING banner video'; frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media'; frame.setAttribute('allowfullscreen',''); frame.setAttribute('playsinline',''); frame.setAttribute('loading','eager'); media.appendChild(frame);
@@ -6795,13 +6792,19 @@ try{renderCategoryAwareFilters();}catch(e){}
   }
 
   function videoUrlFromData(){
-    for(const d of stores()){
+    const all=[...stores()];
+    try{if(window.adminData&&typeof window.adminData==='object')all.push(window.adminData);}catch(e){}
+    try{const raw=localStorage.getItem('wow_admin_data_v4');if(raw)all.push(JSON.parse(raw));}catch(e){}
+    const keys=['videoUrl','videoURL','videoSrc','videoSource','video_url','bannerVideo','bannerVideoUrl'];
+    for(const d of all){
       const h=d?.hero;
-      const u=clean(h?.videoUrl || h?.videoURL || h?.videoSrc || h?.videoSource);
-      if(u)return u;
-      const b=Array.isArray(d?.banners)?d.banners.find(x=>x&&x.visible!==false):null;
-      const bu=clean(b?.videoUrl || b?.videoURL || b?.videoSrc || b?.videoSource);
-      if(bu)return bu;
+      if(h){
+        for(const k of keys){const u=clean(h?.[k]);if(u)return u;}
+      }
+      const banners=Array.isArray(d?.banners)?d.banners.filter(x=>x&&x.visible!==false):[];
+      for(const b of banners){
+        for(const k of keys){const u=clean(b?.[k]);if(u)return u;}
+      }
     }
     return '';
   }
@@ -6837,7 +6840,7 @@ try{renderCategoryAwareFilters();}catch(e){}
 
   function clearOldMedia(hero){
     const selectors=[
-      '.wow-final-video-media','.wow-clean-media','.wow-hero-media','.wow-absolute-hero-media',
+      '.wow-final-video-media','.wow-clean-media','.wow-hero-media','.wow-absolute-hero-media','.wow-hero-poster',
       '.wow-final-media','.wow-video-only-media','.v6-media','.hero-media-shell','.v34-hero-video'
     ].join(',');
     hero.querySelectorAll(selectors).forEach(e=>e.remove());

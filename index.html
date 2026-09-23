@@ -937,7 +937,7 @@ html,body{overflow-x:hidden!important}
 .wow-clean-promo-slide{position:relative!important;min-width:100%!important;width:100%!important;height:clamp(190px,25vw,300px)!important;overflow:hidden!important;background:#07111f!important}
 .wow-clean-promo-slide video,.wow-clean-promo-slide iframe,.wow-clean-promo-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important}
 .wow-clean-promo-shade{position:absolute!important;inset:0!important;z-index:2!important;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.12) 75%)!important;pointer-events:none!important}
-.wow-clean-promo-copy{position:absolute!important;z-index:4!important;left:clamp(18px,4vw,55px)!important;bottom:clamp(18px,4vw,42px)!important;color:#fff!important;max-width:520px!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important}
+.wow-clean-promo-copy{position:absolute!important;z-index:4!important;left:clamp(42px,8vw,105px)!important;bottom:clamp(18px,4vw,42px)!important;color:#fff!important;max-width:520px!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important}
 .wow-clean-promo-copy small{display:block!important;font-size:9px!important;letter-spacing:1.8px!important;font-weight:800!important;text-transform:uppercase!important;margin-bottom:6px!important}
 .wow-clean-promo-copy strong{display:block!important;font-size:clamp(20px,3.5vw,40px)!important;line-height:1.05!important;margin-bottom:7px!important}
 .wow-clean-promo-copy p{margin:0 0 10px!important;font-size:13px!important;line-height:1.4!important}
@@ -958,7 +958,7 @@ html,body{overflow-x:hidden!important}
  .hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{object-position:center center!important}
  .wow-clean-promo{padding:10px 0!important}.wow-clean-promo-shell{width:calc(100% - 20px)!important;border-radius:10px!important}
  .wow-clean-promo-slide{height:clamp(145px,48vw,230px)!important}
- .wow-clean-promo-copy{left:14px!important;bottom:16px!important;max-width:72%!important}.wow-clean-promo-copy small{font-size:7px!important;margin-bottom:4px!important}.wow-clean-promo-copy strong{font-size:clamp(18px,6vw,28px)!important;margin-bottom:4px!important}.wow-clean-promo-copy p{font-size:10px!important;margin-bottom:7px!important;max-width:100%!important}.wow-clean-promo-copy button{font-size:9px!important;padding:7px 9px!important}
+ .wow-clean-promo-copy{left:24px!important;bottom:16px!important;max-width:72%!important}.wow-clean-promo-copy small{font-size:7px!important;margin-bottom:4px!important}.wow-clean-promo-copy strong{font-size:clamp(18px,6vw,28px)!important;margin-bottom:4px!important}.wow-clean-promo-copy p{font-size:10px!important;margin-bottom:7px!important;max-width:100%!important}.wow-clean-promo-copy button{font-size:9px!important;padding:7px 9px!important}
  .wow-clean-promo-arrow{width:30px!important;height:30px!important}.wow-clean-promo-prev{left:7px!important}.wow-clean-promo-next{right:7px!important}.wow-clean-promo-dots{bottom:6px!important}
 }
 </style>
@@ -1093,6 +1093,72 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+
+<style id="wow-centered-promo-copy-v2">
+/* Center the lower promotional banner content (e.g. Men's Collection) */
+.wow-clean-promo-slide .wow-clean-promo-copy{
+  left:50%!important;
+  right:auto!important;
+  bottom:50%!important;
+  transform:translate(-50%,50%)!important;
+  width:min(760px,82%)!important;
+  max-width:760px!important;
+  text-align:center!important;
+  margin:0!important;
+}
+.wow-clean-promo-slide .wow-clean-promo-copy small,
+.wow-clean-promo-slide .wow-clean-promo-copy strong,
+.wow-clean-promo-slide .wow-clean-promo-copy p{
+  text-align:center!important;
+}
+.wow-clean-promo-slide .wow-clean-promo-copy button{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+@media(max-width:767px){
+  .wow-clean-promo-slide .wow-clean-promo-copy{
+    width:82%!important;
+    max-width:82%!important;
+    bottom:50%!important;
+    transform:translate(-50%,50%)!important;
+  }
+  .wow-clean-promo-copy strong{font-size:clamp(18px,6vw,28px)!important}
+  .wow-clean-promo-copy p{font-size:11px!important;margin-bottom:8px!important}
+  .wow-clean-promo-copy button{font-size:10px!important;padding:7px 11px!important}
+}
+</style>
+
+<style id="wow-promotional-banner-left-top-v3">
+/* Promotional banner text: top-left, not centered/bottom */
+.wow-clean-promo-slide .wow-clean-promo-copy{
+  left:clamp(42px,8vw,105px)!important;
+  right:auto!important;
+  top:clamp(18px,4vw,42px)!important;
+  bottom:auto!important;
+  transform:none!important;
+  margin:0!important;
+  width:auto!important;
+  max-width:min(520px,54%)!important;
+  text-align:left!important;
+}
+.wow-clean-promo-slide .wow-clean-promo-copy small,
+.wow-clean-promo-slide .wow-clean-promo-copy strong,
+.wow-clean-promo-slide .wow-clean-promo-copy p{
+  text-align:left!important;
+}
+@media (max-width:700px){
+  .wow-clean-promo-slide .wow-clean-promo-copy{
+    left:24px!important;
+    right:auto!important;
+    top:14px!important;
+    bottom:auto!important;
+    max-width:72%!important;
+    width:auto!important;
+    text-align:left!important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
@@ -4614,7 +4680,7 @@ async function loadCloud(){for(let i=0;i<25;i++){try{const db=window.firebaseDb;
 function cleanLegacy(){document.querySelectorAll('.wow-clean-promo,#wow-home-banner-carousel,#wow-mobile-managed-banners,#v9ManagedBanners,#wow-mobile-managed-banners,#v6ManagedBannerTop,#adminMidBanners,#adminBottomBanners,.v6-managed-banner').forEach(e=>e.remove());}
 function renderHero(){const hero=document.querySelector('.hero-section');if(!hero)return;const d=getData(),h=d.hero||{};const image=Array.isArray(h.images)?safe(h.images[0]):safe(h.image);const url=safe(h.videoUrl||h.video);hero.querySelectorAll('.v6-media,.hero-media-shell,.v34-hero-video,.wow-hero-media,.wow-hero-shade,.wow-final-media,.wow-final-shade').forEach(e=>e.remove());let media=hero.querySelector('.wow-clean-media');if(!media||media.dataset.url!==url){if(media)media.remove();media=document.createElement('div');media.className='wow-clean-media';media.dataset.url=url;const shadeOld=hero.querySelector('.wow-clean-shade');if(shadeOld)shadeOld.remove();hero.insertBefore(media,hero.firstChild);if(url)addMedia(media,url,image);else if(image)addImage(media,image);}else{const existing=media.querySelector('video,iframe,img');if(!existing&&url)addMedia(media,url,image);}let shade=hero.querySelector('.wow-clean-shade');if(!shade){shade=document.createElement('div');shade.className='wow-clean-shade';hero.appendChild(shade);}let content=hero.querySelector(':scope > div:not(.wow-clean-media):not(.wow-clean-shade)');if(content){content.classList.add('wow-clean-content');}const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub'),pb=hero.querySelector('#heroPrimaryBtn'),sb=hero.querySelector('#heroSecondaryBtn');if(he)he.textContent=safe(h.eyebrow);if(ht)ht.innerHTML=safe(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');if(hs)hs.textContent=safe(h.subtitle);if(pb){const t=safe(h.buttonText||'Shop Now');if(pb.firstChild)pb.firstChild.nodeValue=t+' ';pb.onclick=()=>go(h.buttonUrl||'#shop');}if(sb){const t=safe(h.button2Text);sb.textContent=t;sb.style.display=t?'inline-flex':'none';sb.onclick=()=>go(h.button2Url||'#new');}hero.style.display=h.visible===false?'none':'flex';}
 function go(url){const u=safe(url||'#shop');if(u.startsWith('#')){if(u==='#new'||u==='#new-arrivals')return typeof navigate==='function'?navigate('shop','new'):null;return typeof navigate==='function'?navigate('shop'):null;}location.href=u;}
-function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');if(hero)hero.insertAdjacentElement('afterend',sec);}
+function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');const newArrivalsGrid=document.getElementById('newArrivalsGrid');const newArrivalsSection=newArrivalsGrid?newArrivalsGrid.closest('section'):null;if(newArrivalsSection)newArrivalsSection.insertAdjacentElement('afterend',sec);else if(hero)hero.insertAdjacentElement('afterend',sec);}
 async function boot(){await loadCloud();cleanLegacy();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){}}
 let sig='';function watch(){const d=getData();let s='';try{s=JSON.stringify({hero:d.hero,banners:d.banners})}catch(e){}if(s&&s!==sig){sig=s;renderHero();renderPromo();}}
 window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200);window.addEventListener('pageshow',()=>setTimeout(boot,300));

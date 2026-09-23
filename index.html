@@ -2548,6 +2548,205 @@ html,body{overflow-x:hidden!important}
 }
 </style>
 
+
+<style id="wow-phone-daraz-style">
+/* =========================================================
+   WOWSHOPPING — phone storefront refresh
+   Inspired by modern marketplace mobile layouts.
+   Desktop is untouched.
+   ========================================================= */
+@media (max-width:767px){
+  :root{--phone-gutter:12px;--phone-bg:#f4f5f7;--phone-card:#fff;--phone-accent:#f0445f;}
+  html,body{background:var(--phone-bg)!important;overflow-x:hidden!important}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))!important}
+
+  /* ---------- compact marketplace header ---------- */
+  #site-header{
+    position:sticky!important;top:0!important;z-index:9000!important;
+    background:#fff!important;border:0!important;box-shadow:0 2px 12px rgba(16,24,40,.08)!important;
+  }
+  #site-header .top-bar{display:none!important}
+  #site-header>div{padding:0!important;width:100%!important;max-width:none!important}
+  .wow-main-header-row{
+    display:block!important;padding:9px var(--phone-gutter) 10px!important;
+  }
+  .wow-main-header-row>div:first-child{display:none!important}
+  .wow-header-actions{display:none!important}
+  #desktopNav{display:none!important}
+  .wow-main-header-row .desktop-search{
+    display:flex!important;width:100%!important;max-width:none!important;min-width:0!important;
+    position:relative!important;margin:0!important;
+  }
+  .wow-main-header-row .desktop-search .search-input{
+    width:100%!important;height:48px!important;min-height:48px!important;
+    border:1px solid #d7dbe1!important;border-radius:25px!important;
+    background:#f7f8fa!important;padding:0 92px 0 45px!important;
+    font-size:15px!important;font-weight:500!important;color:#111827!important;
+    box-shadow:none!important;
+  }
+  .wow-main-header-row .desktop-search>svg{
+    left:17px!important;width:20px!important;height:20px!important;color:#6b7280!important;
+  }
+  .wow-main-header-row .desktop-search .search-input::placeholder{color:#8a9099!important}
+
+  /* Search action button if the page exposes one inside the search area */
+  .desktop-search button,.desktop-search .search-btn{
+    position:absolute!important;right:4px!important;top:4px!important;height:40px!important;
+    min-width:76px!important;padding:0 15px!important;border:0!important;border-radius:21px!important;
+    font-size:13px!important;font-weight:800!important;background:#111827!important;color:#fff!important;
+    z-index:3!important;
+  }
+
+  /* ---------- marketplace hero ---------- */
+  .hero-section{
+    width:100%!important;margin:0!important;height:clamp(190px,46vw,245px)!important;
+    min-height:0!important;border-radius:0!important;overflow:hidden!important;background:#111827!important;
+  }
+  .hero-section>div:first-child{height:100%!important;padding:0!important;max-width:none!important}
+  .hero-section .hero-content,
+  .hero-section>.wow-clean-content{
+    height:100%!important;padding:0 18px 20px!important;display:flex!important;flex-direction:column!important;
+    justify-content:flex-end!important;box-sizing:border-box!important;
+  }
+  .hero-eyebrow{font-size:8px!important;letter-spacing:1.7px!important;margin:0 0 5px!important}
+  .hero-title{font-size:clamp(25px,7.2vw,36px)!important;line-height:1!important;letter-spacing:-1px!important;max-width:270px!important;margin:0!important}
+  .hero-sub{font-size:10px!important;line-height:1.35!important;max-width:270px!important;margin:7px 0 10px!important}
+  .hero-actions{gap:6px!important}
+  .hero-actions .btn{height:32px!important;min-height:32px!important;padding:6px 11px!important;font-size:10px!important;border-radius:17px!important}
+
+  /* ---------- benefits: compact strip, not a big desktop block ---------- */
+  #storeBenefitsBar{padding:0!important;background:#fff!important;overflow:hidden!important}
+  .wow-benefits-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:7px 4px!important}
+  .wow-benefit-card{padding:6px 3px!important;gap:3px!important;min-width:0!important;flex-direction:column!important;text-align:center!important}
+  .wow-benefit-icon{width:25px!important;height:25px!important;flex:0 0 25px!important;border-radius:8px!important}
+  .wow-benefit-icon svg{width:13px!important;height:13px!important}
+  .wow-benefit-title{font-size:8px!important;line-height:1.1!important}
+  .wow-benefit-text{display:none!important}
+
+  /* ---------- category section: square marketplace icons ---------- */
+  #whyShopSection{
+    padding:12px 0 9px!important;background:#fff!important;
+  }
+  #whyShopSection>div{padding:0!important;max-width:none!important}
+  .category-rail-head{padding:0 var(--phone-gutter)!important;margin:0 0 8px!important;align-items:center!important}
+  .category-rail-head .section-label,.category-rail-hint{display:none!important}
+  .category-rail-head .section-title{font-size:17px!important;line-height:1.1!important;letter-spacing:-.3px!important;margin:0!important;font-weight:850!important}
+  .category-rail-controls{gap:4px!important}
+  .category-rail-btn{width:27px!important;height:27px!important;border:0!important;background:#f3f4f6!important;box-shadow:none!important}
+  .category-rail-btn-dark{background:#111827!important;color:#fff!important}
+  .category-rail-btn svg{width:13px!important;height:13px!important}
+  .category-rail-shell:before,.category-rail-shell:after{display:none!important}
+  .cat-grid{
+    display:flex!important;gap:13px!important;overflow-x:auto!important;overflow-y:hidden!important;
+    padding:3px var(--phone-gutter) 7px!important;scroll-snap-type:x proximity!important;
+  }
+  .cat-grid .cat-card{
+    flex:0 0 72px!important;width:72px!important;height:auto!important;aspect-ratio:auto!important;
+    overflow:visible!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+    display:flex!important;flex-direction:column!important;align-items:center!important;scroll-snap-align:start!important;
+  }
+  .cat-grid .cat-card:after{display:none!important}
+  .cat-grid .cat-card img{
+    width:64px!important;height:64px!important;flex:0 0 64px!important;object-fit:cover!important;
+    border-radius:16px!important;box-shadow:0 3px 10px rgba(16,24,40,.10)!important;
+  }
+  .cat-grid .cat-card-label{
+    position:static!important;display:block!important;width:100%!important;padding:6px 0 0!important;
+    background:none!important;color:#30343b!important;text-shadow:none!important;text-align:center!important;
+    font-size:9px!important;font-weight:650!important;line-height:1.15!important;white-space:normal!important;
+    overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;
+  }
+
+  /* ---------- product area = Flash Sale style ---------- */
+  #newArrivalsGrid{
+    display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 20px)/3)!important;
+    grid-template-columns:none!important;grid-template-rows:1fr!important;gap:10px!important;
+    overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 7px!important;
+    scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;
+  }
+  #newArrivalsGrid::-webkit-scrollbar{display:none!important}
+  #newArrivalsGrid .product-card{
+    min-width:0!important;border:0!important;border-radius:10px!important;background:#fff!important;
+    box-shadow:0 1px 5px rgba(16,24,40,.08)!important;overflow:hidden!important;scroll-snap-align:start!important;
+  }
+  #newArrivalsGrid .product-card .product-img-wrap{aspect-ratio:1/1!important;background:#f6f7f8!important}
+  #newArrivalsGrid .product-card .product-info,
+  #newArrivalsGrid .product-card>div:last-child{padding:7px 7px 9px!important}
+  #newArrivalsGrid .product-card .product-cat{display:none!important}
+  #newArrivalsGrid .product-card h3,
+  #newArrivalsGrid .product-card .product-name{font-size:10px!important;line-height:1.25!important;margin:0 0 4px!important;font-weight:650!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+  #newArrivalsGrid .product-card .product-price{gap:4px!important;align-items:baseline!important;flex-wrap:wrap!important}
+  #newArrivalsGrid .product-card .price-main{font-size:13px!important;font-weight:850!important}
+  #newArrivalsGrid .product-card .price-old{font-size:9px!important}
+  #newArrivalsGrid .product-card .price-disc{font-size:8px!important}
+  #newArrivalsGrid .product-action-btn{display:none!important}
+
+  #newArrivalsGrid:before{display:none!important}
+  #newArrivalsGrid .product-card:after{content:'SAVE';position:absolute;top:7px;left:0;background:#f0445f;color:#fff;font-size:8px;font-weight:900;padding:3px 7px;border-radius:0 10px 10px 0;z-index:4}
+  #newArrivalsGrid .product-card{position:relative!important}
+
+  /* New-arrival section wrapper: make it a white shopping module */
+  #newArrivalsGrid{margin:0!important}
+  #newArrivalsGrid{width:100%!important}
+  #newArrivalsGrid{box-sizing:border-box!important}
+  #newArrivalsGrid{max-width:none!important}
+  #newArrivalsGrid{scrollbar-width:none!important}
+  #newArrivalsGrid{padding-right:var(--phone-gutter)!important}
+  #newArrivalsGrid{padding-left:0!important}
+  #newArrivalsGrid{margin-left:0!important}
+  #newArrivalsGrid{margin-right:0!important}
+  #newArrivalsGrid{overscroll-behavior-x:contain!important}
+  #newArrivalsGrid{touch-action:pan-x!important}
+
+  /* section immediately containing product grid */
+  #newArrivalsGrid.closest('section'){
+    padding:13px 0 14px!important;background:#fff!important;
+  }
+  #newArrivalsGrid.closest('section')>div{padding:0 var(--phone-gutter)!important;max-width:none!important}
+  #newArrivalsGrid.closest('section')>div>div:first-child{
+    margin-bottom:10px!important;align-items:center!important;gap:5px!important;
+  }
+  #newArrivalsGrid.closest('section') .section-label{display:none!important}
+  #newArrivalsGrid.closest('section') .section-title{font-size:19px!important;font-weight:900!important;letter-spacing:-.5px!important;margin:0!important}
+  #newArrivalsGrid.closest('section') .btn{height:29px!important;min-height:29px!important;padding:5px 9px!important;border-radius:15px!important;font-size:9px!important}
+
+  /* Promo / admin banners become edge-to-edge marketplace cards */
+  .wow-clean-promo{padding:9px 0 10px!important;background:var(--phone-bg)!important}
+  .wow-clean-promo-shell{width:calc(100% - 24px)!important;border-radius:12px!important;box-shadow:0 4px 15px rgba(16,24,40,.10)!important}
+  .wow-clean-promo-slide{height:170px!important}
+
+  /* Other product grids: clean 2-column shopping cards */
+  #adminCategoryShowcase{padding:15px 0!important}
+  #adminCategoryShowcase>div{padding:0 var(--phone-gutter)!important}
+  #adminCategoryShowcase .product-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+
+  /* ---------- footer ---------- */
+  #site-footer{background:#fff!important;margin-bottom:0!important}
+  #site-footer>div{padding:26px 14px 24px!important}
+  .footer-grid{grid-template-columns:1fr 1fr!important;gap:18px!important}
+
+  /* ---------- app-like bottom navigation ---------- */
+  #wow-mobile-bottom-nav{
+    display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    left:0!important;right:0!important;bottom:0!important;width:100%!important;
+    min-height:66px!important;padding:5px 5px calc(5px + env(safe-area-inset-bottom))!important;
+    background:rgba(255,255,255,.98)!important;border-top:1px solid #e2e5e9!important;
+    box-shadow:0 -5px 20px rgba(16,24,40,.10)!important;backdrop-filter:blur(14px)!important;
+  }
+  #wow-mobile-bottom-nav .wow-mobile-tab{gap:3px!important;font-size:9px!important;font-weight:650!important;color:#656b73!important;border-radius:12px!important}
+  #wow-mobile-bottom-nav .wow-mobile-tab svg{width:23px!important;height:23px!important;stroke-width:1.75!important}
+  #wow-mobile-bottom-nav .wow-mobile-tab.active{color:#111827!important;background:#f5f6f8!important}
+  #wow-mobile-bottom-nav .wow-mobile-tab.active svg{stroke-width:2.2!important}
+  #wow-mobile-bottom-nav .wow-mobile-badge{top:4px!important;margin-left:22px!important;background:#f0445f!important}
+}
+@media(max-width:390px){
+  .cat-grid{gap:11px!important}
+  .cat-grid .cat-card{flex-basis:67px!important;width:67px!important}
+  .cat-grid .cat-card img{width:60px!important;height:60px!important;flex-basis:60px!important}
+  #newArrivalsGrid{grid-auto-columns:calc((100% - 16px)/3)!important;gap:8px!important}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
@@ -6734,6 +6933,29 @@ window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200)
   }else sync();
 
   window.addEventListener('load',sync,{once:true});
+})();
+</script>
+
+
+<script id="wow-phone-marketplace-labels">
+(function(){
+  function mobileRefresh(){
+    if(window.innerWidth>767) return;
+    var grid=document.getElementById('newArrivalsGrid');
+    if(grid){
+      var sec=grid.closest('section');
+      if(sec){
+        var title=sec.querySelector('.section-title');
+        var btn=sec.querySelector('.btn');
+        if(title) title.textContent='Flash Sale';
+        if(btn) btn.innerHTML='Shop More <i data-lucide="chevron-right" style="width:12px;height:12px;"></i>';
+      }
+    }
+    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(mobileRefresh,80);});
+  else setTimeout(mobileRefresh,80);
+  window.addEventListener('resize',mobileRefresh);
 })();
 </script>
 

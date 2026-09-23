@@ -1951,6 +1951,67 @@ html,body{overflow-x:hidden!important}
   #desktopNav .nav-link,#desktopNav .nav-item>.nav-link{font-size:11.5px!important;padding:6px 9px!important;}
 }
 </style>
+
+<style id="wow-wishlist-pro-v1">
+  .wishlist-page-shell{max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,52px) clamp(16px,3vw,28px) 64px;}
+  .wishlist-page-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px;padding:22px 24px;border:1px solid #e8ecf2;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);box-shadow:0 10px 35px rgba(15,23,42,.055);}
+  .wishlist-heading{display:flex;align-items:center;gap:15px;min-width:0;}
+  .wishlist-heading-icon{width:48px;height:48px;flex:0 0 48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#fff1f2;color:#e11d48;border:1px solid #ffe4e6;}
+  .wishlist-heading-icon svg{width:23px;height:23px;stroke-width:2;}
+  .wishlist-kicker{font-size:10px;font-weight:800;letter-spacing:1.8px;color:#64748b;margin-bottom:3px;}
+  .wishlist-heading h1{margin:0;font-size:clamp(25px,3vw,34px);line-height:1.1;letter-spacing:-.7px;color:#0f172a;}
+  .wishlist-heading p{margin:6px 0 0;font-size:13px;color:#64748b;}
+  .wishlist-browse-btn,.wishlist-empty-btn{border:1px solid #dbe2ea;background:#111827;color:#fff;border-radius:10px;min-height:42px;padding:0 15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:transform .18s,box-shadow .18s,background .18s;}
+  .wishlist-browse-btn:hover,.wishlist-empty-btn:hover{background:#0b1220;box-shadow:0 8px 22px rgba(15,23,42,.15);transform:translateY(-1px);}
+  .wishlist-browse-btn svg,.wishlist-empty-btn svg{width:16px;height:16px;}
+  .wishlist-product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;}
+  .wishlist-product-grid .product-card{min-width:0;border-radius:16px;border-color:#e7ebf0;box-shadow:0 3px 14px rgba(15,23,42,.035);}
+  .wishlist-product-grid .product-card:hover{box-shadow:0 14px 32px rgba(15,23,42,.11);}
+  .wishlist-product-grid .product-img-wrap{aspect-ratio:1/1.12;}
+  .wishlist-product-grid .product-info{padding:14px 15px 16px;}
+  .wishlist-product-grid .product-name{font-size:14px;}
+  .wishlist-empty-state{grid-column:1/-1;min-height:330px;border:1px dashed #dbe2ea;border-radius:18px;background:#fbfcfe;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:38px 20px;}
+  .wishlist-empty-icon{width:64px;height:64px;border-radius:50%;background:#fff1f2;color:#fb7185;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .wishlist-empty-icon svg{width:28px;height:28px;}
+  .wishlist-empty-state h2{margin:0 0 7px;font-size:20px;color:#111827;}
+  .wishlist-empty-state p{margin:0 0 20px;max-width:420px;font-size:13px;line-height:1.6;color:#64748b;}
+  @media (max-width:1100px){.wishlist-product-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}}
+  @media (max-width:768px){
+    .wishlist-page-shell{padding:18px 12px 36px;}
+    .wishlist-page-head{padding:15px 14px;margin-bottom:16px;border-radius:14px;gap:12px;align-items:center;}
+    .wishlist-heading{gap:10px;}
+    .wishlist-heading-icon{width:40px;height:40px;flex-basis:40px;border-radius:11px;}
+    .wishlist-heading-icon svg{width:19px;height:19px;}
+    .wishlist-kicker{font-size:8px;letter-spacing:1.3px;}
+    .wishlist-heading h1{font-size:22px;letter-spacing:-.45px;}
+    .wishlist-heading p{font-size:11px;margin-top:4px;}
+    .wishlist-browse-btn{width:42px;min-width:42px;padding:0;border-radius:10px;}
+    .wishlist-browse-btn span{display:none;}
+    .wishlist-browse-btn svg{width:17px;height:17px;}
+    .wishlist-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+    .wishlist-product-grid .product-card{border-radius:11px;}
+    .wishlist-product-grid .product-img-wrap{aspect-ratio:1/1.08;}
+    .wishlist-product-grid .product-info{padding:10px 10px 12px;}
+    .wishlist-product-grid .product-name{font-size:12px;line-height:1.35;margin-bottom:6px;}
+    .wishlist-product-grid .product-cat{font-size:8px;letter-spacing:.7px;}
+    .wishlist-product-grid .price-main{font-size:13px;}
+    .wishlist-product-grid .price-old{font-size:10px;}
+    .wishlist-product-grid .price-disc{font-size:9px;}
+    .wishlist-product-grid .product-action-btn{width:30px;height:30px;transform:none;opacity:1;}
+    .wishlist-empty-state{min-height:280px;border-radius:14px;padding:30px 16px;}
+    .wishlist-empty-state h2{font-size:18px;}
+    .wishlist-empty-state p{font-size:12px;}
+  }
+  @media (max-width:380px){
+    .wishlist-page-head{padding:12px 11px;}
+    .wishlist-heading h1{font-size:20px;}
+    .wishlist-heading p{font-size:10px;}
+    .wishlist-heading-icon{width:36px;height:36px;flex-basis:36px;}
+    .wishlist-product-grid{gap:8px;}
+    .wishlist-product-grid .product-info{padding:9px 9px 11px;}
+  }
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
@@ -2426,9 +2487,19 @@ html,body{overflow-x:hidden!important}
 
 <!-- ===== WISHLIST PAGE ===== -->
 <div id="page-wishlist" class="page">
-  <div style="max-width:1400px;margin:0 auto;padding:40px 20px;">
-    <h1 style="font-size:26px;font-weight:800;margin-bottom:28px;display:flex;align-items:center;gap:10px;"><i data-lucide="heart" style="width:24px;height:24px;color:#ef4444;"></i> My Wishlist</h1>
-    <div id="wishlistGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="product-grid-4"></div>
+  <div class="wishlist-page-shell">
+    <div class="wishlist-page-head">
+      <div class="wishlist-heading">
+        <div class="wishlist-heading-icon"><i data-lucide="heart"></i></div>
+        <div>
+          <div class="wishlist-kicker">SAVED FOR LATER</div>
+          <h1>My Wishlist</h1>
+          <p id="wishlistSummary">Your saved products in one place.</p>
+        </div>
+      </div>
+      <button type="button" class="wishlist-browse-btn" onclick="navigate('shop')"><i data-lucide="shopping-bag"></i><span>Continue Shopping</span></button>
+    </div>
+    <div id="wishlistGrid" class="wishlist-product-grid"></div>
   </div>
 </div>
 
@@ -3721,8 +3792,12 @@ function renderWishlistPage() {
   const grid = document.getElementById('wishlistGrid');
   if (!grid) return;
   const items = PRODUCTS.filter(p => wishlist.includes(String(p.id)));
+  const summary = document.getElementById('wishlistSummary');
+  if (summary) {
+    summary.textContent = items.length ? `${items.length} ${items.length === 1 ? 'item' : 'items'} saved to your wishlist.` : 'Save products you love and find them here anytime.';
+  }
   if (!items.length) {
-    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1;"><i data-lucide="heart" style="width:40px;height:40px;margin-bottom:12px;color:#fecaca;"></i><div style="font-weight:600;margin-bottom:6px;">Your wishlist is empty</div><div style="font-size:13px;margin-bottom:20px;">Save items you love</div><button class="btn btn-dark" onclick="navigate('shop')">Browse Products</button></div>`;
+    grid.innerHTML = `<div class="wishlist-empty-state"><div class="wishlist-empty-icon"><i data-lucide="heart"></i></div><h2>Your wishlist is empty</h2><p>Save your favourite products and come back to them anytime.</p><button class="wishlist-empty-btn" onclick="navigate('shop')"><i data-lucide="shopping-bag"></i> Browse Products</button></div>`;
   } else {
     grid.innerHTML = items.map(p => productCardHTML(p)).join('');
   }

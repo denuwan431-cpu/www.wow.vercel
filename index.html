@@ -940,6 +940,38 @@ button,input,select,textarea{font:inherit}
 @media (min-width:768px){#wow-mobile-bottom-nav{display:none!important}}
 </style>
 
+
+<style id="wow-hero-final-fix">
+/* FINAL HERO FIX: one reliable media layer + always-visible text on desktop and phone */
+.hero-section{
+  position:relative!important; isolation:isolate!important; overflow:hidden!important;
+  min-height:520px!important; height:clamp(520px,46vw,680px)!important;
+  background:#07111f!important; display:flex!important; align-items:center!important;
+}
+.hero-section .wow-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#07111f!important;}
+.hero-section .wow-hero-media img,.hero-section .wow-hero-media video,.hero-section .wow-hero-media iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;border:0!important;object-fit:cover!important;object-position:center center!important;display:block!important;}
+.hero-section .wow-hero-media .wow-hero-poster{z-index:0!important;}
+.hero-section .wow-hero-media iframe{z-index:1!important;}
+.hero-section .wow-hero-media video{z-index:1!important;}
+.hero-section .wow-hero-shade{position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.48) 38%,rgba(0,0,0,.16) 72%,rgba(0,0,0,.05) 100%)!important;}
+.hero-section>div:first-child{position:relative!important;z-index:4!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;box-sizing:border-box!important;padding:40px 20px!important;}
+.hero-section .hero-content{position:relative!important;z-index:5!important;display:block!important;visibility:visible!important;opacity:1!important;width:min(700px,100%)!important;max-width:700px!important;color:#fff!important;}
+.hero-section .hero-eyebrow,.hero-section .hero-title,.hero-section .hero-sub,.hero-section .hero-actions{position:relative!important;z-index:6!important;visibility:visible!important;opacity:1!important;}
+.hero-section .hero-eyebrow{color:#dbeafe!important;}
+.hero-section .hero-title{color:#fff!important;text-shadow:0 4px 26px rgba(0,0,0,.55)!important;}
+.hero-section .hero-sub{color:#f8fafc!important;text-shadow:0 2px 16px rgba(0,0,0,.5)!important;}
+@media(max-width:767px){
+ .hero-section{min-height:560px!important;height:min(78svh,700px)!important;height:min(78vh,700px)!important;align-items:flex-end!important;}
+ .hero-section>div:first-child{padding:0 18px 34px!important;}
+ .hero-section .wow-hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.05) 5%,rgba(0,0,0,.18) 35%,rgba(0,0,0,.86) 100%)!important;}
+ .hero-section .hero-content{width:100%!important;max-width:100%!important;}
+ .hero-section .hero-title{font-size:clamp(36px,10.5vw,58px)!important;line-height:1.02!important;margin-bottom:14px!important;}
+ .hero-section .hero-sub{font-size:14px!important;line-height:1.55!important;margin-bottom:20px!important;}
+ .hero-section .hero-actions{gap:9px!important;}
+ .hero-section .hero-actions .btn{min-height:44px!important;padding:11px 16px!important;}
+}
+</style>
+
 </head>
 <body>
 <div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-brand">WOWSHOPPING.lk</div><div class="wow-loader-line"></div><div class="wow-loader-dot">LOADING</div></div></div>
@@ -4171,67 +4203,43 @@ function patch(){
  if(d.branding){document.title=d.branding.title||d.branding.name||document.title;document.querySelectorAll('.brand-name,.site-logo,.logo-text').forEach(x=>{if(d.branding.name)x.textContent=d.branding.name});if(d.branding.logo)document.querySelectorAll('.logo img').forEach(x=>x.src=d.branding.logo)}
  // Remove top Shop All button permanently.
  document.querySelectorAll('#site-header button').forEach(b=>{if(b.textContent.trim()==='Shop All')b.parentElement.remove()});
- // Hero: video URL only, otherwise image slider.
- const h={...(d.hero||{}),mediaType:String(d.hero?.mediaType||'image'),videoUrl:String(d.hero?.videoUrl||'').trim(),images:Array.isArray(d.hero?.images)?d.hero.images.filter(Boolean):[]}, hero=document.querySelector('.hero-section');
+ // Hero media: supports direct MP4/WebM/Ogg URLs, YouTube URLs, Vimeo URLs and image URLs.
+ const h={...(d.hero||{}),mediaType:String(d.hero?.mediaType||'image').toLowerCase(),videoUrl:String(d.hero?.videoUrl||'').trim(),images:Array.isArray(d.hero?.images)?d.hero.images.filter(Boolean).map(x=>String(x).trim()).filter(Boolean):[]}, hero=document.querySelector('.hero-section');
  if(hero){
   hero.style.display=h.visible===false?'none':'flex';
-  hero.style.position='relative';
-  hero.querySelectorAll('.hero-media-shell, .hero-section > video, .v6-media').forEach(el=>el.remove());
-  const legacyImg=hero.querySelector('.hero-img');
-  if(legacyImg) legacyImg.style.display='none';
-  let shell=document.createElement('div');
-  shell.className='v6-media';
-  shell.style.cssText='position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none;background:#050b16;display:block';
-  hero.insertBefore(shell,hero.firstChild);
-  const contentWrap=hero.querySelector(':scope > div');
-  if(contentWrap){contentWrap.style.position='relative';contentWrap.style.zIndex='3';contentWrap.style.width='100%';contentWrap.style.maxWidth='none';contentWrap.style.margin='0';contentWrap.style.background='transparent';}
-  shell.innerHTML='';
-  if(h.mediaType==='video'&&h.videoUrl){
+  hero.querySelectorAll('.v6-media,.hero-media-shell,.wow-hero-media,.wow-hero-shade').forEach(el=>el.remove());
+  const media=document.createElement('div'); media.className='wow-hero-media';
+  const shade=document.createElement('div'); shade.className='wow-hero-shade';
+  hero.insertBefore(media,hero.firstChild); hero.appendChild(shade);
+  const poster=h.images[0]||'';
+  const addPoster=()=>{ if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt=''; img.loading='eager'; img.onerror=()=>img.remove(); media.appendChild(img); };
+  const addImage=()=>{
+    if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt='WOWSHOPPING banner'; img.loading='eager'; img.onerror=()=>{img.remove();}; media.appendChild(img);
+  };
+  if(h.mediaType==='video' && h.videoUrl){
+    addPoster();
     const embed=heroVideoEmbedUrl(h.videoUrl);
     if(embed){
-      /* Keep the admin image as a real poster behind the video. Never replace a live video with the default image after a timer. */
-      if((h.images||[]).length){
-        const poster=document.createElement('img');
-        poster.src=h.images[0]; poster.alt='';
-        poster.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;z-index:0;';
-        poster.onerror=()=>poster.remove();
-        shell.appendChild(poster);
-      }
-      const frame=document.createElement('iframe');
-      frame.src=embed;
-      frame.title='WOWSHOPPING hero video';
-      frame.allow='autoplay; fullscreen; picture-in-picture';
-      frame.setAttribute('allowfullscreen','');
-      frame.setAttribute('playsinline','');
-      frame.setAttribute('loading','eager');
-      frame.style.cssText='position:absolute;inset:0;display:block;width:100%;height:100%;min-width:100%;min-height:100%;border:0;pointer-events:none;background:transparent;z-index:1;';
-      shell.appendChild(frame);
+      const frame=document.createElement('iframe'); frame.src=embed; frame.title='WOWSHOPPING banner video'; frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media'; frame.setAttribute('allowfullscreen',''); frame.setAttribute('playsinline',''); frame.setAttribute('loading','eager'); media.appendChild(frame);
     }else{
-      if((h.images||[]).length){
-        const poster=document.createElement('img');
-        poster.src=h.images[0]; poster.alt='';
-        poster.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;z-index:0;';
-        poster.onerror=()=>poster.remove();
-        shell.appendChild(poster);
-      }
-      const v=document.createElement('video');
-      v.src=h.videoUrl; v.autoplay=true; v.muted=true; v.defaultMuted=true; v.loop=true; v.playsInline=true; v.preload='auto';
-      v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');
-      v.setAttribute('aria-hidden','true'); v.setAttribute('disablepictureinpicture','');
-      v.className='v34-hero-video'; v.style.cssText='position:absolute;inset:0;display:block;width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center center;opacity:1;background:transparent;max-width:none;max-height:none;z-index:1;'
-      shell.appendChild(v);
-      const play=()=>{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{})};
-      v.addEventListener('loadeddata',play); v.addEventListener('canplay',play); play();
-      document.addEventListener('visibilitychange',()=>{if(!document.hidden)play()},{passive:true});
-      v.addEventListener('error',()=>{v.style.display='none';},{once:true});
+      const v=document.createElement('video'); v.src=h.videoUrl; v.autoplay=true; v.muted=true; v.defaultMuted=true; v.loop=true; v.playsInline=true; v.preload='auto'; v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline',''); v.setAttribute('aria-hidden','true');
+      const play=()=>{v.muted=true;const q=v.play();if(q&&q.catch)q.catch(()=>{});};
+      v.addEventListener('loadeddata',play);v.addEventListener('canplay',play);v.addEventListener('loadedmetadata',play);v.addEventListener('error',()=>{v.remove(); if(!media.querySelector('img')) addPoster();}); media.appendChild(v); play();
     }
-  } else if((h.images||[]).length){
-    const im=document.createElement('img');
-    im.style.cssText='position:absolute;inset:0;display:block;width:100%;height:100%;min-width:100%;min-height:100%;object-fit:cover;object-position:center center;opacity:1';
-    shell.appendChild(im);
-    let i=0; const go=()=>{im.src=h.images[i];i=(i+1)%h.images.length}; go();
-    if(h.images.length>1)setInterval(go,4500);
+  }else if(h.images.length){
+    addImage();
+    if(h.images.length>1){
+      let i=0; const img=media.querySelector('img'); const rotate=()=>{if(!img)return;img.src=h.images[i];i=(i+1)%h.images.length;}; rotate(); setInterval(rotate,5000);
+    }
+  }else if(h.videoUrl){
+    // Be forgiving if Admin selected image but supplied a video URL.
+    const embed=heroVideoEmbedUrl(h.videoUrl);
+    if(embed){const frame=document.createElement('iframe');frame.src=embed;frame.title='WOWSHOPPING banner video';frame.allow='autoplay; fullscreen; picture-in-picture';frame.setAttribute('allowfullscreen','');frame.setAttribute('playsinline','');media.appendChild(frame);}
+    else{const v=document.createElement('video');v.src=h.videoUrl;v.autoplay=true;v.muted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.addEventListener('error',()=>v.remove());media.appendChild(v);v.play().catch(()=>{});}
   }
+  // Keep the content above every media/overlay layer.
+  const contentWrap=hero.querySelector(':scope > div:not(.wow-hero-media):not(.wow-hero-shade)');
+  if(contentWrap){contentWrap.style.position='relative';contentWrap.style.zIndex='4';contentWrap.style.width='100%';contentWrap.style.maxWidth='1400px';contentWrap.style.margin='0 auto';contentWrap.style.background='transparent';}
  }
   // Apply every editable hero content field from Admin Panel.
   const he=hero?.querySelector('.hero-eyebrow');

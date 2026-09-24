@@ -287,6 +287,7 @@
             }
         }
     </style>
+<style id="wow-admin-theme-vars">:root{--wow-primary:#2563eb;--wow-background:#fff;--wow-text:#111827;--wow-header:#fff;--wow-footer:#fff;--wow-sale:#dc2626}</style>
 </head>
 <body class="pb-24 lg:pb-32">
 
@@ -987,7 +988,21 @@ function updateAuthUI() {
             care: {cards:[]},
             footer: {visible:false,sections:[]},
             shipping: {},
-            settings: {}
+            settings: {},
+            siteContent: {
+                header:{searchPlaceholder:'Search for products, brands and more...',showSearch:true,showNotifications:true,showAccount:true,showCart:true},
+                nav:{visible:true,items:[
+                    {label:'Home',url:'#home',visible:true},{label:'Categories',url:'#categories',visible:true},
+                    {label:'Deals',url:'#flash-sale',visible:true},{label:'Shop',url:'#products',visible:true}
+                ]},
+                sections:{
+                    categories:{visible:true,eyebrow:'Shop by Category',title:'Explore Categories'},
+                    newArrivals:{visible:true,eyebrow:'Just In',title:'New Arrivals',viewAll:'View All'},
+                    middleBanner:{visible:true},
+                    bestSellers:{visible:true,eyebrow:'Customer Favorites',title:'Best Sellers',viewAll:'View All'},
+                    promise:{visible:true}
+                }
+            }
         };
 
         let currentSlide = 0;
@@ -1356,7 +1371,36 @@ function updateAuthUI() {
             };
         }
 
-        function renderAdminExtras() {
+        function applyStorefrontControls(){
+    const c=localData.siteContent||{}; const h=c.header||{}, n=c.nav||{}, s=c.sections||{};
+    const header=document.querySelector('header');
+    if(header){
+        const search=header.querySelector('input[type="text"]'); if(search){search.placeholder=h.searchPlaceholder||'Search for products, brands and more...'; search.closest('.relative')?.style.setProperty('display',h.showSearch===false?'none':'','important');}
+        const notif=header.querySelectorAll('button'); const bell=[...notif].filter(x=>x.querySelector('.fa-bell')); bell.forEach(x=>x.style.display=h.showNotifications===false?'none':'');
+        const accounts=header.querySelectorAll('[data-profile-action]'); accounts.forEach(x=>x.style.display=h.showAccount===false?'none':'');
+        const carts=header.querySelectorAll('[onclick*="toggleCart"]'); carts.forEach(x=>x.style.display=h.showCart===false?'none':'');
+    }
+    const navEl=document.getElementById('wow-header-menu');
+    if(navEl){
+        navEl.style.display=n.visible===false?'none':'';
+        const inner=navEl.querySelector('.wow-menu-inner');
+        if(inner){
+            const items=Array.isArray(n.items)?n.items:[];
+            inner.innerHTML=items.filter(x=>x&&x.visible!==false&&x.label).map(x=>`<a href="${wowSafeText(x.url||'#')}" class="wow-menu-item">${wowSafeText(x.label)}</a>`).join('');
+            const links=[...inner.querySelectorAll('a')];
+            links.forEach(link=>link.addEventListener('click',function(e){const selector=this.getAttribute('href');const target=selector?document.querySelector(selector):null;links.forEach(x=>x.classList.remove('active'));this.classList.add('active');if(target){e.preventDefault();const header=document.querySelector('header');const y=target.getBoundingClientRect().top+window.scrollY-(header?.offsetHeight||0)-(navEl.offsetHeight||0)-8;window.scrollTo({top:Math.max(0,y),behavior:'smooth'});}}));
+        }
+    }
+    const setSection=(selector,conf)=>{const el=document.querySelector(selector);if(!el)return;const show=conf?.visible!==false;el.style.display=show?'':'none';return el};
+    const cat=setSection('#category-grid',s.categories); const newHead=document.querySelector('#flash-sale-container')?.previousElementSibling; if(newHead){newHead.style.display=s.newArrivals?.visible===false?'none':'';const ey=newHead.querySelector('span');const tt=newHead.querySelector('h2');const va=newHead.querySelector('.view-all-btn');if(ey&&s.newArrivals?.eyebrow)ey.textContent=s.newArrivals.eyebrow;if(tt&&s.newArrivals?.title)tt.textContent=s.newArrivals.title;if(va&&s.newArrivals?.viewAll)va.childNodes[0].textContent=s.newArrivals.viewAll+' ';}
+    setSection('#flash-sale-container',s.newArrivals);
+    const mb=setSection('#middle-banner-section',s.middleBanner);
+    const bestHead=document.querySelector('#just-for-you-container')?.previousElementSibling;if(bestHead){bestHead.style.display=s.bestSellers?.visible===false?'none':'';const ey=bestHead.querySelector('span');const tt=bestHead.querySelector('h2');const va=bestHead.querySelector('.view-all-btn');if(ey&&s.bestSellers?.eyebrow)ey.textContent=s.bestSellers.eyebrow;if(tt&&s.bestSellers?.title)tt.textContent=s.bestSellers.title;if(va&&s.bestSellers?.viewAll)va.childNodes[0].textContent=s.bestSellers.viewAll+' ';}
+    setSection('#just-for-you-container',s.bestSellers);
+    const promise=[...document.querySelectorAll('section')].find(x=>/Why Shop With Us/i.test(x.innerText||'')); if(promise)promise.style.display=s.promise?.visible===false?'none':'';
+}
+
+function renderAdminExtras() {
             // Branding / favicon
             const b = localData.branding || {};
             const brand = document.querySelectorAll('[data-wow-brand]');
@@ -1367,6 +1411,7 @@ function updateAuthUI() {
                 link.href=b.favicon;
             }
             if (b.logo) document.querySelectorAll('[data-wow-logo]').forEach(el => { el.src=b.logo; el.style.display='block'; });
+            applyStorefrontControls();
 
             // Promise section: render only if admin enabled it and supplied real cards.
             const promiseSection=[...document.querySelectorAll('section')].find(s => /Why Shop With Us/i.test(s.innerText||''));
@@ -1394,6 +1439,36 @@ function updateAuthUI() {
                 benefitsSection.innerHTML=`<div class="grid grid-cols-2 md:grid-cols-4 gap-3">${bcards.map(c=>`<div class="rounded-2xl border border-gray-100 bg-white p-4 text-center"><i class="fas fa-${c.icon||'star'} text-blue-600 text-lg"></i><h4 class="text-[10px] md:text-xs font-black uppercase mt-2">${c.title}</h4><p class="text-[9px] md:text-[10px] text-gray-400 mt-1">${c.text||''}</p></div>`).join('')}</div>`;
             } else if(benefitsSection) benefitsSection.remove();
 
+            // Banner overlay follows the first visible banner managed in Admin.
+            const overlay= document.getElementById('slider-overlay'); const firstBanner=(Array.isArray(remote?.banners)?remote.banners:[]).filter(x=>x&&x.visible!==false).sort((a,b)=>Number(a.order||0)-Number(b.order||0))[0];
+            if(overlay && firstBanner){
+                const sp=overlay.querySelector('span'), h3=overlay.querySelector('h3'), ptxt=overlay.querySelector('p'), btn=overlay.querySelector('button');
+                if(sp) sp.textContent=firstBanner.category||firstBanner.title||'Featured';
+                if(h3) h3.textContent=firstBanner.title||'';
+                if(ptxt) ptxt.textContent=firstBanner.description||'';
+                if(btn){btn.textContent=(firstBanner.button||'Shop Now')+' —';btn.onclick=()=>{if(firstBanner.url)location.href=firstBanner.url};}
+            }
+            // Theme Manager colors are applied live without changing the existing responsive design.
+            const t=localData.theme||{}; const root=document.documentElement;
+            if(t.primary) root.style.setProperty('--wow-primary',t.primary);
+            if(t.background) root.style.setProperty('--wow-background',t.background);
+            if(t.text) root.style.setProperty('--wow-text',t.text);
+            if(t.header) root.style.setProperty('--wow-header',t.header);
+            if(t.footer) root.style.setProperty('--wow-footer',t.footer);
+            if(t.sale) root.style.setProperty('--wow-sale',t.sale);
+            document.querySelectorAll('.bg-blue-600').forEach(el=>{if(t.primary)el.style.backgroundColor=t.primary});
+            document.querySelectorAll('.text-blue-600').forEach(el=>{if(t.primary)el.style.color=t.primary});
+            if(t.background) document.body.style.backgroundColor=t.background;
+            if(t.text) document.body.style.color=t.text;
+            if(t.header) document.querySelectorAll('header').forEach(el=>el.style.backgroundColor=t.header);
+            if(t.footer) document.querySelectorAll('footer').forEach(el=>el.style.backgroundColor=t.footer);
+            // Social links from Admin.
+            const social=Array.isArray(remote?.socials)?remote.socials:[];
+            if(social.length && footer){
+                const follow=footer.querySelector('h5')?.nextElementSibling;
+                if(follow) follow.innerHTML=social.filter(x=>x&&x.visible!==false&&x.url).map(x=>`<a class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all" href="${wowSafeText(x.url)}" target="_blank" rel="noopener" aria-label="${wowSafeText(x.name)}"><i class="fab fa-${wowSafeText(x.icon||'link')} text-xs"></i></a>`).join('');
+            }
+
             // Footer: remove hard-coded sample links and render only admin-managed sections.
             const footer=document.querySelector('footer'); const f=localData.footer||{};
             if(footer){
@@ -1407,6 +1482,20 @@ function updateAuthUI() {
                     const copy=footer.querySelector('[data-wow-copyright]'); if(copy&&f.copyright) copy.textContent=f.copyright;
                 }
             }
+        }
+
+        function ensureWowPageOverlay(){
+            if(document.getElementById('wow-site-page-overlay'))return document.getElementById('wow-site-page-overlay');
+            const el=document.createElement('div');el.id='wow-site-page-overlay';el.style.cssText='position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,.55);display:none;align-items:flex-start;justify-content:center;padding:24px;overflow:auto;';
+            el.innerHTML='<div style="width:min(900px,100%);margin:30px auto;background:#fff;border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.25)"><div style="display:flex;justify-content:space-between;gap:15px;align-items:center"><h2 id="wow-page-title" style="margin:0;font-weight:900"></h2><button id="wow-page-close" style="border:0;background:#f1f5f9;border-radius:999px;width:38px;height:38px;font-size:22px">×</button></div><div id="wow-page-body" style="margin-top:20px;color:#475569;line-height:1.8;white-space:pre-wrap"></div></div>';
+            document.body.appendChild(el);el.querySelector('#wow-page-close').onclick=()=>el.style.display='none';el.onclick=e=>{if(e.target===el)el.style.display='none'};return el;
+        }
+        function bindWowManagedPages(remote){
+            const pages=remote?.sitePages||{}; const care=remote?.care||{};
+            document.querySelectorAll('a[href^="#"]').forEach(a=>{
+                const slug=(a.getAttribute('href')||'').slice(1); if(!slug||!pages[slug])return;
+                a.onclick=(e)=>{e.preventDefault();const el=ensureWowPageOverlay();el.querySelector('#wow-page-title').textContent=pages[slug].title||slug;el.querySelector('#wow-page-body').textContent=pages[slug].body||'';el.style.display='flex';};
+            });
         }
 
         function applyLiveStorefront(remote) {
@@ -1446,8 +1535,7 @@ function updateAuthUI() {
 
             const banners = (Array.isArray(remote.banners) ? remote.banners : [])
                 .filter(b => b && b.visible !== false)
-                .sort((a,b) => Number(a.order||0)-Number(b.order||0))
-                .slice(0, 5);
+                .sort((a,b) => Number(a.order||0)-Number(b.order||0));
 
             localData.middleBanners = banners
                 .map(b => ({desktop:wowSafeText(b.desktop || b.image || ''),mobile:wowSafeText(b.mobile || b.desktop || b.image || ''),title:wowSafeText(b.title),description:wowSafeText(b.description),button:wowSafeText(b.button),url:wowSafeText(b.url),order:Number(b.order||0)}))
@@ -1462,8 +1550,10 @@ function updateAuthUI() {
             localData.footer = remote.footer || {visible:false,sections:[]};
             localData.shipping = remote.shipping || {};
             localData.settings = remote.settings || {};
+            localData.siteContent = remote.siteContent || localData.siteContent || {};
 
             renderAdminExtras();
+            bindWowManagedPages(remote);
 
             // Re-render the existing file-1 design only from live data.
             renderHero();
@@ -1472,6 +1562,7 @@ function updateAuthUI() {
             renderMiddleBanners();
             renderJustForYou();
             renderCart();
+            applyStorefrontControls();
 
             const heroRoot = document.getElementById('home');
             const position = wowSafeText(h.position || 'bottom-left') || 'bottom-left';

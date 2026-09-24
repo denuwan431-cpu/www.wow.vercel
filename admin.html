@@ -372,8 +372,7 @@ button{transition:all .15s ease}
   background-color:#fff;
 }
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script><style id="v50-auth-style">#wowAdminGate{position:fixed;inset:0;background:#f6f7f9;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px}.wow-gate-card{width:min(420px,100%);background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:28px;box-shadow:0 20px 60px rgba(15,23,42,.12)}.wow-gate-card h2{margin:0 0 6px}.wow-gate-card p{color:#6b7280;font-size:13px;line-height:1.5}.wow-gate-card input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;margin:7px 0;box-sizing:border-box}.wow-gate-card button{width:100%;padding:12px;border:0;border-radius:8px;background:#111827;color:#fff;font-weight:700;margin-top:8px;cursor:pointer}.wow-gate-error{color:#b91c1c;font-size:12px;margin-top:8px}</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script><style id="v50-auth-style">#wowAdminGate{position:fixed;inset:0;background:#f6f7f9;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px}.wow-gate-card{width:min(420px,100%);background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:28px;box-shadow:0 20px 60px rgba(15,23,42,.12)}.wow-gate-card h2{margin:0 0 6px}.wow-gate-card p{color:#6b7280;font-size:13px;line-height:1.5}.wow-gate-card input{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:8px;margin:7px 0;box-sizing:border-box}.wow-gate-card button{width:100%;padding:12px;border:0;border-radius:8px;background:#111827;color:#fff;font-weight:700;margin-top:8px;cursor:pointer}.wow-gate-error{color:#b91c1c;font-size:12px;margin-top:8px}</style>
 <style id="wow-admin-v10">
 html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:800px){
@@ -395,76 +394,12 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(max-width:480px){.grid{grid-template-columns:1fr 1fr!important}.stat{font-size:22px!important}}
 </style>
 
+<style id="wow-admin-mobile-final">@media(max-width:800px){body{font-size:13px}.side{position:sticky!important;top:0!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important}.main{margin-left:0!important;width:100%!important}.top{position:sticky!important;top:0!important;padding:11px 13px!important;z-index:25}.top h1{font-size:18px!important}.views,.view{min-width:0!important}.card{border-radius:12px!important}.field label{font-size:12px!important}.field input,.field textarea,.field select{min-height:42px!important}.btn{min-height:40px!important}.nav{padding:8px!important}.nav button{min-height:38px!important}.modal{margin:10px!important;width:calc(100vw - 20px)!important;max-height:92svh!important}.modalbox{max-height:92svh!important;overflow:auto!important}.two,.three,.form-grid{grid-template-columns:1fr!important}}</style>
 </head><body><div id="wowAdminGate"><div class="wow-gate-card"><h2>WOWSHOPPING Admin</h2><p>Secure admin access. Only Firebase users with the <b>admin</b> custom claim can enter this panel.</p><input id="wowAdminEmail" type="email" placeholder="Admin email" autocomplete="username"><input id="wowAdminPass" type="password" placeholder="Admin password" autocomplete="current-password"><button onclick="wowAdminLogin()">Secure Sign In</button><div id="wowAdminErr" class="wow-gate-error"></div></div></div><script>
 const WOW_ADMIN_FIREBASE={apiKey:"AIzaSyD2fVt7kfp4ejq_ZLOePpbJrUNWmqGiy4E",authDomain:"wowshopping-cd8bd.firebaseapp.com",projectId:"wowshopping-cd8bd",storageBucket:"wowshopping-cd8bd.firebasestorage.app",messagingSenderId:"10260376614",appId:"1:10260376614:web:0039163b0e355289210ae7",measurementId:"G-3FK3BFZNRG"};
 let wowAdminAuth=null,wowAdminDb=null;
-let wowAdminStorage=null;
-const WOW_UPLOAD_LIMITS={video:120*1024*1024,image:10*1024*1024};
-function wowAdminStorageReady(){
-  try{
-    if(!wowAdminStorage && typeof firebase!=='undefined' && firebase.storage) wowAdminStorage=firebase.storage();
-    return !!wowAdminStorage;
-  }catch(e){console.error(e);return false}
-}
-function wowSafeFileName(name){
-  return String(name||'file').toLowerCase().replace(/[^a-z0-9._-]+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'').slice(-100)||'file';
-}
-async function wowUploadAsset(file,type,folder,onProgress){
-  if(!file) throw new Error('No file selected.');
-  const isVideo=type==='video';
-  const limit=isVideo?WOW_UPLOAD_LIMITS.video:WOW_UPLOAD_LIMITS.image;
-  if(file.size>limit) throw new Error((isVideo?'Video':'Image')+' is too large. Maximum '+Math.round(limit/1024/1024)+'MB.');
-  if(isVideo && !/^video\/(mp4|webm|ogg)/i.test(file.type) && !/\.(mp4|webm|ogg)$/i.test(file.name)){
-    throw new Error('Please choose an MP4, WebM or OGG video.');
-  }
-  if(!isVideo && !/^image\//i.test(file.type) && !/\.(png|jpe?g|webp|gif|svg|ico)$/i.test(file.name)){
-    throw new Error('Please choose an image file.');
-  }
-  if(!wowAdminStorageReady()) throw new Error('Firebase Storage is not ready.');
-  const user=wowAdminAuth?.currentUser;
-  if(!user) throw new Error('Admin session is not ready.');
-  const stamp=Date.now();
-  const path=`site-assets/${folder}/${user.uid}/${stamp}-${wowSafeFileName(file.name)}`;
-  const ref=wowAdminStorage.ref(path);
-  const metadata={contentType:file.type||undefined,cacheControl:'public,max-age=31536000,immutable'};
-  await new Promise((resolve,reject)=>{
-    const task=ref.put(file,metadata);
-    task.on('state_changed',
-      snap=>{if(onProgress)onProgress(Math.round((snap.bytesTransferred/snap.totalBytes)*100));},
-      reject,resolve
-    );
-  });
-  return await ref.getDownloadURL();
-}
-async function wowChooseUpload(inputId,type,folder,targetId,statusId){
-  const input=document.getElementById(inputId), target=document.getElementById(targetId), status=document.getElementById(statusId);
-  const file=input?.files?.[0]; if(!file)return;
-  if(status){status.textContent='Uploading 0%...';status.style.color='#2563eb';}
-  try{
-    const url=await wowUploadAsset(file,type,folder,p=>{if(status)status.textContent='Uploading '+p+'%...';});
-    if(target){target.value=url;target.dataset.uploaded='1';}
-    // Persist the uploaded cloud URL immediately, so Choose File alone is enough.
-    if(targetId==='heroVideoUrl'){
-      d.hero={...(d.hero||{}),mediaType:'video',videoUrl:url,visible:d.hero?.visible!==false};
-    }else if(targetId==='brl'){
-      d.branding={...(d.branding||{}),logo:url};
-    }else if(targetId==='bri'){
-      d.branding={...(d.branding||{}),icon:url};
-    }else if(targetId==='brfv'){
-      d.branding={...(d.branding||{}),favicon:url};
-    }
-    await save();
-    if(status){status.textContent='✓ Uploaded to Firebase Storage and saved to Cloud';status.style.color='#16a34a';}
-    if(typeof window.wowRefreshAssetPreview==='function') window.wowRefreshAssetPreview(targetId);
-    try{window.dispatchEvent(new CustomEvent('wow:branding-updated'));}catch(e){}
-  }catch(e){
-    console.error(e);
-    if(status){status.textContent='✕ '+(e?.message||'Upload failed');status.style.color='#dc2626';}
-  }
-}
-
 function wowAdminReady(){return Object.values(WOW_ADMIN_FIREBASE).every(v=>v&&!String(v).startsWith('YOUR_'))}
-function wowAdminBoot(){try{if(!wowAdminReady()){document.getElementById('wowAdminErr').textContent='Add the same Firebase Web App config to this admin.html file.';return}if(!firebase.apps.length)firebase.initializeApp(WOW_ADMIN_FIREBASE);wowAdminAuth=firebase.auth();wowAdminDb=firebase.firestore();wowAdminStorageReady();wowAdminAuth.onAuthStateChanged(async u=>{if(!u)return;try{const t=await u.getIdTokenResult(true);if(t.claims.admin===true){document.getElementById('wowAdminGate').style.display='none';window.wowAdminUser=u}else{document.getElementById('wowAdminErr').textContent='This account is not authorized as an admin.';await wowAdminAuth.signOut()}}catch(e){document.getElementById('wowAdminErr').textContent='Admin authorization check failed.'}})}catch(e){document.getElementById('wowAdminErr').textContent='Firebase initialization failed.'}}
+function wowAdminBoot(){try{if(!wowAdminReady()){document.getElementById('wowAdminErr').textContent='Add the same Firebase Web App config to this admin.html file.';return}if(!firebase.apps.length)firebase.initializeApp(WOW_ADMIN_FIREBASE);wowAdminAuth=firebase.auth();wowAdminDb=firebase.firestore();wowAdminAuth.onAuthStateChanged(async u=>{if(!u)return;try{const t=await u.getIdTokenResult(true);if(t.claims.admin===true){document.getElementById('wowAdminGate').style.display='none';window.wowAdminUser=u}else{document.getElementById('wowAdminErr').textContent='This account is not authorized as an admin.';await wowAdminAuth.signOut()}}catch(e){document.getElementById('wowAdminErr').textContent='Admin authorization check failed.'}})}catch(e){document.getElementById('wowAdminErr').textContent='Firebase initialization failed.'}}
 async function wowAdminLogout(){try{await wowAdminAuth?.signOut();location.reload()}catch(e){console.error(e)}}
 async function wowAdminLogin(){if(!wowAdminAuth){document.getElementById('wowAdminErr').textContent='Firebase is not configured.';return}const email=document.getElementById('wowAdminEmail').value.trim(),pass=document.getElementById('wowAdminPass').value;if(!email||!pass){document.getElementById('wowAdminErr').textContent='Enter email and password.';return}try{await wowAdminAuth.signInWithEmailAndPassword(email,pass)}catch(e){document.getElementById('wowAdminErr').textContent='Invalid admin credentials.'}}
 window.addEventListener('beforeunload',()=>{});wowAdminBoot();
@@ -515,6 +450,18 @@ d.menu=(d.menu||[]).map((x,i)=>({...x,id:x.id||id('m'),parent:x.parent||null,vis
 if(!d.branding) d.branding={name:'WOWSHOPPING',title:'WOWSHOPPING',logo:'',icon:'',favicon:'',footer:''};
 d.branding.icon=d.branding.icon||''; d.branding.favicon=d.branding.favicon||'';
 function load(){return structuredClone(SEED)}
+async function wowUploadFile(file,folder){
+  if(!file) return '';
+  if(!wowAdminUser || !wowAdminAuth) throw new Error('Admin session is not ready');
+  if(!firebase.storage) throw new Error('Firebase Storage SDK is not loaded');
+  const safeName=String(file.name||'file').replace(/[^a-zA-Z0-9._-]+/g,'-');
+  const path=`wowshopping/${folder}/${Date.now()}-${Math.random().toString(36).slice(2,8)}-${safeName}`;
+  const ref=firebase.storage().ref(path);
+  const task=ref.put(file,{contentType:file.type||undefined,cacheControl:'public,max-age=31536000,immutable'});
+  const snap=await task;
+  return await snap.ref.getDownloadURL();
+}
+function wowFileStatus(id,text){const el=document.getElementById(id);if(el)el.textContent=text||'';}
 async function save(){
   render();
   try{
@@ -783,66 +730,10 @@ function saveMenu(mid){
   if(i<0)d.menu.push(m);else d.menu[i]=m;
   save();closeModal();
 }
-function hero(){
-  let h=d.hero||{};
-  h.button2Text=h.button2Text||'New Arrivals'; h.button2Url=h.button2Url||'#shop';
-  v('hero').innerHTML=`<div class="card form">
-    <h3 style="margin-top:0">Hero Video</h3>
-    <div style="font-size:13px;color:#64748b;margin-bottom:14px">
-      Choose the video file here. It uploads directly to Firebase Storage and the public file URL is saved to Firestore. The same cloud video is used on PC and phone.
-    </div>
-    <div class="field">
-      <label>Choose Hero Video</label>
-      <input id="heroVideoFile" type="file" accept="video/mp4,video/webm,video/ogg,.mp4,.webm,.ogg" class="form-input"
-        onchange="wowChooseUpload('heroVideoFile','video','hero','heroVideoUrl','heroVideoUploadStatus')">
-      <div id="heroVideoUploadStatus" class="muted" style="margin-top:7px">MP4 is recommended. Maximum 120MB.</div>
-    </div>
-    <div class="field">
-      <label>Firebase Video URL</label>
-      <input id="heroVideoUrl" class="form-input" value="${esc(h.videoUrl||'')}" readonly placeholder="Choose a video file above">
-      <div class="muted" style="margin-top:7px">This URL is generated automatically after upload.</div>
-    </div>
-    <div class="field"><label>Video Preview</label>
-      <div id="heroUrlPreview" style="height:220px;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#f8fafc;display:flex;align-items:center;justify-content:center;color:#94a3b8">
-        ${h.videoUrl?`<video src="${esc(h.videoUrl)}" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`:'Choose a video file to preview.'}
-      </div>
-    </div>
-    <div class="field"><label>Eyebrow / Small Heading</label><input id="he" value="${esc(h.eyebrow||'')}" placeholder="New Season 2025"></div>
-    <div class="field"><label>Main Title</label><textarea id="ht" rows="2" placeholder="Dress Your Confidence">${esc(h.title||'')}</textarea><div class="muted">Use a line break if you want the title on two lines.</div></div>
-    <div class="field"><label>Subtitle / Description</label><textarea id="hs" rows="3" placeholder="Discover premium fashion...">${esc(h.subtitle||'')}</textarea></div>
-    <div class="two"><div class="field"><label>Primary Button Text</label><input id="hb" value="${esc(h.buttonText||'')}" placeholder="Shop Collection"></div><div class="field"><label>Primary Button URL</label><input id="hu" value="${esc(h.buttonUrl||'#shop')}" placeholder="#shop"></div></div>
-    <div class="two"><div class="field"><label>Secondary Button Text</label><input id="hb2" value="${esc(h.button2Text)}" placeholder="New Arrivals"></div><div class="field"><label>Secondary Button URL</label><input id="hu2" value="${esc(h.button2Url)}" placeholder="#shop"></div></div>
-    <label class="switch"><input id="hvis" type="checkbox" ${h.visible!==false?'checked':''}> Show hero</label>
-    <button class="btn primary" onclick="saveHero()">Save All Hero Settings</button>
-  </div>`;
-  window.wowRefreshAssetPreview=function(targetId){
-    if(targetId!=='heroVideoUrl')return;
-    const u=document.getElementById('heroVideoUrl')?.value.trim(), p=document.getElementById('heroUrlPreview');
-    if(p)p.innerHTML=u?`<video src="${esc(u)}" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`:'Choose a video file to preview.';
-  };
-}
-function saveHero(){
-  const videoUrl=(document.getElementById('heroVideoUrl')?.value||'').trim();
-  if(!videoUrl){
-    toast('Please choose and upload a Hero Video first.');
-    return;
-  }
-  d.hero={
-    ...(d.hero||{}),mediaType:'video',videoUrl,
-    images:Array.isArray(d.hero?.images)?d.hero.images:[],
-    eyebrow:(document.getElementById('he')?.value||'').trim(),
-    title:(document.getElementById('ht')?.value||'').trim(),
-    subtitle:(document.getElementById('hs')?.value||'').trim(),
-    buttonText:(document.getElementById('hb')?.value||'').trim(),
-    buttonUrl:(document.getElementById('hu')?.value||'#shop').trim(),
-    button2Text:(document.getElementById('hb2')?.value||'').trim(),
-    button2Url:(document.getElementById('hu2')?.value||'#shop').trim(),
-    visible:document.getElementById('hvis')?.checked!==false
-  };
-  save();
-}
-function editBanner(bid){let b=bid?d.banners.find(x=>x.id===bid):{id:id('b'),title:'',desktop:'',mobile:'',description:'',button:'Shop Now',url:'#shop',position:'mid',visible:true,order:(d.banners.length||0)+1};open(`<h2>${bid?'Edit':'Add'} Banner</h2><div class="form"><div class="field"><label>Title</label><input id="bn" value="${esc(b.title)}"></div><div class="field"><label>Desktop image URL</label><input id="bd" value="${esc(b.desktop)}"></div><div class="field"><label>Mobile image URL</label><input id="bm" value="${esc(b.mobile)}"></div><div class="field"><label>Image upload</label><input type="file" accept="image/*" onchange="readSingleImage(this,'bd')"></div><div class="field"><label>Description</label><input id="bdesc" value="${esc(b.description)}"></div><div class="two"><div class="field"><label>Button</label><input id="bb" value="${esc(b.button)}"></div><div class="field"><label>URL</label><input id="bu" value="${esc(b.url)}"></div></div><label class="switch"><input id="bvis" type="checkbox" ${b.visible!==false?'checked':''}> Visible</label><div><button class="btn" onclick="closeModal()">Cancel</button> <button class="btn primary" onclick="saveBanner('${b.id}')">Save Banner</button></div></div>`)}
-function saveBanner(bid){let old=d.banners.find(x=>x.id===bid);let b={id:bid,title:bn.value,desktop:bd.value,mobile:bm.value,description:bdesc.value,button:bb.value,url:bu.value,position:'mid',visible:bvis.checked,order:old?.order||d.banners.length+1};let i=d.banners.findIndex(x=>x.id===bid);if(i<0)d.banners.push(b);else d.banners[i]=b;d.banners=d.banners.sort((a,b)=>(a.order||0)-(b.order||0)).slice(0,3);save();closeModal()}
+function hero(){let h=d.hero||{};h.button2Text=h.button2Text||'New Arrivals';h.button2Url=h.button2Url||'#shop';v('hero').innerHTML=`<div class="card form"><div style="font-size:13px;color:#64748b;margin-bottom:14px">Mobile-first hero. Uploading stores the video in Firebase Storage and saves only its public download URL in Firestore.</div><div class="field"><label>Hero Video URL</label><input id="heroVideoUrl" class="form-input" value="${esc(h.videoUrl||'')}" placeholder="https://example.com/banner.mp4"></div><div class="field"><label>Hero Video — Choose File</label><input id="heroVideoFile" type="file" accept="video/mp4,video/webm,video/ogg"><div id="heroUploadStatus" class="muted" style="margin-top:7px">Choose a file to upload to Firebase Storage.</div></div><div class="field"><label>Video Preview</label><div id="heroUrlPreview" style="height:220px;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#f8fafc;display:flex;align-items:center;justify-content:center;color:#94a3b8">${h.videoUrl?`<video src="${esc(h.videoUrl)}" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`:'Choose/upload a video or paste a direct video URL.'}</div></div><div class="field"><label>Hero Poster / Mobile fallback image URL</label><input id="heroPosterUrl" class="form-input" value="${esc((h.images&&h.images[0])||'')}" placeholder="https://..."></div><div class="field"><label>Hero Poster — Choose File</label><input id="heroPosterFile" type="file" accept="image/*"><div id="heroPosterStatus" class="muted" style="margin-top:7px">Optional but recommended for instant mobile first paint.</div></div><div class="field"><label>Eyebrow / Small Heading</label><input id="he" value="${esc(h.eyebrow||'')}" placeholder="New Season 2025"></div><div class="field"><label>Main Title</label><textarea id="ht" rows="2" placeholder="Dress Your Confidence">${esc(h.title||'')}</textarea></div><div class="field"><label>Subtitle / Description</label><textarea id="hs" rows="3" placeholder="Discover premium fashion...">${esc(h.subtitle||'')}</textarea></div><div class="two"><div class="field"><label>Primary Button Text</label><input id="hb" value="${esc(h.buttonText||'')}" placeholder="Shop Collection"></div><div class="field"><label>Primary Button URL</label><input id="hu" value="${esc(h.buttonUrl||'#shop')}" placeholder="#shop"></div></div><div class="two"><div class="field"><label>Secondary Button Text</label><input id="hb2" value="${esc(h.button2Text)}" placeholder="New Arrivals"></div><div class="field"><label>Secondary Button URL</label><input id="hu2" value="${esc(h.button2Url)}" placeholder="#shop"></div></div><label class="switch"><input id="hvis" type="checkbox" ${h.visible!==false?'checked':''}> Show hero</label><button class="btn primary" onclick="saveHero()">Save All Hero Settings</button></div>`;const u=document.getElementById('heroVideoUrl');if(u)u.addEventListener('input',()=>{const p=document.getElementById('heroUrlPreview');if(p)p.innerHTML=u.value.trim()?`<video src="${esc(u.value.trim())}" controls muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`:'Choose/upload a video or paste a direct video URL.'});}
+async function saveHero(){try{const vf=document.getElementById('heroVideoFile')?.files?.[0];const pf=document.getElementById('heroPosterFile')?.files?.[0];let videoUrl=(document.getElementById('heroVideoUrl')?.value||'').trim();let poster=(document.getElementById('heroPosterUrl')?.value||'').trim();if(vf){wowFileStatus('heroUploadStatus','Uploading video…');videoUrl=await wowUploadFile(vf,'hero-video');wowFileStatus('heroUploadStatus','Video uploaded ✓');}if(pf){wowFileStatus('heroPosterStatus','Uploading poster…');poster=await wowUploadFile(pf,'hero-poster');wowFileStatus('heroPosterStatus','Poster uploaded ✓');}d.hero={...(d.hero||{}),mediaType:'video',videoUrl,images:poster?[poster]:Array.isArray(d.hero?.images)?d.hero.images:[],eyebrow:(document.getElementById('he')?.value||'').trim(),title:(document.getElementById('ht')?.value||'').trim(),subtitle:(document.getElementById('hs')?.value||'').trim(),buttonText:(document.getElementById('hb')?.value||'').trim(),buttonUrl:(document.getElementById('hu')?.value||'#shop').trim(),button2Text:(document.getElementById('hb2')?.value||'').trim(),button2Url:(document.getElementById('hu2')?.value||'#shop').trim(),visible:document.getElementById('hvis')?.checked!==false};await save();}catch(e){console.error(e);toast('Upload/save failed: '+(e.message||e),'error');}}
+function editBanner(bid){let b=bid?d.banners.find(x=>x.id===bid):{id:id('b'),title:'',desktop:'',mobile:'',description:'',button:'Shop Now',url:'#shop',position:'mid',visible:true,order:(d.banners.length||0)+1};open(`<h2>${bid?'Edit':'Add'} Banner</h2><div class="form"><div class="field"><label>Title</label><input id="bn" value="${esc(b.title)}"></div><div class="field"><label>Desktop image URL</label><input id="bd" value="${esc(b.desktop)}"></div><div class="field"><label>Desktop image — Choose File</label><input id="bdFile" type="file" accept="image/*"><div id="bdStatus" class="muted"></div></div><div class="field"><label>Mobile image URL</label><input id="bm" value="${esc(b.mobile)}"></div><div class="field"><label>Mobile image — Choose File</label><input id="bmFile" type="file" accept="image/*"><div id="bmStatus" class="muted"></div></div><div class="field"><label>Description</label><input id="bdesc" value="${esc(b.description)}"></div><div class="two"><div class="field"><label>Button</label><input id="bb" value="${esc(b.button)}"></div><div class="field"><label>URL</label><input id="bu" value="${esc(b.url)}"></div></div><label class="switch"><input id="bvis" type="checkbox" ${b.visible!==false?'checked':''}> Visible</label><div><button class="btn" onclick="closeModal()">Cancel</button> <button class="btn primary" onclick="saveBanner('${b.id}')">Save Banner</button></div></div>`)}
+async function saveBanner(bid){try{let old=d.banners.find(x=>x.id===bid);let desktop=(document.getElementById('bd')?.value||'').trim(),mobile=(document.getElementById('bm')?.value||'').trim();const df=document.getElementById('bdFile')?.files?.[0],mf=document.getElementById('bmFile')?.files?.[0];if(df){wowFileStatus('bdStatus','Uploading…');desktop=await wowUploadFile(df,'banners/desktop');wowFileStatus('bdStatus','Uploaded ✓')}if(mf){wowFileStatus('bmStatus','Uploading…');mobile=await wowUploadFile(mf,'banners/mobile');wowFileStatus('bmStatus','Uploaded ✓')}let b={id:bid,title:document.getElementById('bn').value,desktop,mobile,description:document.getElementById('bdesc').value,button:document.getElementById('bb').value,url:document.getElementById('bu').value,position:'mid',visible:document.getElementById('bvis').checked,order:old?.order||d.banners.length+1};let i=d.banners.findIndex(x=>x.id===bid);if(i<0)d.banners.push(b);else d.banners[i]=b;d.banners=d.banners.sort((a,b)=>(a.order||0)-(b.order||0)).slice(0,3);await save();closeModal();}catch(e){console.error(e);toast('Banner upload/save failed: '+(e.message||e),'error')}}
 function promise(){const p=d.promise||{visible:true,label:'Our Promise',title:'Why Shop With Us?',description:'',cards:[]};const cards=(p.cards||[]).slice(0,3);v('promise').innerHTML=`<div class="toolbar"><div><b>Our Promise / Why Shop With Us</b><div class="muted">Edit the section shown above the footer on the home page.</div></div><label class="switch"><input id="promiseVisible" type="checkbox" ${p.visible!==false?'checked':''}> Show Section</label></div><div class="card form"><div class="field"><label>Small Label</label><input id="prLabel" value="${esc(p.label||'')}" placeholder="Our Promise"></div><div class="field"><label>Main Heading</label><input id="prTitle" value="${esc(p.title||'')}" placeholder="Why Shop With Us?"></div><div class="field"><label>Description</label><textarea id="prDesc" rows="3" placeholder="Section description...">${esc(p.description||'')}</textarea></div>${cards.map((c,i)=>`<div class="card" style="margin:0 0 12px;background:#f8fafc"><div class="two"><div class="field"><label>Icon ${i+1}</label><input id="prIcon${i}" value="${esc(c.icon||'star')}" placeholder="zap, badge-check, heart"></div><div class="field"><label>Title</label><input id="prTitle${i}" value="${esc(c.title||'')}"></div></div><div class="field"><label>Description</label><textarea id="prText${i}" rows="3">${esc(c.text||'')}</textarea></div><label class="switch"><input id="prShow${i}" type="checkbox" ${c.visible!==false?'checked':''}> Show this item</label></div>`).join('')}<button class="btn primary" onclick="savePromise()">Save Our Promise</button></div>`}
 function savePromise(){const p=d.promise||{};p.visible=document.getElementById('promiseVisible')?.checked!==false;p.label=(document.getElementById('prLabel')?.value||'').trim();p.title=(document.getElementById('prTitle')?.value||'').trim();p.description=(document.getElementById('prDesc')?.value||'').trim();p.cards=(p.cards||[]).slice(0,3);for(let i=0;i<3;i++){const c=p.cards[i]||{id:'promise'+(i+1)};c.id=c.id||'promise'+(i+1);c.icon=(document.getElementById('prIcon'+i)?.value||'star').trim();c.title=(document.getElementById('prTitle'+i)?.value||'').trim();c.text=(document.getElementById('prText'+i)?.value||'').trim();c.visible=document.getElementById('prShow'+i)?.checked!==false;p.cards[i]=c}d.promise=p;save();toast('Our Promise saved')}
 function benefits(){const b=d.benefits||{visible:true,cards:[]};v('benefits').innerHTML=`<div class="toolbar"><div><b>Hero Benefits Bar</b><div class="muted">Edit the four service highlights shown directly below the video banner.</div></div><label class="switch"><input id="benefitsVisible" type="checkbox" ${b.visible!==false?'checked':''}> Show Benefits Bar</label></div><div class="card"><div class="muted" style="margin-bottom:14px">You can change the icon, title and description for each item. Keep them short for the best professional layout.</div>${(b.cards||[]).slice(0,4).map((c,i)=>`<div class="card" style="margin:0 0 12px;background:#f8fafc"><div class="two"><div class="field"><label>Icon ${i+1}</label><input id="bfIcon${i}" value="${esc(c.icon||'star')}" placeholder="truck, shield-check..."><div class="muted">Lucide icon name</div></div><div class="field"><label>Title</label><input id="bfTitle${i}" value="${esc(c.title||'')}"></div></div><div class="field"><label>Description</label><input id="bfText${i}" value="${esc(c.text||'')}"></div><label class="switch"><input id="bfShow${i}" type="checkbox" ${c.visible!==false?'checked':''}> Show this item</label></div>`).join('')}<button class="btn primary" onclick="saveBenefits()">Save Benefits Bar</button></div>`}
@@ -851,91 +742,10 @@ const THEMES={Midnight:['#111827','#f8fafc','#111827','#fff','#0f172a'],Blue:['#
 function theme(){let t=d.theme;v('theme').innerHTML=`<div class="card"><h3>Presets</h3><div class="themegrid">${Object.entries(THEMES).map(([n,x])=>`<button class="theme" onclick="preset('${n}')"><div class="swatches"><i style="background:${x[0]}"></i><i style="background:${x[1]}"></i><i style="background:${x[3]}"></i><i style="background:${x[4]}"></i></div><b>${n}</b></button>`).join('')}</div></div><div class="card form"><h3>Custom colors</h3><div class="two"><div class="field"><label>Primary</label><input id="tp" type="color" value="${t.primary}"></div><div class="field"><label>Background</label><input id="tbg" type="color" value="${t.background}"></div><div class="field"><label>Text</label><input id="tt" type="color" value="${t.text}"></div><div class="field"><label>Header</label><input id="th" type="color" value="${t.header}"></div><div class="field"><label>Footer</label><input id="tf" type="color" value="${t.footer}"></div><div class="field"><label>Sale</label><input id="ts" type="color" value="${t.sale}"></div></div><button class="btn primary" onclick="saveTheme()">Save Theme</button></div>`}
 function preset(n){let x=THEMES[n];Object.assign(d.theme,{primary:x[0],background:x[1],text:x[2],header:x[3],footer:x[4],sale:'#dc2626',card:'#fff',muted:'#6b7280',badge:x[0]});save()}
 function saveTheme(){Object.assign(d.theme,{primary:tp.value,background:tbg.value,text:tt.value,header:th.value,footer:tf.value,sale:ts.value});save()}
-function branding(){
-  let b=d.branding||{};
-  v('branding').innerHTML=`<div class="card form">
-    <h3 style="margin-top:0">Store Identity</h3>
-    <div class="two">
-      <div class="field"><label>Brand name</label><input id="brn" value="${esc(b.name)}"></div>
-      <div class="field"><label>Browser title</label><input id="brt" value="${esc(b.title)}"></div>
-    </div>
-
-    <div class="field">
-      <label>Logo — Choose File</label>
-      <input id="brLogoFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,.png,.jpg,.jpeg,.webp,.svg"
-        class="form-input" onchange="wowChooseUpload('brLogoFile','image','branding','brl','brLogoStatus')">
-      <div id="brLogoStatus" class="muted" style="margin-top:7px">Upload directly to Firebase Storage.</div>
-      <input id="brl" type="hidden" value="${esc(b.logo||'')}">
-      <div id="brlogoPreview" style="margin-top:10px"></div>
-    </div>
-
-    <div class="field">
-      <label>Logo / Icon — Choose File</label>
-      <input id="brIconFile" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,.png,.jpg,.jpeg,.webp,.svg"
-        class="form-input" onchange="wowChooseUpload('brIconFile','image','branding','bri','brIconStatus')">
-      <div id="brIconStatus" class="muted" style="margin-top:7px">Optional site icon.</div>
-      <input id="bri" type="hidden" value="${esc(b.icon||'')}">
-      <div id="briconPreview" style="margin-top:10px"></div>
-    </div>
-
-    <div class="field">
-      <label>Favicon — Choose File</label>
-      <input id="brFaviconFile" type="file" accept="image/png,image/jpeg,image/webp,image/x-icon,image/svg+xml,.png,.jpg,.jpeg,.webp,.ico,.svg"
-        class="form-input" onchange="wowChooseUpload('brFaviconFile','image','branding','brfv','brFaviconStatus')">
-      <div id="brFaviconStatus" class="muted" style="margin-top:7px">PNG/ICO/SVG recommended.</div>
-      <input id="brfv" type="hidden" value="${esc(b.favicon||'')}">
-      <div id="brfaviconPreview" style="margin-top:10px"></div>
-    </div>
-
-    <div class="field"><label>Footer text</label><textarea id="brf">${esc(b.footer)}</textarea></div>
-    <button class="btn primary" onclick="saveBranding()">Save Branding</button>
-  </div>`;
-  setTimeout(()=>{
-    previewBrandImage('brl','brlogoPreview');
-    previewBrandImage('bri','briconPreview');
-    const f=document.getElementById('brfv')?.value;
-    const box=document.getElementById('brfaviconPreview');
-    if(box&&f)box.innerHTML=`<img src="${esc(f)}" style="width:48px;height:48px;object-fit:contain;border:1px solid #e5e7eb;border-radius:8px;background:#fff">`;
-  },0);
-}
+function branding(){let b=d.branding||{};v('branding').innerHTML=`<div class="card form"><h3>Store Identity</h3><div class="two"><div class="field"><label>Brand name</label><input id="brn" value="${esc(b.name)}"></div><div class="field"><label>Browser title</label><input id="brt" value="${esc(b.title)}"></div></div><div class="field"><label>Logo URL</label><input id="brl" placeholder="https://..." value="${esc(b.logo||'')}" oninput="previewBrandImage('brl','brlogoPreview')"><div id="brlogoPreview" style="margin-top:10px"></div></div><div class="field"><label>Logo — Choose File</label><input id="brlFile" type="file" accept="image/*"><div id="brlStatus" class="muted"></div></div><div class="field"><label>Logo/Icon URL</label><input id="bri" placeholder="https://..." value="${esc(b.icon||'')}"><div id="briconPreview" style="margin-top:10px"></div></div><div class="field"><label>Favicon URL</label><input id="brfv" placeholder="https://..." value="${esc(b.favicon||'')}"><small class="muted">Direct image URL or upload a favicon file below.</small></div><div class="field"><label>Favicon — Choose File</label><input id="brfvFile" type="file" accept="image/png,image/jpeg,image/webp,image/x-icon,.ico,.png,.jpg,.jpeg,.webp"><div id="brfvStatus" class="muted"></div></div><div class="field"><label>Footer text</label><textarea id="brf">${esc(b.footer)}</textarea></div><button class="btn primary" onclick="saveBranding()">Save Branding</button></div>`;setTimeout(()=>{previewBrandImage('brl','brlogoPreview')},0)}
 function cleanImageUrl(x){x=String(x||'').trim();if(!x)return '';if(/^['"]/.test(x)&&/["']$/.test(x))x=x.slice(1,-1);return x}
-function previewBrandImage(inputId,previewId){
-  const url=cleanImageUrl(document.getElementById(inputId)?.value),box=document.getElementById(previewId);
-  if(!box)return;if(!url){box.innerHTML='';return}
-  box.innerHTML=`<div style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #e5e7eb;border-radius:10px;background:#fff">
-    <img src="${esc(url)}" style="width:72px;height:48px;object-fit:contain;border-radius:7px;background:#f3f4f6"
-      onerror="this.style.display='none';this.nextElementSibling.textContent='Image could not be loaded'"><span class="muted">Uploaded asset</span></div>`;
-}
-function saveBranding(){
-  const name=(document.getElementById('brn')?.value||'').trim();
-  const title=(document.getElementById('brt')?.value||'').trim();
-  const logo=cleanImageUrl(document.getElementById('brl')?.value);
-  const icon=cleanImageUrl(document.getElementById('bri')?.value);
-  const favicon=cleanImageUrl(document.getElementById('brfv')?.value);
-  const footer=(document.getElementById('brf')?.value||'').trim();
-  d.branding={...(d.branding||{}),name,title,logo,icon,favicon,footer};
-  save();
-}
-function toggle(type,ident){let x=(d[type]||[]).find(x=>String(x.id)===String(ident));if(x){x.visible=x.visible===false;save()}}
-function del(type,ident){
-  if(!confirm('Delete this item?'))return;
-  const sid=String(ident);
-  if(type==='categories'){
-    const cat=(d.categories||[]).find(x=>String(x.id)===sid);
-    if(!cat){toast('Category not found');return;}
-    const catName=String(cat.name||'').trim().toLowerCase();
-    d.categories=(d.categories||[]).filter(x=>String(x.id)!==sid);
-    // Keep products, but remove the deleted category assignment so the category is truly gone.
-    (d.products||[]).forEach(p=>{if(String(p.category||'').trim().toLowerCase()===catName)p.category='';});
-    // Remove category links from menu items without deleting the menu itself.
-    (d.menu||[]).forEach(m=>{if(String(m.category||'').trim().toLowerCase()===catName)m.category='';});
-    save();
-    return;
-  }
-  if(!Array.isArray(d[type]))return;
-  d[type]=d[type].filter(x=>String(x.id)!==sid);
-  save();
-}
+function previewBrandImage(inputId,previewId){const url=cleanImageUrl(document.getElementById(inputId)?.value);const box=document.getElementById(previewId);if(!box)return;if(!url){box.innerHTML='';return}box.innerHTML=`<div style="display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #e5e7eb;border-radius:10px;background:#fff"><img src="${esc(url)}" style="width:72px;height:48px;object-fit:contain;border-radius:7px;background:#f3f4f6" onerror="this.style.display='none';this.nextElementSibling.textContent='Image URL could not be loaded'"><span class="muted">Preview</span></div>`}
+async function saveBranding(){try{const name=(document.getElementById('brn')?.value||'').trim();const title=(document.getElementById('brt')?.value||'').trim();let logo=cleanImageUrl(document.getElementById('brl')?.value);let favicon=cleanImageUrl(document.getElementById('brfv')?.value);const lf=document.getElementById('brlFile')?.files?.[0],ff=document.getElementById('brfvFile')?.files?.[0];if(lf){wowFileStatus('brlStatus','Uploading logo…');logo=await wowUploadFile(lf,'branding/logo');wowFileStatus('brlStatus','Logo uploaded ✓')}if(ff){wowFileStatus('brfvStatus','Uploading favicon…');favicon=await wowUploadFile(ff,'branding/favicon');wowFileStatus('brfvStatus','Favicon uploaded ✓')}const icon=cleanImageUrl(document.getElementById('bri')?.value);const footer=(document.getElementById('brf')?.value||'').trim();d.branding={...(d.branding||{}),name,title,logo,icon,favicon,footer};await save();toast('Branding saved to cloud — all devices updated');}catch(e){console.error(e);toast('Branding upload/save failed: '+(e.message||e),'error')}}
 function open(html){document.getElementById('modalbox').innerHTML=html;document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('modalbox').innerHTML=''}
 
 function care(){v('care').innerHTML=`<div class="toolbar"><b>Customer Care links</b><button class="btn primary" onclick="editCare()">+ Add</button></div><div class="card">${(d.care.cards||[]).map(c=>`<div class="row"><div><b>${esc(c.title)}</b><div class="muted">${esc(c.text||'')} · ${esc(c.href||'')}</div></div><div class="actions"><button class="btn" onclick="editCare('${c.id}')">Edit</button><button class="btn" onclick="toggleCare('${c.id}')">${c.visible===false?'Show':'Hide'}</button><button class="btn danger" onclick="deleteCare('${c.id}')">Delete</button></div></div>`).join('')}</div><div class="card"><b>Email removal</b><p class="muted">The hard-coded Email Us card is hidden. Add a replacement only if you want one.</p></div>`}

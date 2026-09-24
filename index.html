@@ -1591,7 +1591,7 @@ function updateAuthUI() {
           </div>
 
           <form id="account-profile-form" onsubmit="saveAccountProfile(event)">
-            <div class="wow-section-title">👤 Account Details</div>
+            <div class="wow-section-title"><i class="fas fa-user"></i> Account Details</div>
             <div class="wow-form-grid">
               <label>First Name<input id="acc-firstName" autocomplete="given-name" required></label>
               <label>Last Name<input id="acc-lastName" autocomplete="family-name" required></label>
@@ -1599,7 +1599,7 @@ function updateAuthUI() {
               <label>Phone Number<input id="acc-phone" type="tel" autocomplete="tel" placeholder="+94 7X XXX XXXX"></label>
             </div>
 
-            <div class="wow-section-title">📍 Delivery Address</div>
+            <div class="wow-section-title"><i class="fas fa-location-dot"></i> Delivery Address</div>
             <div class="wow-form-grid">
               <label class="full">Address Line 1<input id="acc-address1" autocomplete="address-line1" placeholder="House No / Street"></label>
               <label class="full">Address Line 2 <small>Optional</small><input id="acc-address2" autocomplete="address-line2" placeholder="Apartment / Landmark"></label>
@@ -1610,14 +1610,14 @@ function updateAuthUI() {
               <label class="full">Country<input id="acc-country" value="Sri Lanka" readonly></label>
             </div>
 
-            <div class="wow-section-title">📞 Delivery Contact</div>
+            <div class="wow-section-title"><i class="fas fa-phone"></i> Delivery Contact</div>
             <div class="wow-form-grid">
               <label>Primary Phone Number<input id="acc-primaryPhone" type="tel"></label>
               <label>Alternative Phone Number <small>Optional</small><input id="acc-altPhone" type="tel"></label>
               <label class="full">Delivery Instructions <small>Optional</small><textarea id="acc-instructions" rows="3" placeholder="e.g. Call before delivery"></textarea></label>
             </div>
 
-            <div class="wow-section-title">🚚 Default Addresses</div>
+            <div class="wow-section-title"><i class="fas fa-truck"></i> Default Addresses</div>
             <div class="wow-form-grid">
               <label class="wow-check-row full"><input id="acc-defaultShipping" type="checkbox"><span>Use this as my Default Shipping Address</span></label>
               <label class="wow-check-row full"><input id="acc-defaultBilling" type="checkbox"><span>Use this as my Default Billing Address</span></label>
@@ -1900,3 +1900,72 @@ if(typeof auth!=='undefined' && auth){auth.onAuthStateChanged(async user=>{curre
 </script>
 </body>
 </html>
+<style>
+/* WOWSHOPPING account — refined responsive/mobile design */
+.wow-section-title{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:-.01em}
+.wow-section-title i{width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;color:#2563eb;font-size:10px;background:#eff6ff;border-radius:6px}
+.wow-account-header{min-height:72px}
+.wow-account-close{display:inline-flex;align-items:center;justify-content:center;font-size:20px;line-height:1}
+.wow-account-tab i,.wow-account-logout i{font-size:11px}
+.wow-panel-heading>div>span{font-size:8px}
+.wow-panel-heading h3{letter-spacing:-.025em}
+@media(max-width:700px){
+  .wow-account-overlay{padding:0;background:rgba(15,23,42,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .wow-account-shell{width:100%;height:100dvh;max-height:none;border-radius:0;box-shadow:none}
+  .wow-account-header{height:64px;min-height:64px;padding:11px 14px;border-bottom:1px solid #eaf0f7}
+  .wow-account-kicker{font-size:7px;letter-spacing:.16em}
+  .wow-account-header h2{font-size:18px;margin-top:2px}
+  .wow-account-close{width:34px;height:34px;border-radius:10px;font-size:20px}
+  .wow-account-body{height:calc(100dvh - 64px);display:flex;flex-direction:column;overflow:hidden}
+  .wow-account-sidebar{order:0;width:100%;height:62px;min-height:62px;padding:7px 10px;display:flex;flex-direction:row;align-items:center;gap:6px;overflow-x:auto;overflow-y:hidden;background:#f8fafc;border:0;border-bottom:1px solid #e8eef5;scrollbar-width:none}
+  .wow-account-sidebar::-webkit-scrollbar{display:none}
+  .wow-account-tab,.wow-account-logout{height:46px;min-width:max-content;flex:0 0 auto;padding:7px 11px;border-radius:11px;justify-content:center;gap:6px;font-size:9px;white-space:nowrap}
+  .wow-account-tab span,.wow-account-logout span{display:inline}
+  .wow-account-tab i,.wow-account-logout i{width:15px;font-size:10px}
+  .wow-account-tab.active{box-shadow:0 3px 12px rgba(37,99,235,.10);background:#fff}
+  .wow-account-logout{margin:0;color:#ef4444;background:#fff5f5}
+  .wow-account-content{order:1;width:100%;height:calc(100dvh - 126px);min-height:0;box-sizing:border-box;overflow-y:auto;overflow-x:hidden;padding:16px 13px 30px;-webkit-overflow-scrolling:touch}
+  .wow-account-panel{width:100%;max-width:none;margin:0}
+  .wow-profile-hero{gap:12px;padding:13px;border-radius:16px;margin-bottom:18px}
+  .wow-avatar-wrap,.wow-avatar-wrap img{width:58px;height:58px}
+  .wow-avatar-wrap img{border-radius:17px}
+  .wow-avatar-edit{width:23px;height:23px;border-radius:8px;font-size:8px;right:-4px;bottom:-4px}
+  .wow-profile-hero h3{font-size:15px}
+  .wow-profile-hero p{font-size:9px;margin:2px 0 5px}
+  .wow-status-pill{font-size:7px;padding:4px 7px}
+  .wow-section-title{font-size:11px;margin:20px 0 9px;padding-bottom:8px}
+  .wow-section-title i{width:17px;height:17px;border-radius:5px;font-size:9px}
+  .wow-form-grid{grid-template-columns:1fr!important;gap:9px}
+  .wow-form-grid label{font-size:8px}
+  .wow-form-grid input,.wow-form-grid textarea{margin-top:5px;min-height:42px;padding:10px 11px;border-radius:10px;font-size:11px}
+  .wow-form-grid textarea{min-height:72px}
+  .wow-check-row{font-size:10px!important}
+  .wow-save-btn{width:100%;margin-top:17px;padding:12px 14px;border-radius:11px;font-size:10px}
+  .wow-save-status{display:block;margin:8px 0 0;text-align:center}
+  .wow-panel-heading{margin-bottom:14px}
+  .wow-panel-heading h3{font-size:18px;line-height:1.25}
+  .wow-panel-heading>div>span{font-size:7px}
+  .wow-pref-list{border-radius:14px}
+  .wow-pref-list label{padding:13px 12px;gap:12px}
+  .wow-pref-list strong{font-size:10px}
+  .wow-pref-list small{font-size:8px;line-height:1.35;padding-right:5px}
+  .wow-pref-list input{width:36px;height:20px;flex:0 0 auto}
+  .wow-address-card,.wow-order-card{padding:13px;border-radius:14px}
+  .wow-account-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .wow-wish-card{border-radius:12px}
+  .wow-wish-card div{padding:8px}
+  .wow-security-card{padding:13px;border-radius:14px;gap:10px}
+  .wow-security-icon{width:36px;height:36px;border-radius:11px;flex:0 0 36px}
+  .wow-security-card strong{font-size:10px}
+  .wow-security-card p{font-size:9px}
+  .wow-security-card small{font-size:8px}
+  .wow-security-card .wow-mini-btn{margin-left:46px}
+}
+@media(max-width:380px){
+  .wow-account-header h2{font-size:16px}
+  .wow-account-sidebar{height:58px;min-height:58px;padding:6px 8px}
+  .wow-account-tab,.wow-account-logout{height:42px;padding:6px 9px;font-size:8px}
+  .wow-account-content{height:calc(100dvh - 122px);padding-left:11px;padding-right:11px}
+  .wow-panel-heading h3{font-size:17px}
+}
+</style>

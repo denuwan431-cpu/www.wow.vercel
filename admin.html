@@ -438,6 +438,20 @@ function ensureCategoryDefaults(target){
 ensureCategoryDefaults(d);
 
 d.settings=d.settings||{showShopAll:false,adminEmail:'',requireFirebase:true};
+d.siteContent=d.siteContent||{
+  header:{searchPlaceholder:'Search for products, brands and more...',showSearch:true,showNotifications:true,showAccount:true,showCart:true},
+  nav:{visible:true,items:[
+    {label:'Home',url:'#home',visible:true},{label:'Categories',url:'#categories',visible:true},
+    {label:'Deals',url:'#flash-sale',visible:true},{label:'Shop',url:'#products',visible:true}
+  ]},
+  sections:{
+    categories:{visible:true,eyebrow:'Shop by Category',title:'Explore Categories'},
+    newArrivals:{visible:true,eyebrow:'Just In',title:'New Arrivals',viewAll:'View All'},
+    middleBanner:{visible:true},
+    bestSellers:{visible:true,eyebrow:'Customer Favorites',title:'Best Sellers',viewAll:'View All'},
+    promise:{visible:true}
+  }
+};
 d.footer=d.footer||{visible:true,description:'',copyright:'',payments:[{name:'VISA',visible:true},{name:'MASTERCARD',visible:true},{name:'COD',visible:true}],secureText:'Secure Shopping',sections:[{id:'shop',title:'Shopping',visible:true,links:[{label:'New Arrivals',url:'#shop',visible:true},{label:'Sale',url:'#shop',visible:true}]},{id:'care',title:'Customer Care',visible:true,links:[{label:'Contact Us',url:'#care',visible:true},{label:'Order Tracking',url:'#tracking',visible:true},{label:'FAQ',url:'#care',visible:true}]},{id:'company',title:'Company',visible:true,links:[{label:'About Us',url:'#about',visible:true},{label:'Privacy Policy',url:'#privacy',visible:true},{label:'Terms & Conditions',url:'#terms',visible:true}]}]};
 d.care=d.care||{cards:[{id:'care1',title:'Call Us',text:'Mon - Sat, 9AM - 6PM',value:'Call Now',href:'tel:+94112345678',visible:true},{id:'care2',title:'WhatsApp',text:'Quick response',value:'Chat Now',href:'https://wa.me/94112345678',visible:true},{id:'care3',title:'Help Center',text:'Find answers',value:'Open Help',href:'#care',visible:true}]};
 d.benefits=d.benefits||{visible:true,cards:[{id:'benefit1',icon:'truck',title:'Free Delivery',text:'On orders over Rs. 3,000',visible:true},{id:'benefit2',icon:'refresh-ccw',title:'Easy Exchange',text:'Hassle-free within 7 days',visible:true},{id:'benefit3',icon:'shield-check',title:'Secure Payments',text:'100% safe & encrypted',visible:true},{id:'benefit4',icon:'headphones',title:'24/7 Support',text:'Ready to help anytime',visible:true}]};
@@ -476,7 +490,7 @@ async function save(){
   }
 }
 function merge(a,b){for(const k in b){if(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k])a[k]=merge(a[k],b[k]);else a[k]=b[k]}return a}function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}function id(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,5)}function toast(x){alert(x)}
-const sections=['dashboard','products','customers','categories','menu','hero','banners','benefits','promise','branding','care','footer','shipping','payments','settings'];const labels={dashboard:'Dashboard',products:'Product Manager',customers:'Customers' ,categories:'Categories',menu:'Menu Manager',hero:'Hero / Video',banners:'3 Banner Carousel',benefits:'Benefits Bar',promise:'Our Promise',theme:'Theme Manager',branding:'Branding',care:'Customer Care',footer:'Footer Manager',shipping:'Shipping',payments:'Payments',settings:'Settings'};let current='dashboard';
+const sections=['dashboard','products','customers','categories','menu','hero','banners','benefits','promise','storefront','theme','branding','care','footer','shipping','payments','settings'];const labels={dashboard:'Dashboard',products:'Product Manager',customers:'Customers' ,categories:'Categories',menu:'Menu Manager',hero:'Hero / Video',banners:'Banner Carousel',benefits:'Benefits Bar',promise:'Our Promise',storefront:'Storefront Editor',theme:'Theme Manager',branding:'Branding',care:'Customer Care',footer:'Footer Manager',shipping:'Shipping',payments:'Payments',settings:'Settings'};let current='dashboard';
 function boot(){document.getElementById('nav').innerHTML=sections.map(s=>`<button data-s="${s}" onclick="show('${s}')">${labels[s]}</button>`).join('');document.getElementById('views').innerHTML=sections.map(s=>`<section class="view" id="v-${s}"></section>`).join('');show('dashboard')}
 function show(s){current=s;document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.s===s));const target=document.getElementById('v-'+s);if(!target)return;target.classList.add('active');document.getElementById('title').textContent=labels[s]||s;render();if(s==='promise'&&typeof promise==='function'){promise()}}
 async function payments(){
@@ -506,7 +520,7 @@ async function savePayments(){
    toast('Payment settings saved');
  }catch(e){console.error(e);toast(e.message||'Could not save payment settings','error')}
 }
-function render(){if(!document.getElementById('v-'+current))return;({dashboard:dash,products:products,customers:customers,categories:categories,menu:menu,hero:hero,banners:banners,benefits:benefits,promise:promise,theme:theme,branding:branding,care:care,footer:footer,shipping:shipping,payments:payments,settings:settings}[current]||dash)()}
+function render(){if(!document.getElementById('v-'+current))return;({dashboard:dash,products:products,customers:customers,categories:categories,menu:menu,hero:hero,banners:banners,benefits:benefits,promise:promise,storefront:storefront,theme:theme,branding:branding,care:care,footer:footer,shipping:shipping,payments:payments,settings:settings}[current]||dash)()}
 function dash(){v('dashboard').innerHTML=`<div class="grid"><div class="card"><div class="label">Products</div><div class="stat">${d.products.length}</div></div><div class="card"><div class="label">Visible Products</div><div class="stat">${d.products.filter(x=>x.visible!==false).length}</div></div><div class="card"><div class="label">Categories</div><div class="stat">${d.categories.length}</div></div><div class="card"><div class="label">Banners</div><div class="stat">${d.banners.length}</div></div></div><div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><h3 style="margin:0">Live Customer Presence</h3><p class="muted">Customers active on the storefront during the last 2 minutes.</p></div><button class="btn primary" onclick="loadAdminPresence()">Refresh</button></div><div id="adminPresenceKpi" style="font-size:38px;font-weight:900;margin-top:12px">—</div><div id="adminPresenceList" class="muted">Loading...</div></div><div class="card"><h3>Admin is ready</h3><p class="muted">Use the left menu to manage products, customers, categories, menu, hero, banners, theme, branding and settings.</p></div>`;setTimeout(loadAdminPresence,50)}
 async function loadAdminPresence(){try{const u=wowAdminAuth?.currentUser;if(!u)return;const token=await u.getIdToken(true);const base=(window.WOW_AUTH_API_BASE||'https://asia-south1-wowshopping-cd8bd.cloudfunctions.net').replace(/\/$/,'');const r=await fetch(base+'/listUsers',{headers:{Authorization:'Bearer '+token}});const j=await r.json();if(!r.ok)throw new Error(j.error||'Unable to load presence');const on=(j.users||[]).filter(x=>x.online);const k=document.getElementById('adminPresenceKpi');if(k)k.textContent=String(on.length);const l=document.getElementById('adminPresenceList');if(l)l.innerHTML=on.length?on.slice(0,8).map(x=>`<span style="display:inline-flex;align-items:center;gap:7px;margin:8px 12px 0 0;padding:7px 10px;border:1px solid #dcfce7;background:#f0fdf4;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#22c55e"></span>${esc(x.name||x.displayName||x.phoneNumber||x.email||'Customer')}</span>`).join(''):'No customers are currently active.'}catch(e){console.error(e);const l=document.getElementById('adminPresenceList');if(l)l.textContent='Unable to load live presence.'}}
 function v(s){return document.getElementById('v-'+s)}
@@ -769,6 +783,39 @@ function payToggle(i){d.footer.payments[i].visible=d.footer.payments[i].visible=
 function payDelete(i){d.footer.payments.splice(i,1);save()}
 function saveFooter(){d.footer.visible=fv.checked;d.footer.description=fd.value;d.footer.copyright=fc.value;d.footer.secureText=fsecure.value;d.footer.contact={email:document.getElementById('femail')?.value.trim()||'',phone:document.getElementById('fphone')?.value.trim()||'',whatsapp:document.getElementById('fwa')?.value.trim()||''};d.footer.sections=d.footer.sections.map((sec,i)=>({...sec,title:document.getElementById('fs_title_'+i)?.value?.trim()||sec.title,id:document.getElementById('fs_id_'+i)?.value?.trim()||sec.id,links:(sec.links||[]).map((ln,j)=>({...ln,label:document.getElementById('fs_'+i+'_'+j+'_label')?.value?.trim()||ln.label,url:document.getElementById('fs_'+i+'_'+j+'_url')?.value?.trim()||ln.url}))}));save()}
 function shipping(){v('shipping').innerHTML=`<div class="card form"><div class="two"><div class="field"><label>Standard</label><input id="ss" type="number" value="${d.shipping?.standard||350}"></div><div class="field"><label>Express</label><input id="se" type="number" value="${d.shipping?.express||650}"></div></div><button class="btn primary" onclick="d.shipping={standard:+ss.value||0,express:+se.value||0};save()">Save Shipping</button></div>`}
+function storefront(){
+ const c=d.siteContent||{}; const h=c.header||{}, n=c.nav||{}, s=c.sections||{};
+ const nav=Array.isArray(n.items)?n.items:[];
+ v('storefront').innerHTML=`<div class="card"><div class="toolbar"><div><b>Storefront Editor</b><div class="muted">Edit or hide the visible storefront UI. Changes are saved to the same Firebase storefront document used by index.html.</div></div></div>
+ <div class="card form"><h3>Header</h3>
+ <div class="field"><label>Search placeholder</label><input id="scSearch" value="${esc(h.searchPlaceholder||'Search for products, brands and more...')}"></div>
+ <div class="two">
+ <label class="switch"><input id="scSearchOn" type="checkbox" ${h.showSearch!==false?'checked':''}> Show Search</label>
+ <label class="switch"><input id="scNotifOn" type="checkbox" ${h.showNotifications!==false?'checked':''}> Show Notifications</label>
+ <label class="switch"><input id="scAccountOn" type="checkbox" ${h.showAccount!==false?'checked':''}> Show Account</label>
+ <label class="switch"><input id="scCartOn" type="checkbox" ${h.showCart!==false?'checked':''}> Show Cart</label>
+ </div></div>
+ <div class="card form"><h3>Navigation Bar</h3><label class="switch"><input id="scNavOn" type="checkbox" ${n.visible!==false?'checked':''}> Show Navigation</label>
+ ${nav.map((x,i)=>`<div class="two" style="align-items:end"><div class="field"><label>Item ${i+1} Label</label><input id="scNavLabel${i}" value="${esc(x.label||'')}"></div><div class="field"><label>URL</label><input id="scNavUrl${i}" value="${esc(x.url||'#')}"></div><label class="switch"><input id="scNavVis${i}" type="checkbox" ${x.visible!==false?'checked':''}> Show</label></div>`).join('')}
+ <button class="btn" onclick="scAddNav()">+ Add Navigation Item</button></div>
+ <div class="card form"><h3>Home Sections</h3>
+ ${[['categories','Categories'],['newArrivals','New Arrivals'],['bestSellers','Best Sellers']].map(([k,l])=>{let x=s[k]||{};return `<div class="card form" style="margin:0"><b>${l}</b><label class="switch"><input id="sc_${k}_vis" type="checkbox" ${x.visible!==false?'checked':''}> Show ${l}</label><div class="two"><div class="field"><label>Eyebrow</label><input id="sc_${k}_eyebrow" value="${esc(x.eyebrow||'')}"></div><div class="field"><label>Title</label><input id="sc_${k}_title" value="${esc(x.title||'')}"></div></div>${k!=='categories'?`<div class="field"><label>View All Text</label><input id="sc_${k}_view" value="${esc(x.viewAll||'View All')}"></div>`:''}</div>`}).join('')}
+ <div class="card form" style="margin:0"><b>Middle Banner</b><label class="switch"><input id="sc_middle_vis" type="checkbox" ${(s.middleBanner?.visible)!==false?'checked':''}> Show Middle Banner</label></div>
+ <div class="card form" style="margin:0"><b>Our Promise</b><label class="switch"><input id="sc_promise_vis" type="checkbox" ${(s.promise?.visible)!==false?'checked':''}> Show Our Promise</label></div>
+ </div>
+ <button class="btn primary" onclick="saveStorefront()">Save Storefront Controls</button></div>`;
+}
+function scAddNav(){d.siteContent=d.siteContent||{};d.siteContent.nav=d.siteContent.nav||{visible:true,items:[]};d.siteContent.nav.items.push({label:'New Item',url:'#shop',visible:true});save()}
+function saveStorefront(){
+ const c=d.siteContent||{}; c.header={...(c.header||{}),searchPlaceholder:document.getElementById('scSearch').value,showSearch:document.getElementById('scSearchOn').checked,showNotifications:document.getElementById('scNotifOn').checked,showAccount:document.getElementById('scAccountOn').checked,showCart:document.getElementById('scCartOn').checked};
+ c.nav={...(c.nav||{}),visible:document.getElementById('scNavOn').checked,items:(c.nav?.items||[]).map((x,i)=>({...x,label:document.getElementById('scNavLabel'+i)?.value??x.label,url:document.getElementById('scNavUrl'+i)?.value??x.url,visible:document.getElementById('scNavVis'+i)?.checked!==false}))};
+ c.sections={...(c.sections||{})};
+ ['categories','newArrivals','bestSellers'].forEach(k=>{let x=c.sections[k]||{};x.visible=document.getElementById('sc_'+k+'_vis')?.checked!==false;x.eyebrow=document.getElementById('sc_'+k+'_eyebrow')?.value||'';x.title=document.getElementById('sc_'+k+'_title')?.value||'';if(k!=='categories')x.viewAll=document.getElementById('sc_'+k+'_view')?.value||'View All';c.sections[k]=x});
+ c.sections.middleBanner={...(c.sections.middleBanner||{}),visible:document.getElementById('sc_middle_vis')?.checked!==false};
+ c.sections.promise={...(c.sections.promise||{}),visible:document.getElementById('sc_promise_vis')?.checked!==false};
+ d.siteContent=c;save();
+}
+
 function settings(){v('settings').innerHTML=`<div class="card form"><h3>Store Controls</h3><div class="field"><label>Admin email</label><input id="ae" value="${esc(d.settings.adminEmail||'')}"></div><button class="btn primary" onclick="d.settings.adminEmail=ae.value;save()">Save Settings</button></div>`}
 
 boot();

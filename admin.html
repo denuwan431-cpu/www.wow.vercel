@@ -482,6 +482,9 @@ async function save(){
     const user=wowAdminAuth?.currentUser;
     if(!wowAdminDb || !user) throw new Error('Admin Firebase session is not ready');
     await wowAdminDb.collection('siteConfig').doc('storefront').set({data:d,updatedAt:firebase.firestore.FieldValue.serverTimestamp(),updatedBy:user.uid},{merge:true});
+    // Keep one canonical published document for the storefront. The index.html
+    // reads this exact document, so admin changes are not browser-local.
+    await wowAdminDb.collection('siteConfig').doc('storefront').get();
     try{localStorage.removeItem(KEY)}catch(e){}
     toast('Saved to cloud — all devices updated');
   }catch(e){

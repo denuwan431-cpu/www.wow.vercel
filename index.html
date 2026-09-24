@@ -1732,9 +1732,12 @@ function updateAuthUI() {
 .wow-pref-list .wow-pref-row input:checked + .wow-toggle-ui::after{transform:translateX(15px);}
 .wow-pref-list .wow-pref-row:active .wow-toggle-ui{transform:scale(.96);}
 
-/* Remove the duplicate account/profile icon from the main storefront header.
-   The Profile tab in the mobile bottom navigation and Account panel remain available. */
-#app header [data-profile-action]{display:none!important;}
+/* Keep one clean Account button in the main header.
+   Hide only the duplicate Profile item in the mobile bottom navigation. */
+#app header [data-profile-action]{display:flex!important;}
+@media(max-width:700px){
+  #app nav [data-profile-action]{display:none!important;}
+}
 
 @media(max-width:700px){
   .wow-pref-list{border-radius:14px;}

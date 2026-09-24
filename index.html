@@ -1206,6 +1206,13 @@ function updateAuthUI() {
             switchAccountTab('orders');
         }
 
+        // Cloud/admin data can contain plain strings such as video URLs.
+        // Keep this helper local to the storefront so Hero rendering never fails
+        // because of a missing sanitizer function.
+        function wowSafeText(value) {
+            return String(value == null ? '' : value);
+        }
+
         function renderHero() {
             const root = document.getElementById('home');
             const media = document.getElementById('hero-section');
@@ -1239,11 +1246,13 @@ function updateAuthUI() {
             video.setAttribute('loop','');
             video.setAttribute('playsinline','');
             if (poster) video.poster = poster;
-            video.src = videoUrl;
+            const source = document.createElement('source');
+            source.src = videoUrl;
+            source.type = /\.(mp4)(?:$|[?#])/i.test(videoUrl) ? 'video/mp4' : 'video/webm';
+            video.appendChild(source);
             const play = () => {
                 video.muted = true;
                 video.defaultMuted = true;
-                try { video.load(); } catch (_) {}
                 const p = video.play();
                 if (p?.catch) p.catch(() => {});
             };
@@ -1253,8 +1262,13 @@ function updateAuthUI() {
             video.addEventListener('error', () => {
                 if (video.dataset.fallback !== '1' && videoUrl !== WOW_DEFAULT_HERO_VIDEO) {
                     video.dataset.fallback = '1';
-                    video.src = WOW_DEFAULT_HERO_VIDEO;
+                    while (video.firstChild) video.removeChild(video.firstChild);
+                    const fallbackSource = document.createElement('source');
+                    fallbackSource.src = WOW_DEFAULT_HERO_VIDEO;
+                    fallbackSource.type = 'video/mp4';
+                    video.appendChild(fallbackSource);
                     video.poster = WOW_DEFAULT_HERO_POSTER;
+                    video.load();
                     play();
                 }
             });

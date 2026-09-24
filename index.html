@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>wowshopping.lk | Quality Online Shopping</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -691,65 +691,130 @@
             measurementId: "G-3FK3BFZNRG"
         };
 
-        // Initialize Firebase Safely
-        let auth, provider;
-        try {
-            if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-            }
-            auth = firebase.auth();
-            provider = new firebase.auth.GoogleAuthProvider();
-            
-            // Listen for Auth State
-            auth.onAuthStateChanged((user) => {
-                if (user) {
-                    currentUser = user;
-                    updateAuthUI();
-                }
-            });
-        } catch (e) {
-            console.warn("Firebase initialization failed. Authentication might not work.");
-        }
-
+        // Firebase state. The SDK is loaded synchronously above, so auth is
+        // ready before any Login button can be used.
+        let auth = null;
+        let provider = null;
         let currentUser = null;
         let cart = [];
 
+        function ensureFirebaseAuth() {
+            try {
+                if (!window.firebase || !firebase.auth) return false;
+                if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+                auth = firebase.auth();
+                provider = provider || new firebase.auth.GoogleAuthProvider();
+                provider.setCustomParameters({ prompt: 'select_account' });
+                return true;
+            } catch (err) {
+                console.error('Firebase Authentication setup failed:', err);
+                return false;
+            }
+        }
+
+        ensureFirebaseAuth();
+
+
         function openWowLogin(){
-  const m=document.getElementById('wow-login-modal'); if(!m)return;
-  m.classList.add('open'); m.setAttribute('aria-hidden','false');
+  const m=document.getElementById('wow-login-modal');
+  if(!m)return;
+  m.classList.add('open');
+  m.setAttribute('aria-hidden','false');
   const b=(typeof localData!=='undefined'&&localData.branding)||{};
   const logo=b.logo||'';
   const box=document.getElementById('wow-login-logo');
-  if(box) box.innerHTML=logo ? `<img src="${String(logo).replace(/"/g,'&quot;')}" alt="WOWSHOPPING logo" onerror="this.parentElement.innerHTML='<span>W</span>'">` : '<span>W</span>';
-}
-function closeWowLogin(){
-  const m=document.getElementById('wow-login-modal');
-  if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}
-}
-async function continueWithGoogle(){
-  if(!auth){alert("Google login is not configured. Please enable Google in Firebase Authentication.");return;}
-  const btn=document.getElementById('wow-google-btn-text');
-  if(btn)btn.textContent='Connecting…';
-  try{
-    const result=await auth.signInWithPopup(provider);
-    currentUser=result.user;
-    updateAuthUI();
-    closeWowLogin();
-    history.replaceState(null,'',location.pathname+location.search);
-    window.scrollTo({top:0,behavior:'smooth'});
-  }catch(error){
-    console.error("Google login failed:",error);
-    let message='Google sign-in could not be completed. Please try again.';
-    if(error?.code==='auth/popup-blocked')message='Please allow pop-ups for this website and try again.';
-    if(error?.code==='auth/unauthorized-domain')message='This website domain is not authorized in Firebase Authentication.';
-    if(error?.code==='auth/popup-closed-by-user')message='Sign-in was cancelled.';
-    alert(message);
-  }finally{
-    if(btn)btn.textContent='Continue with Google';
+  if(box){
+    box.innerHTML = logo
+      ? `<img src="${String(logo).replace(/"/g,'&quot;')}" alt="WOWSHOPPING logo" onerror="this.parentElement.innerHTML='<span>W</span>'">`
+      : '<span>W</span>';
   }
 }
+
+function closeWowLogin(){
+  const m=document.getElementById('wow-login-modal');
+  if(m){
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden','true');
+  }
+}
+
+function wowAuthErrorMessage(error){
+  const code = error?.code || '';
+  if(code === 'auth/operation-not-allowed'){
+    return 'Google Sign-In is disabled in Firebase. Open Firebase Console → Authentication → Sign-in method → Google → Enable → Save.';
+  }
+  if(code === 'auth/unauthorized-domain'){
+    return `This website domain is not authorized in Firebase Authentication. Add "${location.hostname}" under Authentication → Settings → Authorized domains.`;
+  }
+  if(code === 'auth/popup-blocked'){
+    return 'The Google login popup was blocked. Please allow pop-ups and try again.';
+  }
+  if(code === 'auth/popup-closed-by-user'){
+    return 'Google sign-in was cancelled.';
+  }
+  if(code === 'auth/network-request-failed'){
+    return 'Network error. Check your internet connection and try again.';
+  }
+  if(code === 'auth/invalid-api-key'){
+    return 'Firebase configuration is invalid. Please check the Firebase web app settings.';
+  }
+  return 'Google sign-in could not be completed. Please try again.';
+}
+
+async function continueWithGoogle(){
+  if(currentUser){
+    updateAuthUI();
+    return;
+  }
+
+  if(!ensureFirebaseAuth()){
+    alert('Firebase Authentication could not start. Please check that the Firebase SDK is loading on this website.');
+    return;
+  }
+
+  const btn=document.getElementById('wow-google-btn-text');
+  const googleBtn=document.querySelector('.wow-google-btn');
+  if(btn)btn.textContent='Connecting…';
+  if(googleBtn)googleBtn.disabled=true;
+
+  try{
+    const result=await auth.signInWithPopup(provider);
+    currentUser=result.user || null;
+    updateAuthUI();
+    closeWowLogin();
+    history.replaceState(null,'',location.pathname+location.search+location.hash.replace('#login',''));
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(error){
+    console.error('Google login failed:',error);
+
+    // Popup is blocked on some devices/browsers. Use Firebase's redirect flow
+    // as a fallback rather than showing a misleading "not configured" message.
+    if(error?.code === 'auth/popup-blocked'){
+      try{
+        await auth.signInWithRedirect(provider);
+        return;
+      }catch(redirectError){
+        console.error('Google redirect login failed:',redirectError);
+        alert(wowAuthErrorMessage(redirectError));
+      }
+    }else{
+      alert(wowAuthErrorMessage(error));
+    }
+  }finally{
+    if(btn)btn.textContent='Continue with Google';
+    if(googleBtn)googleBtn.disabled=false;
+  }
+}
+
 async function googleLogin(){
-  if(currentUser)return;
+  if(!ensureFirebaseAuth()){
+    alert('Firebase Authentication could not start. Please check that the Firebase SDK is loading on this website.');
+    return;
+  }
+  if(currentUser){
+    updateAuthUI();
+    return;
+  }
   openWowLogin();
 }
 
@@ -1276,15 +1341,31 @@ function googleLogout() {
 
         async function initRealStorefrontSync() {
             try {
-                if (!window.firebase) return;
-                if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-                auth = firebase.auth();
-                provider = new firebase.auth.GoogleAuthProvider();
+                if (!ensureFirebaseAuth()) {
+                    console.warn('Firebase SDK/Auth is not ready yet.');
+                    return;
+                }
 
                 auth.onAuthStateChanged((user) => {
                     currentUser = user || null;
                     updateAuthUI();
                 });
+
+                // Complete a redirect-based Google login, if the browser used
+                // the popup-blocked fallback.
+                try {
+                    const redirectResult = await auth.getRedirectResult();
+                    if (redirectResult && redirectResult.user) {
+                        currentUser = redirectResult.user;
+                        updateAuthUI();
+                        closeWowLogin();
+                    }
+                } catch (redirectError) {
+                    console.warn('Google redirect result:', redirectError);
+                    if (redirectError?.code && redirectError.code !== 'auth/no-auth-event') {
+                        console.warn(wowAuthErrorMessage(redirectError));
+                    }
+                }
 
                 const db = firebase.firestore();
                 const ref = db.collection('siteConfig').doc('storefront');
@@ -1363,7 +1444,6 @@ function googleLogout() {
 
         initApp();
         initRealStorefrontSync();
-        initRealStorefrontSync();
     </script>
 
 
@@ -1421,7 +1501,7 @@ function googleLogout() {
 .wow-login-logo img{width:100%;height:100%;object-fit:contain;background:#fff}.wow-login-logo span{color:#fff;font-size:27px;font-weight:900}
 .wow-login-kicker{font-size:10px;font-weight:900;letter-spacing:.18em;color:#2563eb;margin-bottom:7px}.wow-login-card h2{margin:0;color:#0f172a;font-size:22px;font-weight:900}.wow-login-subtitle{margin:8px 0 22px;color:#64748b;font-size:13px;line-height:1.5}
 .wow-google-btn{width:100%;height:54px;border:1px solid #dbe2ea;background:#fff;border-radius:15px;display:flex;align-items:center;justify-content:center;gap:11px;color:#111827;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 5px 16px rgba(15,23,42,.06);transition:.2s}
-.wow-google-btn:hover{border-color:#bfdbfe;box-shadow:0 9px 24px rgba(37,99,235,.12);transform:translateY(-1px)}.wow-google-mark,.wow-google-mark svg{width:21px;height:21px}
+.wow-google-btn:disabled{opacity:.65;cursor:wait;transform:none!important}.wow-google-btn:hover{border-color:#bfdbfe;box-shadow:0 9px 24px rgba(37,99,235,.12);transform:translateY(-1px)}.wow-google-mark,.wow-google-mark svg{width:21px;height:21px}
 .wow-login-divider{display:flex;align-items:center;gap:10px;margin:22px 0 10px;color:#94a3b8;font-size:8px;font-weight:900;letter-spacing:.16em}.wow-login-divider:before,.wow-login-divider:after{content:"";height:1px;background:#eef2f7;flex:1}
 .wow-login-note{margin:0;color:#94a3b8;font-size:10px;line-height:1.5}
 @media(max-width:480px){.wow-login-card{padding:30px 20px 22px;border-radius:24px}.wow-login-card h2{font-size:20px}}

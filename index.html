@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#ffffff" name="theme-color"/>
-<link crossorigin="" href="https://www.gstatic.com" rel="preconnect"/>
-<link crossorigin="" href="https://unpkg.com" rel="preconnect"/>
-<title>WOWSHOPPING.lk — Premium Fashion &amp; Lifestyle</title>
-<meta content="Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000." name="description"/>
-<script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#ffffff"/>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <title>WOWSHOPPING.lk — Premium Fashion & Lifestyle</title>
+  <meta name="description" content="Shop the latest fashion, accessories, and lifestyle products at WOWSHOPPING.lk. Free delivery on orders over Rs. 3000."/>
+  <script>
   function getCategoryFilterKey(){ return String(window.currentCategory||window.selectedCategory||''); }
   function getLiveCategoryDef(cat){
     const key=String(cat||'').trim().toLowerCase();
@@ -33,12 +32,12 @@
     box.innerHTML=vals.length?`<div class="filter-section"><div class="filter-title">${def.filterLabel||'Filter'}</div><div class="filter-options">${vals.map(v=>`<label class="filter-item"><input type="checkbox" value="${String(v).replace(/"/g,'&quot;')}" data-cat-filter="1" onchange="applyFilters()"> ${v}</label>`).join('')}</div></div>`:'';
   }
   </script>
-<script defer="" src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<!-- Firebase Authentication / Firestore. Add your Firebase web config in the FIREBASE_CONFIG object below. -->
-<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-<style>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- Firebase Authentication / Firestore. Add your Firebase web config in the FIREBASE_CONFIG object below. -->
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+  <style>
     :root {
       --color-primary: #111827;
       --color-accent: #2563eb;
@@ -423,6 +422,7 @@ body.wow-ready #site-header{opacity:1}
 
 .pay-option{display:flex;align-items:center;gap:14px;border:1.5px solid #e5e7eb;border-radius:10px;padding:16px;cursor:pointer;background:#fff}.pay-option:has(input:checked){border-color:#2563eb;background:#eff6ff}.pay-option input{accent-color:#2563eb}
 </style>
+
 <style>
 .admin-media{width:54px;height:54px;object-fit:cover;border-radius:8px;background:#f3f4f6}.admin-form .admin-field input,.admin-form .admin-field textarea,.admin-form .admin-field select{width:100%;box-sizing:border-box}.admin-list-row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:12px;border-bottom:1px solid #f0f0f0}.admin-list-row:last-child{border-bottom:0}.admin-three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hero-media-shell video,.hero-media-shell img{display:block;width:100%;height:100%;object-fit:cover}.hero-section>.hero-overlay-admin~*{position:relative}@media(max-width:768px){.admin-three{grid-template-columns:1fr}.admin-list-row{align-items:flex-start;flex-direction:column}.admin-list-row>div:last-child{display:flex;flex-wrap:wrap}.promo-grid{grid-template-columns:1fr!important}}
 </style>
@@ -471,6 +471,7 @@ body.wow-ready #site-header{opacity:1}
   font-weight:600;
 }
 </style>
+
 <style>
 .color-preview-visible{
   display:inline-flex!important; align-items:center!important; justify-content:center!important;
@@ -480,6 +481,7 @@ body.wow-ready #site-header{opacity:1}
   background-color:#fff;
 }
 </style>
+
 <style>
 #dynamicCategoryFilters .filter-group{margin-top:0}
 #dynamicCategoryFilters .filter-title{font-weight:700;margin-bottom:9px}
@@ -499,7 +501,7 @@ body.wow-ready #site-header{opacity:1}
 @media(max-width:560px){.wow-benefits-grid{grid-template-columns:1fr;padding:12px 16px;gap:4px}.wow-benefit-card{padding:8px 2px;}}
 </style>
 <style id="wow-promise-pro">.wow-promise-section{padding:64px 0;background:#f9fafb}.wow-promise-wrap{max-width:1000px;margin:0 auto;padding:0 20px;text-align:center}.wow-promise-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#111;margin-bottom:10px}.wow-promise-title{font-size:32px;line-height:1.15;font-weight:800;color:#111;margin:0 0 14px}.wow-promise-desc{font-size:15px;line-height:1.7;color:#6b7280;margin:0 auto 44px;max-width:760px}.wow-promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}.wow-promise-card{text-align:center}.wow-promise-icon{width:60px;height:60px;border-radius:14px;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:#111}.wow-promise-icon svg{width:26px;height:26px}.wow-promise-card h3{font-size:15px;font-weight:700;margin:0 0 8px;color:#111}.wow-promise-card p{font-size:13px;color:#6b7280;line-height:1.6;margin:0}@media(max-width:760px){.wow-promise-section{padding:48px 0}.wow-promise-grid{grid-template-columns:1fr;gap:28px}.wow-promise-title{font-size:27px}.wow-promise-desc{margin-bottom:34px}}</style>
-<style id="wow-mobile-optimization">
+  <style id="wow-mobile-optimization">
     html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;}
     body{-webkit-tap-highlight-color:transparent;}
     button,a,input,select,textarea{touch-action:manipulation;}
@@ -557,6 +559,7 @@ body.wow-ready #site-header{opacity:1}
       .hero-section{height:500px!important;min-height:500px!important;}
     }
   </style>
+
 <style id="wow-auth-pro">
   .auth-modal{backdrop-filter:blur(12px);background:rgba(15,23,42,.58)!important;padding:16px!important;}
   .auth-card{width:100%;overflow:hidden;border:1px solid rgba(15,23,42,.08);box-shadow:0 28px 90px rgba(15,23,42,.28);border-radius:22px!important;background:#fff;}
@@ -597,6 +600,8 @@ body.wow-ready #site-header{opacity:1}
     .auth-close{top:12px!important;right:12px!important;}
   }
 </style>
+
+
 <style id="wow-mobile-pro">
   @media(max-width:767px){
     #site-header>div>div:first-child{gap:10px!important;padding:10px 0!important;}
@@ -615,6 +620,8 @@ body.wow-ready #site-header{opacity:1}
     .auth-card{max-height:90vh;}
   }
 </style>
+
+
 <style id="wow-mobile-pro-layout">
 /* =========================================================
    WOWSHOPPING — Mobile storefront shell
@@ -795,6 +802,8 @@ body.wow-ready #site-header{opacity:1}
   #wow-mobile-bottom-nav { display:none !important; }
 }
 </style>
+
+
 <style id="wow-mobile-bottom-nav-hard-fix">
 /* FINAL MOBILE NAV FIX — must stay visible on real phones */
 @media screen and (max-width: 767px) {
@@ -863,6 +872,7 @@ body.wow-ready #site-header{opacity:1}
   #wow-mobile-bottom-nav { display:none !important; }
 }
 </style>
+
 <style id="wow-v10-stability-mobile">
 html,body{max-width:100%;overflow-x:hidden}
 img,video,iframe{max-width:100%}
@@ -911,6 +921,180 @@ button,input,select,textarea{font:inherit}
 </style>
 
 
+<style id="wow-clean-video-banner-v1">
+html,body{overflow-x:hidden!important}
+/* One authoritative responsive hero */
+.hero-section{position:relative!important;width:100vw!important;max-width:none!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,31vw,460px)!important;min-height:300px!important;overflow:hidden!important;background:#07111f!important;display:flex!important;align-items:center!important;isolation:isolate!important;opacity:1!important}
+.hero-section .wow-clean-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;background:#07111f!important;overflow:hidden!important}
+.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;border:0!important;display:block!important;object-fit:cover!important;object-position:center center!important}
+.hero-section .wow-clean-media img{z-index:0!important}.hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe{z-index:1!important}
+.hero-section .wow-clean-shade{position:absolute!important;inset:0!important;z-index:2!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.38) 42%,rgba(0,0,0,.08) 100%)!important}
+.hero-section>.wow-clean-content{position:relative!important;z-index:4!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;box-sizing:border-box!important;display:flex!important;align-items:center!important}
+.hero-section .hero-content{position:relative!important;z-index:5!important;width:min(560px,55vw)!important;max-width:560px!important;margin:0!important;padding:0!important;background:transparent!important;text-align:left!important}
+.hero-section .hero-eyebrow,.hero-section .hero-title,.hero-section .hero-sub,.hero-section .hero-actions{opacity:1!important;visibility:visible!important}
+.hero-section .hero-title{max-width:560px!important}
+.wow-clean-promo{width:100%!important;background:#fff!important;padding:16px 0!important;box-sizing:border-box!important}
+.wow-clean-promo-shell{position:relative!important;width:min(1200px,calc(100% - 40px))!important;max-width:1200px!important;margin:0 auto!important;overflow:hidden!important;border-radius:14px!important;background:#07111f!important;box-shadow:0 8px 24px rgba(15,23,42,.10)!important}
+.wow-clean-promo-track{display:flex!important;width:100%!important;transition:transform .45s ease!important}
+.wow-clean-promo-slide{position:relative!important;min-width:100%!important;width:100%!important;height:clamp(190px,25vw,300px)!important;overflow:hidden!important;background:#07111f!important}
+.wow-clean-promo-slide video,.wow-clean-promo-slide iframe,.wow-clean-promo-slide img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important;display:block!important;object-fit:cover!important}
+.wow-clean-promo-shade{position:absolute!important;inset:0!important;z-index:2!important;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.12) 75%)!important;pointer-events:none!important}
+.wow-clean-promo-copy{position:absolute!important;z-index:4!important;left:clamp(42px,8vw,105px)!important;bottom:clamp(18px,4vw,42px)!important;color:#fff!important;max-width:520px!important;text-shadow:0 2px 12px rgba(0,0,0,.35)!important}
+.wow-clean-promo-copy small{display:block!important;font-size:9px!important;letter-spacing:1.8px!important;font-weight:800!important;text-transform:uppercase!important;margin-bottom:6px!important}
+.wow-clean-promo-copy strong{display:block!important;font-size:clamp(20px,3.5vw,40px)!important;line-height:1.05!important;margin-bottom:7px!important}
+.wow-clean-promo-copy p{margin:0 0 10px!important;font-size:13px!important;line-height:1.4!important}
+.wow-clean-promo-copy button{border:0!important;border-radius:7px!important;background:#fff!important;color:#111827!important;font-weight:800!important;padding:9px 13px!important;font-size:11px!important;cursor:pointer!important}
+.wow-clean-promo-arrow{position:absolute!important;z-index:7!important;top:50%!important;transform:translateY(-50%)!important;width:36px!important;height:36px!important;border:0!important;border-radius:50%!important;background:rgba(255,255,255,.95)!important;color:#111827!important;display:flex!important;align-items:center!important;justify-content:center!important;cursor:pointer!important;box-shadow:0 5px 16px rgba(0,0,0,.18)!important}
+.wow-clean-promo-prev{left:10px!important}.wow-clean-promo-next{right:10px!important}
+.wow-clean-promo-dots{position:absolute!important;z-index:8!important;left:50%!important;bottom:9px!important;transform:translateX(-50%)!important;display:flex!important;gap:5px!important}
+.wow-clean-promo-dot{width:7px!important;height:7px!important;padding:0!important;border:0!important;border-radius:99px!important;background:rgba(255,255,255,.55)!important}.wow-clean-promo-dot.active{width:22px!important;background:#fff!important}
+@media(max-width:767px){
+ .hero-section{height:clamp(205px,61vw,320px)!important;min-height:205px!important;max-height:320px!important}
+ .hero-section>.wow-clean-content{padding:0 16px 20px!important;align-items:flex-end!important}
+ .hero-section .hero-content{width:100%!important;max-width:78%!important}
+ .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.5px!important;margin-bottom:6px!important}
+ .hero-section .hero-title{font-size:clamp(23px,7.6vw,34px)!important;line-height:1.04!important;letter-spacing:-.4px!important;margin-bottom:7px!important}
+ .hero-section .hero-sub{font-size:11px!important;line-height:1.35!important;margin-bottom:10px!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
+ .hero-section .hero-actions{gap:6px!important}.hero-section .hero-actions .btn{min-height:33px!important;padding:7px 10px!important;font-size:10px!important;border-radius:6px!important}
+ .hero-section .wow-clean-shade{background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.30) 55%,rgba(0,0,0,.06))!important}
+ .hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img{object-position:center center!important}
+ .wow-clean-promo{padding:10px 0!important}.wow-clean-promo-shell{width:calc(100% - 20px)!important;border-radius:10px!important}
+ .wow-clean-promo-slide{height:clamp(145px,48vw,230px)!important}
+ .wow-clean-promo-copy{left:24px!important;bottom:16px!important;max-width:72%!important}.wow-clean-promo-copy small{font-size:7px!important;margin-bottom:4px!important}.wow-clean-promo-copy strong{font-size:clamp(18px,6vw,28px)!important;margin-bottom:4px!important}.wow-clean-promo-copy p{font-size:10px!important;margin-bottom:7px!important;max-width:100%!important}.wow-clean-promo-copy button{font-size:9px!important;padding:7px 9px!important}
+ .wow-clean-promo-arrow{width:30px!important;height:30px!important}.wow-clean-promo-prev{left:7px!important}.wow-clean-promo-next{right:7px!important}.wow-clean-promo-dots{bottom:6px!important}
+}
+</style>
+
+<style id="wow-mobile-compact-final-v2">
+/* FINAL MOBILE COMPACT UI — overrides older responsive rules */
+@media (max-width: 767px){
+  /* Main hero: compact and balanced */
+  .hero-section{
+    height:clamp(225px,58vw,285px)!important;
+    min-height:225px!important;
+    max-height:285px!important;
+  }
+  .hero-section>.wow-clean-content{
+    padding:0 14px 16px!important;
+    align-items:flex-end!important;
+  }
+  .hero-section .hero-content{
+    width:auto!important;
+    max-width:76%!important;
+  }
+  .hero-section .hero-eyebrow{
+    font-size:7px!important;
+    letter-spacing:1.3px!important;
+    margin-bottom:4px!important;
+  }
+  .hero-section .hero-title{
+    font-size:clamp(21px,6.6vw,30px)!important;
+    line-height:1.02!important;
+    margin-bottom:5px!important;
+    max-width:100%!important;
+  }
+  .hero-section .hero-sub{
+    font-size:9.5px!important;
+    line-height:1.25!important;
+    margin-bottom:7px!important;
+    max-width:100%!important;
+    -webkit-line-clamp:1!important;
+  }
+  .hero-section .hero-actions{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:5px!important;
+    width:auto!important;
+  }
+  .hero-section .hero-actions .btn,
+  .hero-section .hero-content .btn{
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:29px!important;
+    height:29px!important;
+    flex:0 0 auto!important;
+    padding:5px 9px!important;
+    font-size:9px!important;
+    line-height:1!important;
+    border-radius:5px!important;
+    white-space:nowrap!important;
+  }
+
+  /* Second banner: centered, compact, not oversized */
+  .wow-clean-promo{
+    padding:8px 0!important;
+  }
+  .wow-clean-promo-shell{
+    width:calc(100% - 24px)!important;
+    max-width:1180px!important;
+    border-radius:9px!important;
+  }
+  .wow-clean-promo-slide{
+    height:clamp(135px,43vw,190px)!important;
+    min-height:135px!important;
+    max-height:190px!important;
+  }
+  .wow-clean-promo-copy{
+    left:12px!important;
+    bottom:13px!important;
+    max-width:65%!important;
+  }
+  .wow-clean-promo-copy small{
+    font-size:6.5px!important;
+    letter-spacing:1.2px!important;
+    margin-bottom:3px!important;
+  }
+  .wow-clean-promo-copy strong{
+    font-size:clamp(16px,5.2vw,24px)!important;
+    line-height:1.02!important;
+    margin-bottom:3px!important;
+  }
+  .wow-clean-promo-copy p{
+    font-size:8.5px!important;
+    line-height:1.2!important;
+    margin-bottom:5px!important;
+    max-width:100%!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:1!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+  .wow-clean-promo-copy button{
+    width:auto!important;
+    min-width:0!important;
+    height:25px!important;
+    padding:5px 8px!important;
+    font-size:8px!important;
+    line-height:1!important;
+    border-radius:5px!important;
+  }
+  .wow-clean-promo-arrow{
+    width:25px!important;
+    height:25px!important;
+    font-size:15px!important;
+    box-shadow:0 3px 9px rgba(0,0,0,.16)!important;
+  }
+  .wow-clean-promo-prev{left:5px!important}
+  .wow-clean-promo-next{right:5px!important}
+  .wow-clean-promo-dots{bottom:5px!important;gap:3px!important}
+  .wow-clean-promo-dot{width:5px!important;height:5px!important}
+  .wow-clean-promo-dot.active{width:15px!important}
+
+  /* Keep common storefront buttons compact on phones */
+  .hero-section button,
+  .wow-clean-promo button{box-sizing:border-box!important}
+  .btn.btn-sm{font-size:9px!important;padding:6px 9px!important;min-height:28px!important}
+}
+@media (min-width:768px){
+  /* Keep promo banner visually centered in the desktop content column */
+  .wow-clean-promo-shell{max-width:1200px!important}
+}
+</style>
+
 
 <style id="wow-centered-promo-copy-v2">
 /* Center the lower promotional banner content (e.g. Men's Collection) */
@@ -946,6 +1130,7 @@ button,input,select,textarea{font:inherit}
   .wow-clean-promo-copy button{font-size:10px!important;padding:7px 11px!important}
 }
 </style>
+
 <style id="wow-promotional-banner-left-top-v3">
 /* Promotional banner text: top-left, not centered/bottom */
 .wow-clean-promo-slide .wow-clean-promo-copy{
@@ -976,6 +1161,7 @@ button,input,select,textarea{font:inherit}
   }
 }
 </style>
+
 <style id="wow-mobile-professional-v2">
 /* WOWSHOPPING — final phone app-style optimization */
 @media screen and (max-width:767px){
@@ -1333,6 +1519,8 @@ button,input,select,textarea{font:inherit}
   .cat-grid .cat-card{flex-basis:108px!important;width:108px!important;height:138px!important}
 }
 </style>
+
+
 <style id="wow-mobile-search-menu-v1">
 /* Child-menu fix: admin-managed menu items can open their children on touch/mobile. */
 .admin-menu-node{position:relative;}
@@ -1456,8 +1644,10 @@ button,input,select,textarea{font:inherit}
 }
 </style>
 <style id="wow-brand-logo-only-v1">#siteBrandName,#siteBrandSuffix{display:none!important}#siteBrandIcon{flex-shrink:0!important} @media(max-width:767px){#siteBrandIcon{width:38px!important;height:34px!important}#site-header .wow-main-header-row{min-height:58px!important}}</style>
-<!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
-<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml">
+
+  <!-- WOWSHOPPING default favicon (replaced by admin branding favicon when configured) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M17 24h30l-3 27H20z' fill='none' stroke='white' stroke-width='4'/%3E%3Cpath d='M24 25c0-7 3.5-12 8-12s8 5 8 12' fill='none' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+
 <style id="wow-header-pro-v3">
 /* WOWSHOPPING — authoritative header polish + mobile logo fix */
 #site-header .wow-main-header-row{box-sizing:border-box!important}
@@ -1566,6 +1756,7 @@ button,input,select,textarea{font:inherit}
   #site-header .wow-main-header-row{padding-left:10px!important;padding-right:10px!important}
 }
 </style>
+
 <style id="wow-final-mobile-sticky-pro-search">
 /* FINAL MOBILE HEADER / STICKY PRO SEARCH */
 @media (max-width: 767px){
@@ -1760,6 +1951,7 @@ button,input,select,textarea{font:inherit}
   #desktopNav .nav-link,#desktopNav .nav-item>.nav-link{font-size:11.5px!important;padding:6px 9px!important;}
 }
 </style>
+
 <style id="wow-wishlist-pro-v1">
   .wishlist-page-shell{max-width:1320px;margin:0 auto;padding:clamp(28px,4vw,52px) clamp(16px,3vw,28px) 64px;}
   .wishlist-page-head{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px;padding:22px 24px;border:1px solid #e8ecf2;border-radius:18px;background:linear-gradient(135deg,#fff 0%,#f8fafc 100%);box-shadow:0 10px 35px rgba(15,23,42,.055);}
@@ -1819,920 +2011,200 @@ button,input,select,textarea{font:inherit}
     .wishlist-product-grid .product-info{padding:9px 9px 11px;}
   }
 </style>
-<style id="wow-mobile-final-polish">
-/* FINAL PHONE OPTIMIZATION — keeps every section/content, only reflows and resizes it. */
-@media (max-width: 767px){
-  html,body{width:100%;max-width:100%;overflow-x:hidden;}
-  body{min-width:0;}
-  .container,.section-container,.section-inner,.wow-promise-wrap,.v9-footer-inner{width:100%!important;max-width:100%!important;}
 
-  /* Header/search/navigation */
-  #site-header{width:100%!important;overflow:visible!important;}
-  #site-header>div{width:100%!important;}
-  .nav-link{white-space:nowrap;}
-
-  /* Keep product/category content fully available without horizontal overflow. */
-  .product-grid-4,.product-grid-3,.product-grid{width:100%!important;min-width:0!important;}
-  .product-card{min-width:0!important;}
-  .product-img-wrap img{width:100%;height:100%;object-fit:cover;}
-
-  /* Promise: all 3 promise cards remain; stack cleanly on phones. */
-  .wow-promise-section{padding:42px 0 44px!important;}
-  .wow-promise-wrap{padding:0 16px!important;}
-  .wow-promise-label{font-size:10px!important;letter-spacing:.14em!important;}
-  .wow-promise-title{font-size:25px!important;line-height:1.18!important;margin-bottom:12px!important;}
-  .wow-promise-desc{font-size:13px!important;line-height:1.65!important;margin-bottom:30px!important;}
-  .wow-promise-grid{grid-template-columns:1fr!important;gap:24px!important;}
-  .wow-promise-card{width:100%!important;padding:0 4px!important;}
-  .wow-promise-icon{width:54px!important;height:54px!important;margin-bottom:12px!important;}
-  .wow-promise-icon svg{width:24px!important;height:24px!important;}
-  .wow-promise-card h3{font-size:15px!important;margin-bottom:6px!important;}
-  .wow-promise-card p{font-size:12px!important;line-height:1.6!important;max-width:430px;margin-left:auto!important;margin-right:auto!important;}
-
-  /* Footer: NOTHING removed — all sections stay visible and become a clean phone layout. */
-  .v9-footer-inner{padding:38px 16px 20px!important;}
-  .v9-footer-main{display:block!important;width:100%!important;}
-  .v9-footer-brand{width:100%!important;max-width:none!important;min-width:0!important;margin-bottom:30px!important;}
-  .v9-footer-brand-name{font-size:19px!important;margin-bottom:9px!important;}
-  .v9-footer-desc{font-size:12px!important;line-height:1.65!important;max-width:430px;}
-  .v9-follow-title{margin-top:20px!important;margin-bottom:10px!important;}
-  .v9-social-row{gap:8px!important;}
-  .v9-social{width:38px!important;height:38px!important;}
-  .v9-footer-sections{
-    display:grid!important;
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    width:100%!important;
-    min-width:0!important;
-    gap:26px 18px!important;
-  }
-  .v9-footer-sections>div{min-width:0!important;}
-  .v9-footer-title{font-size:11px!important;letter-spacing:1.2px!important;margin-bottom:9px!important;}
-  .v9-footer-link{font-size:12px!important;line-height:1.4!important;padding:5px 0!important;word-break:break-word;}
-  .v9-footer-contact{font-size:11px!important;line-height:1.45!important;}
-  .v9-footer-bottom{
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:flex-start!important;
-    gap:12px!important;
-    margin-top:28px!important;
-    padding-top:16px!important;
-    font-size:10px!important;
-  }
-  .v9-footer-payments{width:100%!important;gap:6px!important;}
-  .v9-footer-payments span{font-size:8px!important;padding:5px 7px!important;}
-
-  /* Prevent long labels/links from breaking the phone width. */
-  .v9-footer a,.v9-footer span,.v9-footer div{max-width:100%;}
-
-  /* Wishlist count badge: keep Wishlist itself, remove only the red dot/count. */
-  #wishlistBadge{display:none!important;}
-}
-
-@media (max-width:390px){
-  .v9-footer-inner{padding-left:14px!important;padding-right:14px!important;}
-  .v9-footer-sections{gap:22px 14px!important;}
-  .v9-footer-link{font-size:11px!important;}
-  .wow-promise-wrap{padding-left:14px!important;padding-right:14px!important;}
-}
-</style>
-<style id="mobile-footer-optimization">
-/* WOWSHOPPING mobile footer optimization */
-@media (max-width: 768px) {
-  .footer, footer {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  footer .container,
-  .footer .container,
-  footer .footer-container,
-  .footer .footer-container {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-    box-sizing: border-box;
-  }
-
-  footer .footer-grid,
-  .footer .footer-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 26px !important;
-  }
-
-  footer .footer-brand,
-  .footer .footer-brand {
-    width: 100% !important;
-  }
-
-  footer h2, footer h3,
-  .footer h2, .footer h3 {
-    margin-bottom: 10px;
-  }
-
-  footer a,
-  .footer a {
-    overflow-wrap: anywhere;
-    word-break: normal;
-  }
-
-  /* Social icons: compact, touch-friendly row */
-  footer .social-links,
-  .footer .social-links,
-  footer .social-icons,
-  .footer .social-icons {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 10px !important;
-  }
-
-  footer .social-links a,
-  .footer .social-links a,
-  footer .social-icons a,
-  .footer .social-icons a {
-    min-width: 42px;
-    min-height: 42px;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Promise cards: keep all three, stack cleanly */
-  .promise-grid,
-  .promises-grid,
-  .features-grid,
-  .why-shop-grid {
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-  }
-
-  .promise-card,
-  .promise-item,
-  .feature-card,
-  .why-shop-card {
-    width: 100% !important;
-    box-sizing: border-box;
-  }
-
-  /* Prevent horizontal overflow from long text/links */
-  body {
-    overflow-x: hidden;
-  }
-
-  img, svg {
-    max-width: 100%;
-  }
-}
-</style>
-<style id="wow-mobile-pro-final">
-/* =========================================================
-   WOWSHOPPING — FINAL MOBILE APP UI / PERFORMANCE LAYER
-   Keeps all existing content & functionality intact.
-   ========================================================= */
-@media (max-width:767px){
-  :root{
-    --mobile-pad:14px;
-    --mobile-radius:14px;
-    --mobile-shadow:0 8px 24px rgba(15,23,42,.07);
-  }
-
-  html{scroll-padding-top:112px;overscroll-behavior-x:none;}
-  body{
-    min-width:0!important;
-    width:100%!important;
-    overflow-x:hidden!important;
-    background:#fff;
-    padding-bottom:calc(78px + env(safe-area-inset-bottom))!important;
-  }
-
-  /* ---------- Compact app header ---------- */
-  #site-header{
-    position:sticky!important;
-    top:0!important;
-    z-index:6000!important;
-    background:rgba(255,255,255,.96)!important;
-    border-bottom:1px solid #edf0f4!important;
-    box-shadow:0 2px 16px rgba(15,23,42,.055)!important;
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-  }
-  #site-header .top-bar{
-    height:26px!important;
-    min-height:26px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    padding:0 10px!important;
-    font-size:9px!important;
-    letter-spacing:.35px!important;
-  }
-  #site-header>div{
-    padding:0 var(--mobile-pad)!important;
-  }
-  #site-header .wow-main-header-row{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) auto!important;
-    grid-template-rows:50px 48px!important;
-    gap:0 8px!important;
-    padding:7px 0 9px!important;
-    align-items:center!important;
-  }
-
-  /* Logo */
-  #site-header .wow-main-header-row>div:first-child{
-    min-width:0!important;
-    grid-column:1!important;
-    grid-row:1!important;
-  }
-  #siteBrandIcon{display:none!important;}
-  #siteBrandName{
-    font-size:18px!important;
-    letter-spacing:-.65px!important;
-    line-height:1!important;
-    white-space:nowrap!important;
-  }
-
-  /* Header actions */
-  #site-header .wow-header-actions{
-    grid-column:2!important;
-    grid-row:1!important;
-    gap:2px!important;
-    margin-left:0!important;
-  }
-  #site-header .wow-header-actions .btn-ghost{
-    width:40px!important;
-    height:40px!important;
-    min-width:40px!important;
-    min-height:40px!important;
-    padding:0!important;
-    border-radius:11px!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    color:#111827!important;
-  }
-  #site-header .wow-header-actions .btn-ghost:active{
-    background:#f1f5f9!important;
-    transform:scale(.95);
-  }
-  /* Desktop duplicate search action is unnecessary on phone */
-  #site-header .wow-header-actions .btn-ghost[title="Search"]{display:none!important;}
-  /* Wishlist stays available in the account/menu area, not the bottom bar */
-  #site-header .wow-header-actions .btn-ghost[title="Wishlist"]{display:none!important;}
-  #hamburgerBtn{
-    display:flex!important;
-    order:9!important;
-  }
-
-  /* Search */
-  #site-header .desktop-search{
-    grid-column:1 / -1!important;
-    grid-row:2!important;
-    width:100%!important;
-    max-width:none!important;
-    min-width:0!important;
-    margin:0!important;
-    padding:0!important;
-    display:flex!important;
-  }
-  #site-header .desktop-search .search-input{
-    width:100%!important;
-    height:44px!important;
-    min-height:44px!important;
-    border:1px solid #e1e6ed!important;
-    border-radius:13px!important;
-    background:#f7f8fa!important;
-    padding:0 14px 0 42px!important;
-    font-size:16px!important;
-    color:#111827!important;
-    box-shadow:none!important;
-  }
-  #site-header .desktop-search .search-input:focus{
-    background:#fff!important;
-    border-color:#111827!important;
-    box-shadow:0 0 0 3px rgba(17,24,39,.07)!important;
-  }
-  #site-header .desktop-search i{
-    left:14px!important;
-    width:17px!important;
-    height:17px!important;
-    color:#64748b!important;
-  }
-  #desktopNav{display:none!important;}
-
-  /* ---------- Hero ---------- */
-  .hero-section{
-    width:100%!important;
-    height:min(66svh,570px)!important;
-    min-height:430px!important;
-    border-radius:0!important;
-  }
-  .hero-section > div:first-child{
-    padding:0 16px 25px!important;
-  }
-  .hero-content{width:100%!important;max-width:100%!important;}
-  .hero-eyebrow{
-    font-size:9px!important;
-    letter-spacing:2px!important;
-    margin-bottom:9px!important;
-  }
-  .hero-title{
-    font-size:clamp(32px,10.5vw,50px)!important;
-    line-height:1.02!important;
-    letter-spacing:-1.1px!important;
-    margin-bottom:12px!important;
-  }
-  .hero-sub{
-    font-size:14px!important;
-    line-height:1.5!important;
-    margin-bottom:17px!important;
-  }
-  .hero-content .btn{
-    min-height:46px!important;
-    width:auto!important;
-    padding:0 20px!important;
-    border-radius:11px!important;
-  }
-
-  /* ---------- Page containers ---------- */
-  #mainContent>section,
-  #mainContent>.page>section{
-    max-width:100%!important;
-  }
-  .section-title{
-    font-size:24px!important;
-    line-height:1.15!important;
-  }
-  .section-sub{font-size:13px!important;}
-  .section-label{font-size:9px!important;letter-spacing:1.6px!important;}
-
-  /* ---------- Category rail ---------- */
-  .category-rail-head{
-    gap:10px!important;
-    margin-bottom:14px!important;
-  }
-  .category-rail-controls{display:none!important;}
-  .category-rail-hint{font-size:9px!important;letter-spacing:1px!important;}
-  .cat-grid{
-    gap:10px!important;
-    padding:3px 2px 12px!important;
-    scroll-snap-type:x mandatory!important;
-  }
-  .cat-grid .cat-card{
-    flex:0 0 132px!important;
-    width:132px!important;
-    height:164px!important;
-    border-radius:15px!important;
-    box-shadow:0 7px 20px rgba(15,23,42,.09)!important;
-  }
-  .cat-grid .cat-card-label{
-    font-size:13px!important;
-    padding:27px 11px 13px!important;
-  }
-
-  /* ---------- Product grids ---------- */
-  .product-grid-4,.product-grid-3,.product-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    gap:10px!important;
-  }
-  .product-card{
-    min-width:0!important;
-    border-radius:13px!important;
-    border-color:#edf0f3!important;
-    box-shadow:0 4px 16px rgba(15,23,42,.045)!important;
-  }
-  .product-img-wrap{
-    aspect-ratio:3/4!important;
-    border-radius:12px 12px 0 0!important;
-  }
-  .product-info{padding:10px 10px 12px!important;}
-  .product-cat{font-size:8px!important;letter-spacing:.65px!important;margin-bottom:3px!important;}
-  .product-name{
-    font-size:12.5px!important;
-    line-height:1.35!important;
-    margin-bottom:6px!important;
-    display:-webkit-box!important;
-    -webkit-line-clamp:2!important;
-    -webkit-box-orient:vertical!important;
-    overflow:hidden!important;
-  }
-  .price-main{font-size:14px!important;}
-  .price-old{font-size:10px!important;}
-  .price-disc{font-size:9px!important;}
-  .star-wrap{margin-bottom:4px!important;}
-  .product-badges{top:7px!important;left:7px!important;}
-  .badge{min-height:21px!important;padding:4px 6px!important;font-size:7.5px!important;border-radius:7px!important;}
-  .product-img-overlay{
-    padding:7px!important;
-    gap:5px!important;
-    pointer-events:none!important;
-  }
-  .product-action-btn{
-    width:38px!important;height:38px!important;
-    min-width:38px!important;min-height:38px!important;
-    pointer-events:auto!important;
-  }
-
-  /* ---------- Promo / media ---------- */
-  .single-promo-banner{margin-left:0!important;margin-right:0!important;}
-  .single-promo-banner img{
-    width:100%!important;
-    max-height:205px!important;
-    border-radius:13px!important;
-  }
-  .promo-card{min-height:210px!important;border-radius:13px!important;}
-  .promo-card-content{padding:18px!important;}
-
-  /* ---------- Benefits ---------- */
-  .wow-benefits-inner{overflow:hidden!important;}
-  .wow-benefits-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr))!important;
-    padding:12px 12px!important;
-    gap:2px 6px!important;
-  }
-  .wow-benefit-card{padding:9px 3px!important;gap:9px!important;}
-  .wow-benefit-icon{width:38px!important;height:38px!important;flex-basis:38px!important;border-radius:10px!important;}
-  .wow-benefit-icon svg{width:18px!important;height:18px!important;}
-  .wow-benefit-title{font-size:11px!important;}
-  .wow-benefit-text{font-size:9.5px!important;line-height:1.3!important;}
-
-  /* ---------- Promise ---------- */
-  .wow-promise-section{padding:44px 0!important;}
-  .wow-promise-wrap{padding:0 16px!important;}
-  .wow-promise-title{font-size:26px!important;}
-  .wow-promise-desc{font-size:13px!important;line-height:1.6!important;margin-bottom:30px!important;}
-  .wow-promise-grid{grid-template-columns:1fr!important;gap:26px!important;}
-  .wow-promise-icon{width:52px!important;height:52px!important;margin-bottom:12px!important;}
-  .wow-promise-card h3{font-size:14px!important;}
-  .wow-promise-card p{font-size:12px!important;}
-
-  /* ---------- Footer ---------- */
-  #site-footer{
-    padding-bottom:calc(16px + env(safe-area-inset-bottom))!important;
-  }
-  #site-footer .footer-grid,
-  .v9-footer-sections{
-    grid-template-columns:1fr 1fr!important;
-    gap:22px 14px!important;
-  }
-  #site-footer .footer-title{font-size:10px!important;margin-bottom:9px!important;}
-  #site-footer .footer-link{font-size:11px!important;padding:4px 0!important;}
-  #site-footer .social-link{width:34px!important;height:34px!important;}
-  #site-footer .v6-payment{gap:5px!important;flex-wrap:wrap!important;}
-
-  /* ---------- Drawers / modals ---------- */
-  .mobile-drawer{
-    width:min(88vw,340px)!important;
-    border-radius:0 18px 18px 0!important;
-  }
-  .mobile-nav-item{min-height:50px!important;}
-  .cart-drawer{
-    width:100vw!important;
-    border-radius:18px 18px 0 0!important;
-  }
-  .modal-overlay{padding:10px!important;}
-  .modal{
-    width:100%!important;
-    max-width:100%!important;
-    max-height:92svh!important;
-    border-radius:18px!important;
-  }
-
-  /* ---------- Bottom app navigation ---------- */
-  #wow-mobile-bottom-nav{
-    height:calc(64px + env(safe-area-inset-bottom))!important;
-    min-height:64px!important;
-    padding:5px 8px env(safe-area-inset-bottom)!important;
-    background:rgba(255,255,255,.97)!important;
-    border-top:1px solid #e8edf2!important;
-    box-shadow:0 -8px 28px rgba(15,23,42,.10)!important;
-    backdrop-filter:blur(18px)!important;
-    -webkit-backdrop-filter:blur(18px)!important;
-  }
-  #wow-mobile-bottom-nav .wow-mobile-tab{
-    height:54px!important;
-    gap:3px!important;
-    border-radius:12px!important;
-    font-size:9px!important;
-    font-weight:700!important;
-    color:#64748b!important;
-  }
-  #wow-mobile-bottom-nav .wow-mobile-tab.active{
-    color:#111827!important;
-    background:#f4f6f8!important;
-  }
-  #wow-mobile-bottom-nav .wow-mobile-tab svg{
-    width:20px!important;height:20px!important;
-  }
-  #wow-mobile-bottom-nav .wow-mobile-badge{
-    top:4px!important;
-    margin-left:18px!important;
-    min-width:14px!important;height:14px!important;
-    line-height:14px!important;font-size:7px!important;
-  }
-
-  /* Touch & motion */
-  button,a,.cat-card,.product-card,.wow-mobile-tab{ -webkit-tap-highlight-color:transparent!important; }
-  @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important;}
-  }
-}
-
-@media (max-width:380px){
-  #site-header .wow-main-header-row{grid-template-rows:48px 46px!important;}
-  #site-header .wow-header-actions .btn-ghost{width:38px!important;height:38px!important;min-width:38px!important;}
-  #siteBrandName{font-size:17px!important;}
-  #site-header .desktop-search .search-input{height:42px!important;}
-  .hero-section{height:500px!important;min-height:500px!important;}
-  .product-grid-4,.product-grid-3,.product-grid{gap:8px!important;}
-  .cat-grid .cat-card{flex-basis:124px!important;width:124px!important;height:154px!important;}
-}
-</style>
-<style id="wow-phone-daraz-style">
-/* =========================================================
-   WOWSHOPPING — phone storefront refresh
-   Inspired by modern marketplace mobile layouts.
-   Desktop is untouched.
-   ========================================================= */
-@media (max-width:767px){
-  :root{--phone-gutter:12px;--phone-bg:#f4f5f7;--phone-card:#fff;--phone-accent:#f0445f;}
-  html,body{background:var(--phone-bg)!important;overflow-x:hidden!important}
-  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))!important}
-
-  /* ---------- compact marketplace header ---------- */
-  #site-header{
-    position:sticky!important;top:0!important;z-index:9000!important;
-    background:#fff!important;border:0!important;box-shadow:0 2px 12px rgba(16,24,40,.08)!important;
-  }
-  #site-header .top-bar{display:none!important}
-  #site-header>div{padding:0!important;width:100%!important;max-width:none!important}
-  .wow-main-header-row{
-    display:block!important;padding:9px var(--phone-gutter) 10px!important;
-  }
-  .wow-main-header-row>div:first-child{display:none!important}
-  .wow-header-actions{display:none!important}
-  #desktopNav{display:none!important}
-  .wow-main-header-row .desktop-search{
-    display:flex!important;width:100%!important;max-width:none!important;min-width:0!important;
-    position:relative!important;margin:0!important;
-  }
-  .wow-main-header-row .desktop-search .search-input{
-    width:100%!important;height:48px!important;min-height:48px!important;
-    border:1px solid #d7dbe1!important;border-radius:25px!important;
-    background:#f7f8fa!important;padding:0 92px 0 45px!important;
-    font-size:15px!important;font-weight:500!important;color:#111827!important;
-    box-shadow:none!important;
-  }
-  .wow-main-header-row .desktop-search>svg{
-    left:17px!important;width:20px!important;height:20px!important;color:#6b7280!important;
-  }
-  .wow-main-header-row .desktop-search .search-input::placeholder{color:#8a9099!important}
-
-  /* Search action button if the page exposes one inside the search area */
-  .desktop-search button,.desktop-search .search-btn{
-    position:absolute!important;right:4px!important;top:4px!important;height:40px!important;
-    min-width:76px!important;padding:0 15px!important;border:0!important;border-radius:21px!important;
-    font-size:13px!important;font-weight:800!important;background:#111827!important;color:#fff!important;
-    z-index:3!important;
-  }
-
-  /* ---------- marketplace hero ---------- */
-  .hero-section{
-    width:100%!important;margin:0!important;height:clamp(190px,46vw,245px)!important;
-    min-height:0!important;border-radius:0!important;overflow:hidden!important;background:#111827!important;
-  }
-  .hero-section>div:first-child{height:100%!important;padding:0!important;max-width:none!important}
-  .hero-section .hero-content,
-  .hero-section>.wow-clean-content{
-    height:100%!important;padding:0 18px 20px!important;display:flex!important;flex-direction:column!important;
-    justify-content:flex-end!important;box-sizing:border-box!important;
-  }
-  .hero-eyebrow{font-size:8px!important;letter-spacing:1.7px!important;margin:0 0 5px!important}
-  .hero-title{font-size:clamp(25px,7.2vw,36px)!important;line-height:1!important;letter-spacing:-1px!important;max-width:270px!important;margin:0!important}
-  .hero-sub{font-size:10px!important;line-height:1.35!important;max-width:270px!important;margin:7px 0 10px!important}
-  .hero-actions{gap:6px!important}
-  .hero-actions .btn{height:32px!important;min-height:32px!important;padding:6px 11px!important;font-size:10px!important;border-radius:17px!important}
-
-  /* ---------- benefits: compact strip, not a big desktop block ---------- */
-  #storeBenefitsBar{padding:0!important;background:#fff!important;overflow:hidden!important}
-  .wow-benefits-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:7px 4px!important}
-  .wow-benefit-card{padding:6px 3px!important;gap:3px!important;min-width:0!important;flex-direction:column!important;text-align:center!important}
-  .wow-benefit-icon{width:25px!important;height:25px!important;flex:0 0 25px!important;border-radius:8px!important}
-  .wow-benefit-icon svg{width:13px!important;height:13px!important}
-  .wow-benefit-title{font-size:8px!important;line-height:1.1!important}
-  .wow-benefit-text{display:none!important}
-
-  /* ---------- category section: square marketplace icons ---------- */
-  #whyShopSection{
-    padding:12px 0 9px!important;background:#fff!important;
-  }
-  #whyShopSection>div{padding:0!important;max-width:none!important}
-  .category-rail-head{padding:0 var(--phone-gutter)!important;margin:0 0 8px!important;align-items:center!important}
-  .category-rail-head .section-label,.category-rail-hint{display:none!important}
-  .category-rail-head .section-title{font-size:17px!important;line-height:1.1!important;letter-spacing:-.3px!important;margin:0!important;font-weight:850!important}
-  .category-rail-controls{gap:4px!important}
-  .category-rail-btn{width:27px!important;height:27px!important;border:0!important;background:#f3f4f6!important;box-shadow:none!important}
-  .category-rail-btn-dark{background:#111827!important;color:#fff!important}
-  .category-rail-btn svg{width:13px!important;height:13px!important}
-  .category-rail-shell:before,.category-rail-shell:after{display:none!important}
-  .cat-grid{
-    display:flex!important;gap:13px!important;overflow-x:auto!important;overflow-y:hidden!important;
-    padding:3px var(--phone-gutter) 7px!important;scroll-snap-type:x proximity!important;
-  }
-  .cat-grid .cat-card{
-    flex:0 0 72px!important;width:72px!important;height:auto!important;aspect-ratio:auto!important;
-    overflow:visible!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
-    display:flex!important;flex-direction:column!important;align-items:center!important;scroll-snap-align:start!important;
-  }
-  .cat-grid .cat-card:after{display:none!important}
-  .cat-grid .cat-card img{
-    width:64px!important;height:64px!important;flex:0 0 64px!important;object-fit:cover!important;
-    border-radius:16px!important;box-shadow:0 3px 10px rgba(16,24,40,.10)!important;
-  }
-  .cat-grid .cat-card-label{
-    position:static!important;display:block!important;width:100%!important;padding:6px 0 0!important;
-    background:none!important;color:#30343b!important;text-shadow:none!important;text-align:center!important;
-    font-size:9px!important;font-weight:650!important;line-height:1.15!important;white-space:normal!important;
-    overflow:hidden!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;
-  }
-
-  /* ---------- product area = Flash Sale style ---------- */
-  #newArrivalsGrid{
-    display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 20px)/3)!important;
-    grid-template-columns:none!important;grid-template-rows:1fr!important;gap:10px!important;
-    overflow-x:auto!important;overflow-y:hidden!important;padding:0 0 7px!important;
-    scroll-snap-type:x proximity!important;-webkit-overflow-scrolling:touch!important;
-  }
-  #newArrivalsGrid::-webkit-scrollbar{display:none!important}
-  #newArrivalsGrid .product-card{
-    min-width:0!important;border:0!important;border-radius:10px!important;background:#fff!important;
-    box-shadow:0 1px 5px rgba(16,24,40,.08)!important;overflow:hidden!important;scroll-snap-align:start!important;
-  }
-  #newArrivalsGrid .product-card .product-img-wrap{aspect-ratio:1/1!important;background:#f6f7f8!important}
-  #newArrivalsGrid .product-card .product-info,
-  #newArrivalsGrid .product-card>div:last-child{padding:7px 7px 9px!important}
-  #newArrivalsGrid .product-card .product-cat{display:none!important}
-  #newArrivalsGrid .product-card h3,
-  #newArrivalsGrid .product-card .product-name{font-size:10px!important;line-height:1.25!important;margin:0 0 4px!important;font-weight:650!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important}
-  #newArrivalsGrid .product-card .product-price{gap:4px!important;align-items:baseline!important;flex-wrap:wrap!important}
-  #newArrivalsGrid .product-card .price-main{font-size:13px!important;font-weight:850!important}
-  #newArrivalsGrid .product-card .price-old{font-size:9px!important}
-  #newArrivalsGrid .product-card .price-disc{font-size:8px!important}
-  #newArrivalsGrid .product-action-btn{display:none!important}
-
-  #newArrivalsGrid:before{display:none!important}
-  #newArrivalsGrid .product-card:after{content:'SAVE';position:absolute;top:7px;left:0;background:#f0445f;color:#fff;font-size:8px;font-weight:900;padding:3px 7px;border-radius:0 10px 10px 0;z-index:4}
-  #newArrivalsGrid .product-card{position:relative!important}
-
-  /* New-arrival section wrapper: make it a white shopping module */
-  #newArrivalsGrid{margin:0!important}
-  #newArrivalsGrid{width:100%!important}
-  #newArrivalsGrid{box-sizing:border-box!important}
-  #newArrivalsGrid{max-width:none!important}
-  #newArrivalsGrid{scrollbar-width:none!important}
-  #newArrivalsGrid{padding-right:var(--phone-gutter)!important}
-  #newArrivalsGrid{padding-left:0!important}
-  #newArrivalsGrid{margin-left:0!important}
-  #newArrivalsGrid{margin-right:0!important}
-  #newArrivalsGrid{overscroll-behavior-x:contain!important}
-  #newArrivalsGrid{touch-action:pan-x!important}
-
-  /* section immediately containing product grid */
-  #newArrivalsGrid.closest('section'){
-    padding:13px 0 14px!important;background:#fff!important;
-  }
-  #newArrivalsGrid.closest('section')>div{padding:0 var(--phone-gutter)!important;max-width:none!important}
-  #newArrivalsGrid.closest('section')>div>div:first-child{
-    margin-bottom:10px!important;align-items:center!important;gap:5px!important;
-  }
-  #newArrivalsGrid.closest('section') .section-label{display:none!important}
-  #newArrivalsGrid.closest('section') .section-title{font-size:19px!important;font-weight:900!important;letter-spacing:-.5px!important;margin:0!important}
-  #newArrivalsGrid.closest('section') .btn{height:29px!important;min-height:29px!important;padding:5px 9px!important;border-radius:15px!important;font-size:9px!important}
-
-  /* Promo / admin banners become edge-to-edge marketplace cards */
-  .wow-clean-promo{padding:9px 0 10px!important;background:var(--phone-bg)!important}
-  .wow-clean-promo-shell{width:calc(100% - 24px)!important;border-radius:12px!important;box-shadow:0 4px 15px rgba(16,24,40,.10)!important}
-  .wow-clean-promo-slide{height:170px!important}
-
-  /* Other product grids: clean 2-column shopping cards */
-  #adminCategoryShowcase{padding:15px 0!important}
-  #adminCategoryShowcase>div{padding:0 var(--phone-gutter)!important}
-  #adminCategoryShowcase .product-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
-
-  /* ---------- footer ---------- */
-  #site-footer{background:#fff!important;margin-bottom:0!important}
-  #site-footer>div{padding:26px 14px 24px!important}
-  .footer-grid{grid-template-columns:1fr 1fr!important;gap:18px!important}
-
-  /* ---------- app-like bottom navigation ---------- */
-  #wow-mobile-bottom-nav{
-    display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
-    left:0!important;right:0!important;bottom:0!important;width:100%!important;
-    min-height:66px!important;padding:5px 5px calc(5px + env(safe-area-inset-bottom))!important;
-    background:rgba(255,255,255,.98)!important;border-top:1px solid #e2e5e9!important;
-    box-shadow:0 -5px 20px rgba(16,24,40,.10)!important;backdrop-filter:blur(14px)!important;
-  }
-  #wow-mobile-bottom-nav .wow-mobile-tab{gap:3px!important;font-size:9px!important;font-weight:650!important;color:#656b73!important;border-radius:12px!important}
-  #wow-mobile-bottom-nav .wow-mobile-tab svg{width:23px!important;height:23px!important;stroke-width:1.75!important}
-  #wow-mobile-bottom-nav .wow-mobile-tab.active{color:#111827!important;background:#f5f6f8!important}
-  #wow-mobile-bottom-nav .wow-mobile-tab.active svg{stroke-width:2.2!important}
-  #wow-mobile-bottom-nav .wow-mobile-badge{top:4px!important;margin-left:22px!important;background:#f0445f!important}
-}
-@media(max-width:390px){
-  .cat-grid{gap:11px!important}
-  .cat-grid .cat-card{flex-basis:67px!important;width:67px!important}
-  .cat-grid .cat-card img{width:60px!important;height:60px!important;flex-basis:60px!important}
-  #newArrivalsGrid{grid-auto-columns:calc((100% - 16px)/3)!important;gap:8px!important}
-}
-</style>
-
-<script defer="" src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-\n
-
-
-</link></head>
+</head>
 <body>
-<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div aria-label="Loading" class="wow-loader-spinner"></div></div></div>
+<div class="wow-loader" id="wowLoader"><div class="wow-loader-inner"><div class="wow-loader-spinner" aria-label="Loading"></div></div></div>
+
 <!-- Toast Container -->
 <div class="toast-container" id="toastContainer"></div>
+
 <!-- Cart Overlay -->
 <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
 <!-- Cart Drawer -->
 <div class="cart-drawer" id="cartDrawer">
-<div style="padding:20px 20px 0; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #f0f0f0; padding-bottom:16px;">
-<div style="font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;">
-<i data-lucide="shopping-bag" style="width:20px;height:20px;"></i> Shopping Cart
+  <div style="padding:20px 20px 0; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #f0f0f0; padding-bottom:16px;">
+    <div style="font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;">
+      <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i> Shopping Cart
       <span id="cartBadgeDraw" style="background:#2563eb;color:#fff;border-radius:20px;padding:2px 8px;font-size:12px;">0</span>
-</div>
-<button class="btn-ghost" onclick="closeCart()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
-</div>
-<div id="cartItems" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
-<div style="padding:20px;border-top:1px solid #f0f0f0;">
-<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
-<span>Subtotal</span><span id="cartSubtotal">Rs. 0</span>
-</div>
-<div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
-<span>Shipping</span><span style="color:#10b981;font-weight:600;">Free</span>
-</div>
-<div style="display:flex;justify-content:space-between;margin-bottom:18px;font-size:17px;font-weight:700;">
-<span>Total</span><span id="cartTotal">Rs. 0</span>
-</div>
-<button class="btn btn-dark" onclick="goToCheckout()" style="width:100%;justify-content:center;">
+    </div>
+    <button class="btn-ghost" onclick="closeCart()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+  </div>
+  <div id="cartItems" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
+  <div style="padding:20px;border-top:1px solid #f0f0f0;">
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
+      <span>Subtotal</span><span id="cartSubtotal">Rs. 0</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#6b7280;">
+      <span>Shipping</span><span style="color:#10b981;font-weight:600;">Free</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:18px;font-size:17px;font-weight:700;">
+      <span>Total</span><span id="cartTotal">Rs. 0</span>
+    </div>
+    <button class="btn btn-dark" style="width:100%;justify-content:center;" onclick="goToCheckout()">
       Proceed to Checkout <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
-</button>
-<button class="btn btn-outline" onclick="closeCart()" style="width:100%;justify-content:center;margin-top:8px;">Continue Shopping</button>
+    </button>
+    <button class="btn btn-outline" style="width:100%;justify-content:center;margin-top:8px;" onclick="closeCart()">Continue Shopping</button>
+  </div>
 </div>
-</div>
+
 <!-- Quick View Modal -->
 <div class="modal-overlay" id="quickViewModal">
-<div class="modal" style="max-width:860px;">
-<button class="modal-close" onclick="closeQuickView()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
-<div id="quickViewContent" style="display:grid;grid-template-columns:1fr 1fr;gap:0;"></div>
+  <div class="modal" style="max-width:860px;">
+    <button class="modal-close" onclick="closeQuickView()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+    <div id="quickViewContent" style="display:grid;grid-template-columns:1fr 1fr;gap:0;"></div>
+  </div>
 </div>
-</div>
+
 <!-- Mobile Menu Overlay -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 <div class="mobile-drawer" id="mobileDrawer">
-<div style="padding:16px 20px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;">
-<span style="font-size:17px;font-weight:800;color:#111;">WOWSHOPPING</span>
-<button class="btn-ghost" onclick="closeMobileMenu()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+  <div style="padding:16px 20px;border-bottom:1px solid #f3f4f6;display:flex;align-items:center;justify-content:space-between;">
+    <span style="font-size:17px;font-weight:800;color:#111;">WOWSHOPPING</span>
+    <button class="btn-ghost" onclick="closeMobileMenu()"><i data-lucide="x" style="width:20px;height:20px;"></i></button>
+  </div>
+  <div id="mobileNavContent"></div>
 </div>
-<div id="mobileNavContent"></div>
-</div>
+
 <!-- Search Modal -->
 <div class="modal-overlay v6-search-overlay" id="searchModal" style="align-items:flex-start;padding-top:118px;background:transparent;pointer-events:none;">
-<div class="v6-search-panel" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;width:100%;max-width:640px;padding:16px;position:relative;box-shadow:0 14px 35px rgba(15,23,42,.10);pointer-events:auto;">
-<div style="position:relative;">
-<i data-lucide="search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#9ca3af;"></i>
-<input class="search-input" id="searchModalInput" oninput="syncSearchInput(this.value)" placeholder="Search for products, brands, categories..." style="padding-left:44px;font-size:16px;border-radius:8px;" type="text"/>
+  <div class="v6-search-panel" style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;width:100%;max-width:640px;padding:16px;position:relative;box-shadow:0 14px 35px rgba(15,23,42,.10);pointer-events:auto;">
+    <div style="position:relative;">
+      <i data-lucide="search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#9ca3af;"></i>
+      <input id="searchModalInput" type="text" placeholder="Search for products, brands, categories..." class="search-input" style="padding-left:44px;font-size:16px;border-radius:8px;" oninput="syncSearchInput(this.value)"/>
+    </div>
+    <div id="searchResults" style="margin-top:12px;"></div>
+    <button style="position:absolute;top:12px;right:12px;" class="btn-ghost" onclick="closeSearch()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+  </div>
 </div>
-<div id="searchResults" style="margin-top:12px;"></div>
-<button class="btn-ghost" onclick="closeSearch()" style="position:absolute;top:12px;right:12px;"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
-</div>
-</div>
+
 <!-- AUTH Modal -->
 <div class="modal-overlay auth-modal" id="authModal">
-<div class="modal auth-card" style="max-width:440px;padding:0;">
-<button aria-label="Close login" class="modal-close auth-close" onclick="closeAuth()"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
-<div id="authContent"></div>
+  <div class="modal auth-card" style="max-width:440px;padding:0;">
+    <button class="modal-close auth-close" onclick="closeAuth()" aria-label="Close login"><i data-lucide="x" style="width:16px;height:16px;"></i></button>
+    <div id="authContent"></div>
+  </div>
 </div>
-</div>
+
 <!-- ===== SITE HEADER ===== -->
 <header id="site-header">
-<!-- Top Bar -->
-<div class="top-bar">
-    Free delivery on orders over Rs. 3,000  |  Easy Exchange Policy  |  Cash on Delivery Available
+  <!-- Top Bar -->
+  <div class="top-bar">
+    Free delivery on orders over Rs. 3,000 &nbsp;|&nbsp; Easy Exchange Policy &nbsp;|&nbsp; Cash on Delivery Available
   </div>
-<!-- Main Header -->
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div class="wow-main-header-row" style="display:flex;align-items:center;gap:16px;padding:14px 0;">
-<!-- Logo -->
-<div onclick="navigate('home')" style="cursor:pointer;flex-shrink:0;">
-<div style="display:flex;align-items:center;gap:0;">
-<div id="siteBrandIcon" style="width:62px;height:48px;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;flex-shrink:0;">
-<svg fill="none" height="20" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="20"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-</div>
-<div>
-<div class="brand-name" id="siteBrandName" style="font-size:17px;font-weight:900;color:#111;letter-spacing:-0.5px;line-height:1;">WOWSHOPPING</div>
-<div id="siteBrandSuffix" style="display:none">.LK</div>
-</div>
-</div>
-</div>
-<!-- Search Bar Desktop -->
-<div class="desktop-search" style="flex:1;max-width:760px;min-width:360px;position:relative;display:flex;">
-<i data-lucide="search" style="position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#9ca3af;"></i>
-<input class="search-input" id="headerSearchInput" onfocus="openSearch()" oninput="syncSearchInput(this.value)" placeholder="Search products, brands..." type="text"/>
-</div>
-<!-- Actions -->
-<div class="wow-header-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
-<button class="btn-ghost" onclick="openSearch()" title="Search">
-<i data-lucide="search" style="width:20px;height:20px;"></i>
-</button>
-<button class="btn-ghost" id="headerAccountBtn" onclick="openAuth('login')" title="Account">
-<i data-lucide="user" style="width:20px;height:20px;"></i>
-</button>
-<button class="btn-ghost" onclick="navigate('wishlist')" style="position:relative;" title="Wishlist">
-<i data-lucide="heart" style="width:20px;height:20px;"></i>
-<span id="wishlistBadge" style="display:none!important;"></span>
-</button>
-<button class="btn-ghost" onclick="openCart()" style="position:relative;" title="Cart">
-<i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
-<span id="cartBadgeHeader" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#2563eb;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
-</button>
-<!-- Mobile Hamburger -->
-<button class="btn-ghost" id="hamburgerBtn" onclick="openMobileMenu()" style="display:none;" title="Menu">
-<i data-lucide="menu" style="width:22px;height:22px;"></i>
-</button>
-</div>
-</div>
-<!-- Navigation Desktop -->
-<nav id="desktopNav" style="border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:2px;padding:4px 0;">
-<div class="nav-link" onclick="navigate('home')">Home</div>
-<!-- Shop Mega Menu -->
-<div class="nav-item" style="position:relative;">
-<div class="nav-link" onclick="navigate('shop')" style="display:flex;align-items:center;gap:4px;">
+  <!-- Main Header -->
+  <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+    <div class="wow-main-header-row" style="display:flex;align-items:center;gap:16px;padding:14px 0;">
+      <!-- Logo -->
+      <div onclick="navigate('home')" style="cursor:pointer;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:0;">
+          <div id="siteBrandIcon" style="width:62px;height:48px;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:flex-start;overflow:hidden;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <div>
+            <div id="siteBrandName" class="brand-name" style="font-size:17px;font-weight:900;color:#111;letter-spacing:-0.5px;line-height:1;">WOWSHOPPING</div>
+            <div id="siteBrandSuffix" style="display:none">.LK</div>
+          </div>
+        </div>
+      </div>
+      <!-- Search Bar Desktop -->
+      <div style="flex:1;max-width:760px;min-width:360px;position:relative;display:flex;" class="desktop-search">
+        <i data-lucide="search" style="position:absolute;left:13px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:#9ca3af;"></i>
+        <input id="headerSearchInput" type="text" placeholder="Search products, brands..." class="search-input" onfocus="openSearch()" oninput="syncSearchInput(this.value)"/>
+      </div>
+      <!-- Actions -->
+      <div class="wow-header-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
+        <button class="btn-ghost" onclick="openSearch()" title="Search">
+          <i data-lucide="search" style="width:20px;height:20px;"></i>
+        </button>
+        <button class="btn-ghost" onclick="openAuth('login')" title="Account" id="headerAccountBtn">
+          <i data-lucide="user" style="width:20px;height:20px;"></i>
+        </button>
+        <button class="btn-ghost" onclick="navigate('wishlist')" title="Wishlist" style="position:relative;">
+          <i data-lucide="heart" style="width:20px;height:20px;"></i>
+          <span id="wishlistBadge" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#ef4444;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
+        </button>
+        <button class="btn-ghost" onclick="openCart()" title="Cart" style="position:relative;">
+          <i data-lucide="shopping-bag" style="width:20px;height:20px;"></i>
+          <span id="cartBadgeHeader" style="display:none;position:absolute;top:4px;right:4px;width:16px;height:16px;background:#2563eb;color:#fff;border-radius:50%;font-size:9px;font-weight:700;line-height:16px;text-align:center;"></span>
+        </button>
+        <!-- Mobile Hamburger -->
+        <button class="btn-ghost" id="hamburgerBtn" onclick="openMobileMenu()" style="display:none;" title="Menu">
+          <i data-lucide="menu" style="width:22px;height:22px;"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Navigation Desktop -->
+    <nav id="desktopNav" style="border-top:1px solid #f3f4f6;display:flex;align-items:center;gap:2px;padding:4px 0;">
+      <div class="nav-link" onclick="navigate('home')">Home</div>
+      <!-- Shop Mega Menu -->
+      <div class="nav-item" style="position:relative;">
+        <div class="nav-link" style="display:flex;align-items:center;gap:4px;" onclick="navigate('shop')">
           Shop <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
-</div>
-<div class="mega-menu" style="display:none;">
-<div class="mega-col" style="margin-right:32px;">
-<div class="mega-col-title">Men</div>
-<div class="mega-link" onclick="navigate('shop','Men','T-Shirts')">T-Shirts</div>
-<div class="mega-link" onclick="navigate('shop','Men','Shirts')">Shirts</div>
-<div class="mega-link" onclick="navigate('shop','Men','Pants')">Pants</div>
-<div class="mega-link" onclick="navigate('shop','Men','Hoodies')">Hoodies</div>
-</div>
-<div class="mega-col" style="margin-right:32px;">
-<div class="mega-col-title">Women</div>
-<div class="mega-link" onclick="navigate('shop','Women','Dresses')">Dresses</div>
-<div class="mega-link" onclick="navigate('shop','Women','Tops')">Tops</div>
-<div class="mega-link" onclick="navigate('shop','Women','Bottoms')">Bottoms</div>
-<div class="mega-link" onclick="navigate('shop','Women','Accessories')">Accessories</div>
-</div>
-<div class="mega-col" style="margin-right:32px;">
-<div class="mega-col-title">Kids</div>
-<div class="mega-link" onclick="navigate('shop','Kids','Boys')">Boys</div>
-<div class="mega-link" onclick="navigate('shop','Kids','Girls')">Girls</div>
-<div class="mega-link" onclick="navigate('shop','Kids','Infants')">Infants</div>
-</div>
-<div class="mega-col">
-<div class="mega-col-title">Accessories</div>
-<div class="mega-link" onclick="navigate('shop','Accessories','Bags')">Bags</div>
-<div class="mega-link" onclick="navigate('shop','Accessories','Watches')">Watches</div>
-<div class="mega-link" onclick="navigate('shop','Accessories','Shoes')">Shoes</div>
-<div class="mega-link" onclick="navigate('shop','Accessories','Belts')">Belts</div>
-</div>
-</div>
-</div>
-<div class="nav-link" onclick="navigate('shop','new')">New Arrivals</div>
-<!-- Categories dropdown -->
-<div class="nav-item" style="position:relative;">
-<div class="nav-link" style="display:flex;align-items:center;gap:4px;">
+        </div>
+        <div class="mega-menu" style="display:none;">
+          <div class="mega-col" style="margin-right:32px;">
+            <div class="mega-col-title">Men</div>
+            <div class="mega-link" onclick="navigate('shop','Men','T-Shirts')">T-Shirts</div>
+            <div class="mega-link" onclick="navigate('shop','Men','Shirts')">Shirts</div>
+            <div class="mega-link" onclick="navigate('shop','Men','Pants')">Pants</div>
+            <div class="mega-link" onclick="navigate('shop','Men','Hoodies')">Hoodies</div>
+          </div>
+          <div class="mega-col" style="margin-right:32px;">
+            <div class="mega-col-title">Women</div>
+            <div class="mega-link" onclick="navigate('shop','Women','Dresses')">Dresses</div>
+            <div class="mega-link" onclick="navigate('shop','Women','Tops')">Tops</div>
+            <div class="mega-link" onclick="navigate('shop','Women','Bottoms')">Bottoms</div>
+            <div class="mega-link" onclick="navigate('shop','Women','Accessories')">Accessories</div>
+          </div>
+          <div class="mega-col" style="margin-right:32px;">
+            <div class="mega-col-title">Kids</div>
+            <div class="mega-link" onclick="navigate('shop','Kids','Boys')">Boys</div>
+            <div class="mega-link" onclick="navigate('shop','Kids','Girls')">Girls</div>
+            <div class="mega-link" onclick="navigate('shop','Kids','Infants')">Infants</div>
+          </div>
+          <div class="mega-col">
+            <div class="mega-col-title">Accessories</div>
+            <div class="mega-link" onclick="navigate('shop','Accessories','Bags')">Bags</div>
+            <div class="mega-link" onclick="navigate('shop','Accessories','Watches')">Watches</div>
+            <div class="mega-link" onclick="navigate('shop','Accessories','Shoes')">Shoes</div>
+            <div class="mega-link" onclick="navigate('shop','Accessories','Belts')">Belts</div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-link" onclick="navigate('shop','new')">New Arrivals</div>
+      <!-- Categories dropdown -->
+      <div class="nav-item" style="position:relative;">
+        <div class="nav-link" style="display:flex;align-items:center;gap:4px;">
           Categories <i data-lucide="chevron-down" style="width:14px;height:14px;"></i>
-</div>
-<div class="dropdown" id="storefrontCategoryDropdown"></div>
-</div>
-<div class="nav-link" onclick="navigate('care')">Customer Care</div>
-</nav>
-</div>
+        </div>
+        <div class="dropdown" id="storefrontCategoryDropdown"></div>
+      </div>
+      <div class="nav-link" onclick="navigate('care')">Customer Care</div>
+      
+    </nav>
+  </div>
 </header>
+
+
 <!-- ===== MOBILE APP NAVIGATION ===== -->
-<nav aria-label="Mobile navigation" id="wow-mobile-bottom-nav">
-<button aria-label="Home" class="wow-mobile-tab active" data-mobile-page="home" onclick="navigate('home')">
-<i data-lucide="home"></i><span>Home</span>
-</button>
-<button aria-label="Shop" class="wow-mobile-tab" data-mobile-page="shop" onclick="navigate('shop')">
-<i data-lucide="shopping-bag"></i><span>Shop</span>
-</button>
-<button aria-label="Search" class="wow-mobile-tab" data-mobile-page="search" onclick="openSearch()">
-<i data-lucide="search"></i><span>Search</span>
-</button>
-<button aria-label="Cart" class="wow-mobile-tab" data-mobile-page="cart" onclick="openCart()">
-<i data-lucide="shopping-cart"></i><span>Cart</span><b class="wow-mobile-badge" id="wowMobileCartBadge"></b>
-</button>
-<button aria-label="Account" class="wow-mobile-tab" data-mobile-page="account" onclick="openAuth('login')">
-<i data-lucide="user-round"></i><span>Account</span>
-</button>
+<nav id="wow-mobile-bottom-nav" aria-label="Mobile navigation">
+  <button class="wow-mobile-tab active" data-mobile-page="home" onclick="navigate('home')" aria-label="Home">
+    <i data-lucide="home"></i><span>Home</span>
+  </button>
+  <button class="wow-mobile-tab" data-mobile-page="shop" onclick="navigate('shop')" aria-label="Shop">
+    <i data-lucide="shopping-bag"></i><span>Shop</span>
+  </button>
+  <button class="wow-mobile-tab" data-mobile-page="search" onclick="openSearch()" aria-label="Search">
+    <i data-lucide="search"></i><span>Search</span>
+  </button>
+  <button class="wow-mobile-tab" data-mobile-page="cart" onclick="openCart()" aria-label="Cart">
+    <i data-lucide="shopping-cart"></i><span>Cart</span><b class="wow-mobile-badge" id="wowMobileCartBadge"></b>
+  </button>
+  <button class="wow-mobile-tab" data-mobile-page="account" onclick="openAuth('login')" aria-label="Account">
+    <i data-lucide="user-round"></i><span>Account</span>
+  </button>
 </nav>
 <script>
 (function(){
@@ -2767,385 +2239,412 @@ button,input,select,textarea{font:inherit}
   setInterval(syncMobileNav,1200);
 })();
 </script>
+
+
 <!-- ===== PAGES ===== -->
 <main id="mainContent">
+
 <!-- ===== HOME PAGE ===== -->
-<div class="page active" id="page-home">
-<!-- Hero -->
-<section class="hero-section">
-<div style="max-width:1400px;margin:0 auto;padding:40px 20px;width:100%;">
-<div class="hero-content">
-<div class="hero-eyebrow">New Season 2025</div>
-<h1 class="hero-title font-display">Dress Your<br/>Confidence</h1>
-<p class="hero-sub">Discover premium fashion that speaks before you do. Curated collections for every style, every moment.</p>
-<div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
-<button class="btn btn-primary" id="heroPrimaryBtn" onclick="navigate('shop')" style="padding:14px 28px;font-size:15px;">Shop Collection <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
-<button class="btn btn-outline" id="heroSecondaryBtn" onclick="navigate('shop','new')" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);color:#fff;padding:14px 28px;font-size:15px;">New Arrivals</button>
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div style="max-width:1400px;margin:0 auto;padding:40px 20px;width:100%;">
+      <div class="hero-content">
+        <div class="hero-eyebrow">New Season 2025</div>
+        <h1 class="hero-title font-display">Dress Your<br/>Confidence</h1>
+        <p class="hero-sub">Discover premium fashion that speaks before you do. Curated collections for every style, every moment.</p>
+        <div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button id="heroPrimaryBtn" class="btn btn-primary" onclick="navigate('shop')" style="padding:14px 28px;font-size:15px;">Shop Collection <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></button>
+          <button id="heroSecondaryBtn" class="btn btn-outline" onclick="navigate('shop','new')" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.4);color:#fff;padding:14px 28px;font-size:15px;">New Arrivals</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Bar -->
+  <div id="storeBenefitsBar"></div>
+
+  <!-- Categories -->
+  <section id="whyShopSection" style="display:block;padding:64px 0;background:#f9fafb;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+      <div class="category-rail-head">
+        <div>
+          <div class="section-label">Browse By</div>
+          <h2 class="section-title">Shop Categories</h2>
+          <div class="category-rail-hint"><span class="category-rail-dot"></span> Explore collections</div>
+        </div>
+        <div class="category-rail-controls" aria-label="Category navigation">
+          <button type="button" class="category-rail-btn" id="catPrevBtn" onclick="scrollCategoryRail(-1)" aria-label="Previous categories"><i data-lucide="arrow-left"></i></button>
+          <button type="button" class="category-rail-btn category-rail-btn-dark" id="catNextBtn" onclick="scrollCategoryRail(1)" aria-label="Next categories"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="category-rail-shell">
+        <div class="category-rail-fade category-rail-fade-left"></div>
+        <div id="homeCategoryRail" class="cat-grid" aria-label="Shop categories"></div>
+        <div class="category-rail-fade category-rail-fade-right"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section style="padding:64px 0;background:#fff;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="section-label">Just In</div>
+          <h2 class="section-title">New Arrivals</h2>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="navigate('shop','new')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
+      </div>
+      <div id="newArrivalsGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="product-grid-4"></div>
+    </div>
+  </section>
+
+  <!-- Managed promotional banners are rendered here from Admin -> Banners -->
+  <section id="v6ManagedBannerTop" class="v6-managed-banner" style="display:none;"></section>
+
+  <!-- Dynamic Category Banners -->
+  <section id="adminCategoryShowcase" style="padding:54px 0;background:#fff;display:none;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:12px;">
+        <div><div class="section-label">Shop By Category</div><h2 class="section-title">Explore Collections</h2></div>
+        <button class="btn btn-outline btn-sm" onclick="navigate('shop')">View All</button>
+      </div>
+      <div id="adminCategoryGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="product-grid-4"></div>
+    </div>
+  </section>
+
+  <!-- Dynamic Bottom Promotional Banners -->
+  <section id="adminBottomBanners" style="padding:50px 0;background:#f9fafb;display:none;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+      <div id="adminBottomBannerGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="promo-grid"></div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section style="padding:64px 0;background:#fff;">
+    <div style="max-width:1400px;margin:0 auto;padding:0 20px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="section-label">Customer Favorites</div>
+          <h2 class="section-title">Best Sellers</h2>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="navigate('shop','best')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
+      </div>
+      <div id="bestSellersGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="product-grid-4"></div>
+    </div>
+  </section>
+
+  <section id="storePromiseSection"></section>
+
 </div>
-</div>
-</div>
-</section>
-<!-- Features Bar -->
-<div id="storeBenefitsBar"></div>
-<!-- Categories -->
-<section id="whyShopSection" style="display:block;padding:64px 0;background:#f9fafb;">
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div class="category-rail-head">
-<div>
-<div class="section-label">Browse By</div>
-<h2 class="section-title">Shop Categories</h2>
-<div class="category-rail-hint"><span class="category-rail-dot"></span> Explore collections</div>
-</div>
-<div aria-label="Category navigation" class="category-rail-controls">
-<button aria-label="Previous categories" class="category-rail-btn" id="catPrevBtn" onclick="scrollCategoryRail(-1)" type="button"><i data-lucide="arrow-left"></i></button>
-<button aria-label="Next categories" class="category-rail-btn category-rail-btn-dark" id="catNextBtn" onclick="scrollCategoryRail(1)" type="button"><i data-lucide="arrow-right"></i></button>
-</div>
-</div>
-<div class="category-rail-shell">
-<div class="category-rail-fade category-rail-fade-left"></div>
-<div aria-label="Shop categories" class="cat-grid" id="homeCategoryRail"></div>
-<div class="category-rail-fade category-rail-fade-right"></div>
-</div>
-</div>
-</section>
-<!-- New Arrivals -->
-<section style="padding:64px 0;background:#fff;">
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
-<div>
-<div class="section-label">Just In</div>
-<h2 class="section-title">New Arrivals</h2>
-</div>
-<button class="btn btn-outline btn-sm" onclick="navigate('shop','new')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
-</div>
-<div class="product-grid-4" id="newArrivalsGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;"></div>
-</div>
-</section>
-<!-- Managed promotional banners are rendered here from Admin -> Banners -->
-<section class="v6-managed-banner" id="v6ManagedBannerTop" style="display:none;"></section>
-<!-- Dynamic Category Banners -->
-<section id="adminCategoryShowcase" style="padding:54px 0;background:#fff;display:none;">
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;gap:12px;">
-<div><div class="section-label">Shop By Category</div><h2 class="section-title">Explore Collections</h2></div>
-<button class="btn btn-outline btn-sm" onclick="navigate('shop')">View All</button>
-</div>
-<div class="product-grid-4" id="adminCategoryGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;"></div>
-</div>
-</section>
-<!-- Dynamic Bottom Promotional Banners -->
-<section id="adminBottomBanners" style="padding:50px 0;background:#f9fafb;display:none;">
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div class="promo-grid" id="adminBottomBannerGrid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;"></div>
-</div>
-</section>
-<!-- Best Sellers -->
-<section style="padding:64px 0;background:#fff;">
-<div style="max-width:1400px;margin:0 auto;padding:0 20px;">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
-<div>
-<div class="section-label">Customer Favorites</div>
-<h2 class="section-title">Best Sellers</h2>
-</div>
-<button class="btn btn-outline btn-sm" onclick="navigate('shop','best')">View All <i data-lucide="arrow-right" style="width:14px;height:14px;"></i></button>
-</div>
-<div class="product-grid-4" id="bestSellersGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;"></div>
-</div>
-</section>
-<section id="storePromiseSection"></section>
-</div>
+
 <!-- ===== SHOP PAGE ===== -->
-<div class="page" id="page-shop">
-<div style="max-width:1400px;margin:0 auto;padding:32px 20px;">
-<!-- Breadcrumb -->
-<div id="shopBreadcrumb" style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280;margin-bottom:24px;">
-<span onclick="navigate('home')" style="cursor:pointer;hover:color:#111;">Home</span>
-<i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
-<span id="shopPageTitle" style="color:#111;font-weight:600;">All Products</span>
-</div>
-<div class="shop-layout" style="display:grid;grid-template-columns:240px 1fr;gap:32px;">
-<!-- Sidebar Filters -->
-<aside id="shopSidebar">
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
-<span style="font-size:15px;font-weight:700;">Filters</span>
-<button onclick="clearAllFilters()" style="font-size:12px;color:#6b7280;cursor:pointer;border:none;background:none;">Clear all</button>
-</div>
-<!-- Category filter -->
-<div class="filter-section">
-<div class="filter-title">Category <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-<div id="dynamicCategoryList"></div>
-</div>
-<!-- Price Range -->
-<div class="filter-section">
-<div class="filter-title">Price Range <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-<div style="padding:0 4px;">
-<div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px;">
-<span>Rs. 0</span><span id="priceRangeVal">Rs. 15,000</span>
-</div>
-<input id="priceRange" max="15000" min="0" oninput="updatePriceFilter(this.value)" style="width:100%;" type="range" value="15000"/>
-</div>
-</div>
-<!-- Category-specific filter -->
-<div id="dynamicCategoryFilters"></div>
-<!-- Availability -->
-<div class="filter-section">
-<div class="filter-title">Availability <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
-<label class="filter-item"><input class="filter-checkbox" onchange="applyFilters()" type="checkbox"/> In Stock</label>
-<label class="filter-item"><input class="filter-checkbox" onchange="applyFilters()" type="checkbox"/> On Sale</label>
-</div>
-</aside>
-<!-- Product Grid -->
-<div>
-<!-- Sort + Count -->
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px;">
-<span id="shopResultCount" style="font-size:14px;color:#6b7280;"></span>
-<div style="display:flex;align-items:center;gap:8px;">
-<label style="font-size:13px;color:#6b7280;">Sort by:</label>
-<select class="form-select" id="sortSelect" onchange="sortProducts(this.value)" style="width:auto;padding:7px 12px;font-size:13px;">
-<option value="featured">Featured</option>
-<option value="newest">Newest</option>
-<option value="price-asc">Price: Low to High</option>
-<option value="price-desc">Price: High to Low</option>
-<option value="rating">Rating</option>
-</select>
-<!-- Mobile filter toggle -->
-<button class="btn btn-outline btn-sm" id="mobileFilterBtn" onclick="openMobileFilters()" style="display:none;">
-<i data-lucide="sliders-horizontal" style="width:14px;height:14px;"></i> Filters
+<div id="page-shop" class="page">
+  <div style="max-width:1400px;margin:0 auto;padding:32px 20px;">
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280;margin-bottom:24px;" id="shopBreadcrumb">
+      <span onclick="navigate('home')" style="cursor:pointer;hover:color:#111;">Home</span>
+      <i data-lucide="chevron-right" style="width:14px;height:14px;"></i>
+      <span style="color:#111;font-weight:600;" id="shopPageTitle">All Products</span>
+    </div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:32px;" class="shop-layout">
+      <!-- Sidebar Filters -->
+      <aside id="shopSidebar">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+          <span style="font-size:15px;font-weight:700;">Filters</span>
+          <button onclick="clearAllFilters()" style="font-size:12px;color:#6b7280;cursor:pointer;border:none;background:none;">Clear all</button>
+        </div>
+        <!-- Category filter -->
+        <div class="filter-section">
+          <div class="filter-title">Category <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+          <div id="dynamicCategoryList"></div>
+        </div>
+        <!-- Price Range -->
+        <div class="filter-section">
+          <div class="filter-title">Price Range <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+          <div style="padding:0 4px;">
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:8px;">
+              <span>Rs. 0</span><span id="priceRangeVal">Rs. 15,000</span>
+            </div>
+            <input type="range" min="0" max="15000" value="15000" id="priceRange" oninput="updatePriceFilter(this.value)" style="width:100%;"/>
+          </div>
+        </div>
+        <!-- Category-specific filter -->
+        <div id="dynamicCategoryFilters"></div>
+        <!-- Availability -->
+        <div class="filter-section">
+          <div class="filter-title">Availability <i data-lucide="chevron-down" style="width:14px;height:14px;"></i></div>
+          <label class="filter-item"><input type="checkbox" class="filter-checkbox" onchange="applyFilters()"/> In Stock</label>
+          <label class="filter-item"><input type="checkbox" class="filter-checkbox" onchange="applyFilters()"/> On Sale</label>
+        </div>
+      </aside>
+      <!-- Product Grid -->
+      <div>
+        <!-- Sort + Count -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px;">
+          <span id="shopResultCount" style="font-size:14px;color:#6b7280;"></span>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <label style="font-size:13px;color:#6b7280;">Sort by:</label>
+            <select class="form-select" style="width:auto;padding:7px 12px;font-size:13px;" onchange="sortProducts(this.value)" id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="newest">Newest</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Rating</option>
+            </select>
+            <!-- Mobile filter toggle -->
+            <button class="btn btn-outline btn-sm" id="mobileFilterBtn" style="display:none;" onclick="openMobileFilters()">
+              <i data-lucide="sliders-horizontal" style="width:14px;height:14px;"></i> Filters
             </button>
+          </div>
+        </div>
+        <div id="shopProductGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="product-grid-3"></div>
+        <!-- Load more -->
+        <div style="text-align:center;margin-top:36px;">
+          <button id="loadMoreBtn" class="btn btn-outline" onclick="loadMoreProducts()" style="padding:12px 32px;">Load More Products</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-<div class="product-grid-3" id="shopProductGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"></div>
-<!-- Load more -->
-<div style="text-align:center;margin-top:36px;">
-<button class="btn btn-outline" id="loadMoreBtn" onclick="loadMoreProducts()" style="padding:12px 32px;">Load More Products</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <!-- ===== PRODUCT DETAIL PAGE ===== -->
-<div class="page" id="page-product">
-<div id="productDetailContent" style="max-width:1400px;margin:0 auto;padding:32px 20px;"></div>
+<div id="page-product" class="page">
+  <div style="max-width:1400px;margin:0 auto;padding:32px 20px;" id="productDetailContent"></div>
 </div>
+
 <!-- ===== CART PAGE ===== -->
-<div class="page" id="page-cart">
-<div style="max-width:1200px;margin:0 auto;padding:40px 20px;">
-<h1 style="font-size:26px;font-weight:800;margin-bottom:28px;">Shopping Cart</h1>
-<div class="cart-layout" style="display:grid;grid-template-columns:1fr 360px;gap:28px;">
-<div id="cartPageItems"></div>
-<div>
-<div class="admin-card" style="position:sticky;top:90px;">
-<h3 style="font-size:16px;font-weight:700;margin-bottom:20px;">Order Summary</h3>
-<!-- Promo Code -->
-<div style="display:flex;gap:8px;margin-bottom:20px;">
-<input class="form-input" id="promoInput" placeholder="Promo code" style="flex:1;padding:9px 12px;font-size:13px;" type="text"/>
-<button class="btn btn-dark btn-sm" onclick="applyPromo()">Apply</button>
+<div id="page-cart" class="page">
+  <div style="max-width:1200px;margin:0 auto;padding:40px 20px;">
+    <h1 style="font-size:26px;font-weight:800;margin-bottom:28px;">Shopping Cart</h1>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:28px;" class="cart-layout">
+      <div id="cartPageItems"></div>
+      <div>
+        <div class="admin-card" style="position:sticky;top:90px;">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:20px;">Order Summary</h3>
+          <!-- Promo Code -->
+          <div style="display:flex;gap:8px;margin-bottom:20px;">
+            <input type="text" placeholder="Promo code" class="form-input" id="promoInput" style="flex:1;padding:9px 12px;font-size:13px;"/>
+            <button class="btn btn-dark btn-sm" onclick="applyPromo()">Apply</button>
+          </div>
+          <div style="border-top:1px solid #f0f0f0;padding-top:16px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Subtotal</span><span id="summarySubtotal">Rs. 0</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Discount</span><span id="summaryDisc" style="color:#10b981;">-Rs. 0</span></div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Shipping</span><span id="summaryShip">Rs. 350</span></div>
+            <div style="border-top:1px solid #f0f0f0;margin:14px 0;"></div>
+            <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:20px;"><span>Total</span><span id="summaryTotal">Rs. 0</span></div>
+            <button class="btn btn-dark" style="width:100%;justify-content:center;padding:13px;" onclick="navigate('checkout')">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div style="border-top:1px solid #f0f0f0;padding-top:16px;">
-<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Subtotal</span><span id="summarySubtotal">Rs. 0</span></div>
-<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Discount</span><span id="summaryDisc" style="color:#10b981;">-Rs. 0</span></div>
-<div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;color:#6b7280;"><span>Shipping</span><span id="summaryShip">Rs. 350</span></div>
-<div style="border-top:1px solid #f0f0f0;margin:14px 0;"></div>
-<div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800;margin-bottom:20px;"><span>Total</span><span id="summaryTotal">Rs. 0</span></div>
-<button class="btn btn-dark" onclick="navigate('checkout')" style="width:100%;justify-content:center;padding:13px;">Proceed to Checkout</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <!-- ===== CHECKOUT PAGE ===== -->
-<div class="page" id="page-checkout">
-<div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
-<div id="checkoutStepIndicator" style="display:flex;align-items:center;gap:0;margin-bottom:40px;flex-wrap:wrap;gap:12px;"></div>
-<div class="checkout-layout" style="display:grid;grid-template-columns:1fr 340px;gap:28px;">
-<div id="checkoutStepContent"></div>
-<div>
-<div class="admin-card" style="position:sticky;top:90px;">
-<h3 style="font-size:14px;font-weight:700;margin-bottom:16px;">Your Order</h3>
-<div id="checkoutOrderSummary" style="margin-bottom:16px;"></div>
-<div style="border-top:1px solid #f0f0f0;padding-top:14px;">
-<div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
-<div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Shipping</span><span>Rs. 350</span></div>
-<div style="display:flex;justify-content:space-between;font-size:17px;font-weight:800;margin-top:12px;"><span>Total</span><span id="coTotal">Rs. 0</span></div>
+<div id="page-checkout" class="page">
+  <div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
+    <div style="display:flex;align-items:center;gap:0;margin-bottom:40px;flex-wrap:wrap;gap:12px;" id="checkoutStepIndicator"></div>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:28px;" class="checkout-layout">
+      <div id="checkoutStepContent"></div>
+      <div>
+        <div class="admin-card" style="position:sticky;top:90px;">
+          <h3 style="font-size:14px;font-weight:700;margin-bottom:16px;">Your Order</h3>
+          <div id="checkoutOrderSummary" style="margin-bottom:16px;"></div>
+          <div style="border-top:1px solid #f0f0f0;padding-top:14px;">
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Subtotal</span><span id="coSubtotal">Rs. 0</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;color:#6b7280;margin-bottom:8px;"><span>Shipping</span><span>Rs. 350</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:17px;font-weight:800;margin-top:12px;"><span>Total</span><span id="coTotal">Rs. 0</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 <!-- ===== ACCOUNT PAGE ===== -->
-<div class="page" id="page-account">
-<div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
-<div class="account-layout" style="display:grid;grid-template-columns:220px 1fr;gap:28px;">
-<div>
-<div class="admin-card">
-<div style="text-align:center;padding:16px 0 20px;">
-<div style="width:70px;height:70px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
-<i data-lucide="user" style="width:28px;height:28px;color:#2563eb;"></i>
+<div id="page-account" class="page">
+  <div style="max-width:1100px;margin:0 auto;padding:36px 20px;">
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:28px;" class="account-layout">
+      <div>
+        <div class="admin-card">
+          <div style="text-align:center;padding:16px 0 20px;">
+            <div style="width:70px;height:70px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+              <i data-lucide="user" style="width:28px;height:28px;color:#2563eb;"></i>
+            </div>
+            <div style="font-weight:700;font-size:15px;" id="accName">Guest User</div>
+            <div style="font-size:12px;color:#6b7280;" id="accEmail">Sign in to access account</div>
+          </div>
+          <div style="border-top:1px solid #f0f0f0;padding-top:12px;">
+            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('overview')"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i> Overview</div>
+            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('orders')"><i data-lucide="package" style="width:16px;height:16px;"></i> My Orders</div>
+            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('addresses')"><i data-lucide="map-pin" style="width:16px;height:16px;"></i> Addresses</div>
+            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('wishlist')"><i data-lucide="heart" style="width:16px;height:16px;"></i> Wishlist</div>
+            <div class="admin-nav-item" style="color:#374151;" onclick="showAccTab('profile')"><i data-lucide="settings" style="width:16px;height:16px;"></i> Profile</div>
+            <div class="admin-nav-item" style="color:#ef4444;margin-top:8px;" onclick="logout()"><i data-lucide="log-out" style="width:16px;height:16px;"></i> Sign Out</div>
+          </div>
+        </div>
+      </div>
+      <div id="accContent"></div>
+    </div>
+  </div>
 </div>
-<div id="accName" style="font-weight:700;font-size:15px;">Guest User</div>
-<div id="accEmail" style="font-size:12px;color:#6b7280;">Sign in to access account</div>
-</div>
-<div style="border-top:1px solid #f0f0f0;padding-top:12px;">
-<div class="admin-nav-item" onclick="showAccTab('overview')" style="color:#374151;"><i data-lucide="layout-dashboard" style="width:16px;height:16px;"></i> Overview</div>
-<div class="admin-nav-item" onclick="showAccTab('orders')" style="color:#374151;"><i data-lucide="package" style="width:16px;height:16px;"></i> My Orders</div>
-<div class="admin-nav-item" onclick="showAccTab('addresses')" style="color:#374151;"><i data-lucide="map-pin" style="width:16px;height:16px;"></i> Addresses</div>
-<div class="admin-nav-item" onclick="showAccTab('wishlist')" style="color:#374151;"><i data-lucide="heart" style="width:16px;height:16px;"></i> Wishlist</div>
-<div class="admin-nav-item" onclick="showAccTab('profile')" style="color:#374151;"><i data-lucide="settings" style="width:16px;height:16px;"></i> Profile</div>
-<div class="admin-nav-item" onclick="logout()" style="color:#ef4444;margin-top:8px;"><i data-lucide="log-out" style="width:16px;height:16px;"></i> Sign Out</div>
-</div>
-</div>
-</div>
-<div id="accContent"></div>
-</div>
-</div>
-</div>
+
 <!-- ===== WISHLIST PAGE ===== -->
-<div class="page" id="page-wishlist">
-<div class="wishlist-page-shell">
-<div class="wishlist-page-head">
-<div class="wishlist-heading">
-<div class="wishlist-heading-icon"><i data-lucide="heart"></i></div>
-<div>
-<div class="wishlist-kicker">SAVED FOR LATER</div>
-<h1>My Wishlist</h1>
-<p id="wishlistSummary">Your saved products in one place.</p>
+<div id="page-wishlist" class="page">
+  <div class="wishlist-page-shell">
+    <div class="wishlist-page-head">
+      <div class="wishlist-heading">
+        <div class="wishlist-heading-icon"><i data-lucide="heart"></i></div>
+        <div>
+          <div class="wishlist-kicker">SAVED FOR LATER</div>
+          <h1>My Wishlist</h1>
+          <p id="wishlistSummary">Your saved products in one place.</p>
+        </div>
+      </div>
+      <button type="button" class="wishlist-browse-btn" onclick="navigate('shop')"><i data-lucide="shopping-bag"></i><span>Continue Shopping</span></button>
+    </div>
+    <div id="wishlistGrid" class="wishlist-product-grid"></div>
+  </div>
 </div>
-</div>
-<button class="wishlist-browse-btn" onclick="navigate('shop')" type="button"><i data-lucide="shopping-bag"></i><span>Continue Shopping</span></button>
-</div>
-<div class="wishlist-product-grid" id="wishlistGrid"></div>
-</div>
-</div>
+
 <!-- ===== CARE PAGE ===== -->
-<div class="page" id="page-care">
-<div style="max-width:900px;margin:0 auto;padding:60px 20px;">
-<div style="text-align:center;margin-bottom:50px;">
-<div class="section-label">We're Here For You</div>
-<h1 class="section-title" style="font-size:36px;">Customer Care</h1>
-<p class="section-sub">Our team is ready to help you with anything you need.</p>
+<div id="page-care" class="page">
+  <div style="max-width:900px;margin:0 auto;padding:60px 20px;">
+    <div style="text-align:center;margin-bottom:50px;">
+      <div class="section-label">We're Here For You</div>
+      <h1 class="section-title" style="font-size:36px;">Customer Care</h1>
+      <p class="section-sub">Our team is ready to help you with anything you need.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;" class="care-grid">
+      <div class="admin-card" style="text-align:center;padding:30px 20px;">
+        <div style="width:52px;height:52px;background:#eff6ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <i data-lucide="phone" style="width:22px;height:22px;color:#2563eb;"></i>
+        </div>
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Call Us</h3>
+        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Mon - Sat, 9AM - 6PM</p>
+        <a href="tel:+94112345678" style="color:#2563eb;font-weight:600;font-size:14px;">+94 11 234 5678</a>
+      </div>
+      <div class="admin-card" style="text-align:center;padding:30px 20px;">
+        <div style="width:52px;height:52px;background:#f0fdf4;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <i data-lucide="message-circle" style="width:22px;height:22px;color:#10b981;"></i>
+        </div>
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">WhatsApp</h3>
+        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Quick response guaranteed</p>
+        <a href="https://wa.me/94112345678" target="_blank" style="color:#10b981;font-weight:600;font-size:14px;">Chat Now</a>
+      </div>
+      <div class="admin-card" style="text-align:center;padding:30px 20px;">
+        <div style="width:52px;height:52px;background:#fef3c7;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
+          <i data-lucide="mail" style="width:22px;height:22px;color:#d97706;"></i>
+        </div>
+        <h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Email Us</h3>
+        <p style="font-size:13px;color:#6b7280;margin-bottom:14px;">We reply within 24 hours</p>
+        <a href="mailto:support@wowshopping.lk" style="color:#d97706;font-weight:600;font-size:14px;">support@wowshopping.lk</a>
+      </div>
+    </div>
+    <!-- FAQ -->
+    <div class="admin-card">
+      <h2 style="font-size:20px;font-weight:700;margin-bottom:20px;">Frequently Asked Questions</h2>
+      <div id="faqList"></div>
+    </div>
+  </div>
 </div>
-<div class="care-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px;">
-<div class="admin-card" style="text-align:center;padding:30px 20px;">
-<div style="width:52px;height:52px;background:#eff6ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-<i data-lucide="phone" style="width:22px;height:22px;color:#2563eb;"></i>
-</div>
-<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Call Us</h3>
-<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Mon - Sat, 9AM - 6PM</p>
-<a href="tel:+94112345678" style="color:#2563eb;font-weight:600;font-size:14px;">+94 11 234 5678</a>
-</div>
-<div class="admin-card" style="text-align:center;padding:30px 20px;">
-<div style="width:52px;height:52px;background:#f0fdf4;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-<i data-lucide="message-circle" style="width:22px;height:22px;color:#10b981;"></i>
-</div>
-<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">WhatsApp</h3>
-<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">Quick response guaranteed</p>
-<a href="https://wa.me/94112345678" style="color:#10b981;font-weight:600;font-size:14px;" target="_blank">Chat Now</a>
-</div>
-<div class="admin-card" style="text-align:center;padding:30px 20px;">
-<div style="width:52px;height:52px;background:#fef3c7;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">
-<i data-lucide="mail" style="width:22px;height:22px;color:#d97706;"></i>
-</div>
-<h3 style="font-size:15px;font-weight:700;margin-bottom:6px;">Email Us</h3>
-<p style="font-size:13px;color:#6b7280;margin-bottom:14px;">We reply within 24 hours</p>
-<a href="mailto:support@wowshopping.lk" style="color:#d97706;font-weight:600;font-size:14px;">support@wowshopping.lk</a>
-</div>
-</div>
-<!-- FAQ -->
-<div class="admin-card">
-<h2 style="font-size:20px;font-weight:700;margin-bottom:20px;">Frequently Asked Questions</h2>
-<div id="faqList"></div>
-</div>
-</div>
-</div>
+
 <!-- ===== ORDER TRACKING PAGE ===== -->
-<div class="page" id="page-tracking">
-<div style="max-width:700px;margin:0 auto;padding:60px 20px;">
-<div style="text-align:center;margin-bottom:40px;">
-<h1 style="font-size:28px;font-weight:800;margin-bottom:8px;">Track Your Order</h1>
-<p style="font-size:15px;color:#6b7280;">Enter your order number to get real-time status updates</p>
+<div id="page-tracking" class="page">
+  <div style="max-width:700px;margin:0 auto;padding:60px 20px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <h1 style="font-size:28px;font-weight:800;margin-bottom:8px;">Track Your Order</h1>
+      <p style="font-size:15px;color:#6b7280;">Enter your order number to get real-time status updates</p>
+    </div>
+    <div class="admin-card" style="margin-bottom:24px;">
+      <div style="display:flex;gap:10px;">
+        <input type="text" placeholder="Order #WOW-XXXXXX" class="form-input" id="trackInput" style="flex:1;"/>
+        <button class="btn btn-dark" onclick="trackOrder()">Track</button>
+      </div>
+    </div>
+    <div id="trackResult"></div>
+  </div>
 </div>
-<div class="admin-card" style="margin-bottom:24px;">
-<div style="display:flex;gap:10px;">
-<input class="form-input" id="trackInput" placeholder="Order #WOW-XXXXXX" style="flex:1;" type="text"/>
-<button class="btn btn-dark" onclick="trackOrder()">Track</button>
-</div>
-</div>
-<div id="trackResult"></div>
-</div>
-</div>
+
+
+
 <!-- ===== 404 PAGE ===== -->
-<div class="page" id="page-404">
-<div style="text-align:center;padding:100px 20px;">
-<div style="font-size:80px;font-weight:900;color:#e5e7eb;margin-bottom:16px;">404</div>
-<h2 style="font-size:24px;font-weight:700;margin-bottom:10px;">Page Not Found</h2>
-<p style="color:#6b7280;margin-bottom:28px;">The page you're looking for doesn't exist or has been moved.</p>
-<button class="btn btn-dark" onclick="navigate('home')"><i data-lucide="home" style="width:16px;height:16px;"></i> Back to Home</button>
+<div id="page-404" class="page">
+  <div style="text-align:center;padding:100px 20px;">
+    <div style="font-size:80px;font-weight:900;color:#e5e7eb;margin-bottom:16px;">404</div>
+    <h2 style="font-size:24px;font-weight:700;margin-bottom:10px;">Page Not Found</h2>
+    <p style="color:#6b7280;margin-bottom:28px;">The page you're looking for doesn't exist or has been moved.</p>
+    <button class="btn btn-dark" onclick="navigate('home')"><i data-lucide="home" style="width:16px;height:16px;"></i> Back to Home</button>
+  </div>
 </div>
-</div>
+
 </main>
+
 <!-- ===== FOOTER ===== -->
 <footer id="site-footer">
-<div style="max-width:1400px;margin:0 auto;padding:56px 20px 32px;">
-<div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-<!-- Brand -->
-<div>
-<div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
-<div style="width:32px;height:32px;background:#2563eb;border-radius:7px;display:flex;align-items:center;justify-content:center;">
-<svg fill="none" height="17" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="17"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-</div>
-<span style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.3px;">WOWSHOPPING<span style="color:#60a5fa;">.lk</span></span>
-</div>
-<p style="font-size:13px;color:#6b7280;line-height:1.7;max-width:280px;margin-bottom:20px;"><span class="v6-footer-desc"></span></p>
-<div style="display:flex;gap:8px;">
-<a class="social-link" href="#" title="Facebook"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-<a class="social-link" href="#" title="Instagram"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-<a class="social-link" href="#" title="YouTube"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>
-<a class="social-link" href="#" title="TikTok"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
-<a class="social-link" href="https://wa.me/94112345678" title="WhatsApp"><svg fill="none" height="16" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
-</div>
-</div>
-<!-- Shopping -->
-<div>
-<div class="footer-title">Shopping</div>
-<a class="footer-link" onclick="navigate('shop','Men')">Men</a>
-<a class="footer-link" onclick="navigate('shop','Women')">Women</a>
-<a class="footer-link" onclick="navigate('shop','Kids')">Kids</a>
-<a class="footer-link" onclick="navigate('shop','Accessories')">Accessories</a>
-<a class="footer-link" onclick="navigate('shop','new')">New Arrivals</a>
-<a class="footer-link" onclick="navigate('shop','sale')">Sale</a>
-</div>
-<!-- Customer Care -->
-<div>
-<div class="footer-title">Customer Care</div>
-<a class="footer-link" onclick="navigate('care')">Contact Us</a>
-<a class="footer-link" onclick="navigate('tracking')">Order Tracking</a>
-<a class="footer-link" onclick="navigate('care')">FAQ</a>
-<a class="footer-link" onclick="navigate('care')">Exchange Policy</a>
-<a class="footer-link" onclick="navigate('care')">Delivery Info</a>
-</div>
-<!-- Company -->
-<div>
-<div class="footer-title">Company</div>
-<a class="footer-link" href="#">About Us</a>
-<a class="footer-link" href="#">Privacy Policy</a>
-<a class="footer-link" href="#">Terms &amp; Conditions</a>
-<a class="footer-link" href="#">Shipping Policy</a>
-<a class="footer-link" href="admin.html">Admin Panel</a>
-</div>
-</div>
-<div style="border-top:1px solid #1f2937;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-<div style="font-size:12px;color:#4b5563;"><span class="v6-footer-copy"></span></div>
-<div style="display:flex;align-items:center;gap:16px;">
-<div class="v6-payment" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"></div>
-<div style="font-size:12px;color:#4b5563;display:flex;align-items:center;gap:4px;">
-<i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i> Secure Checkout
+  <div style="max-width:1400px;margin:0 auto;padding:56px 20px 32px;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;" class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <div style="width:32px;height:32px;background:#2563eb;border-radius:7px;display:flex;align-items:center;justify-content:center;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <span style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.3px;">WOWSHOPPING<span style="color:#60a5fa;">.lk</span></span>
         </div>
-</div>
-</div>
-</div>
+        <p style="font-size:13px;color:#6b7280;line-height:1.7;max-width:280px;margin-bottom:20px;"><span class="v6-footer-desc"></span></p>
+        <div style="display:flex;gap:8px;">
+          <a href="#" class="social-link" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="social-link" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="social-link" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          <a href="#" class="social-link" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="https://wa.me/94112345678" class="social-link" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <!-- Shopping -->
+      <div>
+        <div class="footer-title">Shopping</div>
+        <a class="footer-link" onclick="navigate('shop','Men')">Men</a>
+        <a class="footer-link" onclick="navigate('shop','Women')">Women</a>
+        <a class="footer-link" onclick="navigate('shop','Kids')">Kids</a>
+        <a class="footer-link" onclick="navigate('shop','Accessories')">Accessories</a>
+        <a class="footer-link" onclick="navigate('shop','new')">New Arrivals</a>
+        <a class="footer-link" onclick="navigate('shop','sale')">Sale</a>
+      </div>
+      <!-- Customer Care -->
+      <div>
+        <div class="footer-title">Customer Care</div>
+        <a class="footer-link" onclick="navigate('care')">Contact Us</a>
+        <a class="footer-link" onclick="navigate('tracking')">Order Tracking</a>
+        <a class="footer-link" onclick="navigate('care')">FAQ</a>
+        <a class="footer-link" onclick="navigate('care')">Exchange Policy</a>
+        <a class="footer-link" onclick="navigate('care')">Delivery Info</a>
+      </div>
+      <!-- Company -->
+      <div>
+        <div class="footer-title">Company</div>
+        <a class="footer-link" href="#">About Us</a>
+        <a class="footer-link" href="#">Privacy Policy</a>
+        <a class="footer-link" href="#">Terms & Conditions</a>
+        <a class="footer-link" href="#">Shipping Policy</a>
+        <a class="footer-link" href="admin.html">Admin Panel</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid #1f2937;padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:#4b5563;"><span class="v6-footer-copy"></span></div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="v6-payment" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;"></div>
+        <div style="font-size:12px;color:#4b5563;display:flex;align-items:center;gap:4px;">
+          <i data-lucide="shield-check" style="width:13px;height:13px;color:#10b981;"></i> Secure Checkout
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
+
 <script>
 // ==================== DATA ====================
 const PRODUCTS = [];
@@ -5086,18 +4585,8 @@ function showAdminTab(tab) {
         <h3 style="font-size:15px;font-weight:700;margin-bottom:20px;">Branding Settings</h3>
         <div style="display:grid;gap:16px;">
           <div><label class="form-label">Website Title</label><input class="form-input" placeholder="Your website title" id="brand_title"/></div>
-          <div>
-            <label class="form-label">Logo</label>
-            <input class="form-input" type="file" id="brand_logo_file" accept="image/png,image/jpeg,image/webp,image/svg+xml" onchange="uploadBrandAsset(this,'logo')"/>
-            <input type="hidden" id="brand_logo"/>
-            <div id="brand_logo_status" style="font-size:11px;color:#64748b;margin-top:6px">Choose a logo file. It will upload to Firebase Storage and save automatically.</div>
-          </div>
-          <div>
-            <label class="form-label">Favicon</label>
-            <input class="form-input" type="file" id="brand_favicon_file" accept="image/png,image/jpeg,image/webp,image/x-icon,image/svg+xml" onchange="uploadBrandAsset(this,'favicon')"/>
-            <input type="hidden" id="brand_favicon"/>
-            <div id="brand_favicon_status" style="font-size:11px;color:#64748b;margin-top:6px">Choose a favicon file. It will upload to Firebase Storage and save automatically.</div>
-          </div>
+          <div><label class="form-label">Logo URL</label><input class="form-input" placeholder="https://..." id="brand_logo"/></div>
+          <div><label class="form-label">Favicon URL</label><input class="form-input" placeholder="https://..." id="brand_favicon"/></div>
           <div><label class="form-label">Footer Description</label><textarea class="form-input" rows="3" id="brand_footer_desc" placeholder="Short footer description"></textarea></div>
           <div><label class="form-label">Meta Description</label><textarea class="form-input" rows="2" id="brand_meta" placeholder="Search-engine description"></textarea></div>
           <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="saveBranding()">Save Branding</button>
@@ -5114,25 +4603,20 @@ function showAdminTab(tab) {
             <div><label class="form-label">Media Type</label>
               <select class="form-select" id="heroMediaType"><option value="image">Image</option><option value="video">Video</option></select>
             </div>
-            <div id="heroVideoUploadBox" style="padding:14px;border:1px dashed #cbd5e1;border-radius:10px;background:#f8fafc;">
-              <label class="form-label">Hero Video — Choose File</label>
-              <input class="form-input" type="file" id="heroVideoFile" accept="video/mp4,video/webm,video/quicktime" onchange="uploadHeroVideo(this)"/>
-              <input type="hidden" id="heroVideoUrl"/>
-              <div id="hero_video_status" style="font-size:11px;color:#64748b;margin-top:7px">Upload one video. The same cloud video is used on desktop and phone.</div>
-            </div>
+            <div><label class="form-label">Image URL</label><input class="form-input" value="https://images.pexels.com/photos/3055008/pexels-photo-3055008.jpeg" id="heroImg"/></div>
             <div><label class="form-label">Eyebrow Text</label><input class="form-input" value="New Season 2025" id="heroEyebrow"/></div>
             <div><label class="form-label">Main Title</label><input class="form-input" value="Dress Your Confidence" id="heroTitle"/></div>
             <div><label class="form-label">Subtitle</label><textarea class="form-input" rows="2" id="heroSub">Discover premium fashion that speaks before you do.</textarea></div>
             <div><label class="form-label">Button Text</label><input class="form-input" value="Shop Collection" id="heroBtnText"/></div>
             <div><label class="form-label">Button Link</label><input class="form-input" value="#shop" id="heroBtnLink"/></div>
-            <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="saveHeroSettings()">Save Hero</button>
+            <button class="btn btn-dark btn-sm" style="width:fit-content;" onclick="showToast('Hero settings saved','success')">Save Hero</button>
           </div>
         </div>
         <div class="admin-card">
           <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Preview</h3>
-          <div id="heroAdminPreview" style="border-radius:8px;overflow:hidden;position:relative;height:200px;background:#0f172a;">
-            <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.15));z-index:1;"></div>
-            <div style="position:absolute;inset:0;display:flex;align-items:center;padding:20px;z-index:2;">
+          <div style="border-radius:8px;overflow:hidden;position:relative;height:200px;background:#0f172a;">
+            <img src="https://images.pexels.com/photos/3055008/pexels-photo-3055008.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=400" style="width:100%;height:100%;object-fit:cover;opacity:0.5;"/>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;padding:20px;">
               <div style="color:#fff;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#93c5fd;margin-bottom:6px;">New Season 2025</div><div style="font-size:20px;font-weight:800;line-height:1.1;margin-bottom:8px;">Dress Your Confidence</div><div style="background:#2563eb;display:inline-block;padding:5px 14px;border-radius:5px;font-size:11px;font-weight:700;">Shop Collection</div></div>
             </div>
           </div>
@@ -5434,6 +4918,7 @@ function toggleDarkMode() {
   document.head.appendChild(style);
 })();
 </script>
+
 <!--
 WOWSHOPPING REAL AUTH SETUP
 1. Create a Firebase project.
@@ -5451,7 +4936,12 @@ WOWSHOPPING REAL AUTH SETUP
     console.error("WOWSHOPPING runtime error:", e.error || e.message);
   });
 </script>
-<div class="admin-modal" id="adminModal"><div class="admin-modal-box"><div id="adminModalContent"></div></div></div>
+
+
+
+<div id="adminModal" class="admin-modal"><div class="admin-modal-box"><div id="adminModalContent"></div></div></div>
+
+
 <script>
 /* ==================== WOWSHOPPING ADMIN v3 ==================== */
 const ADMIN_KEY = "wow_admin_data_v4";
@@ -5511,20 +5001,7 @@ function ensureCategoryDefaults(target){
   });
 }
 ensureCategoryDefaults(adminData);
-async function persistStorefrontToCloud(){
-  if(!firebaseDb) throw new Error('Cloud database is not ready. Please wait a moment and try again.');
-  const ref=firebaseDb.collection('siteConfig').doc('storefront');
-  await ref.set({data:adminData,updatedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
-  window.__WOW_REMOTE_STORE=adminData;
-  window.__WOW_STORE_DATA=adminData;
-  return true;
-}
-function saveAdminData(){
-  window.__WOW_REMOTE_STORE=adminData;
-  window.__WOW_STORE_DATA=adminData;
-  try{localStorage.setItem(ADMIN_KEY,JSON.stringify(adminData));}catch(e){}
-  persistStorefrontToCloud().catch(e=>console.warn('WOWSHOPPING cloud save:',e));
-}
+function saveAdminData(){window.__WOW_REMOTE_STORE=adminData;window.__WOW_STORE_DATA=adminData}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#039;"}[m]))}
 function uid(prefix){return prefix+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function readSingleImage(input,targetId){const f=input.files&&input.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const e=document.getElementById(targetId);if(e)e.value=r.result};r.readAsDataURL(f)}
@@ -5710,12 +5187,8 @@ function applyAdminMenu(){
  const wrap=document.createElement('div');wrap.className='admin-managed-menu';wrap.style.cssText='display:flex;align-items:center;gap:4px';const home=document.createElement('div');home.className='nav-link';home.textContent='Home';home.onclick=()=>navigate('home');wrap.appendChild(home);children(null).filter(m=>String(m.title||'').toLowerCase()!=='home').forEach(m=>wrap.appendChild(build(m))); const anchor=nav.querySelector('[style*="margin-left:auto"]');nav.insertBefore(wrap,anchor||nav.lastElementChild); renderStorefrontCategories();
 }
 
-function loadHeroForm(){const h=adminData.hero||{};const map={heroMediaType:'video',heroVideoUrl:h.videoUrl||'',heroEyebrow:h.eyebrow||'',heroTitle:h.title||'',heroSub:h.subtitle||'',heroBtnText:h.buttonText||'Shop Now',heroBtnLink:h.buttonUrl||'#shop'};Object.keys(map).forEach(id=>{const e=document.getElementById(id);if(e)e.value=map[id]||''});const st=document.getElementById('hero_video_status');if(st)st.textContent=h.videoUrl?'Video already uploaded to cloud. Choose another file to replace it.':'Choose one hero video file.'}
-async function saveHeroSettings(){
-  const videoUrl=(document.getElementById('heroVideoUrl')?.value||'').trim();
-  adminData.hero={...(adminData.hero||{}),mediaType:'video',videoUrl,images:[],eyebrow:document.getElementById('heroEyebrow')?.value||'',title:document.getElementById('heroTitle')?.value||'',subtitle:document.getElementById('heroSubtitle')?.value||'',buttonText:document.getElementById('heroBtnText')?.value||document.getElementById('heroButtonText')?.value||'Shop Now',buttonUrl:document.getElementById('heroBtnLink')?.value||document.getElementById('heroButtonUrl')?.value||'#shop',visible:true};
-  try{await persistStorefrontToCloud();applyHeroToSite();renderHeroPreview();showToast(videoUrl?'Hero saved to cloud':'Hero saved','success')}catch(e){showToast(e.message||'Cloud save failed','error')}
-}
+function loadHeroForm(){const h=adminData.hero;const map={heroMediaType:h.mediaType,heroVideoUrl:h.videoUrl,heroImageUrls:(h.images||[]).join('\n'),heroEyebrow:h.eyebrow,heroTitle:h.title,heroSubtitle:h.subtitle,heroButtonText:h.buttonText,heroButtonUrl:h.buttonUrl};Object.keys(map).forEach(id=>{const e=document.getElementById(id);if(e)e.value=map[id]||''});const v=document.getElementById('heroVisible');if(v)v.checked=h.visible!==false}
+function saveHeroSettings(){adminData.hero={mediaType:document.getElementById('heroMediaType').value,videoUrl:document.getElementById('heroVideoUrl').value,images:document.getElementById('heroImageUrls').value.split('\n').map(x=>x.trim()).filter(Boolean),eyebrow:document.getElementById('heroEyebrow').value,title:document.getElementById('heroTitle').value,subtitle:document.getElementById('heroSubtitle').value,buttonText:document.getElementById('heroButtonText').value,buttonUrl:document.getElementById('heroButtonUrl').value,visible:document.getElementById('heroVisible').checked};saveAdminData();applyHeroToSite();renderHeroPreview();showToast('Hero saved','success')}
 function renderHeroPreview(){const el=document.getElementById('heroAdminPreview');if(!el)return;const h=adminData.hero;if(!h.visible){el.innerHTML='<span>Hero hidden</span>';return}if(h.mediaType==='video'&&h.videoUrl)el.innerHTML=`<video src="${esc(h.videoUrl)}" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>`;else if(h.images.length)el.innerHTML=`<img src="${esc(h.images[0])}" style="width:100%;height:100%;object-fit:cover">`;else el.innerHTML='<span>Add a video URL or image URLs</span>'}
 function applyPromiseToSite(){const el=document.getElementById('storePromiseSection');if(!el)return;const d=loadAdminData(),p=d.promise||{};const cards=Array.isArray(p.cards)?p.cards.filter(x=>x&&x.visible!==false).slice(0,3):[];if(p.visible===false||!cards.length){el.style.display='none';el.innerHTML='';return;}el.style.display='block';el.innerHTML=`<section class="wow-promise-section"><div class="wow-promise-wrap"><div class="wow-promise-label">${esc(p.label||'Our Promise')}</div><h2 class="wow-promise-title">${esc(p.title||'Why Shop With Us?')}</h2><p class="wow-promise-desc">${esc(p.description||'')}</p><div class="wow-promise-grid">${cards.map(c=>`<div class="wow-promise-card"><div class="wow-promise-icon"><i data-lucide="${esc(c.icon||'star')}"></i></div><h3>${esc(c.title||'')}</h3><p>${esc(c.text||'')}</p></div>`).join('')}</div></div></section>`;if(window.lucide?.createIcons)lucide.createIcons();}
 function applyBenefitsToSite(){
@@ -5808,42 +5281,8 @@ function renderThemePresets(){const el=document.getElementById('themePresets');i
 function useThemePreset(name){const t=THEME_PRESETS[name];if(!t)return;adminData.theme={...adminData.theme,...t};saveAdminData();loadThemeForm();applyAdminTheme();showToast(name+' theme applied','success')}
 function saveTheme(){['primary','background','text','header','footer','sale'].forEach(k=>adminData.theme[k]=document.getElementById('theme'+k.charAt(0).toUpperCase()+k.slice(1)).value);saveAdminData();applyAdminTheme();showToast('Theme saved','success')}
 function resetTheme(){useThemePreset('Midnight')}
-function loadBrandingForm(){const b=adminData.branding||{};[['brand_title',b.title],['brand_logo',b.logo],['brand_favicon',b.favicon],['brand_footer_desc',b.footer],['brand_meta',b.meta]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''});if(document.getElementById('brand_logo_status'))document.getElementById('brand_logo_status').textContent=b.logo?'Logo already uploaded to cloud. Choose another file to replace it.':'Choose a logo file.';if(document.getElementById('brand_favicon_status'))document.getElementById('brand_favicon_status').textContent=b.favicon?'Favicon already uploaded to cloud. Choose another file to replace it.':'Choose a favicon file.'}
-async function uploadSiteAsset(input,type,targetId,statusId){
-  const file=input?.files?.[0]; if(!file)return;
-  if(!window.firebase?.storage) {showToast('Firebase Storage is not ready','error');return}
-  if(type==='hero-video' && file.size>80*1024*1024){showToast('Video is too large. Keep it under 80MB for fast mobile loading.','error');input.value='';return}
-  const allowed=type==='hero-video'?/^video\/(mp4|webm|quicktime)$/:/^image\/(png|jpe?g|webp|svg\+xml|x-icon)$/i;
-  if(!allowed.test(file.type)){showToast('Unsupported file type','error');input.value='';return}
-  const status=document.getElementById(statusId); if(status)status.textContent='Uploading '+file.name+'… 0%';
-  try{
-    const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
-    const path='site-assets/'+type+'/'+Date.now()+'-'+safeName;
-    const ref=firebase.storage().ref().child(path);
-    const task=ref.put(file,{contentType:file.type,cacheControl:'public,max-age=31536000,immutable'});
-    await new Promise((resolve,reject)=>{task.on('state_changed',snap=>{const pct=Math.round((snap.bytesTransferred/snap.totalBytes)*100);if(status)status.textContent='Uploading '+file.name+'… '+pct+'%';},reject,resolve)});
-    const url=await ref.getDownloadURL();
-    const target=document.getElementById(targetId);if(target)target.value=url;
-    if(type==='hero-video'){adminData.hero={...(adminData.hero||{}),mediaType:'video',videoUrl:url,images:[]};}
-    else {adminData.branding={...(adminData.branding||{}),[type]:url};}
-    await persistStorefrontToCloud();
-    if(type!=='hero-video'){applyBranding();}
-    else {applyHeroToSite();}
-    if(status)status.textContent='Uploaded successfully ✓';
-    showToast(type==='hero-video'?'Video uploaded to cloud':'File uploaded to cloud','success');
-  }catch(e){console.error(e);if(status)status.textContent='Upload failed: '+(e.message||e);showToast('Upload failed. Check Firebase Storage rules.','error')}
-}
-function uploadHeroVideo(input){return uploadSiteAsset(input,'hero-video','heroVideoUrl','hero_video_status')}
-function uploadBrandAsset(input,type){return uploadSiteAsset(input,type,type==='logo'?'brand_logo':'brand_favicon',type==='logo'?'brand_logo_status':'brand_favicon_status')}
-async function saveBranding(){
-  const title=(document.getElementById('brand_title')?.value||'').trim();
-  const logo=(document.getElementById('brand_logo')?.value||'').trim();
-  const favicon=(document.getElementById('brand_favicon')?.value||'').trim();
-  const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();
-  const meta=(document.getElementById('brand_meta')?.value||'').trim();
-  adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};
-  try{await persistStorefrontToCloud();applyBranding();showToast('Branding saved to cloud','success')}catch(e){showToast(e.message||'Cloud save failed','error')}
-}
+function loadBrandingForm(){const b=adminData.branding||{};[['brand_title',b.title],['brand_logo',b.logo],['brand_favicon',b.favicon],['brand_footer_desc',b.footer],['brand_meta',b.meta]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.value=v||''})}
+function saveBranding(){const title=(document.getElementById('brand_title')?.value||'').trim();const logo=(document.getElementById('brand_logo')?.value||'').trim();const favicon=(document.getElementById('brand_favicon')?.value||'').trim();const footer=(document.getElementById('brand_footer_desc')?.value||'').trim();const meta=(document.getElementById('brand_meta')?.value||'').trim();adminData.branding={...(adminData.branding||{}),name:'',title:title||'WOWSHOPPING.lk — Premium Fashion & Lifestyle',logo,favicon,footer,meta};saveAdminData();applyBranding();showToast('Branding saved','success')}
 function loadShippingForm(){const a=document.getElementById('shipStandard'),b=document.getElementById('shipExpress');if(a)a.value=adminData.shipping.standard;if(b)b.value=adminData.shipping.express}
 function saveShipping(){adminData.shipping.standard=Number(document.getElementById('shipStandard').value||0);adminData.shipping.express=Number(document.getElementById('shipExpress').value||0);saveAdminData();showToast('Shipping saved','success')}
 function loadSettingsForm(){const a=document.getElementById('adminEmail'),b=document.getElementById('requireFirebase');if(a)a.value=adminData.settings.adminEmail;if(b)b.checked=adminData.settings.requireFirebase!==false}
@@ -5855,6 +5294,8 @@ window.addEventListener('storage',e=>{if(e.key!==ADMIN_KEY)return;adminData=load
 window.addEventListener('load',()=>setTimeout(()=>{seedAdminCatalog();syncStoreProducts();applyAdminTheme();applyBranding();applyAdminMenu();renderStorefrontCategories();renderNewArrivals();renderBestSellers();applyHeroToSite();applyBenefitsToSite();applyPromiseToSite();applyBannersToSite();applyCategoryShowcase();applyCustomerCareToSite();},400));
 window.addEventListener('wow:benefits-updated',()=>applyBenefitsToSite());
 </script>
+
+
 <style id="wow-v6-patch">
 .top-bar{display:none!important}
 .product-card{border-radius:16px!important;box-shadow:0 2px 12px rgba(15,23,42,.05)!important;transition:transform .28s,box-shadow .28s!important}
@@ -5888,7 +5329,6 @@ function applyRemoteStorefront(remote){
   try{adminData=deepMerge(defaultAdminData,remote);ensureCategoryDefaults(adminData)}catch(e){console.warn('Storefront state merge:',e)}
   wowRemoteStorefrontLoaded=true;
   patch();
-  try{ window.dispatchEvent(new CustomEvent('wow:storefront-ready')); }catch(e){}
   if(typeof window.renderEnhancedBanners==='function') window.renderEnhancedBanners();
   return true;
 }
@@ -5940,10 +5380,13 @@ function patch(){
   const media=document.createElement('div'); media.className='wow-hero-media';
   const shade=document.createElement('div'); shade.className='wow-hero-shade';
   hero.insertBefore(media,hero.firstChild); hero.appendChild(shade);
-  const poster='';
-  const addPoster=()=>{};
-  const addImage=()=>{};
+  const poster=h.images[0]||'';
+  const addPoster=()=>{ if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt=''; img.loading='eager'; img.onerror=()=>img.remove(); media.appendChild(img); };
+  const addImage=()=>{
+    if(!poster)return; const img=document.createElement('img'); img.className='wow-hero-poster'; img.src=poster; img.alt='WOWSHOPPING banner'; img.loading='eager'; img.onerror=()=>{img.remove();}; media.appendChild(img);
+  };
   if(h.mediaType==='video' && h.videoUrl){
+    addPoster();
     const embed=heroVideoEmbedUrl(h.videoUrl);
     if(embed){
       const frame=document.createElement('iframe'); frame.src=embed; frame.title='WOWSHOPPING banner video'; frame.allow='autoplay; fullscreen; picture-in-picture; encrypted-media'; frame.setAttribute('allowfullscreen',''); frame.setAttribute('playsinline',''); frame.setAttribute('loading','eager'); media.appendChild(frame);
@@ -5993,6 +5436,8 @@ function patch(){
 window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window.addEventListener('load',()=>{patch();renderStorefrontCategories();document.body.classList.add('wow-ready');const l=document.getElementById('wowLoader');if(l){setTimeout(()=>{l.classList.add('hide');setTimeout(()=>l.remove(),220)},280)}});window.addEventListener('hashchange',()=>setTimeout(patch,100));
 })();
 </script>
+
+
 <!-- WOWSHOPPING V9 ENHANCEMENT PATCH -->
 <style id="wow-v9-enhancements">
   .v9-banner-wrap{padding:34px 20px;background:var(--color-bg,#fff)}
@@ -6135,6 +5580,7 @@ window.addEventListener('storage',e=>{if(e.key===K)setTimeout(patch,80)});window
   window.addEventListener('load',()=>setTimeout(run,900));window.addEventListener('storage',e=>{if(e.key===KEY)setTimeout(run,120)});window.addEventListener('hashchange',()=>setTimeout(run,150));
 })();
 </script>
+
 <script>
 try{renderCategoryAwareFilters();}catch(e){}
 </script>
@@ -6152,6 +5598,7 @@ try{renderCategoryAwareFilters();}catch(e){}
   }
 })();
 </script>
+
 <script id="wow-v10-stability-js">
 (function(){
   'use strict';
@@ -6188,6 +5635,8 @@ try{renderCategoryAwareFilters();}catch(e){}
   mobileRefresh(); window.addEventListener('resize',mobileRefresh,{passive:true});
 })();
 </script>
+
+
 <script id="wow-cloud-authoritative-v1">
 (function(){
   // WOWSHOPPING v1 architecture rule: storefront content is always Firestore-authoritative.
@@ -6196,7 +5645,29 @@ try{renderCategoryAwareFilters();}catch(e){}
   try{ localStorage.removeItem('wow_admin_data_v4'); }catch(e){}
 })();
 </script>
+
 <!-- WOWSHOPPING FINAL HERO OVERRIDE: ONE FULL-WIDTH VIDEO/IMAGE HERO -->
+<script id="wow-clean-video-banner-v1-js">
+(function(){
+'use strict';
+const REMOTE='siteConfig/storefront';
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const safe=v=>String(v==null?'':v).trim();
+const getData=()=>window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||{};
+function embed(url){try{const u=new URL(safe(url),location.href);let id=u.searchParams.get('v')||'';if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||id;if(u.hostname.includes('youtube.com')){const m=u.pathname.match(/\/(?:embed|shorts|live)\/([^/?#]+)/);if(m)id=m[1]||id;}if(id)return'https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&mute=1&loop=1&playlist='+encodeURIComponent(id)+'&playsinline=1&controls=0&rel=0';const vm=u.pathname.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(u.hostname.includes('vimeo.com')&&vm)return'https://player.vimeo.com/video/'+vm[1]+'?autoplay=1&muted=1&loop=1&background=1&autopause=0&playsinline=1&title=0&byline=0&portrait=0';}catch(e){}return'';}
+function direct(url){const s=safe(url).toLowerCase();return/\.(mp4|webm|ogg|mov)(?:[?#].*)?$/i.test(s)||(/^https?:\/\//i.test(s)&&!embed(s));}
+function addMedia(parent,url,image){const e=embed(url);if(e){const f=document.createElement('iframe');f.src=e;f.title='WOWSHOPPING video banner';f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;f.setAttribute('playsinline','');parent.appendChild(f);return f;}if(direct(url)){const v=document.createElement('video');v.src=url;v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='metadata';v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.addEventListener('loadeddata',()=>v.play().catch(()=>{}));v.addEventListener('canplay',()=>v.play().catch(()=>{}));v.onerror=()=>{v.remove();if(image)addImage(parent,image);};parent.appendChild(v);v.play().catch(()=>{});return v;}if(image)addImage(parent,image);return null;}
+function addImage(parent,url,eager=false){if(!url)return;const im=document.createElement('img');im.src=url;im.alt='';im.decoding='async';im.loading=eager?'eager':'lazy';if(eager)im.fetchPriority='high';im.onerror=()=>im.remove();parent.appendChild(im);}
+async function loadCloud(){for(let i=0;i<10;i++){try{const db=window.firebaseDb;if(db){const snap=await db.collection('siteConfig').doc('storefront').get();if(snap.exists&&snap.data()&&snap.data().data){window.__WOW_REMOTE_STORE=snap.data().data;window.__WOW_STORE_DATA=snap.data().data;return true;}}}catch(e){}await sleep(250);}return !!getData().hero;}
+function cleanLegacy(){document.querySelectorAll('.wow-clean-promo,#wow-home-banner-carousel,#wow-mobile-managed-banners,#v9ManagedBanners,#wow-mobile-managed-banners,#v6ManagedBannerTop,#adminMidBanners,#adminBottomBanners,.v6-managed-banner').forEach(e=>e.remove());}
+function renderHero(){const hero=document.querySelector('.hero-section');if(!hero)return;const d=getData(),h=d.hero||{};const image=Array.isArray(h.images)?safe(h.images[0]):safe(h.image);const url=safe(h.videoUrl||h.video);hero.querySelectorAll('.v6-media,.hero-media-shell,.v34-hero-video,.wow-hero-media,.wow-hero-shade,.wow-final-media,.wow-final-shade').forEach(e=>e.remove());let media=hero.querySelector('.wow-clean-media');if(!media||media.dataset.url!==url){if(media)media.remove();media=document.createElement('div');media.className='wow-clean-media';media.dataset.url=url;const shadeOld=hero.querySelector('.wow-clean-shade');if(shadeOld)shadeOld.remove();hero.insertBefore(media,hero.firstChild);if(url)addMedia(media,url,image);else if(image)addImage(media,image,true);}else{const existing=media.querySelector('video,iframe,img');if(!existing&&url)addMedia(media,url,image);}let shade=hero.querySelector('.wow-clean-shade');if(!shade){shade=document.createElement('div');shade.className='wow-clean-shade';hero.appendChild(shade);}let content=hero.querySelector(':scope > div:not(.wow-clean-media):not(.wow-clean-shade)');if(content){content.classList.add('wow-clean-content');}const he=hero.querySelector('.hero-eyebrow'),ht=hero.querySelector('.hero-title'),hs=hero.querySelector('.hero-sub'),pb=hero.querySelector('#heroPrimaryBtn'),sb=hero.querySelector('#heroSecondaryBtn');if(he)he.textContent=safe(h.eyebrow);if(ht)ht.innerHTML=safe(h.title||'WOWSHOPPING').replace(/\n/g,'<br>');if(hs)hs.textContent=safe(h.subtitle);if(pb){const t=safe(h.buttonText||'Shop Now');if(pb.firstChild)pb.firstChild.nodeValue=t+' ';pb.onclick=()=>go(h.buttonUrl||'#shop');}if(sb){const t=safe(h.button2Text);sb.textContent=t;sb.style.display=t?'inline-flex':'none';sb.onclick=()=>go(h.button2Url||'#new');}hero.style.display=h.visible===false?'none':'flex';}
+function go(url){const u=safe(url||'#shop');if(u.startsWith('#')){if(u==='#new'||u==='#new-arrivals')return typeof navigate==='function'?navigate('shop','new'):null;return typeof navigate==='function'?navigate('shop'):null;}location.href=u;}
+function renderPromo(){cleanLegacy();const d=getData(),items=Array.isArray(d.banners)?d.banners.filter(x=>x&&x.visible!==false).sort((a,b)=>(Number(a.order)||0)-(Number(b.order)||0)):[];if(!items.length)return;const sec=document.createElement('section');sec.className='wow-clean-promo';const shell=document.createElement('div');shell.className='wow-clean-promo-shell';const track=document.createElement('div');track.className='wow-clean-promo-track';items.forEach((b,i)=>{const slide=document.createElement('article');slide.className='wow-clean-promo-slide';const url=safe(b.videoUrl||b.video),img=safe(b.mobile||b.desktop||b.image);if(url)addMedia(slide,url,img);else if(img)addImage(slide,img,false);const shade=document.createElement('div');shade.className='wow-clean-promo-shade';slide.appendChild(shade);const copy=document.createElement('div');copy.className='wow-clean-promo-copy';copy.innerHTML='<small>'+safe(b.category||'Featured')+'</small><strong>'+safe(b.title||'Featured Collection')+'</strong><p>'+safe(b.description||'')+'</p>'+(safe(b.button)?'<button type="button">'+safe(b.button)+' →</button>':'');const btn=copy.querySelector('button');if(btn)btn.onclick=()=>go(b.url||'#shop');slide.appendChild(copy);track.appendChild(slide);});shell.appendChild(track);let idx=0;if(items.length>1){const prev=document.createElement('button');prev.className='wow-clean-promo-arrow wow-clean-promo-prev';prev.innerHTML='‹';const next=document.createElement('button');next.className='wow-clean-promo-arrow wow-clean-promo-next';next.innerHTML='›';const dots=document.createElement('div');dots.className='wow-clean-promo-dots';items.forEach((_,i)=>{const dot=document.createElement('button');dot.className='wow-clean-promo-dot'+(i?'':' active');dot.onclick=()=>goSlide(i);dots.appendChild(dot);});shell.append(prev,next,dots);function goSlide(n){idx=(n+items.length)%items.length;track.style.transform='translateX(-'+idx*100+'%)';dots.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));}prev.onclick=()=>goSlide(idx-1);next.onclick=()=>goSlide(idx+1);let timer=setInterval(()=>goSlide(idx+1),5000);shell.addEventListener('mouseenter',()=>clearInterval(timer));shell.addEventListener('mouseleave',()=>{timer=setInterval(()=>goSlide(idx+1),5000);});}sec.appendChild(shell);const hero=document.querySelector('.hero-section');const newArrivalsGrid=document.getElementById('newArrivalsGrid');const newArrivalsSection=newArrivalsGrid?newArrivalsGrid.closest('section'):null;if(newArrivalsSection)newArrivalsSection.insertAdjacentElement('afterend',sec);else if(hero)hero.insertAdjacentElement('afterend',sec);}
+async function boot(){cleanLegacy();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){};await loadCloud();renderHero();renderPromo();try{window.lucide&&lucide.createIcons()}catch(e){}}
+let sig='';function watch(){const d=getData();let s='';try{s=JSON.stringify({hero:d.hero,banners:d.banners})}catch(e){}if(s&&s!==sig){sig=s;renderHero();renderPromo();}}
+window.addEventListener('load',()=>setTimeout(boot,700));setInterval(watch,1200);window.addEventListener('pageshow',()=>setTimeout(boot,300));
+})();
+</script>
 
 <script id="wow-mobile-professional-v2-js">
 (function(){
@@ -6226,6 +5697,8 @@ try{renderCategoryAwareFilters();}catch(e){}
   setInterval(tuneMobile,1800);
 })();
 </script>
+
+
 <style id="wow-mobile-menu-final-fix">
 @media (max-width:767px){
   html,body{overflow-x:hidden!important;width:100%;}
@@ -6279,6 +5752,7 @@ try{renderCategoryAwareFilters();}catch(e){}
   #site-header #desktopNav .nav-item.category-open > .dropdown{display:block!important;}
 }
 </style>
+
 <script id="wow-mobile-menu-final-fix-js">
 (function(){
   'use strict';
@@ -6332,6 +5806,8 @@ try{renderCategoryAwareFilters();}catch(e){}
   setInterval(bindMobileMenu,1200);
 })();
 </script>
+
+
 <style id="wow-mobile-menu-visible-v2">
 @media (max-width:767px){
   /* The horizontal menu must stay scrollable, while dropdowns escape its clipping. */
@@ -6515,6 +5991,7 @@ try{renderCategoryAwareFilters();}catch(e){}
   window.addEventListener('load',()=>setTimeout(tune,50),{once:true});
 })();
 </script>
+
 <script id="wow-header-pro-v3-js">
 (function(){
   const DEFAULT_LOGO='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70"%3E%3Ctext x="0" y="49" font-family="Arial,sans-serif" font-size="42" font-weight="900" fill="%23111827"%3EWOWSHOPPING%3C/text%3E%3C/svg%3E';
@@ -6553,6 +6030,8 @@ try{renderCategoryAwareFilters();}catch(e){}
   setInterval(renderHeaderLogo,3000);
 })();
 </script>
+
+
 <style id="wow-mobile-header-final-v4">
 @media (max-width:767px){
   #site-header{position:sticky!important;top:0!important;z-index:30000!important;background:#fff!important;border-bottom:1px solid #edf0f4!important;box-shadow:0 3px 18px rgba(15,23,42,.055)!important;}
@@ -6640,6 +6119,7 @@ try{renderCategoryAwareFilters();}catch(e){}
   #site-header #desktopNav>.nav-link,#site-header #desktopNav>.nav-item>.nav-link{padding-left:9px!important;padding-right:9px!important;font-size:11px!important;}
 }
 </style>
+
 <script id="wow-mobile-header-final-v4-js">
 (function(){
   'use strict';
@@ -6680,138 +6160,57 @@ try{renderCategoryAwareFilters();}catch(e){}
 })();
 </script>
 
-<script id="wow-phone-marketplace-labels">
-(function(){
-  function mobileRefresh(){
-    if(window.innerWidth>767) return;
-    var grid=document.getElementById('newArrivalsGrid');
-    if(grid){
-      var sec=grid.closest('section');
-      if(sec){
-        var title=sec.querySelector('.section-title');
-        var btn=sec.querySelector('.btn');
-        if(title) title.textContent='Flash Sale';
-        if(btn) btn.innerHTML='Shop More <i data-lucide="chevron-right" style="width:12px;height:12px;"></i>';
-      }
-    }
-    if(window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){setTimeout(mobileRefresh,80);});
-  else setTimeout(mobileRefresh,80);
-  window.addEventListener('resize',mobileRefresh);
-})();
-</script>
-
-
-\n
-
-
-
-
-<!-- WOWSHOPPING FINAL: SINGLE CLOUD HERO VIDEO -->
-<style id="wow-final-cloud-hero-css">
-.hero-section{position:relative!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;height:clamp(360px,46vw,620px)!important;min-height:360px!important;overflow:hidden!important;background:#050914!important;isolation:isolate!important;display:flex!important;align-items:center!important}
-.hero-section .wow-final-cloud-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;overflow:hidden!important;background:#050914!important}
-.hero-section .wow-final-cloud-video video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;border:0!important;margin:0!important;padding:0!important;object-fit:cover!important;object-position:center center!important;background:#050914!important}
-.hero-section .wow-final-cloud-overlay{position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(2,6,23,.62) 0%,rgba(2,6,23,.28) 48%,rgba(2,6,23,.06) 100%)!important}
-.hero-section>.hero-content{position:relative!important;z-index:3!important;width:100%!important;max-width:1400px!important;margin:0 auto!important;padding:0 6vw!important;background:transparent!important}
-/* Hide every legacy hero media layer. Only the final cloud video may be visible. */
-.hero-section>.v6-media,.hero-section>.hero-media-shell,.hero-section>.wow-hero-media,.hero-section>.wow-clean-media,.hero-section>.wow-fast-hero-media,.hero-section>.wow-final-media,.hero-section>.wow-final-video-media,.hero-section>.wow-absolute-hero-media,.hero-section>.wow-video-only-media,.hero-section>.v34-hero-video{display:none!important}
+<style id="wow-final-mobile-v5">
+*{box-sizing:border-box}
+html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+img,video,iframe{max-width:100%}
 @media(max-width:767px){
- .hero-section{width:100vw!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;height:clamp(300px,72vw,390px)!important;min-height:300px!important;max-height:390px!important;align-items:flex-end!important}
- .hero-section .wow-final-cloud-video video{object-position:center center!important}
- .hero-section .wow-final-cloud-overlay{background:linear-gradient(90deg,rgba(2,6,23,.70) 0%,rgba(2,6,23,.30) 62%,rgba(2,6,23,.05) 100%)!important}
- .hero-section>.hero-content{max-width:76%!important;padding:0 0 20px 18px!important;margin:0!important}
- .hero-section .hero-eyebrow{font-size:8px!important;letter-spacing:1.5px!important;margin-bottom:6px!important}
- .hero-section .hero-title{max-width:230px!important;font-size:clamp(27px,8.5vw,40px)!important;line-height:.98!important;margin-bottom:8px!important}
- .hero-section .hero-sub{max-width:205px!important;font-size:11px!important;line-height:1.35!important;margin-bottom:11px!important}
- .hero-section .hero-actions{display:flex!important;flex-wrap:nowrap!important;gap:6px!important}
- .hero-section .hero-actions .btn{height:34px!important;min-height:34px!important;padding:7px 11px!important;font-size:10px!important;border-radius:7px!important;white-space:nowrap!important}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;background:#f7f8fa!important}
+  #site-header{position:sticky!important;top:0!important;z-index:9000!important;background:rgba(255,255,255,.97)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important}
+  #site-header .wow-main-header-row{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"brand actions" "search search"!important;gap:9px!important;padding:10px 12px 11px!important;width:100%!important}
+  #site-header .wow-main-header-row>div:first-child{grid-area:brand!important;width:auto!important;min-width:0!important;padding:0!important;display:flex!important;align-items:center!important}
+  #site-header #siteBrandIcon{grid-area:auto!important;width:min(150px,45vw)!important;min-width:90px!important;height:38px!important;display:flex!important;align-items:center!important;overflow:hidden!important;background:transparent!important}
+  #site-header #siteBrandIcon img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:left center!important}
+  #site-header .wow-header-actions{grid-area:actions!important;display:flex!important;align-items:center!important;gap:4px!important;margin:0!important}
+  #site-header .wow-header-actions>button{width:38px!important;height:38px!important;border-radius:11px!important}
+  #site-header .desktop-search{grid-area:search!important;width:100%!important;max-width:none!important;min-width:0!important;display:flex!important;order:unset!important}
+  #site-header .desktop-search .search-input{height:45px!important;width:100%!important;font-size:14px!important;border-radius:13px!important}
+  #site-header #desktopNav{width:100%!important;overflow-x:auto!important;display:flex!important;white-space:nowrap!important;padding:5px 10px!important;gap:4px!important;scrollbar-width:none!important}
+  #site-header #desktopNav::-webkit-scrollbar{display:none!important}
+  #site-header #desktopNav .nav-link{min-height:34px!important;padding:8px 11px!important;font-size:11px!important}
+  .hero-section{height:min(66svh,560px)!important;min-height:390px!important;width:100%!important;border-radius:0!important}
+  .hero-section .wow-clean-media,.hero-section .wow-hero-media{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important}
+  .hero-section .wow-clean-media video,.hero-section .wow-clean-media iframe,.hero-section .wow-clean-media img,.hero-section .wow-hero-media video,.hero-section .wow-hero-media iframe,.hero-section .wow-hero-media img{width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;object-position:center center!important;display:block!important}
+  .hero-section>.wow-clean-content{padding:0 18px 28px!important;align-items:flex-end!important}
+  .hero-section .hero-content{width:100%!important;max-width:100%!important}
+  .hero-title{font-size:clamp(32px,10vw,52px)!important;line-height:1.02!important;margin-bottom:12px!important}
+  .hero-sub{font-size:14px!important;line-height:1.45!important;margin-bottom:18px!important;max-width:100%!important}
+  .hero-section .hero-eyebrow{font-size:9px!important;letter-spacing:2px!important;margin-bottom:10px!important}
+  .hero-section .btn{min-height:40px!important;padding:9px 13px!important;font-size:11px!important}
+  .wow-clean-promo{padding:10px 0!important}
+  .wow-clean-promo-shell{width:calc(100% - 20px)!important;border-radius:13px!important}
+  .wow-clean-promo-slide{height:48vw!important;min-height:155px!important;max-height:225px!important}
+  .wow-clean-promo-slide img,.wow-clean-promo-slide video,.wow-clean-promo-slide iframe{object-fit:cover!important;width:100%!important;height:100%!important}
+  .wow-clean-promo-copy{left:20px!important;right:20px!important;bottom:17px!important;max-width:calc(100% - 40px)!important}
+  #newArrivalsGrid,.product-grid-4,.product-grid-3{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .product-card{min-width:0!important;border-radius:12px!important;overflow:hidden!important}
+  .product-card img{width:100%!important;aspect-ratio:3/4!important;object-fit:cover!important}
+  section{max-width:100%!important}
+  .container{width:100%!important;max-width:100%!important;padding-left:12px!important;padding-right:12px!important}
+  #wow-mobile-bottom-nav{display:flex!important;position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:10000!important}
 }
 </style>
-<script id="wow-final-cloud-hero-js">
+<script id="wow-final-sync-v5">
 (function(){
-'use strict';
-var VIDEO_KEYS=['videoUrl','videoURL','videoSrc','videoSource','video_url','heroVideoUrl','bannerVideoUrl'];
-var state={url:'',rendered:false,loading:false};
-function clean(v){return typeof v==='string'?v.trim():'';}
-function store(){return window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||null;}
-function pick(d){
-  if(!d||typeof d!=='object')return '';
-  var h=d.hero;
-  if(h&&typeof h==='object'){
-    for(var i=0;i<VIDEO_KEYS.length;i++){var v=clean(h[VIDEO_KEYS[i]]);if(v)return v;}
-  }
-  var bs=Array.isArray(d.banners)?d.banners:[];
-  for(var j=0;j<bs.length;j++){
-    var b=bs[j]; if(!b||typeof b!=='object')continue;
-    for(var k=0;k<VIDEO_KEYS.length;k++){var x=clean(b[VIDEO_KEYS[k]]);if(x)return x;}
-  }
-  return '';
-}
-function directUrl(u){
-  return /^https?:\/\//i.test(u) && !/(youtube\.com|youtu\.be|vimeo\.com)/i.test(u);
-}
-function removeLegacy(hero){
-  hero.querySelectorAll('.wow-final-cloud-video,.wow-final-cloud-overlay,.v6-media,.hero-media-shell,.wow-hero-media,.wow-clean-media,.wow-fast-hero-media,.wow-final-media,.wow-final-video-media,.wow-absolute-hero-media,.wow-video-only-media,.v34-hero-video,.wow-hero-poster').forEach(function(e){e.remove();});
-  hero.querySelectorAll('img').forEach(function(e){e.remove();});
-  hero.style.backgroundImage='none';
-}
-function play(v){
-  if(!v)return;
-  try{
-    v.muted=true;v.defaultMuted=true;v.volume=0;
-    var p=v.play(); if(p&&p.catch)p.catch(function(){});
-  }catch(e){}
-}
-function build(hero,url){
-  removeLegacy(hero);
-  var media=document.createElement('div');media.className='wow-final-cloud-video';
-  var overlay=document.createElement('div');overlay.className='wow-final-cloud-overlay';
-  var v=document.createElement('video');
-  v.setAttribute('autoplay','');v.setAttribute('muted','');v.setAttribute('loop','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('preload','auto');v.setAttribute('disablepictureinpicture','');
-  v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.preload='auto';v.controls=false;
-  var source=document.createElement('source');source.src=url;source.type=/\.webm(?:[?#]|$)/i.test(url)?'video/webm':/\.ogg(?:[?#]|$)/i.test(url)?'video/ogg':'video/mp4';
-  v.appendChild(source);
-  ['loadedmetadata','loadeddata','canplay','canplaythrough','durationchange'].forEach(function(ev){v.addEventListener(ev,function(){play(v);},{passive:true});});
-  v.addEventListener('pause',function(){setTimeout(function(){play(v);},60),{passive:true}});
-  v.addEventListener('error',function(){console.warn('WOWSHOPPING hero video could not load:',url);});
-  media.appendChild(v);hero.insertBefore(media,hero.firstChild);hero.appendChild(overlay);
-  hero.dataset.finalCloudHeroUrl=url;state.url=url;state.rendered=true;
-  play(v);setTimeout(function(){play(v);},250);setTimeout(function(){play(v);},1000);
-}
-async function cloudLoad(){
-  var d=store();var u=pick(d);if(u)return u;
-  for(var i=0;i<12;i++){
-    try{
-      if(window.firebaseDb){
-        var snap=await window.firebaseDb.collection('siteConfig').doc('storefront').get();
-        if(snap.exists){var remote=snap.data()&&snap.data().data; if(remote){window.__WOW_REMOTE_STORE=remote;window.__WOW_STORE_DATA=remote;u=pick(remote);if(u)return u;}}
-      }
-    }catch(e){}
-    await new Promise(function(r){setTimeout(r,250);});
-  }
-  return '';
-}
-async function render(){
-  if(state.loading)return;var hero=document.querySelector('.hero-section');if(!hero)return;
-  state.loading=true;
-  try{
-    var url=pick(store())||await cloudLoad();
-    if(!url||!directUrl(url))return;
-    var old=hero.querySelector('.wow-final-cloud-video video');
-    if(old&&hero.dataset.finalCloudHeroUrl===url){play(old);return;}
-    build(hero,url);
-  }finally{state.loading=false;}
-}
-function start(){
-  render();
-  window.addEventListener('wow:storefront-ready',render);
-  document.addEventListener('visibilitychange',function(){if(!document.hidden){var v=document.querySelector('.wow-final-cloud-video video');if(v)play(v);else render();}});
-  window.addEventListener('pageshow',function(){render();});
-}
-if(document.readyState==='complete')start();else window.addEventListener('load',start,{once:true});
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  function applyAsset(el,url){if(!el||!url)return;const u=String(url).trim();if(!u)return;el.src=u+(u.includes('?')?'&':'?')+'wowv='+encodeURIComponent(window.__WOW_ASSET_VERSION||'1');}
+  function forceBrand(){try{const d=window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA||{};const b=d.branding||{};const icon=document.getElementById('siteBrandIcon');if(icon&&b.logo){icon.innerHTML='';const im=document.createElement('img');im.alt=b.name||'WOWSHOPPING';im.decoding='async';im.loading='eager';im.fetchPriority='high';applyAsset(im,b.logo);icon.appendChild(im)}if(b.favicon){let f=document.querySelector('link[data-wow-favicon]');if(!f){f=document.createElement('link');f.rel='icon';f.setAttribute('data-wow-favicon','1');document.head.appendChild(f)}f.href=b.favicon+(b.favicon.includes('?')?'&':'?')+'wowv='+Date.now();f.type=/\.svg(?:\?|$)/i.test(b.favicon)?'image/svg+xml':'image/png'}}catch(e){}}
+  function tuneMedia(){document.querySelectorAll('.hero-section video,.wow-clean-promo video').forEach(v=>{v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('autoplay','');v.preload='auto';v.play().catch(()=>{});});}
+  async function sync(){for(let i=0;i<30;i++){try{if(window.__WOW_REMOTE_STORE||window.__WOW_STORE_DATA){window.__WOW_ASSET_VERSION=Date.now();forceBrand();tuneMedia();return}}catch(e){}await wait(250)}}
+  window.addEventListener('load',()=>setTimeout(sync,0));window.addEventListener('pageshow',()=>setTimeout(sync,50));
+  const obs=new MutationObserver(()=>{forceBrand();tuneMedia()});obs.observe(document.documentElement,{subtree:true,childList:true});
 })();
 </script>
+
 </body>
 </html>

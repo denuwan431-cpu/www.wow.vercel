@@ -428,7 +428,7 @@
                             <i class="fas fa-bell text-xs"></i>
                             <span class="absolute top-2 right-2 w-1.5 h-1.5 bg-blue-600 rounded-full border border-white"></span>
                         </button>
-                        <button onclick="googleLogin()" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 active:scale-90 transition-transform">
+                        <button onclick="googleLogin()" data-profile-action class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 active:scale-90 transition-transform">
                             <i class="fas fa-user-circle text-xs"></i>
                         </button>
                         <button onclick="toggleCart()" class="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 relative active:scale-90 transition-transform">
@@ -453,7 +453,7 @@
                         <i class="fas fa-bell text-lg"></i>
                         <span class="absolute top-3 right-3 w-2 h-2 bg-blue-600 rounded-full border-2 border-white"></span>
                     </button>
-                    <button onclick="googleLogin()" class="w-11 h-11 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-white hover:shadow-md hover:text-blue-600 transition-all active:scale-90">
+                    <button onclick="googleLogin()" data-profile-action class="w-11 h-11 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-white hover:shadow-md hover:text-blue-600 transition-all active:scale-90">
                         <i class="fas fa-user-circle text-lg"></i>
                     </button>
                     <button onclick="toggleCart()" aria-label="Open shopping cart"
@@ -670,7 +670,7 @@
                 <span id="cart-badge-mobile" class="absolute -top-1 -right-2 bg-blue-600 text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center border border-white">0</span>
                 <span class="text-[9px] mt-1 font-bold uppercase tracking-tighter">Cart</span>
             </div>
-            <div onclick="googleLogin()" class="flex flex-col items-center text-gray-400 active:scale-90 transition-transform cursor-pointer">
+            <div onclick="googleLogin()" data-profile-action class="flex flex-col items-center text-gray-400 active:scale-90 transition-transform cursor-pointer">
                 <i class="fas fa-user-circle text-lg"></i>
                 <span class="text-[9px] mt-1 font-bold uppercase tracking-tighter">Profile</span>
             </div>
@@ -694,6 +694,7 @@
         // Firebase state. The SDK is loaded synchronously above, so auth is
         // ready before any Login button can be used.
         let auth = null;
+        let db = null;
         let provider = null;
         let currentUser = null;
         let cart = [];
@@ -703,6 +704,7 @@
                 if (!window.firebase || !firebase.auth) return false;
                 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
                 auth = firebase.auth();
+                db = firebase.firestore();
                 provider = provider || new firebase.auth.GoogleAuthProvider();
                 provider.setCustomParameters({ prompt: 'select_account' });
                 return true;
@@ -780,8 +782,10 @@ async function continueWithGoogle(){
   try{
     const result=await auth.signInWithPopup(provider);
     currentUser=result.user || null;
+    await ensureUserProfile();
     updateAuthUI();
     closeWowLogin();
+    openAccount();
     history.replaceState(null,'',location.pathname+location.search+location.hash.replace('#login',''));
     window.scrollTo({top:0,behavior:'smooth'});
   }catch(error){
@@ -812,39 +816,33 @@ async function googleLogin(){
     return;
   }
   if(currentUser){
-    updateAuthUI();
+    openAccount();
     return;
   }
   openWowLogin();
 }
 
-function googleLogout() {
-            if(!auth) return;
-            auth.signOut().then(() => {
-                currentUser = null;
-                updateAuthUI();
-                alert("Logged out successfully");
-            });
-        }
+async function googleLogout() {
+  if(!auth) return;
+  try{
+    await auth.signOut();
+    currentUser = null;
+    closeAccount();
+    updateAuthUI();
+  }catch(e){ console.error(e); }
+}
 
-        function updateAuthUI() {
-            const profileIcons = document.querySelectorAll('.fa-user-circle');
-            profileIcons.forEach(icon => {
-                if (currentUser) {
-                    icon.className = 'fas fa-user-check text-blue-600';
-                    icon.onclick = (e) => { 
-                        e.stopPropagation();
-                        if(confirm("Sign out?")) googleLogout(); 
-                    };
-                } else {
-                    icon.className = 'fas fa-user-circle';
-                    icon.onclick = (e) => {
-                        e.stopPropagation();
-                        googleLogin();
-                    };
-                }
-            });
-        }
+function updateAuthUI() {
+  const profileButtons = document.querySelectorAll('[data-profile-action]');
+  profileButtons.forEach(btn => {
+    btn.setAttribute('aria-label', currentUser ? 'My Account' : 'Sign in');
+    btn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); currentUser ? openAccount() : googleLogin(); };
+  });
+  const profileIcons = document.querySelectorAll('.fa-user-circle,.fa-user-check');
+  profileIcons.forEach(icon => {
+    icon.className = currentUser ? 'fas fa-user-check text-blue-600' : 'fas fa-user-circle';
+  });
+}
 
         const localData = {
             hero: { type: 'none', url: '', images: [], visible: false },
@@ -979,9 +977,14 @@ function googleLogout() {
             renderCart();
         }
 
-        function checkout() {
+        async function checkout() {
             if(cart.length === 0) return alert("Your cart is empty!");
-            alert("Proceeding to secure checkout for " + document.getElementById('cart-total-price').innerText);
+            if(!currentUser){ alert("Please sign in to continue to checkout."); googleLogin(); return; }
+            const order=await saveOrderFromCart();
+            alert("Order " + (order?.id||"") + " saved. Checkout details can now use your saved delivery address.");
+            toggleCart();
+            openAccount();
+            switchAccountTab('orders');
         }
 
         function renderHero() {
@@ -1091,6 +1094,10 @@ function googleLogout() {
                                 <button onclick="updateQty(1)" class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-secondary shadow-sm active:scale-90 transition-all border border-gray-50"><i class="fas fa-plus text-xs"></i></button>
                             </div>
                         </div>
+
+                        <button type="button" onclick="addToWishlist('${product.id}')" class="w-full lg:w-auto mb-8 px-5 py-3 rounded-2xl border border-gray-200 bg-white text-secondary font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:border-blue-200 hover:text-blue-600 transition-all">
+                            <i class="far fa-heart"></i> <span id="wishlist-btn-text">Add to Wishlist</span>
+                        </button>
 
                         <!-- Modern Service Grid (Super Compact for Mobile) -->
                         ${product.description ? `<div class="space-y-6 mb-12">
@@ -1477,6 +1484,171 @@ function googleLogout() {
 </script>
 
 
+
+<div id="wow-account-overlay" class="wow-account-overlay" aria-hidden="true">
+  <div class="wow-account-shell">
+    <header class="wow-account-header">
+      <div>
+        <div class="wow-account-kicker">MY ACCOUNT</div>
+        <h2>Account & Settings</h2>
+      </div>
+      <button type="button" class="wow-account-close" onclick="closeAccount()" aria-label="Close">×</button>
+    </header>
+
+    <div class="wow-account-body">
+      <aside class="wow-account-sidebar">
+        <button class="wow-account-tab active" data-tab="profile" onclick="switchAccountTab('profile')"><i class="fas fa-user"></i><span>Account Details</span></button>
+        <button class="wow-account-tab" data-tab="orders" onclick="switchAccountTab('orders')"><i class="fas fa-box"></i><span>My Orders</span></button>
+        <button class="wow-account-tab" data-tab="wishlist" onclick="switchAccountTab('wishlist')"><i class="fas fa-heart"></i><span>Wishlist</span></button>
+        <button class="wow-account-tab" data-tab="addresses" onclick="switchAccountTab('addresses')"><i class="fas fa-location-dot"></i><span>Saved Addresses</span></button>
+        <button class="wow-account-tab" data-tab="security" onclick="switchAccountTab('security')"><i class="fas fa-shield-halved"></i><span>Login & Security</span></button>
+        <button class="wow-account-tab" data-tab="notifications" onclick="switchAccountTab('notifications')"><i class="fas fa-bell"></i><span>Notifications</span></button>
+        <button class="wow-account-logout" onclick="googleLogout()"><i class="fas fa-right-from-bracket"></i><span>Sign Out</span></button>
+      </aside>
+
+      <main class="wow-account-content">
+        <section class="wow-account-panel active" data-panel="profile">
+          <div class="wow-profile-hero">
+            <div class="wow-avatar-wrap">
+              <img id="account-avatar" src="" alt="Profile photo">
+              <label class="wow-avatar-edit" title="Change profile photo"><i class="fas fa-camera"></i><input id="profile-photo-input" type="file" accept="image/*" hidden onchange="handleProfilePhoto(event)"></label>
+            </div>
+            <div>
+              <h3 id="account-display-name">My Account</h3>
+              <p id="account-display-email"></p>
+              <span class="wow-status-pill"><i class="fas fa-circle"></i> Signed in with Google</span>
+            </div>
+          </div>
+
+          <form id="account-profile-form" onsubmit="saveAccountProfile(event)">
+            <div class="wow-section-title">👤 Account Details</div>
+            <div class="wow-form-grid">
+              <label>First Name<input id="acc-firstName" autocomplete="given-name" required></label>
+              <label>Last Name<input id="acc-lastName" autocomplete="family-name" required></label>
+              <label class="full">Email Address<input id="acc-email" type="email" readonly></label>
+              <label>Phone Number<input id="acc-phone" type="tel" autocomplete="tel" placeholder="+94 7X XXX XXXX"></label>
+            </div>
+
+            <div class="wow-section-title">📍 Delivery Address</div>
+            <div class="wow-form-grid">
+              <label class="full">Address Line 1<input id="acc-address1" autocomplete="address-line1" placeholder="House No / Street"></label>
+              <label class="full">Address Line 2 <small>Optional</small><input id="acc-address2" autocomplete="address-line2" placeholder="Apartment / Landmark"></label>
+              <label>City / Town<input id="acc-city" autocomplete="address-level2"></label>
+              <label>District<input id="acc-district" autocomplete="address-level2"></label>
+              <label>Province<input id="acc-province" autocomplete="address-level1"></label>
+              <label>Postal Code<input id="acc-postal" autocomplete="postal-code"></label>
+              <label class="full">Country<input id="acc-country" value="Sri Lanka" readonly></label>
+            </div>
+
+            <div class="wow-section-title">📞 Delivery Contact</div>
+            <div class="wow-form-grid">
+              <label>Primary Phone Number<input id="acc-primaryPhone" type="tel"></label>
+              <label>Alternative Phone Number <small>Optional</small><input id="acc-altPhone" type="tel"></label>
+              <label class="full">Delivery Instructions <small>Optional</small><textarea id="acc-instructions" rows="3" placeholder="e.g. Call before delivery"></textarea></label>
+            </div>
+
+            <div class="wow-section-title">🚚 Default Addresses</div>
+            <div class="wow-form-grid">
+              <label class="wow-check-row full"><input id="acc-defaultShipping" type="checkbox"><span>Use this as my Default Shipping Address</span></label>
+              <label class="wow-check-row full"><input id="acc-defaultBilling" type="checkbox"><span>Use this as my Default Billing Address</span></label>
+            </div>
+            <button class="wow-save-btn" type="submit"><i class="fas fa-cloud-arrow-up"></i> Save Account Details</button>
+            <span id="account-save-status" class="wow-save-status"></span>
+          </form>
+        </section>
+
+        <section class="wow-account-panel" data-panel="orders">
+          <div class="wow-panel-heading"><div><span>SHOPPING HISTORY</span><h3>My Orders</h3></div><button onclick="loadAccountOrders()" class="wow-mini-btn"><i class="fas fa-rotate"></i> Refresh</button></div>
+          <div id="account-orders-list"></div>
+        </section>
+
+        <section class="wow-account-panel" data-panel="wishlist">
+          <div class="wow-panel-heading"><div><span>SAVED PRODUCTS</span><h3>Wishlist</h3></div><button onclick="renderAccountWishlist()" class="wow-mini-btn"><i class="fas fa-rotate"></i> Refresh</button></div>
+          <div id="account-wishlist-list" class="wow-account-product-grid"></div>
+        </section>
+
+        <section class="wow-account-panel" data-panel="addresses">
+          <div class="wow-panel-heading"><div><span>DELIVERY</span><h3>Saved Addresses</h3></div><button onclick="switchAccountTab('profile')" class="wow-mini-btn"><i class="fas fa-plus"></i> Edit Address</button></div>
+          <div id="saved-addresses-list"></div>
+        </section>
+
+        <section class="wow-account-panel" data-panel="security">
+          <div class="wow-panel-heading"><div><span>ACCOUNT PROTECTION</span><h3>Login & Security</h3></div></div>
+          <div class="wow-security-card">
+            <div class="wow-security-icon"><i class="fab fa-google"></i></div>
+            <div><strong>Google Sign-In</strong><p id="security-email"></p><small>Your account is authenticated through Google. Your Google password is not stored by WOWSHOPPING.</small></div>
+            <span class="wow-status-pill">Connected</span>
+          </div>
+          <div class="wow-security-card">
+            <div class="wow-security-icon"><i class="fas fa-key"></i></div>
+            <div><strong>Change Password</strong><p>Google accounts manage passwords through Google.</p><small>Use your Google Account password/security settings to change the password used for this login.</small></div>
+            <button class="wow-mini-btn" onclick="openGoogleSecurity()">Open Google Security</button>
+          </div>
+        </section>
+
+        <section class="wow-account-panel" data-panel="notifications">
+          <div class="wow-panel-heading"><div><span>COMMUNICATION</span><h3>Notifications / Email Preferences</h3></div></div>
+          <div class="wow-pref-list">
+            <label><span><strong>Order Updates</strong><small>Order confirmations, dispatch and delivery updates.</small></span><input id="pref-orders" type="checkbox" onchange="saveNotificationPrefs()"></label>
+            <label><span><strong>Promotional Emails</strong><small>New arrivals, offers and special promotions.</small></span><input id="pref-promos" type="checkbox" onchange="saveNotificationPrefs()"></label>
+            <label><span><strong>Wishlist Alerts</strong><small>Price or availability updates for saved products.</small></span><input id="pref-wishlist" type="checkbox" onchange="saveNotificationPrefs()"></label>
+            <label><span><strong>Website Notifications</strong><small>Useful account and shopping notifications in this browser.</small></span><input id="pref-site" type="checkbox" onchange="saveNotificationPrefs()"></label>
+          </div>
+          <span id="pref-save-status" class="wow-save-status"></span>
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+<style>
+.wow-account-overlay{position:fixed;inset:0;z-index:100000;display:none;background:rgba(15,23,42,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px}
+.wow-account-overlay.open{display:flex;align-items:center;justify-content:center}
+.wow-account-shell{width:min(1180px,100%);height:min(92vh,900px);background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 30px 100px rgba(15,23,42,.25);display:flex;flex-direction:column}
+.wow-account-header{padding:20px 26px;border-bottom:1px solid #eef2f7;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.wow-account-kicker,.wow-panel-heading>div>span{font-size:9px;font-weight:900;letter-spacing:.18em;color:#2563eb;text-transform:uppercase}
+.wow-account-header h2{margin:3px 0 0;font-size:22px;font-weight:900;color:#0f172a}
+.wow-account-close{width:38px;height:38px;border:0;border-radius:12px;background:#f8fafc;color:#64748b;font-size:25px;cursor:pointer}
+.wow-account-body{display:flex;min-height:0;flex:1}
+.wow-account-sidebar{width:235px;background:#f8fafc;border-right:1px solid #eef2f7;padding:16px;display:flex;flex-direction:column;gap:5px}
+.wow-account-tab,.wow-account-logout{border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:13px;color:#64748b;font-size:11px;font-weight:800;display:flex;align-items:center;gap:10px;cursor:pointer}
+.wow-account-tab i,.wow-account-logout i{width:18px;text-align:center}
+.wow-account-tab.active{background:#fff;color:#2563eb;box-shadow:0 5px 20px rgba(15,23,42,.06)}
+.wow-account-logout{margin-top:auto;color:#ef4444}
+.wow-account-content{flex:1;overflow:auto;padding:30px}
+.wow-account-panel{display:none;max-width:850px;margin:0 auto}
+.wow-account-panel.active{display:block}
+.wow-profile-hero{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding:18px;border:1px solid #eef2f7;border-radius:20px;background:linear-gradient(135deg,#fff,#f8fbff)}
+.wow-avatar-wrap{width:70px;height:70px;position:relative;flex-shrink:0}
+.wow-avatar-wrap img{width:70px;height:70px;border-radius:22px;object-fit:cover;background:#0f172a;border:3px solid #fff;box-shadow:0 8px 20px rgba(15,23,42,.12)}
+.wow-avatar-edit{position:absolute;right:-5px;bottom:-5px;width:28px;height:28px;border-radius:10px;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer;border:2px solid #fff}
+.wow-profile-hero h3{margin:0;font-size:18px;font-weight:900;color:#0f172a}.wow-profile-hero p{margin:3px 0 7px;color:#64748b;font-size:11px}
+.wow-status-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:#eff6ff;color:#2563eb;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.wow-status-pill i{font-size:6px}
+.wow-section-title{font-size:12px;font-weight:900;color:#0f172a;margin:26px 0 12px;padding-bottom:9px;border-bottom:1px solid #eef2f7}
+.wow-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wow-form-grid label{font-size:9px;font-weight:900;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+.wow-form-grid label.full{grid-column:1/-1}
+.wow-form-grid small{font-size:8px;color:#94a3b8;text-transform:none;font-weight:700}
+.wow-form-grid input,.wow-form-grid textarea{display:block;width:100%;margin-top:6px;border:1px solid #e2e8f0;background:#fff;border-radius:12px;padding:11px 12px;font:700 12px 'Plus Jakarta Sans',sans-serif;color:#0f172a;outline:none;box-sizing:border-box}
+.wow-form-grid textarea{resize:vertical}.wow-form-grid input:focus,.wow-form-grid textarea:focus{border-color:#93c5fd;box-shadow:0 0 0 4px #eff6ff}.wow-form-grid input[readonly]{background:#f8fafc;color:#64748b}
+.wow-check-row{display:flex!important;align-items:center;gap:9px;text-transform:none!important;font-size:11px!important;color:#334155!important}.wow-check-row input{width:16px!important;margin:0!important;box-shadow:none!important}
+.wow-save-btn{margin-top:22px;border:0;background:#2563eb;color:#fff;border-radius:13px;padding:12px 18px;font:800 11px 'Plus Jakarta Sans';cursor:pointer;box-shadow:0 8px 22px rgba(37,99,235,.2)}
+.wow-save-status{margin-left:10px;font-size:10px;color:#16a34a;font-weight:800}
+.wow-panel-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.wow-panel-heading h3{margin:4px 0 0;font-size:24px;font-weight:900;color:#0f172a}
+.wow-mini-btn{border:1px solid #e2e8f0;background:#fff;color:#475569;border-radius:11px;padding:9px 12px;font:800 9px 'Plus Jakarta Sans';cursor:pointer}
+.wow-empty{padding:45px 20px;text-align:center;border:1px dashed #dbe2ea;border-radius:18px;color:#94a3b8}.wow-empty i{font-size:25px;margin-bottom:10px}.wow-empty strong{display:block;color:#334155;font-size:11px}
+.wow-address-card,.wow-order-card{border:1px solid #eef2f7;border-radius:18px;padding:16px;margin-bottom:12px;background:#fff}.wow-address-card h4,.wow-order-card h4{margin:0 0 6px;font-size:12px;font-weight:900}.wow-address-card p,.wow-order-card p{margin:3px 0;color:#64748b;font-size:10px;line-height:1.55}.wow-address-tag{float:right;font-size:8px;font-weight:900;color:#2563eb;background:#eff6ff;padding:5px 8px;border-radius:999px}
+.wow-account-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.wow-wish-card{border:1px solid #eef2f7;border-radius:16px;overflow:hidden;background:#fff}.wow-wish-card img{width:100%;aspect-ratio:1;object-fit:cover}.wow-wish-card div{padding:10px}.wow-wish-card strong{display:block;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wow-wish-card span{font-size:10px;font-weight:900;color:#2563eb}.wow-wish-card button{margin-top:8px;width:100%;border:0;background:#f8fafc;border-radius:9px;padding:7px;font-size:8px;font-weight:900;cursor:pointer}
+.wow-security-card{display:flex;align-items:center;gap:14px;padding:17px;border:1px solid #eef2f7;border-radius:18px;margin-bottom:12px}.wow-security-icon{width:42px;height:42px;border-radius:14px;background:#eff6ff;color:#2563eb;display:flex;align-items:center;justify-content:center}.wow-security-card>div:nth-child(2){flex:1}.wow-security-card strong{font-size:12px}.wow-security-card p{margin:3px 0;font-size:10px;color:#64748b}.wow-security-card small{font-size:9px;color:#94a3b8;line-height:1.45;display:block}
+.wow-pref-list{border:1px solid #eef2f7;border-radius:18px;overflow:hidden}.wow-pref-list label{display:flex;align-items:center;justify-content:space-between;padding:17px;border-bottom:1px solid #eef2f7;gap:20px}.wow-pref-list label:last-child{border-bottom:0}.wow-pref-list strong{display:block;font-size:11px;color:#0f172a}.wow-pref-list small{display:block;color:#94a3b8;font-size:9px;margin-top:3px}.wow-pref-list input{width:40px;height:22px;accent-color:#2563eb}
+@media(max-width:700px){
+ .wow-account-overlay{padding:0}.wow-account-shell{height:100vh;border-radius:0}.wow-account-header{padding:16px}.wow-account-body{display:block;overflow:hidden}
+ .wow-account-sidebar{width:100%;height:58px;display:flex;flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid #eef2f7;padding:7px;gap:5px}
+ .wow-account-tab{flex:0 0 auto;padding:9px 11px;font-size:9px}.wow-account-tab span{display:none}.wow-account-tab i{width:auto}.wow-account-logout{margin:0;flex:0 0 auto;padding:9px 11px}.wow-account-logout span{display:none}
+ .wow-account-content{height:calc(100% - 58px);padding:18px 14px}.wow-form-grid{grid-template-columns:1fr}.wow-form-grid label.full{grid-column:auto}.wow-account-product-grid{grid-template-columns:repeat(2,1fr)}
+ .wow-profile-hero{padding:14px}.wow-panel-heading h3{font-size:20px}.wow-security-card{align-items:flex-start;flex-wrap:wrap}.wow-security-card .wow-mini-btn{margin-left:56px}
+}
+</style>
 <div id="wow-login-modal" class="wow-login-overlay" aria-hidden="true">
   <div class="wow-login-card" role="dialog" aria-modal="true">
     <button type="button" class="wow-login-close" onclick="closeWowLogin()">×</button>
@@ -1510,6 +1682,151 @@ function googleLogout() {
 <script>
 document.addEventListener('click',e=>{const m=document.getElementById('wow-login-modal');if(m&&e.target===m)closeWowLogin()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWowLogin()});
+</script>
+
+<script>
+let accountData = {};
+const ACCOUNT_DEFAULTS = {
+  firstName:'',lastName:'',phone:'',address1:'',address2:'',city:'',district:'',province:'',
+  postal:'',country:'Sri Lanka',primaryPhone:'',altPhone:'',instructions:'',
+  defaultShipping:true,defaultBilling:false,
+  notifications:{orders:true,promos:true,wishlist:true,site:true}
+};
+
+function accountStorageKey(suffix='profile'){
+  return currentUser ? `wowshopping_${suffix}_${currentUser.uid}` : '';
+}
+function mergeAccountData(data){
+  return Object.assign({}, ACCOUNT_DEFAULTS, data||{}, {notifications:Object.assign({},ACCOUNT_DEFAULTS.notifications,(data||{}).notifications||{})});
+}
+async function ensureUserProfile(){
+  if(!currentUser) return;
+  try{
+    let remote=null;
+    if(db) { const snap=await db.collection('users').doc(currentUser.uid).get(); if(snap.exists) remote=snap.data(); }
+    const local=JSON.parse(localStorage.getItem(accountStorageKey())||'null');
+    accountData=mergeAccountData(remote||local||{});
+    if(!remote && db) await db.collection('users').doc(currentUser.uid).set(accountData,{merge:true});
+    localStorage.setItem(accountStorageKey(),JSON.stringify(accountData));
+  }catch(e){
+    console.warn('Profile sync unavailable; using browser storage.',e);
+    accountData=mergeAccountData(JSON.parse(localStorage.getItem(accountStorageKey())||'{}'));
+  }
+}
+function openAccount(){
+  if(!currentUser){ googleLogin(); return; }
+  const m=document.getElementById('wow-account-overlay'); if(!m)return;
+  m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  populateAccountForm(); switchAccountTab('profile');
+}
+function closeAccount(){const m=document.getElementById('wow-account-overlay');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true')}document.body.style.overflow='auto'}
+function switchAccountTab(tab){
+  document.querySelectorAll('.wow-account-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  document.querySelectorAll('.wow-account-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===tab));
+  if(tab==='orders')loadAccountOrders();
+  if(tab==='wishlist')renderAccountWishlist();
+  if(tab==='addresses')renderSavedAddresses();
+  if(tab==='notifications')populateNotificationPrefs();
+  if(tab==='security'){const e=document.getElementById('security-email');if(e)e.textContent=currentUser?.email||'';}
+}
+function populateAccountForm(){
+  accountData=mergeAccountData(accountData);
+  const map={firstName:'acc-firstName',lastName:'acc-lastName',phone:'acc-phone',address1:'acc-address1',address2:'acc-address2',city:'acc-city',district:'acc-district',province:'acc-province',postal:'acc-postal',country:'acc-country',primaryPhone:'acc-primaryPhone',altPhone:'acc-altPhone',instructions:'acc-instructions'};
+  Object.entries(map).forEach(([k,id])=>{const el=document.getElementById(id);if(el)el.value=accountData[k]??''});
+  document.getElementById('acc-email').value=currentUser?.email||'';
+  document.getElementById('acc-defaultShipping').checked=!!accountData.defaultShipping;
+  document.getElementById('acc-defaultBilling').checked=!!accountData.defaultBilling;
+  const display=[accountData.firstName,accountData.lastName].filter(Boolean).join(' ')||currentUser?.displayName||'My Account';
+  document.getElementById('account-display-name').textContent=display;
+  document.getElementById('account-display-email').textContent=currentUser?.email||'';
+  const avatar=document.getElementById('account-avatar');
+  avatar.src=accountData.profilePhoto||currentUser?.photoURL||`https://ui-avatars.com/api/?name=${encodeURIComponent(display)}&background=0f172a&color=fff&size=160`;
+  avatar.onerror=()=>{avatar.src=`https://ui-avatars.com/api/?name=${encodeURIComponent(display)}&background=0f172a&color=fff&size=160`};
+}
+async function saveAccountProfile(e){
+  e.preventDefault(); if(!currentUser)return;
+  const ids={firstName:'acc-firstName',lastName:'acc-lastName',phone:'acc-phone',address1:'acc-address1',address2:'acc-address2',city:'acc-city',district:'acc-district',province:'acc-province',postal:'acc-postal',country:'acc-country',primaryPhone:'acc-primaryPhone',altPhone:'acc-altPhone',instructions:'acc-instructions'};
+  Object.entries(ids).forEach(([k,id])=>accountData[k]=document.getElementById(id).value.trim());
+  accountData.defaultShipping=document.getElementById('acc-defaultShipping').checked;
+  accountData.defaultBilling=document.getElementById('acc-defaultBilling').checked;
+  accountData.updatedAt=new Date().toISOString();
+  localStorage.setItem(accountStorageKey(),JSON.stringify(accountData));
+  try{if(db)await db.collection('users').doc(currentUser.uid).set(accountData,{merge:true});showAccountStatus('Saved successfully.','account-save-status')}catch(err){showAccountStatus('Saved on this device. Cloud sync unavailable.','account-save-status',true)}
+  populateAccountForm();
+}
+function showAccountStatus(msg,id,error=false){const el=document.getElementById(id);if(el){el.textContent=msg;el.style.color=error?'#d97706':'#16a34a';setTimeout(()=>el.textContent='',3000)}}
+async function handleProfilePhoto(e){
+  const file=e.target.files?.[0]; if(!file||!currentUser)return;
+  if(!file.type.startsWith('image/'))return alert('Please select an image.');
+  const reader=new FileReader();
+  reader.onload=async()=>{const img=new Image();img.onload=async()=>{
+    const c=document.createElement('canvas'),max=320,scale=Math.min(1,max/Math.max(img.width,img.height));c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);accountData.profilePhoto=c.toDataURL('image/jpeg',.78);
+    localStorage.setItem(accountStorageKey(),JSON.stringify(accountData));
+    try{if(db)await db.collection('users').doc(currentUser.uid).set({profilePhoto:accountData.profilePhoto},{merge:true})}catch(_){}
+    populateAccountForm();showAccountStatus('Profile photo updated.','account-save-status');
+  };img.src=reader.result};reader.readAsDataURL(file);
+}
+function getWishlist(){
+  return JSON.parse(localStorage.getItem(accountStorageKey('wishlist'))||'[]');
+}
+function addToWishlist(id){
+  if(!currentUser){googleLogin();return}
+  const product=localData.products.find(p=>p.id===id);if(!product)return;
+  const list=getWishlist();if(!list.some(p=>p.id===id))list.push(product);
+  localStorage.setItem(accountStorageKey('wishlist'),JSON.stringify(list));
+  const b=document.getElementById('wishlist-btn-text');if(b)b.textContent='Saved to Wishlist';
+}
+function removeFromWishlist(id){const list=getWishlist().filter(p=>p.id!==id);localStorage.setItem(accountStorageKey('wishlist'),JSON.stringify(list));renderAccountWishlist()}
+function renderAccountWishlist(){
+  const box=document.getElementById('account-wishlist-list');if(!box)return;const list=getWishlist();
+  if(!list.length){box.innerHTML='<div class="wow-empty" style="grid-column:1/-1"><i class="far fa-heart"></i><strong>Your Wishlist is Empty</strong><span>Save products you love and find them here.</span></div>';return}
+  box.innerHTML=list.map(p=>`<div class="wow-wish-card"><img src="${p.img||p.images?.[0]||''}" onerror="this.style.opacity=.3"><div><strong>${escapeAccountHtml(p.name||'Product')}</strong><span>Rs. ${Number(p.price||0).toLocaleString()}</span><button onclick="showProductDetail('${p.id}');closeAccount()">View Product</button><button onclick="removeFromWishlist('${p.id}')">Remove</button></div></div>`).join('');
+}
+function renderSavedAddresses(){
+  const box=document.getElementById('saved-addresses-list');if(!box)return;
+  const d=accountData||mergeAccountData({});
+  const has=d.address1||d.city||d.district||d.postal;
+  if(!has){box.innerHTML='<div class="wow-empty"><i class="fas fa-location-dot"></i><strong>No Saved Address</strong><span>Add your delivery address under Account Details.</span></div>';return}
+  box.innerHTML=`<div class="wow-address-card"><span class="wow-address-tag">DEFAULT SHIPPING</span><h4>${escapeAccountHtml([d.firstName,d.lastName].filter(Boolean).join(' ')||'Delivery Address')}</h4><p>${escapeAccountHtml([d.address1,d.address2].filter(Boolean).join(', '))}</p><p>${escapeAccountHtml([d.city,d.district,d.province,d.postal].filter(Boolean).join(', '))}</p><p>${escapeAccountHtml(d.country||'Sri Lanka')}</p><p>Primary: ${escapeAccountHtml(d.primaryPhone||d.phone||'—')}${d.altPhone?' · Alt: '+escapeAccountHtml(d.altPhone):''}</p><p>${d.instructions?'Instructions: '+escapeAccountHtml(d.instructions):''}</p></div><button class="wow-mini-btn" onclick="switchAccountTab('profile')">Edit this address</button>`;
+}
+function getOrders(){
+  return JSON.parse(localStorage.getItem(accountStorageKey('orders'))||'[]');
+}
+async function loadAccountOrders(){
+  const box=document.getElementById('account-orders-list');if(!box)return;let orders=getOrders();
+  try{
+    if(db&&currentUser){const snap=await db.collection('users').doc(currentUser.uid).collection('orders').orderBy('createdAt','desc').limit(30).get();if(!snap.empty){orders=snap.docs.map(d=>({id:d.id,...d.data()}));localStorage.setItem(accountStorageKey('orders'),JSON.stringify(orders))}}
+  }catch(_){}
+  if(!orders.length){box.innerHTML='<div class="wow-empty"><i class="fas fa-box-open"></i><strong>No Orders Yet</strong><span>Your completed orders will appear here.</span></div>';return}
+  box.innerHTML=orders.map(o=>`<div class="wow-order-card"><span class="wow-address-tag">${escapeAccountHtml(o.status||'Placed')}</span><h4>Order #${escapeAccountHtml(o.id||'—')}</h4><p>${escapeAccountHtml(new Date(o.createdAt||Date.now()).toLocaleString())}</p><p>${Number(o.total||0)?'Total: Rs. '+Number(o.total).toLocaleString():''} · ${Number(o.itemsCount||0)} item(s)</p></div>`).join('');
+}
+async function saveOrderFromCart(){
+  if(!currentUser||!cart.length)return;
+  const order={id:'WS-'+Date.now().toString(36).toUpperCase(),createdAt:new Date().toISOString(),status:'Placed',total:cart.reduce((s,i)=>s+i.price*i.qty,0),itemsCount:cart.reduce((s,i)=>s+i.qty,0),items:cart.map(i=>({id:i.id,name:i.name,price:i.price,qty:i.qty}))};
+  const orders=getOrders();orders.unshift(order);localStorage.setItem(accountStorageKey('orders'),JSON.stringify(orders.slice(0,50)));
+  try{if(db)await db.collection('users').doc(currentUser.uid).collection('orders').doc(order.id).set(order)}catch(_){}
+  return order;
+}
+function populateNotificationPrefs(){
+  const n=accountData.notifications||ACCOUNT_DEFAULTS.notifications;
+  [['pref-orders','orders'],['pref-promos','promos'],['pref-wishlist','wishlist'],['pref-site','site']].forEach(([id,k])=>{const el=document.getElementById(id);if(el)el.checked=!!n[k]});
+}
+async function saveNotificationPrefs(){
+  accountData.notifications={
+    orders:document.getElementById('pref-orders').checked,
+    promos:document.getElementById('pref-promos').checked,
+    wishlist:document.getElementById('pref-wishlist').checked,
+    site:document.getElementById('pref-site').checked
+  };
+  localStorage.setItem(accountStorageKey(),JSON.stringify(accountData));
+  try{if(db)await db.collection('users').doc(currentUser.uid).set({notifications:accountData.notifications},{merge:true});showAccountStatus('Preferences saved.','pref-save-status')}catch(_){showAccountStatus('Saved on this device.','pref-save-status',true)}
+}
+function openGoogleSecurity(){window.open('https://myaccount.google.com/security','_blank','noopener,noreferrer')}
+function escapeAccountHtml(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+document.addEventListener('click',e=>{const m=document.getElementById('wow-account-overlay');if(m&&e.target===m)closeAccount()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeAccount();closeWowLogin()}});
+if(typeof auth!=='undefined' && auth){auth.onAuthStateChanged(async user=>{currentUser=user||null;if(currentUser){await ensureUserProfile();updateAuthUI()}else{updateAuthUI()}})}
 </script>
 </body>
 </html>

@@ -716,6 +716,28 @@
 
         ensureFirebaseAuth();
 
+        // Complete Google sign-in when Firebase returned from a redirect login.
+        // This is also useful on mobile browsers where popups are restricted.
+        (async function handleGoogleRedirectResult(){
+            try{
+                if(!ensureFirebaseAuth() || !auth || !auth.getRedirectResult) return;
+                const result = await auth.getRedirectResult();
+                if(result && result.user){
+                    currentUser = result.user;
+                    await ensureUserProfile();
+                    updateAuthUI();
+                    closeWowLogin();
+                    setTimeout(() => { try { openAccount(); } catch(e) { console.error(e); } }, 80);
+                }
+            }catch(error){
+                console.error('Google redirect result failed:', error);
+                // Do not show a duplicate popup if there was no redirect result.
+                if(error?.code && error.code !== 'auth/no-auth-event'){
+                    alert(wowAuthErrorMessage(error));
+                }
+            }
+        })();
+
 
         function openWowLogin(){
   const m=document.getElementById('wow-login-modal');
@@ -757,6 +779,27 @@ function wowAuthErrorMessage(error){
   if(code === 'auth/network-request-failed'){
     return 'Network error. Check your internet connection and try again.';
   }
+  if(code === 'auth/popup-operation-not-supported'){
+    return 'This browser does not support the Google sign-in popup. The site will use secure redirect login instead.';
+  }
+  if(code === 'auth/web-storage-unsupported'){
+    return 'This browser is blocking the storage needed for Google login. The site will try secure redirect login instead.';
+  }
+  if(code === 'auth/invalid-oauth-client-id'){
+    return 'Google OAuth client is invalid or not synchronized. In Firebase Console open Authentication → Sign-in method → Google, turn Google OFF → Save, then turn Google ON → select your support email → Save. Then retry.';
+  }
+  if(code === 'auth/internal-error'){
+    return 'Firebase returned an internal Google OAuth error. Re-enable Google in Authentication → Sign-in method → Google, then check the Web OAuth client in Google Cloud Console → APIs & Services → Credentials.';
+  }
+  if(code === 'auth/invalid-credential'){
+    return 'Google returned an invalid credential. Re-enable the Google provider in Firebase and make sure the Web OAuth client belongs to this WOWSHOPPING Firebase project.';
+  }
+  if(code === 'auth/credential-already-in-use'){
+    return 'This Google account credential is already linked to another Firebase account.';
+  }
+  if(code === 'auth/cancelled-popup-request'){
+    return 'Another Google sign-in request is already running. Close it and try again.';
+  }
   if(code === 'auth/invalid-api-key'){
     return 'Firebase configuration is invalid. Please check the Firebase web app settings.';
   }
@@ -765,7 +808,8 @@ function wowAuthErrorMessage(error){
 
 async function continueWithGoogle(){
   if(currentUser){
-    updateAuthUI();
+    closeWowLogin();
+    openAccount();
     return;
   }
 
@@ -777,11 +821,18 @@ async function continueWithGoogle(){
   const btn=document.getElementById('wow-google-btn-text');
   const googleBtn=document.querySelector('.wow-google-btn');
   if(btn)btn.textContent='Connecting…';
-  if(googleBtn)googleBtn.disabled=true;
+  if(googleBtn){ googleBtn.disabled=true; googleBtn.style.pointerEvents='none'; }
 
   try{
+    // Keep the session after refresh and between visits.
+    try{ await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL); }catch(persistenceError){
+      console.warn('Firebase persistence could not be set:', persistenceError);
+    }
+
+    // Popup is the fastest flow. If the browser rejects the popup,
+    // automatically continue with Firebase's redirect flow.
     const result=await auth.signInWithPopup(provider);
-    currentUser=result.user || null;
+    currentUser=result.user || auth.currentUser || null;
     await ensureUserProfile();
     updateAuthUI();
     closeWowLogin();
@@ -789,11 +840,20 @@ async function continueWithGoogle(){
     history.replaceState(null,'',location.pathname+location.search+location.hash.replace('#login',''));
     window.scrollTo({top:0,behavior:'smooth'});
   }catch(error){
-    console.error('Google login failed:',error);
+    console.error('Google login failed:', error, error?.code, error?.message);
 
-    // Popup is blocked on some devices/browsers. Use Firebase's redirect flow
-    // as a fallback rather than showing a misleading "not configured" message.
-    if(error?.code === 'auth/popup-blocked'){
+    const code=error?.code || '';
+    // These are configuration/account errors. Redirect cannot fix them,
+    // so show the exact action instead of hiding the Firebase error.
+    const hardErrors=[
+      'auth/unauthorized-domain',
+      'auth/operation-not-allowed',
+      'auth/invalid-api-key',
+      'auth/invalid-oauth-client-id',
+      'auth/account-exists-with-different-credential'
+    ];
+
+    if(code==='auth/popup-blocked' || code==='auth/popup-operation-not-supported' || code==='auth/web-storage-unsupported'){
       try{
         await auth.signInWithRedirect(provider);
         return;
@@ -801,15 +861,18 @@ async function continueWithGoogle(){
         console.error('Google redirect login failed:',redirectError);
         alert(wowAuthErrorMessage(redirectError));
       }
+    }else if(hardErrors.includes(code)){
+      alert(wowAuthErrorMessage(error) + `\n\nFirebase code: ${code}\nFirebase message: ${error?.message || 'No additional message.'}`);
     }else{
-      alert(wowAuthErrorMessage(error));
+      const message=wowAuthErrorMessage(error);
+      const firebaseDetail=error?.message ? `\n\nFirebase: ${error.message}` : '';
+      alert(message + firebaseDetail);
     }
   }finally{
     if(btn)btn.textContent='Continue with Google';
-    if(googleBtn)googleBtn.disabled=false;
+    if(googleBtn){ googleBtn.disabled=false; googleBtn.style.pointerEvents=''; }
   }
 }
-
 async function googleLogin(){
   if(!ensureFirebaseAuth()){
     alert('Firebase Authentication could not start. Please check that the Firebase SDK is loading on this website.');

@@ -714,20 +714,46 @@
         let currentUser = null;
         let cart = [];
 
-        async function googleLogin() {
-            if(!auth) return alert("Authentication is not configured yet.");
-            try {
-                const result = await auth.signInWithPopup(provider);
-                currentUser = result.user;
-                updateAuthUI();
-                alert("Welcome, " + currentUser.displayName + "!");
-            } catch (error) {
-                console.error("Google login failed:", error);
-                alert("Login failed: Make sure your Firebase Config and Google Auth are enabled in Firebase Console.");
-            }
-        }
+        function openWowLogin(){
+  const m=document.getElementById('wow-login-modal'); if(!m)return;
+  m.classList.add('open'); m.setAttribute('aria-hidden','false');
+  const b=(typeof localData!=='undefined'&&localData.branding)||{};
+  const logo=b.logo||'';
+  const box=document.getElementById('wow-login-logo');
+  if(box) box.innerHTML=logo ? `<img src="${String(logo).replace(/"/g,'&quot;')}" alt="WOWSHOPPING logo" onerror="this.parentElement.innerHTML='<span>W</span>'">` : '<span>W</span>';
+}
+function closeWowLogin(){
+  const m=document.getElementById('wow-login-modal');
+  if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}
+}
+async function continueWithGoogle(){
+  if(!auth){alert("Google login is not configured. Please enable Google in Firebase Authentication.");return;}
+  const btn=document.getElementById('wow-google-btn-text');
+  if(btn)btn.textContent='Connecting…';
+  try{
+    const result=await auth.signInWithPopup(provider);
+    currentUser=result.user;
+    updateAuthUI();
+    closeWowLogin();
+    history.replaceState(null,'',location.pathname+location.search);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(error){
+    console.error("Google login failed:",error);
+    let message='Google sign-in could not be completed. Please try again.';
+    if(error?.code==='auth/popup-blocked')message='Please allow pop-ups for this website and try again.';
+    if(error?.code==='auth/unauthorized-domain')message='This website domain is not authorized in Firebase Authentication.';
+    if(error?.code==='auth/popup-closed-by-user')message='Sign-in was cancelled.';
+    alert(message);
+  }finally{
+    if(btn)btn.textContent='Continue with Google';
+  }
+}
+async function googleLogin(){
+  if(currentUser)return;
+  openWowLogin();
+}
 
-        function googleLogout() {
+function googleLogout() {
             if(!auth) return;
             auth.signOut().then(() => {
                 currentUser = null;
@@ -1370,5 +1396,40 @@
 })();
 </script>
 
+
+<div id="wow-login-modal" class="wow-login-overlay" aria-hidden="true">
+  <div class="wow-login-card" role="dialog" aria-modal="true">
+    <button type="button" class="wow-login-close" onclick="closeWowLogin()">×</button>
+    <div class="wow-login-logo" id="wow-login-logo"><span>W</span></div>
+    <div class="wow-login-kicker">WELCOME BACK</div>
+    <h2>Sign in to WOWSHOPPING</h2>
+    <p class="wow-login-subtitle">Use your Google account to continue securely.</p>
+    <button type="button" class="wow-google-btn" onclick="continueWithGoogle()">
+      <span class="wow-google-mark"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.23c0-.79-.07-1.55-.2-2.27H12v4.3h5.38a4.6 4.6 0 0 1-1.99 3.02v2.51h3.22c1.89-1.74 2.99-4.3 2.99-7.56Z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.89 6.61-2.41l-3.22-2.51c-.89.6-2.03.96-3.39.96-2.61 0-4.83-1.76-5.62-4.13H3.05v2.59A9.98 9.98 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.38 13.91A6 6 0 0 1 6.06 12c0-.66.11-1.3.32-1.91V7.5H3.05A10 10 0 0 0 2 12c0 1.61.38 3.13 1.05 4.5l3.33-2.59Z"/><path fill="#EA4335" d="M12 5.96c1.47 0 2.79.51 3.83 1.51l2.87-2.87C16.95 2.98 14.7 2 12 2a9.98 9.98 0 0 0-8.95 5.5l3.33 2.59C7.17 7.72 9.39 5.96 12 5.96Z"/></svg></span>
+      <span id="wow-google-btn-text">Continue with Google</span>
+    </button>
+    <div class="wow-login-divider"><span>SECURE SIGN-IN</span></div>
+    <p class="wow-login-note">Your Google password is never shared with WOWSHOPPING.</p>
+  </div>
+</div>
+<style>
+.wow-login-overlay{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(15,23,42,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.wow-login-overlay.open{display:flex}
+.wow-login-card{position:relative;width:min(92vw,420px);background:#fff;border-radius:28px;padding:34px 28px 26px;text-align:center;box-shadow:0 28px 80px rgba(15,23,42,.22)}
+.wow-login-close{position:absolute;right:16px;top:14px;width:34px;height:34px;border:0;border-radius:50%;background:#f8fafc;color:#64748b;font-size:24px;line-height:1;cursor:pointer}
+.wow-login-logo{width:68px;height:68px;margin:0 auto 16px;border-radius:20px;background:#111827;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wow-login-logo img{width:100%;height:100%;object-fit:contain;background:#fff}.wow-login-logo span{color:#fff;font-size:27px;font-weight:900}
+.wow-login-kicker{font-size:10px;font-weight:900;letter-spacing:.18em;color:#2563eb;margin-bottom:7px}.wow-login-card h2{margin:0;color:#0f172a;font-size:22px;font-weight:900}.wow-login-subtitle{margin:8px 0 22px;color:#64748b;font-size:13px;line-height:1.5}
+.wow-google-btn{width:100%;height:54px;border:1px solid #dbe2ea;background:#fff;border-radius:15px;display:flex;align-items:center;justify-content:center;gap:11px;color:#111827;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 5px 16px rgba(15,23,42,.06);transition:.2s}
+.wow-google-btn:hover{border-color:#bfdbfe;box-shadow:0 9px 24px rgba(37,99,235,.12);transform:translateY(-1px)}.wow-google-mark,.wow-google-mark svg{width:21px;height:21px}
+.wow-login-divider{display:flex;align-items:center;gap:10px;margin:22px 0 10px;color:#94a3b8;font-size:8px;font-weight:900;letter-spacing:.16em}.wow-login-divider:before,.wow-login-divider:after{content:"";height:1px;background:#eef2f7;flex:1}
+.wow-login-note{margin:0;color:#94a3b8;font-size:10px;line-height:1.5}
+@media(max-width:480px){.wow-login-card{padding:30px 20px 22px;border-radius:24px}.wow-login-card h2{font-size:20px}}
+</style>
+
+<script>
+document.addEventListener('click',e=>{const m=document.getElementById('wow-login-modal');if(m&&e.target===m)closeWowLogin()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWowLogin()});
+</script>
 </body>
 </html>

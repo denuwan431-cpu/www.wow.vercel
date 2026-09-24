@@ -681,8 +681,10 @@
         /** 
          * FIREBASE AUTHENTICATION CONFIGURATION
          */
+        // Firebase Web App configuration copied from Firebase Console >
+        // Project settings > Your apps > WOWSHOPPING Web.
         const firebaseConfig = {
-            apiKey: "AIzaSyD2fV7tKfp4ejq_ZLOePpbJrUNWmqGiy4E",
+            apiKey: "AIzaSyD2fVt7kfp4ejq_ZLOePpbJrUNWmqGiy4E",
             authDomain: "wowshopping-cd8bd.firebaseapp.com",
             projectId: "wowshopping-cd8bd",
             storageBucket: "wowshopping-cd8bd.firebasestorage.app",
@@ -701,10 +703,15 @@
 
         function ensureFirebaseAuth() {
             try {
-                if (!window.firebase || !firebase.auth) return false;
-                if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+                if (!window.firebase || !firebase.auth) {
+                    throw new Error('Firebase Authentication SDK is not loaded.');
+                }
+                // Always initialize this page with the Firebase Web App config above.
+                if (!firebase.apps.length) {
+                    firebase.initializeApp(firebaseConfig);
+                }
                 auth = firebase.auth();
-                db = firebase.firestore();
+                if (firebase.firestore) db = firebase.firestore();
                 provider = provider || new firebase.auth.GoogleAuthProvider();
                 provider.setCustomParameters({ prompt: 'select_account' });
                 return true;
@@ -801,7 +808,7 @@ function wowAuthErrorMessage(error){
     return 'Another Google sign-in request is already running. Close it and try again.';
   }
   if(code === 'auth/invalid-api-key'){
-    return 'Firebase configuration is invalid. Please check the Firebase web app settings.';
+    return 'Firebase rejected the Web API key. The HTML is using the Firebase Console config, so check the API key in Google Cloud Console > APIs & Services > Credentials and make sure the key is active and allows Firebase Authentication / Identity Toolkit requests from www-wow-vercel.vercel.app.';
   }
   return 'Google sign-in could not be completed. Please try again.';
 }
